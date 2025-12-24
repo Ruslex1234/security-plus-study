@@ -189,21 +189,6 @@
         .domain-weight {
             font-size: 14px;
             color: var(--comptia-gray);
-            margin-bottom: 15px;
-        }
-
-        .domain-progress {
-            background: #e0e0e0;
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 15px;
-        }
-
-        .domain-progress-bar {
-            height: 100%;
-            background: var(--domain-color);
-            transition: width 0.5s ease;
         }
 
         /* Breadcrumb Navigation */
@@ -1089,9 +1074,6 @@
                     <div class="domain-number">${domainKey}</div>
                     <div class="domain-title">${domain.title}</div>
                     <div class="domain-weight">Weight: ${domain.weight}</div>
-                    <div class="domain-progress">
-                        <div class="domain-progress-bar" style="width: ${Math.random() * 100}%"></div>
-                    </div>
                 `;
                 
                 domainView.appendChild(card);
