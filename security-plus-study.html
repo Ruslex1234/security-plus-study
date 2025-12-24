@@ -392,6 +392,31 @@
             box-shadow: 0 8px 20px rgba(238, 49, 36, 0.4);
         }
 
+        .tool-btn.disabled {
+            background: linear-gradient(135deg, #999, #666);
+            cursor: not-allowed;
+            opacity: 0.6;
+            position: relative;
+        }
+
+        .tool-btn.disabled:hover {
+            transform: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--comptia-red);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
         /* Quiz Modal */
         .modal {
             display: none;
@@ -670,10 +695,19 @@
         <div class="study-tools">
             <h2>📚 Study Tools</h2>
             <div class="tool-buttons">
-                <button class="tool-btn" onclick="openQuiz()">🎯 Practice Quiz</button>
+                <button class="tool-btn disabled" style="position: relative;">
+                    🎯 Practice Quiz
+                    <span class="coming-soon-badge">Coming Soon</span>
+                </button>
                 <button class="tool-btn" onclick="openComparison()">⚖️ Compare Terms</button>
-                <button class="tool-btn" onclick="openFlashcards()">🃏 Flashcards</button>
-                <button class="tool-btn" onclick="openMatchGame()">🎮 Match Game</button>
+                <button class="tool-btn disabled" style="position: relative;">
+                    🃏 Flashcards
+                    <span class="coming-soon-badge">Coming Soon</span>
+                </button>
+                <button class="tool-btn disabled" style="position: relative;">
+                    🎮 Match Game
+                    <span class="coming-soon-badge">Coming Soon</span>
+                </button>
             </div>
         </div>
     </div>
