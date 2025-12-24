@@ -303,53 +303,80 @@
             transform: translateX(5px);
         }
 
-        /* Definition View */
-        .definition-view {
-            background: #f9f9f9;
+        /* Definition Side Panel */
+        .definition-panel {
+            position: fixed;
+            top: 0;
+            right: -500px;
+            width: 450px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+            z-index: 2000;
+            transition: right 0.4s ease;
+            overflow-y: auto;
             padding: 30px;
-            border-radius: 10px;
-            margin-top: 20px;
-            border-left: 5px solid var(--comptia-red);
+        }
+
+        .definition-panel.active {
+            right: 0;
+        }
+
+        .definition-panel-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 35px;
+            cursor: pointer;
+            color: var(--comptia-gray);
+            transition: color 0.3s;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .definition-panel-close:hover {
+            color: var(--comptia-red);
         }
 
         .definition-title {
             font-size: 28px;
             color: var(--comptia-red);
             margin-bottom: 15px;
+            margin-top: 30px;
+            padding-right: 40px;
+        }
+
+        .definition-full-name {
+            font-size: 16px;
+            color: var(--comptia-gray);
+            margin-bottom: 25px;
+            font-weight: 600;
         }
 
         .definition-text {
             line-height: 1.8;
             color: var(--comptia-dark);
             font-size: 16px;
+            background: var(--comptia-light-gray);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--comptia-red);
         }
 
-        .related-terms {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px solid #ddd;
+        .definition-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1999;
+            transition: opacity 0.3s;
         }
 
-        .related-terms h3 {
-            margin-bottom: 15px;
-            color: var(--comptia-dark);
-        }
-
-        .related-term-tag {
-            display: inline-block;
-            background: var(--comptia-red);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            margin: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .related-term-tag:hover {
-            background: #d42a1f;
-            transform: scale(1.05);
+        .definition-overlay.active {
+            display: block;
         }
 
         /* Study Tools */
@@ -622,6 +649,15 @@
                 padding: 20px;
                 margin: 20px;
             }
+
+            .definition-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .definition-panel.active {
+                right: 0;
+            }
         }
 
         /* Loading Animation */
@@ -726,6 +762,13 @@
             <span class="modal-close" onclick="closeModal('comparisonModal')">&times;</span>
             <div id="comparisonContent"></div>
         </div>
+    </div>
+
+    <!-- Definition Side Panel -->
+    <div class="definition-overlay" id="definitionOverlay" onclick="closeDefinitionPanel()"></div>
+    <div class="definition-panel" id="definitionPanel">
+        <span class="definition-panel-close" onclick="closeDefinitionPanel()">&times;</span>
+        <div id="definitionPanelContent"></div>
     </div>
 
     <script>
@@ -1024,6 +1067,7 @@
         let navigationStack = [];
         let currentDomain = null;
         let currentObjective = null;
+        let currentDefinitionTerm = null; // Track currently displayed term
 
         // Initialize the application
         function init() {
@@ -1112,30 +1156,50 @@
         }
 
         function showDefinition(term) {
-            const contentArea = document.getElementById('contentArea');
-            
+            const panel = document.getElementById('definitionPanel');
+            const overlay = document.getElementById('definitionOverlay');
+            const panelContent = document.getElementById('definitionPanelContent');
+
+            // Toggle: if clicking the same term, close the panel
+            if (currentDefinitionTerm === term && panel.classList.contains('active')) {
+                closeDefinitionPanel();
+                return;
+            }
+
+            // Update the current term
+            currentDefinitionTerm = term;
+
             // Check if we have a definition for this term
             const def = definitions[term] || {
                 full: term,
                 definition: `Detailed definition for ${term} would appear here. This is a comprehensive security concept that plays a crucial role in information security.`,
-                related: ["Related Term 1", "Related Term 2", "Related Term 3"]
+                related: []
             };
-            
+
+            // Build the panel content
             let html = `
-                <div class="definition-view">
-                    <h1 class="definition-title">${term}</h1>
-                    ${def.full !== term ? `<p style="font-size: 18px; color: var(--comptia-gray); margin-bottom: 20px;"><strong>Full Name:</strong> ${def.full}</p>` : ''}
-                    <div class="definition-text">
-                        <p>${def.definition}</p>
-                    </div>
-                    <div class="related-terms">
-                        <h3>Related Terms</h3>
-                        ${def.related.map(relTerm => `<span class="related-term-tag" onclick="showDefinition('${relTerm}')">${relTerm}</span>`).join('')}
-                    </div>
+                <h1 class="definition-title">${term}</h1>
+                ${def.full !== term ? `<p class="definition-full-name">${def.full}</p>` : ''}
+                <div class="definition-text">
+                    <p>${def.definition}</p>
                 </div>
             `;
-            
-            contentArea.innerHTML = html;
+
+            // Replace the panel content
+            panelContent.innerHTML = html;
+
+            // Show the panel and overlay
+            panel.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeDefinitionPanel() {
+            const panel = document.getElementById('definitionPanel');
+            const overlay = document.getElementById('definitionOverlay');
+
+            panel.classList.remove('active');
+            overlay.classList.remove('active');
+            currentDefinitionTerm = null;
         }
 
         function navigateBack() {
