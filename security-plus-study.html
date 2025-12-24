@@ -1101,7 +1101,7 @@
                 </div>
             `;
             
-            contentArea.innerHTML += html;
+            contentArea.innerHTML = html;
         }
 
         function navigateBack() {
@@ -1191,10 +1191,16 @@
             }
         }
 
-        // Allow Enter key to search
+        // Live autocomplete search
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('searchInput');
             if (searchInput) {
+                // Trigger search as user types
+                searchInput.addEventListener('input', function(e) {
+                    autoCompleteSearch();
+                });
+
+                // Also allow Enter key to search
                 searchInput.addEventListener('keypress', function(e) {
                     if (e.key === 'Enter') {
                         searchTerm();
@@ -1202,6 +1208,39 @@
                 });
             }
         });
+
+        // Auto-complete search function
+        function autoCompleteSearch() {
+            const query = document.getElementById('searchInput').value.trim().toUpperCase();
+            const resultsDiv = document.getElementById('searchResults');
+
+            if (!query) {
+                resultsDiv.innerHTML = '';
+                return;
+            }
+
+            resultsDiv.innerHTML = '';
+            let matchCount = 0;
+            const maxResults = 10; // Limit to 10 results for performance
+
+            // Search in acronyms
+            Object.keys(acronyms).forEach(key => {
+                if (matchCount >= maxResults) return;
+
+                if (key.toUpperCase().startsWith(query) || acronyms[key].toUpperCase().includes(query)) {
+                    matchCount++;
+                    resultsDiv.innerHTML += `
+                        <div class="search-result-item">
+                            <strong>${key}</strong> - ${acronyms[key]}
+                        </div>
+                    `;
+                }
+            });
+
+            if (matchCount === 0) {
+                resultsDiv.innerHTML = '<p style="color: var(--comptia-gray); padding: 10px;">No matches found...</p>';
+            }
+        }
 
         // Highlight acronyms in text
         function highlightAcronyms(text) {
