@@ -2139,38 +2139,55 @@
                 <div style="max-height: 70vh; overflow-y: auto; padding-right: 10px;">
 
                 <!-- Security Controls -->
-                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Security Controls</h3>
-                <table class="comparison-table">
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Security Controls - Functional Types</h3>
+                <table class="comparison-table" style="font-size: 0.85em;">
                     <thead>
                         <tr>
                             <th>Aspect</th>
                             <th>Preventive</th>
+                            <th>Deterrent</th>
                             <th>Detective</th>
                             <th>Corrective</th>
                             <th>Compensating</th>
+                            <th>Directive</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>Purpose</strong></td>
                             <td>Stop incidents before they occur</td>
+                            <td>Discourage potential attackers</td>
                             <td>Identify incidents as they happen</td>
                             <td>Fix issues after detection</td>
                             <td>Alternative when primary controls fail</td>
+                            <td>Direct/confine actions via policy</td>
                         </tr>
                         <tr>
                             <td><strong>Examples</strong></td>
-                            <td>Firewalls, encryption, locks</td>
-                            <td>IDS, logging, cameras</td>
+                            <td>Firewalls, encryption, locks, training</td>
+                            <td>Warning signs, visible cameras, guards</td>
+                            <td>IDS, SIEM, logging, audits</td>
                             <td>Patches, backups, incident response</td>
                             <td>Additional monitoring, manual review</td>
+                            <td>Security policies, AUP, procedures</td>
                         </tr>
                         <tr>
                             <td><strong>Timing</strong></td>
                             <td>Before incident</td>
-                            <td>During incident</td>
+                            <td>Before incident (psychological)</td>
+                            <td>During/after incident</td>
                             <td>After incident</td>
                             <td>When needed</td>
+                            <td>Ongoing compliance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Action</strong></td>
+                            <td>Blocks threats</td>
+                            <td>Discourages attempts</td>
+                            <td>Alerts on threats</td>
+                            <td>Restores to normal</td>
+                            <td>Provides equivalent protection</td>
+                            <td>Enforces compliance</td>
                         </tr>
                     </tbody>
                 </table>
