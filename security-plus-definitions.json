@@ -956,5 +956,676 @@
         }
       }
     }
+  },
+  "4.0": {
+    "4.1": {
+      "Secure Baselines": {
+        "Establish": {
+          "definition": "Creating standardized security configurations defining minimum security requirements for systems. Includes benchmarks from CIS, DISA STIGs, or vendor recommendations. Documented baseline serves as reference for deployment and compliance checking.",
+          "examples": ["CIS Benchmarks for Windows Server", "DISA STIG compliance", "Vendor hardening guides", "Custom organizational baselines"]
+        },
+        "Deploy": {
+          "definition": "Implementing established security baselines across systems using automation tools, images, or configuration management. Ensures consistency and reduces configuration errors. Uses tools like Group Policy, Ansible, or infrastructure-as-code.",
+          "examples": ["Group Policy deployment", "Ansible playbooks", "Golden image deployment", "Infrastructure-as-code (Terraform)"]
+        },
+        "Maintain": {
+          "definition": "Continuously monitoring and enforcing baseline configurations to prevent drift. Includes periodic audits, automated compliance checks, and remediation of deviations. Ensures systems remain secure over time despite changes.",
+          "examples": ["Configuration drift detection", "Compliance scanning", "Automated remediation", "Regular baseline reviews"]
+        }
+      },
+      "Hardening Targets": {
+        "Mobile Devices": {
+          "definition": "Securing smartphones and tablets through MDM policies, encryption, remote wipe capabilities, and application controls. Includes disabling unnecessary features, enforcing strong authentication, and separating personal/corporate data.",
+          "examples": ["MDM enrollment", "Device encryption enforcement", "App whitelisting", "Containerization for work apps"]
+        },
+        "Workstations": {
+          "definition": "Hardening desktop and laptop computers by removing unnecessary software, enabling firewalls, enforcing encryption, applying patches, and limiting user privileges. Critical as workstations are primary attack targets.",
+          "examples": ["Full-disk encryption", "Removing admin rights", "Endpoint protection", "Application whitelisting"]
+        },
+        "Network Infrastructure": {
+          "definition": "Securing switches, routers, and network devices through default password changes, disabling unused ports/services, enabling logging, and implementing access controls. Prevents network-level attacks and unauthorized access.",
+          "examples": ["Disabling Telnet on switches", "Enabling SSH only", "Port security (802.1X)", "SNMP hardening"]
+        },
+        "Cloud Infrastructure": {
+          "definition": "Applying security controls to cloud environments including proper IAM configurations, encryption, network segmentation, logging, and compliance with cloud security frameworks. Addresses cloud-specific risks and shared responsibility model.",
+          "examples": ["AWS Security Groups", "Azure NSGs", "Cloud IAM least privilege", "S3 bucket policies"]
+        },
+        "Servers": {
+          "definition": "Hardening physical and virtual servers by minimizing installed software, disabling unnecessary services, applying patches, enabling logging, and implementing access controls. Servers are high-value targets requiring strong protection.",
+          "examples": ["Minimal OS installation", "Service hardening", "Patch management", "Host-based firewalls"]
+        },
+        "ICS/SCADA": {
+          "definition": "Securing Industrial Control Systems and Supervisory Control and Data Acquisition systems controlling critical infrastructure. Requires network isolation, access controls, and careful patching due to operational requirements and legacy systems.",
+          "examples": ["Air-gapped networks", "Network segmentation", "Vendor-approved patches", "Physical access controls"]
+        },
+        "Embedded Systems": {
+          "definition": "Hardening specialized computing devices with dedicated functions like medical devices, smart appliances, and automotive systems. Challenges include limited resources, difficult patching, and long lifecycles.",
+          "examples": ["Firmware updates", "Network isolation", "Physical tamper protection", "Secure boot"]
+        },
+        "IoT Devices": {
+          "definition": "Securing Internet of Things devices like cameras, sensors, and smart devices. Major challenges include default credentials, lack of updates, and weak security. Requires network segmentation and device management.",
+          "examples": ["Changing default passwords", "VLAN isolation", "Firmware updates", "Disable unnecessary features"]
+        }
+      },
+      "Wireless Security": {
+        "Site Surveys": {
+          "definition": "Physical assessment of wireless environment to determine optimal AP placement, identify interference, measure signal strength, and discover rogue devices. Critical for secure and effective wireless deployment.",
+          "examples": ["RF spectrum analysis", "Signal strength mapping", "Interference detection", "Coverage gap identification"]
+        },
+        "Heat Maps": {
+          "definition": "Visual representations of wireless signal coverage showing signal strength across physical areas. Uses color coding to identify strong/weak coverage zones. Helps optimize AP placement and identify security gaps.",
+          "examples": ["Coverage heat maps", "Signal strength visualization", "Dead zone identification", "Overlap analysis"]
+        },
+        "WPA3": {
+          "definition": "Latest Wi-Fi security protocol providing stronger encryption, individualized data encryption, and protection against brute-force attacks. Replaces WPA2 with improved security features including SAE (Simultaneous Authentication of Equals).",
+          "examples": ["WPA3-Personal", "WPA3-Enterprise", "Enhanced open (OWE)", "192-bit security mode"]
+        }
+      },
+      "Mobile Solutions": {
+        "MDM": {
+          "full": "Mobile Device Management",
+          "definition": "Centralized solution for managing, securing, and monitoring mobile devices. Enables policy enforcement, remote wipe, application management, and compliance checking. Essential for BYOD and corporate mobile security.",
+          "examples": ["Microsoft Intune", "VMware Workspace ONE", "MobileIron", "Jamf Pro"]
+        },
+        "Deployment Models": {
+          "BYOD": {
+            "full": "Bring Your Own Device",
+            "definition": "Employees use personal devices for work. Requires containerization to separate work/personal data, MDM for security policies, and clear acceptable use policies. Cost-effective but higher security risk.",
+            "examples": ["Personal phones accessing email", "Containerized work apps", "MDM enrollment", "BYOD policies"]
+          },
+          "COPE": {
+            "full": "Corporate-Owned, Personally Enabled",
+            "definition": "Company provides devices that employees can use for personal purposes. Organization maintains control and security while allowing personal use. Better security than BYOD with employee flexibility.",
+            "examples": ["Company phones with personal app allowance", "Corporate laptops", "Managed devices"]
+          },
+          "CYOD": {
+            "full": "Choose Your Own Device",
+            "definition": "Employees select from pre-approved corporate devices. Balances user choice with organizational security and support requirements. Limits device variety while providing options.",
+            "examples": ["Choice between iPhone or Android", "Laptop selection menu", "Pre-approved device catalog"]
+          }
+        }
+      },
+      "Application Security": {
+        "Input Validation": {
+          "definition": "Verifying user input meets expected format, type, length, and range before processing. Prevents injection attacks, buffer overflows, and data corruption. Should validate on server-side, not just client-side.",
+          "examples": ["Whitelist allowed characters", "Length restrictions", "Type checking", "SQL parameterized queries"]
+        },
+        "Secure Cookies": {
+          "definition": "Implementing security attributes on HTTP cookies including HttpOnly (prevent JavaScript access), Secure (HTTPS only), and SameSite (CSRF protection). Protects session tokens and sensitive data in cookies.",
+          "examples": ["HttpOnly flag", "Secure flag for HTTPS", "SameSite attribute", "Cookie expiration"]
+        },
+        "Static Code Analysis": {
+          "definition": "Automated examination of source code without executing it to identify security vulnerabilities, coding errors, and quality issues. Performs early in development lifecycle. Also called SAST (Static Application Security Testing).",
+          "examples": ["SonarQube", "Checkmarx", "Fortify", "Code quality scanning"]
+        },
+        "Code Signing": {
+          "definition": "Digitally signing software with certificate to prove authenticity and integrity. Ensures code hasn't been tampered with and comes from verified publisher. Required for many platforms and builds user trust.",
+          "examples": ["Microsoft Authenticode", "Apple code signing", "Java JAR signing", "Driver signing"]
+        },
+        "Sandboxing": {
+          "definition": "Isolating applications in restricted environments to limit damage from security breaches. Prevents access to system resources, files, and network unless explicitly permitted. Containment strategy for untrusted code.",
+          "examples": ["Browser sandboxes", "Container isolation", "Virtual machine sandboxing", "Java sandbox"]
+        },
+        "Application Monitoring": {
+          "definition": "Continuous observation of application behavior, performance, errors, and security events. Detects anomalies, attacks, and issues in real-time. Includes logging, APM tools, and security monitoring.",
+          "examples": ["Application logs", "APM tools", "Error tracking", "Security event monitoring"]
+        }
+      }
+    },
+    "4.2": {
+      "Asset Management": {
+        "Acquisition": {
+          "definition": "Formal process for procuring hardware, software, and services including security requirements, vendor assessment, and compliance verification. Ensures assets meet security standards before deployment.",
+          "examples": ["Vendor security assessment", "Purchase order approval", "Security requirement specification", "Contract review"]
+        },
+        "Assignment": {
+          "definition": "Allocating assets to users, departments, or purposes with documented ownership and accountability. Includes asset tagging, inventory recording, and establishing custodians. Critical for tracking and responsibility.",
+          "examples": ["Asset tagging", "User assignment records", "Department allocation", "Custodian designation"]
+        },
+        "Ownership": {
+          "definition": "Designating individuals responsible for assets including security, maintenance, and compliance. Owners make decisions about access, usage, and disposal. Clear ownership ensures accountability.",
+          "examples": ["System owners", "Data owners", "Application owners", "Asset custodians"]
+        },
+        "Classification": {
+          "definition": "Categorizing assets based on criticality, sensitivity, and security requirements. Determines protection levels, handling procedures, and compliance requirements. Enables risk-based security controls.",
+          "examples": ["Critical/High/Medium/Low", "Confidential/Internal/Public", "PCI/PHI/PII systems", "Asset criticality ratings"]
+        },
+        "Monitoring": {
+          "definition": "Tracking asset location, status, configuration, and usage throughout lifecycle. Includes inventory management, change tracking, and compliance monitoring. Maintains accurate asset visibility.",
+          "examples": ["Asset tracking systems", "Inventory databases", "Configuration monitoring", "Usage tracking"]
+        },
+        "Enumeration": {
+          "definition": "Discovering and cataloging all assets including hardware, software, data, and services. Automated scanning and manual processes identify unknown or shadow IT assets. Foundation for security management.",
+          "examples": ["Network scanning", "Software inventory tools", "Cloud asset discovery", "Shadow IT identification"]
+        },
+        "Disposal": {
+          "definition": "Secure retirement of assets ensuring data destruction and environmental compliance. Includes decommissioning procedures, data sanitization, and certificate revocation. Prevents data leakage from discarded assets.",
+          "examples": ["Secure drive wiping", "Physical destruction", "Certificate revocation", "Asset decommissioning"]
+        },
+        "Sanitization": {
+          "definition": "Removing sensitive data from media before reuse or disposal. Methods include overwriting, degaussing, and cryptographic erasure. Ensures data cannot be recovered.",
+          "examples": ["DoD 5220.22-M wiping", "Cryptographic erasure", "Degaussing magnetic media", "Multiple overwrite passes"]
+        },
+        "Destruction": {
+          "definition": "Physical destruction of assets and media to prevent data recovery. Used when sanitization is insufficient or impractical. Includes shredding, pulverizing, and incineration.",
+          "examples": ["Hard drive shredding", "Media pulverizing", "Incineration", "Certified destruction services"]
+        }
+      }
+    },
+    "4.3": {
+      "Identification Methods": {
+        "Vulnerability Scan": {
+          "definition": "Automated scanning of systems and networks to identify known vulnerabilities, misconfigurations, and security weaknesses. Uses signature databases and configuration checks. Regular scanning essential for vulnerability management.",
+          "examples": ["Nessus", "Qualys", "OpenVAS", "Network vulnerability scanning"]
+        },
+        "Static Analysis": {
+          "definition": "Examining application source code or binaries without execution to find security flaws, vulnerabilities, and coding errors. Identifies issues early in development. Also called SAST.",
+          "examples": ["SonarQube", "Checkmarx", "Fortify SAST", "Code security scanning"]
+        },
+        "Dynamic Analysis": {
+          "definition": "Testing running applications to identify vulnerabilities through actual execution and interaction. Simulates attacks against live applications. Also called DAST (Dynamic Application Security Testing).",
+          "examples": ["OWASP ZAP", "Burp Suite", "Web application scanners", "Runtime vulnerability testing"]
+        },
+        "Package Monitoring": {
+          "definition": "Tracking software dependencies and third-party libraries for known vulnerabilities. Monitors package repositories for security advisories. Critical for modern applications with many dependencies.",
+          "examples": ["npm audit", "Snyk", "Dependabot", "Software composition analysis"]
+        },
+        "Threat Feed": {
+          "definition": "Real-time streams of threat intelligence providing indicators of compromise, vulnerabilities, and attack patterns. Enables proactive defense and early threat detection.",
+          "examples": ["Commercial threat feeds", "OSINT sources", "STIX/TAXII feeds", "Vendor threat intelligence"]
+        },
+        "Penetration Testing": {
+          "definition": "Authorized simulated attacks to identify exploitable vulnerabilities in systems, applications, and processes. Goes beyond scanning to actually exploit weaknesses. Provides realistic security assessment.",
+          "examples": ["External pen tests", "Internal network testing", "Web app pen testing", "Social engineering tests"]
+        },
+        "Responsible Disclosure": {
+          "definition": "Coordinated vulnerability disclosure process where researchers privately report issues to vendors before public disclosure. Allows time for patches. Includes bug bounty programs.",
+          "examples": ["90-day disclosure timeline", "Coordinated disclosure", "Vendor notification", "CVE assignment"]
+        },
+        "Bug Bounty": {
+          "definition": "Programs rewarding security researchers for finding and reporting vulnerabilities. Incentivizes responsible disclosure and crowdsources security testing. Major companies use bug bounties.",
+          "examples": ["HackerOne", "Bugcrowd", "Company-specific programs", "Reward-based disclosure"]
+        }
+      },
+      "Analysis": {
+        "False Positive": {
+          "definition": "Vulnerability scanner incorrectly identifying non-existent vulnerability. Requires manual verification and tuning. High false positive rates waste resources and reduce scanner effectiveness.",
+          "examples": ["Scanner detecting patched vulnerability", "Misidentified configurations", "Version-based false alerts"]
+        },
+        "False Negative": {
+          "definition": "Scanner failing to detect actual vulnerability. More dangerous than false positives as leaves systems exposed. Requires complementary security measures and multiple scanning tools.",
+          "examples": ["Missed zero-day vulnerabilities", "Undetected misconfigurations", "Scanner limitations"]
+        },
+        "Prioritization": {
+          "definition": "Ranking vulnerabilities by risk to focus remediation efforts on most critical issues. Considers CVSS scores, asset criticality, exploitability, and business impact.",
+          "examples": ["Critical vulnerabilities first", "Risk-based ranking", "Asset-weighted priority", "Threat-informed prioritization"]
+        },
+        "CVSS": {
+          "full": "Common Vulnerability Scoring System",
+          "definition": "Standardized framework for rating vulnerability severity on 0-10 scale. Considers exploitability, impact, and environmental factors. Industry standard for communicating vulnerability severity.",
+          "examples": ["CVSS 9.8 (Critical)", "Base/Temporal/Environmental scores", "CVSS v3.1", "Severity ratings"]
+        },
+        "CVE": {
+          "full": "Common Vulnerabilities and Exposures",
+          "definition": "Standardized identifier for publicly known vulnerabilities. Provides unique reference number for vulnerabilities enabling consistent tracking and communication across security tools and vendors.",
+          "examples": ["CVE-2021-44228 (Log4Shell)", "CVE-2017-0144 (EternalBlue)", "CVE database", "MITRE CVE list"]
+        }
+      },
+      "Remediation": {
+        "Patching": {
+          "definition": "Applying vendor-provided updates to fix vulnerabilities. Primary remediation method. Requires testing, change management, and timely deployment. Balance speed with stability.",
+          "examples": ["Security patches", "Cumulative updates", "Emergency patches", "Patch Tuesday"]
+        },
+        "Insurance": {
+          "definition": "Cyber insurance transferring financial risk of security incidents. Covers breach costs, ransom, legal fees, and recovery. Complements but doesn't replace security controls.",
+          "examples": ["Cyber liability insurance", "Ransomware coverage", "Breach response insurance", "Business interruption coverage"]
+        },
+        "Segmentation": {
+          "definition": "Isolating vulnerable systems in network segments to limit exposure and contain potential breaches. Mitigation when patching isn't immediately possible. Reduces attack surface.",
+          "examples": ["VLAN isolation", "Firewall rules", "Zero-trust segmentation", "DMZ placement"]
+        },
+        "Compensating Controls": {
+          "definition": "Alternative security measures when primary controls cannot be implemented. Provides equivalent protection through different means. Common when systems cannot be patched.",
+          "examples": ["WAF protecting vulnerable app", "Enhanced monitoring", "Additional authentication", "Network isolation"]
+        }
+      }
+    },
+    "4.4": {
+      "Monitoring": {
+        "Log Aggregation": {
+          "definition": "Collecting logs from multiple sources into centralized system for analysis and correlation. Enables comprehensive visibility and efficient security monitoring. Foundation for SIEM.",
+          "examples": ["Syslog servers", "Log forwarding", "SIEM log collection", "Centralized logging"]
+        },
+        "Alerting": {
+          "definition": "Automated notifications when security events or anomalies are detected. Enables rapid response to threats. Requires tuning to balance detection and alert fatigue.",
+          "examples": ["SIEM alerts", "IDS/IPS alerts", "Threshold-based alerts", "Anomaly detection alerts"]
+        },
+        "Scanning": {
+          "definition": "Regular automated assessment of systems for vulnerabilities, compliance deviations, and configuration issues. Scheduled scans maintain security posture visibility.",
+          "examples": ["Vulnerability scans", "Compliance scans", "Configuration audits", "Port scanning"]
+        },
+        "Reporting": {
+          "definition": "Generating security status reports, metrics, and dashboards for stakeholders. Communicates security posture, trends, and compliance. Supports decision-making and accountability.",
+          "examples": ["Executive dashboards", "Compliance reports", "Trend analysis", "KPI reporting"]
+        },
+        "Archiving": {
+          "definition": "Long-term retention of logs and security data for compliance, forensics, and historical analysis. Must balance retention requirements with storage costs.",
+          "examples": ["Log archival systems", "Compliance retention", "Cold storage", "Backup logs"]
+        },
+        "Quarantine": {
+          "definition": "Isolating suspicious files, systems, or users to prevent spread while investigating. Containment response to potential threats. Allows analysis without risking production.",
+          "examples": ["Malware quarantine", "Infected system isolation", "Email attachment quarantine", "User account suspension"]
+        },
+        "Alert Tuning": {
+          "definition": "Adjusting alert thresholds, filters, and rules to reduce false positives while maintaining detection effectiveness. Continuous process improving alert quality and reducing noise.",
+          "examples": ["Threshold adjustment", "Filter refinement", "Whitelist updates", "Rule optimization"]
+        }
+      },
+      "Tools": {
+        "SCAP": {
+          "full": "Security Content Automation Protocol",
+          "definition": "Suite of standards for expressing and manipulating security data in standardized ways. Enables automated vulnerability management, measurement, and policy compliance checking.",
+          "examples": ["SCAP compliance scanning", "OVAL definitions", "XCCDF benchmarks", "Automated compliance"]
+        },
+        "Benchmarks": {
+          "definition": "Standardized security configuration guidelines and best practices. Provide baseline security configurations for systems and applications. Industry-standard references for hardening.",
+          "examples": ["CIS Benchmarks", "DISA STIGs", "NIST guidelines", "Vendor hardening guides"]
+        },
+        "SIEM": {
+          "full": "Security Information and Event Management",
+          "definition": "Centralized platform collecting, analyzing, and correlating security events from multiple sources. Provides real-time monitoring, alerting, and incident response support. Core security operations tool.",
+          "examples": ["Splunk", "IBM QRadar", "ArcSight", "LogRhythm"]
+        },
+        "Antivirus": {
+          "definition": "Software detecting and removing malware using signatures, heuristics, and behavioral analysis. Endpoint protection essential despite limitations against advanced threats. Requires regular updates.",
+          "examples": ["Windows Defender", "CrowdStrike", "Symantec", "Malwarebytes"]
+        },
+        "DLP": {
+          "full": "Data Loss Prevention",
+          "definition": "Tools monitoring and controlling data movement to prevent unauthorized data exfiltration. Detects sensitive data in motion, at rest, and in use. Enforces data security policies.",
+          "examples": ["Email DLP", "Endpoint DLP", "Network DLP", "Cloud DLP"]
+        },
+        "SNMP Traps": {
+          "full": "Simple Network Management Protocol Traps",
+          "definition": "Asynchronous notifications from network devices about events or conditions. Alerts monitoring systems of issues without polling. Used for network device monitoring.",
+          "examples": ["Device failure alerts", "Threshold violations", "Configuration changes", "Performance alerts"]
+        },
+        "NetFlow": {
+          "definition": "Network protocol collecting IP traffic information for analysis. Provides network visibility, traffic patterns, and anomaly detection. Enables network behavior analysis.",
+          "examples": ["Traffic flow analysis", "Bandwidth monitoring", "Anomaly detection", "Network forensics"]
+        }
+      }
+    },
+    "4.5": {
+      "Firewall": {
+        "Rules": {
+          "definition": "Configuration statements controlling traffic flow through firewalls. Specifies source, destination, port, protocol, and action (allow/deny). Ordered list processed sequentially.",
+          "examples": ["Allow HTTPS from any", "Deny all from blacklist", "Allow SSH from management network", "Default deny rule"]
+        },
+        "Access Lists": {
+          "definition": "Packet filtering rules on routers and firewalls controlling traffic based on IP addresses, ports, and protocols. Types include standard and extended ACLs.",
+          "examples": ["Standard ACLs (IP-based)", "Extended ACLs (port/protocol)", "Router ACLs", "Network filtering"]
+        },
+        "Screened Subnets": {
+          "definition": "Network architecture placing servers in isolated zone (DMZ) between internal network and internet with firewalls on both sides. Protects internal network from compromised DMZ systems.",
+          "examples": ["DMZ configuration", "Dual-firewall setup", "Public-facing services isolation", "Three-legged firewall"]
+        }
+      },
+      "IDS/IPS": {
+        "Trends": {
+          "definition": "Analysis of IDS/IPS data over time to identify patterns, emerging threats, and attack trends. Enables proactive security improvements and threat hunting.",
+          "examples": ["Attack pattern analysis", "Volume trends", "Source analysis", "Threat evolution tracking"]
+        },
+        "Signatures": {
+          "definition": "Patterns of known attacks and malware that IDS/IPS uses for detection. Requires regular updates to detect new threats. Signature-based detection effective against known attacks.",
+          "examples": ["Malware signatures", "Attack patterns", "Exploit signatures", "Signature updates"]
+        }
+      },
+      "Web Filter": {
+        "Agent-based": {
+          "definition": "Web filtering software installed on endpoint devices. Provides filtering regardless of network location. Effective for remote workers but requires endpoint management.",
+          "examples": ["Endpoint web filter agents", "Browser extensions", "OS-level filtering", "Local policy enforcement"]
+        },
+        "Centralized Proxy": {
+          "definition": "Web filtering through proxy servers that intercept and filter all web traffic. Centralized management and visibility but requires network routing to proxy.",
+          "examples": ["Squid proxy", "Blue Coat", "Proxy servers", "Explicit proxy configuration"]
+        },
+        "URL Scanning": {
+          "definition": "Real-time analysis of URLs to identify malicious, phishing, or inappropriate sites. Checks URLs against databases and performs content analysis.",
+          "examples": ["Malicious URL blocking", "Phishing detection", "Reputation checking", "Real-time URL analysis"]
+        },
+        "Content Categorization": {
+          "definition": "Classifying websites into categories (social media, gambling, adult content) for filtering policies. Enables granular access control based on site purpose.",
+          "examples": ["Category-based blocking", "Productivity filtering", "Compliance filtering", "Custom categories"]
+        },
+        "Block Rules": {
+          "definition": "Policies defining what content, categories, or URLs should be blocked. Can be based on categories, keywords, file types, or specific URLs.",
+          "examples": ["Category blocking", "Keyword filters", "File type restrictions", "Blacklist enforcement"]
+        },
+        "Reputation": {
+          "definition": "Web filtering based on site reputation scores from threat intelligence. Blocks sites with poor reputation or known malicious activity.",
+          "examples": ["Reputation-based blocking", "Threat intelligence feeds", "Risk scoring", "Dynamic reputation"]
+        }
+      },
+      "DNS Filtering": {
+        "DNS Security": {
+          "definition": "Blocking malicious domains at DNS level preventing connections to phishing, malware, and C2 servers. Effective first-line defense working at network level.",
+          "examples": ["Cisco Umbrella", "Quad9", "Malicious domain blocking", "DNS-based threat prevention"]
+        }
+      },
+      "Email Security": {
+        "DMARC": {
+          "full": "Domain-based Message Authentication, Reporting, and Conformance",
+          "definition": "Email authentication protocol building on SPF and DKIM to prevent email spoofing. Allows domain owners to specify policy for handling failed authentication.",
+          "examples": ["DMARC reject policy", "Authentication reports", "Spoofing prevention", "Email validation"]
+        },
+        "DKIM": {
+          "full": "DomainKeys Identified Mail",
+          "definition": "Email authentication using digital signatures to verify message integrity and sender domain. Prevents tampering and helps identify spoofed emails.",
+          "examples": ["Email signing", "Signature verification", "Domain authentication", "Anti-spoofing"]
+        },
+        "SPF": {
+          "full": "Sender Policy Framework",
+          "definition": "Email authentication method specifying which mail servers are authorized to send email for a domain. Prevents email spoofing by validating sender.",
+          "examples": ["SPF records in DNS", "Authorized sender lists", "Email validation", "Spoofing prevention"]
+        },
+        "Gateway": {
+          "definition": "Email security gateway filtering incoming/outgoing email for malware, spam, phishing, and policy violations. First line of defense for email threats.",
+          "examples": ["Proofpoint", "Mimecast", "Barracuda", "Email filtering appliances"]
+        }
+      },
+      "EDR/XDR": {
+        "EDR": {
+          "full": "Endpoint Detection and Response",
+          "definition": "Security solution providing continuous monitoring, detection, and response capabilities for endpoints. Goes beyond antivirus with behavioral analysis, threat hunting, and incident response.",
+          "examples": ["CrowdStrike Falcon", "Carbon Black", "SentinelOne", "Microsoft Defender for Endpoint"]
+        },
+        "XDR": {
+          "full": "Extended Detection and Response",
+          "definition": "Unified security platform correlating data across endpoints, networks, clouds, and applications. Broader visibility than EDR enabling better threat detection and response.",
+          "examples": ["Palo Alto Cortex XDR", "Trend Micro XDR", "Microsoft XDR", "Integrated security platforms"]
+        }
+      }
+    },
+    "4.6": {
+      "User Account Management": {
+        "Provisioning": {
+          "definition": "Creating and configuring user accounts with appropriate access rights. Includes identity verification, access requests, and approval workflows. Critical for access control.",
+          "examples": ["New hire account creation", "Access request approval", "Automated provisioning", "Identity verification"]
+        },
+        "De-provisioning": {
+          "definition": "Disabling or removing user accounts when no longer needed. Critical for terminations, transfers, and role changes. Reduces attack surface and insider threat risk.",
+          "examples": ["Termination procedures", "Account disabling", "Access removal", "Exit processes"]
+        },
+        "Permission Assignments": {
+          "definition": "Granting specific access rights to users based on job requirements. Implements least privilege principle. Requires understanding of user needs and data sensitivity.",
+          "examples": ["Role-based permissions", "File access grants", "Application entitlements", "Least privilege"]
+        },
+        "Identity Proofing": {
+          "definition": "Verifying user identity before granting access. Ensures accounts belong to legitimate users. Stronger proofing required for privileged access.",
+          "examples": ["Document verification", "Background checks", "Multi-factor enrollment", "Identity validation"]
+        }
+      },
+      "Federation": {
+        "SSO": {
+          "full": "Single Sign-On",
+          "definition": "Authentication method allowing users to access multiple applications with one set of credentials. Improves user experience and security. Reduces password fatigue.",
+          "examples": ["SAML SSO", "OAuth flows", "Corporate SSO portal", "Federated authentication"]
+        },
+        "LDAP": {
+          "full": "Lightweight Directory Access Protocol",
+          "definition": "Protocol for accessing and maintaining directory services. Used for centralized user authentication and authorization. Common in enterprise environments.",
+          "examples": ["Active Directory", "OpenLDAP", "Directory queries", "Centralized authentication"]
+        },
+        "OAuth": {
+          "full": "Open Authorization",
+          "definition": "Open standard for token-based authorization enabling third-party access without sharing credentials. Commonly used for social login and API authorization.",
+          "examples": ["Social media login", "API authorization", "Delegated access", "Access tokens"]
+        },
+        "SAML": {
+          "full": "Security Assertion Markup Language",
+          "definition": "XML-based standard for exchanging authentication and authorization data between identity providers and service providers. Enterprise SSO standard.",
+          "examples": ["Enterprise SSO", "Cloud app federation", "SAML assertions", "Identity federation"]
+        }
+      },
+      "Access Controls": {
+        "Mandatory Access Control": {
+          "definition": "Access control model where system enforces access based on security labels and clearances. Users cannot change permissions. Used in high-security environments.",
+          "examples": ["SELinux", "Classified systems", "Label-based access", "Military security models"]
+        },
+        "Discretionary Access Control": {
+          "definition": "Access control where resource owners decide who can access their resources. Flexible but less secure. Common in operating systems.",
+          "examples": ["File permissions in Windows/Linux", "Owner-controlled access", "Share permissions", "ACLs"]
+        },
+        "Role-Based Access Control": {
+          "definition": "Access control based on user roles within organization. Users inherit permissions from assigned roles. Simplifies management and enforces separation of duties.",
+          "examples": ["Job-based roles", "Department permissions", "Role inheritance", "RBAC policies"]
+        },
+        "Attribute-Based Access Control": {
+          "definition": "Dynamic access control using user attributes, resource attributes, and environmental conditions. Highly flexible and contextual. Next-generation access control.",
+          "examples": ["Time-based access", "Location-based restrictions", "Device compliance checks", "Dynamic policies"]
+        }
+      },
+      "MFA": {
+        "Biometrics": {
+          "definition": "Authentication using unique physical characteristics like fingerprints, facial recognition, or iris scans. Something you are factor. Strong but raises privacy concerns.",
+          "examples": ["Fingerprint readers", "Facial recognition", "Iris scanning", "Voice recognition"]
+        },
+        "Authentication Tokens": {
+          "definition": "Physical or software devices generating one-time passwords for authentication. Something you have factor. Resistant to phishing.",
+          "examples": ["RSA SecurID", "YubiKey", "Mobile authenticator apps", "Hardware tokens"]
+        },
+        "Security Keys": {
+          "definition": "Physical hardware devices providing strong phishing-resistant authentication. Uses public-key cryptography. FIDO2/WebAuthn standard.",
+          "examples": ["YubiKey", "Google Titan", "FIDO2 keys", "USB security keys"]
+        }
+      },
+      "Password Concepts": {
+        "Length": {
+          "definition": "Minimum number of characters required in passwords. Longer passwords exponentially harder to crack. Modern guidance emphasizes length over complexity.",
+          "examples": ["15+ character minimum", "Passphrases", "Length requirements", "Long passwords"]
+        },
+        "Complexity": {
+          "definition": "Requirements for character types (uppercase, lowercase, numbers, symbols) in passwords. Prevents simple passwords but can lead to predictable patterns.",
+          "examples": ["Mixed character types", "Complexity rules", "Character requirements", "Strong passwords"]
+        },
+        "Password Managers": {
+          "definition": "Software storing and generating strong unique passwords for each account. Enables using complex passwords without memorization. Reduces password reuse.",
+          "examples": ["1Password", "LastPass", "Bitwarden", "KeePass"]
+        },
+        "Passwordless": {
+          "definition": "Authentication without traditional passwords using biometrics, security keys, or magic links. Eliminates password-related attacks. Growing trend in modern authentication.",
+          "examples": ["FIDO2 authentication", "Biometric login", "Magic links", "Microsoft Windows Hello"]
+        }
+      },
+      "Privileged Access Management": {
+        "Just-in-Time Permissions": {
+          "definition": "Granting elevated privileges only when needed for specific duration. Reduces standing privileges and attack surface. Requires approval workflows.",
+          "examples": ["Temporary admin access", "Time-limited elevation", "Break-glass access", "On-demand privileges"]
+        },
+        "Password Vaulting": {
+          "definition": "Secure storage of privileged account credentials in encrypted vault. Enables credential rotation and access auditing. Core PAM capability.",
+          "examples": ["CyberArk", "BeyondTrust", "Privileged password management", "Credential vaults"]
+        },
+        "Ephemeral Credentials": {
+          "definition": "Short-lived credentials automatically expiring after brief period. Reduces risk from credential theft. Common in cloud and DevOps.",
+          "examples": ["Temporary cloud credentials", "Session tokens", "Dynamic secrets", "Time-limited access"]
+        }
+      }
+    },
+    "4.7": {
+      "Automation Use Cases": {
+        "User Provisioning": {
+          "definition": "Automated creation and configuration of user accounts based on HR events or requests. Reduces delays and errors. Integrates with identity governance.",
+          "examples": ["Automated onboarding", "HR integration", "Self-service provisioning", "Workflow automation"]
+        },
+        "Resource Provisioning": {
+          "definition": "Automated deployment of infrastructure and services using infrastructure-as-code. Ensures consistency and speed. Enables cloud scalability.",
+          "examples": ["Terraform deployments", "CloudFormation", "Automated VM creation", "Container orchestration"]
+        },
+        "Guard Rails": {
+          "definition": "Automated controls preventing dangerous actions while allowing approved changes. Enables innovation within security boundaries. Policy-as-code implementation.",
+          "examples": ["Policy enforcement", "Compliance checks", "Automated validations", "Security boundaries"]
+        },
+        "Continuous Integration": {
+          "definition": "Automated building, testing, and security scanning of code with each commit. Integrates security into development pipeline. Enables DevSecOps.",
+          "examples": ["Jenkins pipelines", "GitHub Actions", "Security scanning in CI/CD", "Automated testing"]
+        },
+        "APIs": {
+          "definition": "Application programming interfaces enabling system integration and automation. Allows security tools to share data and orchestrate responses. Foundation for security orchestration.",
+          "examples": ["REST APIs", "Security tool integration", "SOAR APIs", "Orchestration interfaces"]
+        }
+      },
+      "Benefits": {
+        "Efficiency": {
+          "definition": "Automation reduces manual effort and speeds up security operations. Handles repetitive tasks faster than humans. Frees analysts for complex work.",
+          "examples": ["Faster incident response", "Quick remediation", "Reduced manual work", "Time savings"]
+        },
+        "Enforcing Baselines": {
+          "definition": "Automated enforcement of security configurations prevents drift and ensures consistency. Continuously monitors and remediates deviations.",
+          "examples": ["Configuration management", "Compliance enforcement", "Automated remediation", "Drift prevention"]
+        },
+        "Scaling": {
+          "definition": "Automation enables security to scale with infrastructure growth. Handles increased volume without proportional staff increase.",
+          "examples": ["Cloud security at scale", "Automated monitoring", "Elastic security controls", "Growth enablement"]
+        },
+        "Reaction Time": {
+          "definition": "Automated response to threats occurs in seconds vs hours for manual response. Critical for containing fast-moving attacks.",
+          "examples": ["Automated blocking", "Instant quarantine", "Real-time response", "Fast containment"]
+        },
+        "Workforce Multiplier": {
+          "definition": "Automation extends security team capabilities allowing small teams to protect large environments. Amplifies human expertise.",
+          "examples": ["24/7 automated monitoring", "Automated triage", "Extended coverage", "Team amplification"]
+        }
+      },
+      "Considerations": {
+        "Complexity": {
+          "definition": "Automation systems can become complex and difficult to maintain. Over-automation creates dependencies and troubleshooting challenges.",
+          "examples": ["Complex orchestration", "Debugging difficulties", "System dependencies", "Maintenance burden"]
+        },
+        "Single Point of Failure": {
+          "definition": "Centralized automation platforms become critical dependencies. Their failure can disable multiple security functions. Requires redundancy.",
+          "examples": ["Automation platform outage", "Orchestration failure", "Central system dependency", "Availability risk"]
+        },
+        "Technical Debt": {
+          "definition": "Quick automation solutions may create long-term maintenance burdens. Poorly designed automation requires eventual refactoring.",
+          "examples": ["Legacy scripts", "Undocumented automation", "Brittle integrations", "Maintenance costs"]
+        }
+      }
+    },
+    "4.8": {
+      "Incident Response Process": {
+        "Preparation": {
+          "definition": "Establishing incident response capabilities including team, tools, procedures, and training. Foundation phase enabling effective response when incidents occur.",
+          "examples": ["IR team formation", "Playbook development", "Tool procurement", "Training exercises"]
+        },
+        "Detection": {
+          "definition": "Identifying potential security incidents through monitoring, alerts, and analysis. First awareness that incident may be occurring.",
+          "examples": ["SIEM alerts", "User reports", "Anomaly detection", "Threat hunting"]
+        },
+        "Analysis": {
+          "definition": "Investigating alerts to determine if real incident, assess scope, and understand attack. Separates false positives from real threats.",
+          "examples": ["Log analysis", "Forensic investigation", "Scope assessment", "Attack timeline"]
+        },
+        "Containment": {
+          "definition": "Limiting incident spread and preventing further damage. Balances business continuity with evidence preservation. Short-term and long-term containment.",
+          "examples": ["Network isolation", "Account disabling", "System quarantine", "Access blocking"]
+        },
+        "Eradication": {
+          "definition": "Removing threat from environment including malware, attacker access, and vulnerabilities exploited. Ensures threat cannot return.",
+          "examples": ["Malware removal", "Closing vulnerabilities", "Removing backdoors", "Account cleanup"]
+        },
+        "Recovery": {
+          "definition": "Restoring systems to normal operation while ensuring security. Includes validation, monitoring, and gradual restoration. Returns to business operations.",
+          "examples": ["System restoration", "Service resumption", "Enhanced monitoring", "Validation testing"]
+        },
+        "Lessons Learned": {
+          "definition": "Post-incident review documenting what happened, response effectiveness, and improvements needed. Critical for continuous improvement.",
+          "examples": ["Post-mortem meetings", "IR documentation", "Process improvements", "Training updates"]
+        }
+      },
+      "Training and Testing": {
+        "Tabletop Exercise": {
+          "definition": "Discussion-based simulation walking through incident scenarios. Tests plans and decision-making without actual systems impact. Low-cost training method.",
+          "examples": ["Ransomware tabletop", "Data breach scenario", "Discussion-based drills", "Plan validation"]
+        },
+        "Simulation": {
+          "definition": "Realistic practice incident response in controlled environment. May involve live systems or test environments. More realistic than tabletop.",
+          "examples": ["Red team exercises", "Purple team drills", "Simulated breaches", "Live-fire training"]
+        }
+      },
+      "Digital Forensics": {
+        "Legal Hold": {
+          "definition": "Preservation of data and systems for potential legal proceedings. Prevents destruction or modification of evidence. Triggered by litigation or investigation.",
+          "examples": ["Litigation hold notices", "Data preservation orders", "Evidence freezing", "Court orders"]
+        },
+        "Chain of Custody": {
+          "definition": "Documented tracking of evidence collection, transfer, and storage. Maintains evidence integrity and admissibility in court. Every handler documented.",
+          "examples": ["Evidence logs", "Transfer documentation", "Custody forms", "Evidence tracking"]
+        },
+        "Acquisition": {
+          "definition": "Creating forensic copies of evidence using write-blocking tools. Ensures original evidence unchanged. Bit-for-bit copies with hash verification.",
+          "examples": ["Disk imaging", "Memory dumps", "Network captures", "Write-blocked copying"]
+        },
+        "Preservation": {
+          "definition": "Maintaining evidence integrity through proper storage, handling, and protection. Prevents contamination or deterioration. Crucial for legal proceedings.",
+          "examples": ["Secure storage", "Environmental controls", "Access restrictions", "Integrity verification"]
+        },
+        "E-discovery": {
+          "definition": "Electronic discovery process identifying, collecting, and producing electronic information for legal proceedings. Includes emails, documents, databases.",
+          "examples": ["Email discovery", "Document collection", "Data review", "Legal hold management"]
+        }
+      }
+    },
+    "4.9": {
+      "Log Data": {
+        "Firewall Logs": {
+          "definition": "Records of allowed and blocked traffic through firewalls. Shows connection attempts, source/destination IPs, ports, and actions. Critical for investigating network attacks.",
+          "examples": ["Blocked connection attempts", "Allowed traffic logs", "Policy violations", "Attack patterns"]
+        },
+        "Application Logs": {
+          "definition": "Application-generated logs recording events, errors, transactions, and user actions. Provides application-level visibility for troubleshooting and security investigation.",
+          "examples": ["Web server access logs", "Application errors", "Transaction logs", "User activity"]
+        },
+        "Endpoint Logs": {
+          "definition": "Logs from workstations and servers including system events, application activity, and security events. Essential for investigating endpoint compromises.",
+          "examples": ["Windows Event Logs", "Process execution logs", "File access logs", "Login attempts"]
+        },
+        "OS Security Logs": {
+          "definition": "Operating system logs recording security-relevant events like authentication, privilege use, and security policy changes. Core evidence source.",
+          "examples": ["Authentication logs", "Privilege escalation", "Security policy changes", "Account modifications"]
+        },
+        "IPS/IDS Logs": {
+          "definition": "Intrusion detection and prevention system logs recording attacks, anomalies, and policy violations. Shows attack attempts and techniques.",
+          "examples": ["Attack signatures", "Anomaly alerts", "Blocked attacks", "Suspicious patterns"]
+        },
+        "Network Logs": {
+          "definition": "Network device and traffic logs including router logs, switch logs, DNS logs, and flow data. Provides network-level visibility.",
+          "examples": ["Router logs", "DNS queries", "NetFlow data", "Network authentication"]
+        },
+        "Metadata": {
+          "definition": "Data about data including file properties, email headers, timestamps, and system information. Often reveals important investigation details.",
+          "examples": ["File creation times", "Email headers", "Document properties", "GPS coordinates"]
+        }
+      },
+      "Data Sources": {
+        "Vulnerability Scans": {
+          "definition": "Scan results showing system weaknesses that may have been exploited. Helps identify attack vectors and required remediation.",
+          "examples": ["Pre-incident scan results", "Missing patches", "Configuration issues", "Exploitable vulnerabilities"]
+        },
+        "Automated Reports": {
+          "definition": "Scheduled reports from security tools providing trends, statistics, and summaries. Baseline data for identifying anomalies.",
+          "examples": ["Daily security reports", "Compliance reports", "Trend analysis", "Summary dashboards"]
+        },
+        "Dashboards": {
+          "definition": "Real-time visual displays of security metrics and events. Provides at-a-glance security status and anomaly identification.",
+          "examples": ["SIEM dashboards", "SOC displays", "Executive dashboards", "Real-time metrics"]
+        },
+        "Packet Captures": {
+          "definition": "Full network traffic captures showing complete communication details. Detailed evidence source but large and complex to analyze.",
+          "examples": ["PCAP files", "Network forensics", "Traffic analysis", "Protocol investigation"]
+        }
+      }
+    }
   }
 }
