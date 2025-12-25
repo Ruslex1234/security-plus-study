@@ -180,5 +180,175 @@
         }
       }
     }
+  },
+  "2.0": {
+    "2.1": {
+      "Threat Actors": {
+        "Nation-State": {
+          "definition": "Government-sponsored threat actors with extensive resources, advanced capabilities, and long-term strategic objectives. Conduct espionage, sabotage, and information warfare targeting government agencies, critical infrastructure, and strategic industries. Often operate as Advanced Persistent Threat (APT) groups with sophisticated tools and techniques.",
+          "examples": ["APT28 (Fancy Bear)", "APT29 (Cozy Bear)", "Lazarus Group", "Equation Group", "Chinese APT groups"]
+        },
+        "Unskilled Attacker": {
+          "definition": "Attackers with limited technical knowledge who use pre-made tools and scripts created by others. Also called script kiddies. Motivated by curiosity, recognition, or mischief rather than financial gain. Pose lower risk but can still cause damage using automated tools.",
+          "examples": ["Script kiddies using Metasploit", "Users of automated hacking tools", "Tutorial followers", "Low-skill defacement attacks"]
+        },
+        "Hacktivist": {
+          "definition": "Attackers motivated by political, social, or ideological goals rather than financial gain. Use hacking and cyber attacks to promote their agenda, raise awareness, or protest against organizations and governments. Often target high-profile entities to gain publicity.",
+          "examples": ["Anonymous collective", "LulzSec operations", "Website defacements for political messages", "DDoS attacks against controversial organizations"]
+        },
+        "Insider Threat": {
+          "definition": "Current or former employees, contractors, or business partners with legitimate access who misuse their privileges. Can be malicious (intentional harm) or negligent (unintentional security lapses). Difficult to defend against as they bypass perimeter security and may have elevated privileges.",
+          "examples": ["Disgruntled employees stealing data", "Contractors selling confidential information", "Careless employees falling for phishing", "Privileged users abusing access"]
+        },
+        "Organized Crime": {
+          "definition": "Criminal enterprises conducting cyber attacks for financial profit. Highly organized with specialized roles, sophisticated tools, and business-like operations. Primary motivations include theft, fraud, ransomware, and selling stolen data on dark web markets.",
+          "examples": ["Ransomware-as-a-Service operations", "Credit card theft rings", "Banking trojans", "Cryptocurrency theft groups"]
+        },
+        "Shadow IT": {
+          "definition": "IT systems, devices, software, and services used within an organization without explicit IT department approval or knowledge. Creates security risks through unmanaged access, unpatched systems, and lack of security controls. Often results from employees seeking productivity improvements.",
+          "examples": ["Unauthorized cloud storage use", "Personal devices on corporate networks", "Unapproved SaaS applications", "Rogue access points"]
+        }
+      },
+      "Threat Vectors": {
+        "Message-based": {
+          "definition": "Attack vectors using email, SMS, instant messaging, or other messaging platforms to deliver malicious content or social engineering attacks. Includes phishing emails, malicious attachments, embedded links, and business email compromise. Most common initial attack vector.",
+          "examples": ["Phishing emails", "Malicious attachments", "SMS phishing (smishing)", "Instant message malware links"]
+        },
+        "Image-based": {
+          "definition": "Attacks embedding malicious code within image files or using images to deliver payloads. Includes steganography (hiding data in images), malicious QR codes, and image file exploits. Can bypass traditional security filters focused on executables.",
+          "examples": ["Steganography concealing malware", "Malicious QR codes", "Image file buffer overflows", "SVG-based exploits"]
+        },
+        "File-based": {
+          "definition": "Malicious software distributed through file downloads, attachments, or file sharing. Includes infected documents with macros, trojans disguised as legitimate files, and exploits targeting file parsing vulnerabilities. Common delivery mechanism for ransomware and malware.",
+          "examples": ["Macro-enabled Office documents", "PDF exploits", "Infected software downloads", "Malicious ZIP archives"]
+        },
+        "Voice Call": {
+          "definition": "Social engineering attacks conducted via telephone calls where attackers impersonate legitimate entities. Also called vishing (voice phishing). Attackers manipulate victims into revealing sensitive information, transferring money, or performing actions that compromise security.",
+          "examples": ["Fake IT support calls", "IRS scam calls", "CEO fraud via phone", "Bank impersonation calls"]
+        },
+        "Removable Device": {
+          "definition": "Attack vector using USB drives, external hard drives, SD cards, or other portable storage media. Can contain malware that auto-executes when connected, or exploit USB protocol vulnerabilities. Often used in targeted attacks through deliberate device placement.",
+          "examples": ["Malicious USB drops (USB baiting)", "BadUSB attacks", "Infected external drives", "Rubber Ducky attacks"]
+        },
+        "Vulnerable Software": {
+          "definition": "Exploitation of known or zero-day vulnerabilities in operating systems, applications, or firmware. Attackers target unpatched systems, outdated software, or newly discovered flaws. Critical attack vector requiring robust patch management and vulnerability scanning.",
+          "examples": ["Unpatched Windows vulnerabilities", "Outdated web browsers", "Legacy application exploits", "Zero-day attacks"]
+        },
+        "Unsupported Systems": {
+          "definition": "Operating systems, applications, or hardware no longer receiving security updates from vendors. Also called end-of-life (EOL) systems. Extremely vulnerable as new exploits cannot be patched. Common in industrial systems, medical devices, and legacy infrastructure.",
+          "examples": ["Windows XP/7 systems", "Unsupported server software", "EOL medical devices", "Legacy SCADA systems"]
+        },
+        "Unsecure Networks": {
+          "definition": "Network connections lacking proper security controls including open Wi-Fi, unencrypted communications, and poorly configured networks. Allow attackers to intercept traffic, perform man-in-the-middle attacks, and gain unauthorized access.",
+          "examples": ["Public Wi-Fi hotspots", "Unencrypted HTTP connections", "Rogue access points", "Misconfigured firewalls"]
+        },
+        "Open Service Ports": {
+          "definition": "Unnecessary network ports left open providing attack surface for exploitation. Each open port represents a potential entry point. Proper port management involves closing unused ports and restricting access to necessary services through firewalls and network segmentation.",
+          "examples": ["Unnecessary RDP (3389) exposure", "Open database ports (3306, 1433)", "Telnet (23) still enabled", "Unsecured SMB (445)"]
+        },
+        "Default Credentials": {
+          "definition": "Factory-set usernames and passwords left unchanged on devices and systems. Widely known and easily exploitable. Major security weakness in IoT devices, network equipment, and enterprise systems. Attackers use automated tools to scan for default credentials.",
+          "examples": ["admin/admin credentials", "Unchanged router passwords", "Default IoT device passwords", "Factory-set database credentials"]
+        },
+        "Supply Chain": {
+          "definition": "Attacks targeting less-secure elements in the supply chain to compromise the ultimate target. Includes software supply chain attacks (malicious code in updates), hardware supply chain compromises, and third-party vendor breaches. Difficult to detect and prevent.",
+          "examples": ["SolarWinds attack", "Malicious npm packages", "Compromised hardware components", "Vendor breaches affecting customers"]
+        }
+      }
+    },
+    "2.2": {
+      "Social Engineering": {
+        "Phishing": {
+          "full": "Email-based social engineering",
+          "definition": "Fraudulent emails appearing to come from legitimate sources designed to trick recipients into revealing sensitive information, clicking malicious links, or opening infected attachments. Most common social engineering attack. Can be mass campaigns or targeted spear phishing.",
+          "examples": ["Fake password reset emails", "Shipping notification scams", "Invoice fraud", "Account verification requests"]
+        },
+        "Vishing": {
+          "full": "Voice Phishing",
+          "definition": "Voice-based phishing attacks using phone calls where attackers impersonate banks, IT support, government agencies, or executives to manipulate victims into revealing information or performing actions. Exploits trust in phone communications.",
+          "examples": ["Fake IRS calls", "Tech support scams", "Bank fraud calls", "CEO impersonation calls"]
+        },
+        "Smishing": {
+          "full": "SMS Phishing",
+          "definition": "SMS text message-based phishing exploiting trust in text messages and sense of urgency. Often includes links to malicious websites or requests to call fraudulent numbers. Mobile-focused attack vector bypassing email security.",
+          "examples": ["Fake package delivery notifications", "Bank alert scams", "Prize/lottery scams", "Two-factor authentication bypass attempts"]
+        },
+        "Spear Phishing": {
+          "definition": "Highly targeted phishing attacks customized for specific individuals or organizations using gathered intelligence. More sophisticated than mass phishing with higher success rates. Often used as initial access in advanced attacks.",
+          "examples": ["Executive-targeted emails using personal details", "Industry-specific lures", "Fake colleague communications", "Customized attachments"]
+        },
+        "Whaling": {
+          "definition": "Spear phishing specifically targeting high-profile individuals like executives, board members, or celebrities. High-value targets justify extensive reconnaissance and sophisticated attack methods. Often involves business email compromise and wire transfer fraud.",
+          "examples": ["CEO fraud", "CFO wire transfer scams", "Board member impersonation", "Executive credential theft"]
+        },
+        "Pretexting": {
+          "definition": "Creating fabricated scenarios (pretexts) to manipulate targets into divulging information or performing actions. Attacker assumes a false identity and builds trust through detailed backstory. Often involves multiple interactions over time.",
+          "examples": ["Impersonating IT support", "Fake vendor calls", "Pretending to be auditor", "False emergency scenarios"]
+        },
+        "Impersonation": {
+          "definition": "Assuming someone else's identity to gain trust and access. Can be in-person, via phone, email, or online. Effective because people tend to trust authority figures and known entities. Often combined with other social engineering techniques.",
+          "examples": ["Wearing fake uniforms", "Spoofed email addresses", "Fake ID badges", "Executive impersonation"]
+        }
+      },
+      "Application Attacks": {
+        "SQL Injection": {
+          "full": "SQLi",
+          "definition": "Inserting malicious SQL code into input fields to manipulate database queries. Can bypass authentication, extract sensitive data, modify databases, or execute admin operations. One of most dangerous web application vulnerabilities. Prevented through parameterized queries and input validation.",
+          "examples": ["Authentication bypass: ' OR '1'='1", "Data extraction via UNION statements", "Database enumeration", "Blind SQL injection"]
+        },
+        "Cross-Site Scripting": {
+          "full": "XSS",
+          "definition": "Injecting malicious scripts into web pages viewed by other users. Allows attackers to steal session cookies, redirect users, deface websites, or execute actions as the victim. Three types: stored (persistent), reflected, and DOM-based XSS.",
+          "examples": ["Cookie theft via stored XSS", "Reflected XSS in search results", "DOM-based XSS exploits", "Session hijacking"]
+        },
+        "Buffer Overflow": {
+          "definition": "Writing more data to a memory buffer than it can hold, overwriting adjacent memory. Can crash applications or allow arbitrary code execution by overwriting return addresses. Classic vulnerability in languages like C/C++. Mitigated by modern protections (DEP, ASLR).",
+          "examples": ["Stack-based overflows", "Heap overflows", "Return-oriented programming", "Format string attacks"]
+        },
+        "Replay Attack": {
+          "definition": "Intercepting and retransmitting valid data transmission to duplicate the action. Attacker captures legitimate communications (like authentication tokens) and replays them to gain unauthorized access. Prevented using timestamps, nonces, and sequence numbers.",
+          "examples": ["Replaying captured authentication tokens", "Wireless key replay", "Payment transaction replay", "Session token reuse"]
+        },
+        "Directory Traversal": {
+          "definition": "Manipulating file path inputs to access files and directories outside intended directory. Uses sequences like '../' to navigate file system. Can expose sensitive files including configuration files, source code, and credentials. Also called path traversal.",
+          "examples": ["Accessing /etc/passwd via ../../../../etc/passwd", "Reading application config files", "Source code disclosure", "Log file access"]
+        },
+        "Cross-Site Request Forgery": {
+          "full": "CSRF/XSRF",
+          "definition": "Tricking authenticated users into unwittingly executing actions on web applications where they're authenticated. Exploits trust website has in user's browser. Attacker crafts malicious requests that victim's browser automatically authenticates. Prevented with anti-CSRF tokens.",
+          "examples": ["Unauthorized fund transfers", "Changing account settings", "Making purchases", "Social media actions"]
+        }
+      },
+      "Malware": {
+        "Ransomware": {
+          "definition": "Malware that encrypts files or locks systems and demands payment for restoration. Modern ransomware often exfiltrates data first for double extortion. Major threat to organizations causing operational disruption and financial loss. Prevented through backups, patching, and security awareness.",
+          "examples": ["WannaCry", "Ryuk", "REvil", "Conti", "LockBit"]
+        },
+        "Trojan": {
+          "definition": "Malicious software disguised as legitimate programs. Unlike viruses, trojans don't self-replicate. Provide backdoor access, steal data, or download additional malware. Named after Greek mythology's Trojan horse. Common distribution via software downloads and email attachments.",
+          "examples": ["Remote Access Trojans (RATs)", "Banking trojans", "Fake antivirus", "Backdoor trojans"]
+        },
+        "Worm": {
+          "definition": "Self-replicating malware that spreads automatically across networks without user interaction. Consumes network bandwidth and system resources. Can carry malicious payloads. Historically caused major outbreaks but modern networks have better defenses.",
+          "examples": ["WannaCry worm component", "Conficker", "SQL Slammer", "Blaster worm"]
+        },
+        "Spyware": {
+          "definition": "Software that secretly monitors and collects user information including browsing habits, keystrokes, credentials, and personal data. Transmits collected data to attackers. Often bundled with free software. Includes keyloggers and information stealers.",
+          "examples": ["Keyloggers", "Screen capture tools", "Browser history monitors", "Credential stealers"]
+        },
+        "Rootkit": {
+          "definition": "Malware providing privileged (root-level) access while hiding its presence. Modifies operating system to conceal malicious processes, files, and network connections. Extremely difficult to detect and remove. Can be kernel-mode (most dangerous) or user-mode.",
+          "examples": ["Kernel rootkits", "Bootkit (boot sector rootkits)", "Firmware rootkits", "Virtual machine-based rootkits"]
+        },
+        "Logic Bomb": {
+          "definition": "Malicious code lying dormant until triggered by specific condition (date, event, action). Often planted by insiders for sabotage. Executes payload when trigger occurs causing data deletion, corruption, or system failure. Difficult to detect before activation.",
+          "examples": ["Time bomb activating on specific date", "Code deleting data upon employee termination", "Triggered by user action", "Event-based destruction"]
+        },
+        "Backdoor": {
+          "definition": "Unauthorized access method bypassing normal authentication. Can be intentionally created by developers (for maintenance) or installed by attackers. Provides persistent access even after initial vulnerability is patched. Major security risk allowing complete system compromise.",
+          "examples": ["Hidden administrator accounts", "Debug interfaces left enabled", "Trojan backdoors", "Web shell backdoors"]
+        }
+      }
+    }
   }
 }
