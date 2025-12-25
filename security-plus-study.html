@@ -1010,43 +1010,32 @@
             }
         };
 
-        // Definitions database (sample - would be expanded)
-        const definitions = {
-            "CIA": {
-                full: "Confidentiality, Integrity, Availability",
-                definition: "The three fundamental principles of information security. Confidentiality ensures data is only accessible to authorized parties, Integrity ensures data remains accurate and unmodified, and Availability ensures authorized users can access data when needed.",
-                related: ["Non-repudiation", "AAA", "Data Protection"]
-            },
-            "SIEM": {
-                full: "Security Information and Event Management",
-                definition: "A platform that collects, aggregates, correlates, and analyzes security data from multiple sources across an organization to detect threats, support compliance, and enable incident response.",
-                related: ["Log Aggregation", "SOAR", "Threat Detection"]
-            },
-            "VPN": {
-                full: "Virtual Private Network",
-                definition: "An encrypted tunnel over public networks that provides secure remote access or site-to-site connectivity, protecting data confidentiality and integrity during transmission.",
-                related: ["TLS", "IPSec", "SD-WAN", "Remote Access"]
-            },
-            "Zero Trust": {
-                full: "Zero Trust Architecture",
-                definition: "A security model that assumes no implicit trust and requires verification for every access request, regardless of location, operating on the principle 'never trust, always verify'.",
-                related: ["ZTNA", "Least Privilege", "Micro-segmentation"]
-            },
-            "MFA": {
-                full: "Multifactor Authentication",
-                definition: "Requiring two or more different types of authentication factors to verify identity, significantly improving security over passwords alone by combining something you know, have, or are.",
-                related: ["Biometrics", "Tokens", "SSO", "Authentication"]
-            }
-        };
+        // Load external data
+        let acronyms = {};
+        let definitions = {}; // Will be flattened from JSON structure
 
         // Load acronyms from JSON
-        let acronyms = {};
         fetch('./acronyms.json')
             .then(response => response.json())
             .then(data => {
                 acronyms = data;
+                console.log('✅ Loaded', Object.keys(acronyms).length, 'acronyms');
             })
-            .catch(error => console.error('Error loading acronyms:', error));
+            .catch(error => console.error('❌ Error loading acronyms:', error));
+
+        // Load and flatten definitions from JSON
+        fetch('./security-plus-definitions.json')
+            .then(response => response.json())
+            .then(data => {
+                // Flatten the nested structure into a single object
+                Object.keys(data).forEach(domain => {
+                    Object.keys(data[domain]).forEach(term => {
+                        definitions[term] = data[domain][term];
+                    });
+                });
+                console.log('✅ Loaded', Object.keys(definitions).length, 'definitions');
+            })
+            .catch(error => console.error('❌ Error loading definitions:', error));
 
         // Navigation State
         let navigationStack = [];
@@ -1152,18 +1141,25 @@
             currentDefinitionTerm = term;
 
             // Check if we have a definition for this term
+            const hasDef = definitions[term];
             const def = definitions[term] || {
-                full: term,
-                definition: `Detailed definition for ${term} would appear here. This is a comprehensive security concept that plays a crucial role in information security.`,
+                definition: `⚠️ Definition not yet available for "${term}". This term is part of the CompTIA Security+ SY0-701 objectives and will be added soon.`,
+                examples: [],
                 related: []
             };
 
-            // Build the panel content
+            // Check if term has acronym expansion
+            const hasAcronym = acronyms[term];
+            const fullName = def.full || (hasAcronym ? acronyms[term] : null);
+
+            // Build the panel content with visual indicator for missing content
             let html = `
                 <h1 class="definition-title">${term}</h1>
-                ${def.full !== term ? `<p class="definition-full-name">${def.full}</p>` : ''}
+                ${fullName ? `<p class="definition-full-name">📖 ${fullName}</p>` : ''}
+                ${!hasDef ? '<div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 15px; border-radius: 5px;"><strong>⚠️ Missing Definition</strong><br>This definition needs to be added to <code>security-plus-definitions.json</code></div>' : ''}
                 <div class="definition-text">
                     <p>${def.definition}</p>
+                    ${def.examples && def.examples.length > 0 ? `<div style="margin-top: 15px;"><strong>Examples:</strong> ${def.examples.join(', ')}</div>` : ''}
                 </div>
             `;
 
@@ -1173,6 +1169,11 @@
             // Show the panel and overlay
             panel.classList.add('active');
             overlay.classList.add('active');
+
+            // Log missing definitions to console for tracking
+            if (!hasDef) {
+                console.warn('⚠️ Missing definition for:', term);
+            }
         }
 
         function closeDefinitionPanel() {
