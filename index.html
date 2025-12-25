@@ -1641,9 +1641,35 @@
         let currentDomain = null;
         let currentObjective = null;
         let currentDefinitionTerm = null; // Track currently displayed term
+        let termIndex = {}; // Index of all terms with their locations
+
+        // Build term index for fast searching
+        function buildTermIndex() {
+            termIndex = {};
+            Object.keys(securityPlusData).forEach(domainKey => {
+                const domain = securityPlusData[domainKey];
+                Object.keys(domain.objectives).forEach(objectiveKey => {
+                    const objective = domain.objectives[objectiveKey];
+                    Object.keys(objective.categories).forEach(categoryKey => {
+                        const terms = objective.categories[categoryKey];
+                        terms.forEach(term => {
+                            termIndex[term] = {
+                                domain: domainKey,
+                                objective: objectiveKey,
+                                category: categoryKey,
+                                domainTitle: domain.title,
+                                objectiveTitle: objective.title
+                            };
+                        });
+                    });
+                });
+            });
+            console.log(`✅ Built term index with ${Object.keys(termIndex).length} terms`);
+        }
 
         // Initialize the application
         function init() {
+            buildTermIndex();
             renderDomainCards();
         }
 
@@ -1903,9 +1929,29 @@
             }
         });
 
+        // Navigate to a term from search results
+        function navigateToTerm(term, domainKey, objectiveKey, categoryKey) {
+            // Clear search
+            document.getElementById('searchInput').value = '';
+            document.getElementById('searchResults').innerHTML = '';
+
+            // Navigate to the domain first
+            navigateToDomain(domainKey);
+
+            // Then navigate to the objective
+            setTimeout(() => {
+                navigateToObjective(domainKey, objectiveKey);
+
+                // Then show the definition
+                setTimeout(() => {
+                    showDefinition(term, domainKey, objectiveKey, categoryKey);
+                }, 100);
+            }, 100);
+        }
+
         // Auto-complete search function
         function autoCompleteSearch() {
-            const query = document.getElementById('searchInput').value.trim().toUpperCase();
+            const query = document.getElementById('searchInput').value.trim();
             const resultsDiv = document.getElementById('searchResults');
 
             if (!query) {
@@ -1913,26 +1959,87 @@
                 return;
             }
 
+            const queryUpper = query.toUpperCase();
             resultsDiv.innerHTML = '';
             let matchCount = 0;
-            const maxResults = 10; // Limit to 10 results for performance
+            const maxResults = 15; // Increased limit for better coverage
+
+            let results = [];
 
             // Search in acronyms
             Object.keys(acronyms).forEach(key => {
-                if (matchCount >= maxResults) return;
-
-                if (key.toUpperCase().startsWith(query) || acronyms[key].toUpperCase().includes(query)) {
-                    matchCount++;
-                    resultsDiv.innerHTML += `
-                        <div class="search-result-item">
-                            <strong>${key}</strong> - ${acronyms[key]}
-                        </div>
-                    `;
+                if (key.toUpperCase().startsWith(queryUpper) || acronyms[key].toUpperCase().includes(queryUpper)) {
+                    results.push({
+                        type: 'acronym',
+                        term: key,
+                        display: `<strong>${key}</strong> - ${acronyms[key]}`,
+                        priority: key.toUpperCase().startsWith(queryUpper) ? 1 : 2
+                    });
                 }
+            });
+
+            // Search in all terms
+            Object.keys(termIndex).forEach(term => {
+                if (term.toUpperCase().includes(queryUpper)) {
+                    const location = termIndex[term];
+                    results.push({
+                        type: 'term',
+                        term: term,
+                        location: location,
+                        display: `<strong>${term}</strong><br><small style="color: var(--comptia-gray);">${location.category} (${location.objective})</small>`,
+                        priority: term.toUpperCase().startsWith(queryUpper) ? 1 : 2
+                    });
+                }
+            });
+
+            // Sort results: prioritize exact matches, then alphabetically
+            results.sort((a, b) => {
+                if (a.priority !== b.priority) return a.priority - b.priority;
+                return a.term.localeCompare(b.term);
+            });
+
+            // Render results
+            results.slice(0, maxResults).forEach(result => {
+                matchCount++;
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'search-result-item';
+                resultDiv.style.cursor = result.type === 'term' ? 'pointer' : 'default';
+                resultDiv.innerHTML = result.display;
+
+                // Add click handler for terms to navigate
+                if (result.type === 'term') {
+                    resultDiv.onclick = () => {
+                        navigateToTerm(
+                            result.term,
+                            result.location.domain,
+                            result.location.objective,
+                            result.location.category
+                        );
+                    };
+                    resultDiv.style.transition = 'all 0.2s ease';
+                    resultDiv.onmouseover = () => {
+                        resultDiv.style.backgroundColor = '#f0f0f0';
+                        resultDiv.style.borderLeftColor = 'var(--comptia-red)';
+                    };
+                    resultDiv.onmouseout = () => {
+                        resultDiv.style.backgroundColor = 'white';
+                        resultDiv.style.borderLeftColor = '#e0e0e0';
+                    };
+                }
+
+                resultsDiv.appendChild(resultDiv);
             });
 
             if (matchCount === 0) {
                 resultsDiv.innerHTML = '<p style="color: var(--comptia-gray); padding: 10px;">No matches found...</p>';
+            } else if (results.length > maxResults) {
+                const moreDiv = document.createElement('div');
+                moreDiv.style.padding = '10px';
+                moreDiv.style.color = 'var(--comptia-gray)';
+                moreDiv.style.fontSize = '0.9em';
+                moreDiv.style.textAlign = 'center';
+                moreDiv.innerHTML = `Showing ${maxResults} of ${results.length} results. Keep typing to refine...`;
+                resultsDiv.appendChild(moreDiv);
             }
         }
 
