@@ -1627,5 +1627,599 @@
         }
       }
     }
+  },
+  "5.0": {
+    "5.1": {
+      "Policies and Standards": {
+        "Guidelines": {
+          "definition": "Recommended practices and suggestions for security implementation. Not mandatory but provide best practice guidance. More flexible than policies, offering advice on how to achieve security objectives.",
+          "examples": ["Password best practices guide", "Remote work security guidelines", "Secure coding recommendations", "Security awareness tips"]
+        },
+        "Policies": {
+          "definition": "High-level mandatory statements defining organization's security position and objectives. Approved by senior management. Establish rules and responsibilities. Enforceable and violation may result in disciplinary action.",
+          "examples": ["Information Security Policy", "Acceptable Use Policy", "Data Classification Policy", "Incident Response Policy"]
+        },
+        "Acceptable Use Policy": {
+          "full": "AUP",
+          "definition": "Policy defining acceptable and unacceptable use of organizational IT resources including computers, networks, email, and internet. Specifies prohibited activities and consequences. Users typically sign acknowledgment.",
+          "examples": ["Personal use limitations", "Prohibited activities", "Social media usage", "BYOD rules"]
+        },
+        "Business Continuity": {
+          "definition": "Policies and procedures ensuring critical business functions continue during and after disasters or disruptions. Includes backup systems, alternate sites, and recovery procedures. Broader than disaster recovery.",
+          "examples": ["BC plans", "Critical function identification", "Continuity strategies", "Business impact analysis"]
+        },
+        "Disaster Recovery": {
+          "definition": "Policies and procedures for recovering IT systems and data after catastrophic events. Subset of business continuity focused on technology recovery. Includes backup/restore procedures and recovery priorities.",
+          "examples": ["DR plans", "Backup procedures", "Recovery time objectives", "Restoration procedures"]
+        },
+        "Incident Response Policy": {
+          "definition": "Policy establishing framework for detecting, responding to, and recovering from security incidents. Defines roles, responsibilities, escalation procedures, and communication protocols.",
+          "examples": ["IR team structure", "Escalation procedures", "Communication protocols", "Reporting requirements"]
+        },
+        "SDLC Policy": {
+          "full": "Software Development Lifecycle",
+          "definition": "Policy governing secure software development practices throughout development lifecycle. Integrates security into planning, design, development, testing, and deployment phases.",
+          "examples": ["Secure coding standards", "Code review requirements", "Security testing mandates", "DevSecOps practices"]
+        },
+        "Change Management": {
+          "definition": "Formal process controlling changes to IT systems to minimize disruptions and security risks. Requires approval, testing, documentation, and rollback procedures. Ensures changes are authorized and tracked.",
+          "examples": ["Change Advisory Board", "Change request forms", "Testing requirements", "Approval workflows"]
+        },
+        "Standards": {
+          "definition": "Mandatory specific technical requirements and configurations implementing policies. More detailed than policies. Specify minimum security baselines and technical controls.",
+          "examples": ["Password standards (15 chars, complexity)", "Encryption standards (AES-256)", "Patch management standards", "Access control standards"]
+        }
+      },
+      "External Considerations": {
+        "Regulatory": {
+          "definition": "Legal requirements from government agencies and regulatory bodies that organizations must comply with. Non-compliance results in fines, sanctions, or legal action. Varies by industry and jurisdiction.",
+          "examples": ["HIPAA (healthcare)", "PCI DSS (payment cards)", "SOX (financial)", "GLBA (financial privacy)"]
+        },
+        "Legal": {
+          "definition": "Laws and legal obligations affecting information security including data protection, privacy, breach notification, and liability. Varies by country and region. Requires legal counsel involvement.",
+          "examples": ["GDPR (EU privacy)", "CCPA (California privacy)", "FERPA (education)", "Breach notification laws"]
+        },
+        "Industry": {
+          "definition": "Sector-specific security requirements and best practices. May be mandatory (regulatory) or voluntary (frameworks). Industry groups often establish standards.",
+          "examples": ["NERC CIP (energy)", "PCI DSS (payment)", "FISMA (federal)", "HITRUST (healthcare)"]
+        },
+        "Geographic": {
+          "definition": "Location-based legal and regulatory requirements including data sovereignty, cross-border data transfer restrictions, and regional privacy laws. Compliance required when operating in jurisdiction.",
+          "examples": ["GDPR (Europe)", "PDPA (Singapore)", "Data localization requirements", "Regional breach laws"]
+        }
+      },
+      "Governance Structures": {
+        "Boards": {
+          "definition": "Executive-level committees providing oversight and strategic direction for security program. Typically includes C-suite executives and board members. Sets security priorities and approves major initiatives.",
+          "examples": ["Board of Directors security committee", "Executive steering committee", "Risk management committee", "Audit committee"]
+        },
+        "Committees": {
+          "definition": "Working groups addressing specific security domains or issues. Cross-functional teams coordinating security activities. More tactical than boards.",
+          "examples": ["Change Advisory Board", "Incident Response Team", "Architecture Review Board", "Security Council"]
+        },
+        "Government Entities": {
+          "definition": "Regulatory agencies and government organizations with authority over security requirements. Enforce compliance and may conduct audits or investigations.",
+          "examples": ["SEC", "FTC", "HHS (HIPAA)", "CISA", "State regulators"]
+        },
+        "Centralized vs Decentralized": {
+          "definition": "Organizational approaches to security governance. Centralized: security decisions made by central authority. Decentralized: business units have autonomy. Hybrid models common.",
+          "examples": ["Central security team (centralized)", "Federated security model (hybrid)", "Business unit security (decentralized)"]
+        }
+      },
+      "Roles and Responsibilities": {
+        "Owners": {
+          "definition": "Individuals with ultimate authority and accountability for assets, data, or systems. Make decisions about access, classification, and protection. Bear responsibility for security.",
+          "examples": ["Data owners", "System owners", "Application owners", "Process owners"]
+        },
+        "Controllers": {
+          "definition": "Under GDPR, entities determining purposes and means of personal data processing. Make decisions about what data to collect and how to use it. Have specific legal obligations.",
+          "examples": ["Organization collecting customer data", "Service deciding data usage", "Company determining processing purposes"]
+        },
+        "Processors": {
+          "definition": "Under GDPR, entities processing personal data on behalf of controllers. Follow controller's instructions. Have contractual obligations and limited responsibilities.",
+          "examples": ["Cloud service providers", "Payroll processors", "Marketing service providers", "Data analytics firms"]
+        },
+        "Custodians": {
+          "definition": "Personnel responsible for day-to-day care and protection of data/systems. Implement security controls specified by owners. Technical administrators and operators. Also called stewards.",
+          "examples": ["IT administrators", "Database administrators", "System administrators", "Security team members"]
+        }
+      }
+    },
+    "5.2": {
+      "Risk Identification": {
+        "Risk Identification": {
+          "definition": "Process of discovering and documenting potential risks to organization. Uses threat modeling, vulnerability assessments, and business analysis. First step in risk management process.",
+          "examples": ["Threat assessments", "Asset inventories", "Vulnerability scans", "Threat modeling sessions"]
+        },
+        "Risk Assessment": {
+          "definition": "Systematic evaluation of identified risks determining likelihood and impact. Can be qualitative (high/medium/low) or quantitative (numerical). Informs risk treatment decisions.",
+          "examples": ["Annual risk assessments", "Project risk reviews", "Vendor risk assessments", "Penetration test findings"]
+        },
+        "Ad Hoc": {
+          "definition": "Unscheduled risk assessments performed as needed in response to specific events, changes, or concerns. Triggered by incidents, new projects, or emerging threats.",
+          "examples": ["Post-incident assessment", "New vendor evaluation", "Emergency change review", "Breach investigation"]
+        },
+        "Recurring": {
+          "definition": "Regularly scheduled risk assessments conducted at defined intervals (monthly, quarterly, annually). Provides consistent monitoring and trending of risk posture.",
+          "examples": ["Annual security assessments", "Quarterly vulnerability reviews", "Monthly threat briefings", "Periodic audits"]
+        },
+        "One-Time": {
+          "definition": "Single risk assessment conducted for specific purpose without planned repetition. Often project-based or addressing unique situation.",
+          "examples": ["New system deployment assessment", "Merger/acquisition review", "Data center relocation", "Compliance validation"]
+        },
+        "Continuous": {
+          "definition": "Ongoing automated risk monitoring and assessment using real-time data. Enables dynamic risk awareness and rapid response. Leverages security tools and automation.",
+          "examples": ["Continuous vulnerability scanning", "Real-time threat monitoring", "Automated compliance checking", "Security metrics dashboards"]
+        }
+      },
+      "Risk Analysis": {
+        "Qualitative": {
+          "definition": "Risk analysis using subjective ratings like high/medium/low or descriptive scales. Based on experience and judgment. Faster but less precise than quantitative.",
+          "examples": ["Risk heat maps", "High/Medium/Low ratings", "Risk matrices", "Expert judgment"]
+        },
+        "Quantitative": {
+          "definition": "Risk analysis using numerical values and calculations. Assigns monetary values to assets and losses. More objective but requires more data. Uses SLE, ALE, ARO calculations.",
+          "examples": ["Annual Loss Expectancy calculations", "Cost-benefit analysis", "Return on security investment", "Statistical modeling"]
+        },
+        "SLE": {
+          "full": "Single Loss Expectancy",
+          "definition": "Monetary value of loss from single security incident. Calculated as Asset Value × Exposure Factor. Used in quantitative risk analysis to estimate impact.",
+          "examples": ["$100,000 server × 60% damage = $60,000 SLE", "Data breach impact per incident", "Ransomware attack cost"]
+        },
+        "ALE": {
+          "full": "Annualized Loss Expectancy",
+          "definition": "Expected annual monetary loss from a risk. Calculated as SLE × ARO. Used to justify security investments and prioritize controls. Control cost should not exceed ALE.",
+          "examples": ["$60,000 SLE × 0.5 ARO = $30,000 ALE", "Annual expected breach costs", "Yearly risk exposure"]
+        },
+        "ARO": {
+          "full": "Annualized Rate of Occurrence",
+          "definition": "Estimated frequency of threat occurrence per year. Can be fraction (0.5 = once every 2 years) or whole number (3 = three times per year). Based on historical data or expert estimates.",
+          "examples": ["0.1 (once per 10 years)", "2.0 (twice per year)", "0.5 (once every 2 years)", "Historical incident rates"]
+        },
+        "Probability": {
+          "definition": "Likelihood of threat exploiting vulnerability expressed as percentage or decimal. Combined with impact to determine risk level. Based on threat intelligence and historical data.",
+          "examples": ["80% chance of phishing attack", "0.3 probability of breach", "High probability rating", "Statistical likelihood"]
+        },
+        "Likelihood": {
+          "definition": "Chance of risk event occurring, often expressed qualitatively (rare, unlikely, possible, likely, certain). Similar to probability but may be less precise. Used in qualitative analysis.",
+          "examples": ["Highly likely", "Unlikely to occur", "Probable", "Remote possibility"]
+        },
+        "Exposure Factor": {
+          "definition": "Percentage of asset value lost in security incident. Ranges from 0% (no loss) to 100% (total loss). Used in SLE calculation. Based on vulnerability severity and asset criticality.",
+          "examples": ["20% data corruption", "100% hardware destruction", "50% availability loss", "75% confidentiality breach"]
+        },
+        "Impact": {
+          "definition": "Consequence or damage from realized risk including financial loss, reputation damage, operational disruption, and legal liability. Measured qualitatively or quantitatively.",
+          "examples": ["$1M financial loss", "Critical business impact", "Severe reputation damage", "Complete system failure"]
+        }
+      },
+      "Risk Register": {
+        "Risk Register": {
+          "definition": "Centralized document tracking all identified risks with details on likelihood, impact, owners, and mitigation status. Living document updated regularly. Core risk management tool.",
+          "examples": ["Corporate risk register", "Project risk log", "IT risk database", "GRC platform register"]
+        },
+        "Key Risk Indicators": {
+          "full": "KRI",
+          "definition": "Metrics providing early warning signals of increasing risk exposure. Monitored regularly to detect risk trends. Trigger actions when thresholds exceeded.",
+          "examples": ["Failed login attempts", "Unpatched systems count", "Mean time to patch", "Security incidents per month"]
+        },
+        "Risk Owners": {
+          "definition": "Individuals assigned accountability for specific risks. Responsible for monitoring risk and implementing treatments. Have authority and resources to manage assigned risks.",
+          "examples": ["Business unit managers", "System owners", "Project managers", "Department heads"]
+        },
+        "Risk Threshold": {
+          "definition": "Level of risk organization is willing to tolerate before taking action. When risk exceeds threshold, treatment required. Aligned with risk appetite and tolerance.",
+          "examples": ["Critical risks require immediate action", "High risks need mitigation plan", "Medium risks monitored", "Acceptable risk levels"]
+        }
+      },
+      "Risk Tolerance and Appetite": {
+        "Risk Tolerance": {
+          "definition": "Specific maximum level of risk organization can withstand for particular objective or activity. More tactical than appetite. Defines acceptable variation from risk appetite.",
+          "examples": ["Max 1% data loss acceptable", "No critical vulnerabilities allowed", "Zero tolerance for PCI violations", "Max $100K risk exposure"]
+        },
+        "Risk Appetite": {
+          "definition": "Amount and type of risk organization is willing to accept in pursuit of objectives. Strategic-level statement. Guides risk tolerance and treatment decisions.",
+          "examples": ["Conservative: minimize all risks", "Moderate: accept calculated risks", "Aggressive: high risk tolerance", "Risk-averse organization"]
+        },
+        "Expansionary": {
+          "definition": "Risk appetite favoring growth and innovation even with higher risk. Accepts significant risk for potential rewards. Common in startups and competitive industries.",
+          "examples": ["Rapid cloud adoption", "Fast feature deployment", "Aggressive market expansion", "Innovation-first approach"]
+        },
+        "Conservative": {
+          "definition": "Risk-averse appetite prioritizing stability and security over growth. Minimal acceptable risk. Common in highly regulated industries and established organizations.",
+          "examples": ["Strict security controls", "Extensive change controls", "Slow technology adoption", "Risk avoidance focus"]
+        },
+        "Neutral": {
+          "definition": "Balanced risk appetite accepting moderate risks when justified by benefits. Evidence-based risk decisions. Balances security and business enablement.",
+          "examples": ["Risk-based approach", "Calculated risk acceptance", "Balanced security investments", "Pragmatic controls"]
+        }
+      },
+      "Risk Management Strategies": {
+        "Transfer": {
+          "definition": "Shifting risk to third party through insurance, contracts, or outsourcing. Risk doesn't disappear but financial impact transferred. Common for risks exceeding organization's capability.",
+          "examples": ["Cyber insurance", "Outsourcing to MSP", "Contractual liability transfer", "Cloud service provider SLAs"]
+        },
+        "Accept": {
+          "definition": "Acknowledging risk and choosing not to mitigate. Used when cost of mitigation exceeds potential loss or risk is within tolerance. Must be formally documented and approved.",
+          "examples": ["Accepting low-impact risks", "Known limitations documented", "Legacy system risks", "Business-approved exceptions"]
+        },
+        "Exemption": {
+          "definition": "Permanent exception to security policy or standard. Granted when compliance impossible or unreasonable. Requires senior management approval and compensating controls.",
+          "examples": ["Legacy system exemption", "Business critical exception", "Technical limitation waiver", "Permanent policy exception"]
+        },
+        "Exception": {
+          "definition": "Temporary deviation from security policy or standard. Time-limited with expiration date. Requires approval and regular review. Should have remediation plan.",
+          "examples": ["Temporary compliance waiver", "Short-term exception", "Emergency bypass approval", "90-day exception"]
+        },
+        "Avoid": {
+          "definition": "Eliminating risk by not engaging in activity or removing risk source. Most effective but may limit business opportunities. Used for unacceptable high-impact risks.",
+          "examples": ["Not entering risky markets", "Discontinuing vulnerable services", "Avoiding prohibited activities", "Shutting down exposed systems"]
+        },
+        "Mitigate": {
+          "definition": "Reducing risk to acceptable level through security controls and countermeasures. Most common strategy. Reduces likelihood, impact, or both.",
+          "examples": ["Implementing firewalls", "Patching vulnerabilities", "Security training", "Access controls"]
+        }
+      },
+      "Business Impact Analysis": {
+        "BIA": {
+          "full": "Business Impact Analysis",
+          "definition": "Process identifying critical business functions and quantifying impacts of disruptions. Determines recovery priorities and requirements. Foundation for business continuity and disaster recovery planning.",
+          "examples": ["Critical function identification", "Downtime impact assessment", "Recovery priority ranking", "Dependency mapping"]
+        },
+        "RTO": {
+          "full": "Recovery Time Objective",
+          "definition": "Maximum acceptable time to restore function after disruption. How quickly must recovery occur. Drives recovery strategy and resource requirements. Shorter RTO requires more investment.",
+          "examples": ["4-hour RTO for critical systems", "24-hour RTO for non-critical", "15-minute RTO for mission-critical"]
+        },
+        "RPO": {
+          "full": "Recovery Point Objective",
+          "definition": "Maximum acceptable data loss measured in time. How much data can be lost. Determines backup frequency and replication needs. Shorter RPO requires more frequent backups.",
+          "examples": ["5-minute RPO (continuous replication)", "1-hour RPO (hourly backups)", "Daily RPO (nightly backups)"]
+        },
+        "MTTR": {
+          "full": "Mean Time to Repair",
+          "definition": "Average time to repair failed component and restore to operation. Includes diagnosis, repair, and testing. Lower MTTR improves availability. Influences maintenance procedures.",
+          "examples": ["2-hour MTTR for critical systems", "Same-day hardware replacement", "Quick repair procedures"]
+        },
+        "MTBF": {
+          "full": "Mean Time Between Failures",
+          "definition": "Average time between system failures. Predicts reliability for repairable systems. Higher MTBF indicates more reliable system. Used in availability calculations.",
+          "examples": ["Hard drive MTBF of 1 million hours", "Server MTBF ratings", "Equipment reliability metrics"]
+        }
+      }
+    },
+    "5.3": {
+      "Vendor Assessment": {
+        "Penetration Testing": {
+          "definition": "Requesting or reviewing vendor penetration test results to validate security posture. Assesses vendor's vulnerability to attack. Should be performed by independent third party and updated regularly.",
+          "examples": ["Annual pen test reports", "Third-party security assessments", "Vulnerability validation", "Attack simulation results"]
+        },
+        "Right-to-Audit": {
+          "definition": "Contractual clause allowing organization to audit vendor's security controls, processes, and compliance. May conduct audit directly or review third-party reports. Essential for critical vendors.",
+          "examples": ["Audit rights in contracts", "On-site security assessments", "SOC 2 report review", "Compliance verification"]
+        },
+        "Internal Audits": {
+          "definition": "Evidence of vendor's internal security audit program. Demonstrates commitment to security oversight. Review audit scope, findings, and remediation.",
+          "examples": ["Vendor audit reports", "Internal control testing", "Compliance audit results", "Security program reviews"]
+        },
+        "Independent Assessments": {
+          "definition": "Third-party security evaluations of vendor by external auditors. More objective than vendor self-assessments. Common frameworks include SOC 2, ISO 27001, PCI.",
+          "examples": ["SOC 2 Type II reports", "ISO 27001 certification", "PCI DSS attestation", "FedRAMP authorization"]
+        },
+        "Supply Chain Analysis": {
+          "definition": "Assessment of vendor's suppliers and dependencies. Identifies fourth-party risks and supply chain vulnerabilities. Critical after high-profile supply chain attacks.",
+          "examples": ["Vendor dependency mapping", "Subcontractor reviews", "Software supply chain analysis", "Component sourcing verification"]
+        }
+      },
+      "Vendor Selection": {
+        "Due Diligence": {
+          "definition": "Comprehensive investigation of vendor before contracting. Reviews financial stability, security practices, compliance, and reputation. Risk-based depth appropriate to vendor criticality.",
+          "examples": ["Vendor security questionnaires", "Financial review", "Reference checks", "Security posture assessment"]
+        },
+        "Conflict of Interest": {
+          "definition": "Identifying situations where vendor selection could be influenced by personal relationships or financial interests. Ensures objective vendor evaluation. Requires disclosure and management.",
+          "examples": ["Personal relationships with vendors", "Financial interests", "Competing business relationships", "Disclosure requirements"]
+        }
+      },
+      "Agreement Types": {
+        "SLA": {
+          "full": "Service Level Agreement",
+          "definition": "Contract defining service performance metrics, availability guarantees, and penalties for non-compliance. Specifies expected service levels and measurement methods. Includes remedies for breaches.",
+          "examples": ["99.9% uptime guarantee", "4-hour response time", "Performance penalties", "Service credits"]
+        },
+        "MOA": {
+          "full": "Memorandum of Agreement",
+          "definition": "Formal agreement between parties outlining cooperation and shared objectives. Less formal than contract but more structured than MOU. Common in government and partnerships.",
+          "examples": ["Inter-agency agreements", "Partnership MOAs", "Collaborative arrangements", "Shared responsibility definitions"]
+        },
+        "MOU": {
+          "full": "Memorandum of Understanding",
+          "definition": "Non-binding agreement expressing intent to work together. Outlines general principles and objectives. Less formal than legal contracts. Often precedes formal agreements.",
+          "examples": ["Partnership intentions", "Collaboration framework", "General cooperation terms", "Preliminary agreements"]
+        },
+        "MSA": {
+          "full": "Master Service Agreement",
+          "definition": "Framework contract establishing general terms for future transactions. Reduces negotiation for each project. Contains standard terms, pricing, and legal provisions. Individual work orders reference MSA.",
+          "examples": ["Consulting MSAs", "Software licensing frameworks", "General terms and conditions", "Multi-project agreements"]
+        },
+        "Work Order": {
+          "full": "WO",
+          "definition": "Specific task authorization under master agreement. Defines scope, deliverables, timeline, and cost for particular project. References MSA for general terms.",
+          "examples": ["Project work orders", "Task assignments", "Specific deliverables", "Individual project scopes"]
+        },
+        "Statement of Work": {
+          "full": "SOW",
+          "definition": "Detailed project description including objectives, scope, deliverables, timeline, milestones, and acceptance criteria. More detailed than work order. Defines specific project requirements.",
+          "examples": ["Project SOWs", "Detailed scope documents", "Deliverable specifications", "Milestone definitions"]
+        },
+        "NDA": {
+          "full": "Non-Disclosure Agreement",
+          "definition": "Legal contract protecting confidential information shared between parties. Prevents unauthorized disclosure. Mutual (both parties) or unilateral (one party). Essential before sharing sensitive data.",
+          "examples": ["Mutual NDAs", "Vendor confidentiality agreements", "Pre-contract NDAs", "Proprietary information protection"]
+        },
+        "BPA": {
+          "full": "Business Partners Agreement",
+          "definition": "Formal agreement between business partners defining relationship, responsibilities, profit sharing, and governance. Broader than service agreements covering partnership structure.",
+          "examples": ["Joint venture agreements", "Partnership terms", "Profit sharing arrangements", "Governance structures"]
+        }
+      },
+      "Vendor Management": {
+        "Vendor Monitoring": {
+          "definition": "Ongoing oversight of vendor performance and security posture. Reviews compliance with SLAs, security requirements, and contractual obligations. Continuous throughout relationship.",
+          "examples": ["Performance reviews", "Security posture monitoring", "Compliance tracking", "Risk reassessments"]
+        },
+        "Questionnaires": {
+          "definition": "Standardized security assessment tools sent to vendors. Evaluates security controls, policies, and practices. Common frameworks include SIG, CAIQ, and custom assessments.",
+          "examples": ["Security questionnaires", "Vendor risk assessments", "Compliance surveys", "SIG Lite/Core/Full"]
+        },
+        "Rules of Engagement": {
+          "definition": "Guidelines defining acceptable activities, communication protocols, and boundaries for vendor interactions. Particularly important for security testing and incident response. Sets clear expectations.",
+          "examples": ["Pen test scope limits", "Incident response procedures", "Communication channels", "Escalation paths"]
+        }
+      }
+    },
+    "5.4": {
+      "Compliance Reporting": {
+        "Internal": {
+          "definition": "Compliance reports for internal stakeholders including management, board, and audit committee. Demonstrates control effectiveness and identifies gaps. Supports governance and risk management.",
+          "examples": ["Board compliance reports", "Management dashboards", "Audit committee reports", "Internal control assessments"]
+        },
+        "External": {
+          "definition": "Compliance reports for external parties including regulators, auditors, and customers. Demonstrates regulatory compliance and security posture. May be required or voluntary.",
+          "examples": ["Regulatory filings", "SOC 2 reports", "Compliance attestations", "Customer audit reports"]
+        }
+      },
+      "Consequences": {
+        "Fines": {
+          "definition": "Monetary penalties for compliance violations imposed by regulators. Can be substantial based on violation severity and revenue. GDPR fines up to 4% of global revenue.",
+          "examples": ["GDPR penalties (up to €20M or 4% revenue)", "HIPAA fines ($100-$50,000 per violation)", "PCI DSS fines", "SEC penalties"]
+        },
+        "Sanctions": {
+          "definition": "Punitive actions beyond fines including restrictions, bans, or operating limitations. May prohibit certain activities or markets. Can severely impact business operations.",
+          "examples": ["Business operation restrictions", "Market access bans", "Data processing prohibitions", "License suspensions"]
+        },
+        "Reputational Damage": {
+          "definition": "Loss of customer trust and brand value from non-compliance or breaches. Often exceeds direct costs. Long-lasting impact on business. Difficult to quantify but critical.",
+          "examples": ["Customer loss", "Brand damage", "Negative publicity", "Market value decline"]
+        },
+        "Loss of License": {
+          "definition": "Revocation of authorization to operate in regulated industry. Most severe consequence. May force business closure. Common in financial services and healthcare.",
+          "examples": ["Banking license revocation", "Healthcare provider exclusion", "Professional license loss", "Operating permit cancellation"]
+        },
+        "Contractual Impacts": {
+          "definition": "Contract termination or penalties from customers/partners due to non-compliance. Lost business opportunities. Breach of contractual security requirements.",
+          "examples": ["Customer contract termination", "Partnership dissolution", "SLA penalties", "Business opportunity loss"]
+        }
+      },
+      "Compliance Monitoring": {
+        "Due Diligence": {
+          "definition": "Reasonable care and investigation to ensure compliance with laws and regulations. Proactive compliance verification. Demonstrates good faith effort.",
+          "examples": ["Regular compliance reviews", "Legal requirement monitoring", "Policy updates", "Training programs"]
+        },
+        "Due Care": {
+          "definition": "Implementing appropriate safeguards and acting responsibly to protect assets and data. Reasonable person standard. Demonstrates prudent security practices.",
+          "examples": ["Implementing security controls", "Regular patching", "Security awareness training", "Incident response capability"]
+        },
+        "Attestation": {
+          "definition": "Formal declaration or certification of compliance by responsible party. May require signature from executives. Creates accountability and legal obligation.",
+          "examples": ["SOX attestation", "Compliance certifications", "Executive sign-offs", "Annual attestations"]
+        },
+        "Acknowledgement": {
+          "definition": "Confirmation that individuals received, read, and understood policies or training. Evidence of awareness. Often required for acceptable use and security policies.",
+          "examples": ["Policy acceptance signatures", "Training completion confirmations", "Code of conduct acknowledgments", "Annual recertification"]
+        },
+        "Automation": {
+          "definition": "Automated compliance monitoring and reporting using tools and scripts. Continuous compliance verification. Reduces manual effort and human error.",
+          "examples": ["Automated compliance scanning", "GRC platforms", "Configuration monitoring", "Policy enforcement tools"]
+        }
+      },
+      "Privacy": {
+        "Legal Implications": {
+          "definition": "Privacy laws and regulations varying by jurisdiction. Includes data protection, breach notification, and individual rights. Non-compliance risks fines and legal action.",
+          "examples": ["GDPR (EU)", "CCPA (California)", "PIPEDA (Canada)", "Privacy Act (Australia)"]
+        },
+        "Data Subject": {
+          "definition": "Individual whose personal data is being processed. Has rights under privacy laws including access, correction, and deletion. Central to privacy regulations.",
+          "examples": ["Customers", "Employees", "Website visitors", "Service users"]
+        },
+        "Controller vs Processor": {
+          "definition": "GDPR distinction: Controller determines purposes/means of processing, Processor acts on controller's behalf. Different responsibilities and liabilities.",
+          "examples": ["Company as controller", "Cloud provider as processor", "Payroll vendor as processor", "Marketing firm as processor"]
+        },
+        "Ownership": {
+          "definition": "Legal rights to data and information. Data subjects retain ownership of personal data. Organizations are data custodians, not owners. Affects usage and retention.",
+          "examples": ["Personal data ownership", "Intellectual property", "Data rights", "Customer data custody"]
+        },
+        "Data Inventory": {
+          "definition": "Catalog of personal data collected, processed, and stored including data types, locations, purposes, and retention periods. Required by many privacy regulations.",
+          "examples": ["Data mapping", "Privacy inventory", "Record of processing activities", "Data flow diagrams"]
+        },
+        "Retention": {
+          "definition": "Policies defining how long data is kept before deletion. Balances legal requirements, business needs, and privacy principles. Must justify retention periods.",
+          "examples": ["7-year financial records", "Employment records retention", "Log retention policies", "Customer data lifecycle"]
+        },
+        "Right to be Forgotten": {
+          "definition": "Individual's right to request deletion of personal data under certain conditions. GDPR right to erasure. Organizations must delete unless legal basis for retention.",
+          "examples": ["GDPR erasure requests", "Account deletion requests", "Data deletion procedures", "Privacy request workflows"]
+        }
+      }
+    },
+    "5.5": {
+      "Internal Assessments": {
+        "Compliance": {
+          "definition": "Internal audits verifying adherence to policies, standards, and regulations. Identifies gaps and non-compliance. Performed by internal audit team or security team.",
+          "examples": ["Policy compliance audits", "Standard adherence reviews", "Control effectiveness testing", "Gap assessments"]
+        },
+        "Audit Committee": {
+          "definition": "Board-level committee overseeing financial reporting, internal controls, and audit activities. Reviews audit findings and ensures management response. Provides governance oversight.",
+          "examples": ["Board audit committee", "Audit oversight", "Finding reviews", "Management accountability"]
+        },
+        "Self-Assessments": {
+          "definition": "Organization evaluating own compliance and controls without external auditor. Uses frameworks and checklists. Lower cost but less objective than third-party audits.",
+          "examples": ["Control self-assessments", "Compliance checklists", "Framework gap analysis", "Internal evaluations"]
+        }
+      },
+      "External Assessments": {
+        "Regulatory": {
+          "definition": "Audits and examinations by government regulators verifying compliance with laws and regulations. Mandatory for regulated industries. Non-compliance results in penalties.",
+          "examples": ["SEC examinations", "FDIC audits", "HHS HIPAA audits", "State regulatory reviews"]
+        },
+        "Examinations": {
+          "definition": "In-depth reviews by regulatory authorities assessing compliance, controls, and risk management. More comprehensive than routine inspections. May be scheduled or triggered by concerns.",
+          "examples": ["Bank examinations", "Safety inspections", "Regulatory deep dives", "Compliance examinations"]
+        },
+        "Third-Party Assessments": {
+          "definition": "Independent evaluations by external auditors or assessment firms. Objective validation of controls and compliance. Common frameworks include SOC 2, ISO 27001.",
+          "examples": ["SOC 2 audits", "ISO 27001 certification", "PCI DSS assessments", "Security audits"]
+        }
+      },
+      "Penetration Testing": {
+        "Physical": {
+          "definition": "Testing physical security controls by attempting unauthorized physical access. Assesses locks, guards, badges, and physical barriers. May include social engineering.",
+          "examples": ["Building access attempts", "Tailgating tests", "Lock picking", "Security guard testing"]
+        },
+        "Offensive": {
+          "definition": "Red team activities attacking systems and networks to identify vulnerabilities. Simulates real-world attackers. Tests detection and response capabilities.",
+          "examples": ["Network penetration testing", "Application exploitation", "Phishing campaigns", "Attack simulations"]
+        },
+        "Defensive": {
+          "definition": "Blue team activities focused on detection, prevention, and response. Defends against red team attacks. Validates security control effectiveness.",
+          "examples": ["Threat hunting", "Incident response", "Security monitoring", "Defense validation"]
+        },
+        "Integrated": {
+          "definition": "Purple team approach combining offensive and defensive teams. Collaborative security testing. Red team attacks while blue team defends with shared learning.",
+          "examples": ["Purple team exercises", "Collaborative testing", "Shared learning sessions", "Combined assessments"]
+        },
+        "Known Environment": {
+          "definition": "Penetration test where testers have full knowledge of systems and environment. Formerly called white box. Efficient and thorough but less realistic.",
+          "examples": ["White box testing", "Full disclosure testing", "Architecture review-based testing", "Informed testing"]
+        },
+        "Partially Known": {
+          "definition": "Penetration test with limited knowledge of environment. Formerly called gray box. Balances realism and efficiency. Common for web application testing.",
+          "examples": ["Gray box testing", "Limited disclosure", "Credentialed scanning", "Partial knowledge testing"]
+        },
+        "Unknown Environment": {
+          "definition": "Penetration test with no prior knowledge of environment. Formerly called black box. Most realistic but time-consuming. Simulates external attacker perspective.",
+          "examples": ["Black box testing", "Zero knowledge testing", "External perspective", "Blind testing"]
+        },
+        "Reconnaissance": {
+          "definition": "Information gathering phase before active testing. Includes passive and active reconnaissance. Identifies targets, vulnerabilities, and attack vectors.",
+          "examples": ["Network mapping", "DNS enumeration", "Social media research", "OSINT gathering"]
+        },
+        "Passive Reconnaissance": {
+          "definition": "Information gathering without directly interacting with target. No detectable footprint. Uses public sources and indirect methods.",
+          "examples": ["Public record searches", "Social media analysis", "DNS lookups", "Website research"]
+        },
+        "Active Reconnaissance": {
+          "definition": "Direct interaction with target systems to gather information. Detectable by security controls. Includes scanning and enumeration.",
+          "examples": ["Port scanning", "Vulnerability scanning", "Network enumeration", "Service fingerprinting"]
+        }
+      }
+    },
+    "5.6": {
+      "Security Awareness": {
+        "Phishing Campaigns": {
+          "definition": "Simulated phishing attacks testing user awareness and response. Identifies vulnerable users for additional training. Tracks metrics and improvement over time. Conducted regularly.",
+          "examples": ["Simulated phishing emails", "Spear phishing tests", "User reporting metrics", "Click-through tracking"]
+        },
+        "Recognizing Phishing": {
+          "definition": "Training users to identify phishing indicators including suspicious senders, urgent requests, unexpected attachments, and spoofed links. Critical security awareness skill.",
+          "examples": ["Sender verification training", "Link inspection techniques", "Red flag identification", "Urgency recognition"]
+        },
+        "Reporting Suspicious Messages": {
+          "definition": "Procedures for users to report suspected phishing and malicious emails to security team. Enables rapid response and threat intelligence. Should be easy and encouraged.",
+          "examples": ["Phishing report buttons", "Security team email addresses", "Reporting procedures", "User recognition programs"]
+        }
+      },
+      "Anomalous Behavior": {
+        "Risky": {
+          "definition": "Behaviors creating security risks including using personal devices, accessing suspicious sites, or sharing credentials. May be intentional or unknowing. Requires awareness training.",
+          "examples": ["Credential sharing", "Using personal cloud storage", "Bypassing security controls", "Clicking unknown links"]
+        },
+        "Unexpected": {
+          "definition": "Unusual user activities deviating from normal patterns. May indicate compromised account or insider threat. Triggers security investigation.",
+          "examples": ["Off-hours access", "Unusual data access", "Geographic anomalies", "Behavior changes"]
+        },
+        "Unintentional": {
+          "definition": "Accidental security violations without malicious intent. Common cause of security incidents. Addressed through training and awareness. Honest mistakes.",
+          "examples": ["Accidental data exposure", "Email to wrong recipient", "Lost devices", "Configuration errors"]
+        }
+      },
+      "User Guidance": {
+        "Policy Handbooks": {
+          "definition": "Documented security policies and procedures provided to all users. Reference material for security requirements. Should be accessible and understandable.",
+          "examples": ["Security policy manual", "Employee handbook", "Security guidelines", "Quick reference guides"]
+        },
+        "Situational Awareness": {
+          "definition": "Training users to recognize security threats in various situations including social engineering, physical security, and data handling. Context-specific awareness.",
+          "examples": ["Travel security awareness", "Remote work guidance", "Public WiFi risks", "Social engineering scenarios"]
+        },
+        "Insider Threat": {
+          "definition": "Awareness of risks from insiders including malicious and negligent threats. Training on indicators and reporting procedures. Emphasizes collective security responsibility.",
+          "examples": ["Behavioral indicators", "Reporting suspicious activity", "Access control importance", "Data protection"]
+        },
+        "Password Management": {
+          "definition": "Training on creating strong passwords, using password managers, avoiding password reuse, and recognizing password attacks. Fundamental security practice.",
+          "examples": ["Strong password creation", "Password manager usage", "MFA importance", "Password sharing risks"]
+        },
+        "Removable Media": {
+          "definition": "Awareness of risks from USB drives, external hard drives, and other removable media. Includes malware delivery and data exfiltration. Policies on acceptable use.",
+          "examples": ["USB device risks", "Unknown device warnings", "Data transfer policies", "Malware vectors"]
+        },
+        "Social Engineering": {
+          "definition": "Training users to recognize and resist manipulation tactics including pretexting, phishing, baiting, and tailgating. Critical defense layer.",
+          "examples": ["Manipulation techniques", "Verification procedures", "Trust-but-verify approach", "Reporting attempts"]
+        },
+        "Operational Security": {
+          "full": "OPSEC",
+          "definition": "Protecting sensitive information from adversaries through awareness of what information is valuable and how to safeguard it. Military concept applied to business.",
+          "examples": ["Clean desk policies", "Secure disposal", "Information classification", "Communication security"]
+        },
+        "Hybrid/Remote Work": {
+          "definition": "Security awareness specific to remote and hybrid work environments including home network security, VPN use, and physical security of remote workspace.",
+          "examples": ["Home WiFi security", "VPN requirements", "Video call security", "Workspace privacy"]
+        }
+      },
+      "Reporting and Monitoring": {
+        "Initial": {
+          "definition": "First security awareness training for new employees during onboarding. Establishes baseline security knowledge. Covers fundamental policies and procedures.",
+          "examples": ["New hire orientation", "Onboarding security training", "Initial policy acknowledgment", "Baseline training"]
+        },
+        "Recurring": {
+          "definition": "Ongoing periodic security awareness training maintaining and updating knowledge. Annual or more frequent. Covers new threats and refreshes key concepts.",
+          "examples": ["Annual security training", "Monthly security tips", "Quarterly awareness campaigns", "Refresher training"]
+        }
+      },
+      "Program Management": {
+        "Development": {
+          "definition": "Creating comprehensive security awareness program including content development, delivery methods, and metrics. Aligns with organizational risks and culture.",
+          "examples": ["Program design", "Content creation", "Training modules", "Awareness campaigns"]
+        },
+        "Execution": {
+          "definition": "Delivering security awareness program through training sessions, campaigns, and communications. Ongoing program operation. Tracks participation and effectiveness.",
+          "examples": ["Training delivery", "Campaign launches", "Communication distribution", "Event coordination"]
+        }
+      }
+    }
   }
 }
