@@ -349,6 +349,335 @@
           "examples": ["Hidden administrator accounts", "Debug interfaces left enabled", "Trojan backdoors", "Web shell backdoors"]
         }
       }
+    },
+    "2.3": {
+      "Application Vulnerabilities": {
+        "Memory Injection": {
+          "definition": "Exploiting memory management flaws to inject malicious code into running processes. Attackers manipulate how applications allocate and use memory to execute arbitrary code. Common in languages with manual memory management like C/C++. Can lead to code execution, privilege escalation, or system compromise.",
+          "examples": ["DLL injection", "Code cave injection", "Process hollowing", "Reflective DLL injection"]
+        },
+        "Buffer Overflow": {
+          "definition": "Writing more data to a memory buffer than it can hold, overwriting adjacent memory locations. Can crash applications, corrupt data, or allow arbitrary code execution by overwriting return addresses or function pointers. Classic vulnerability in C/C++ programs lacking bounds checking.",
+          "examples": ["Stack-based buffer overflow", "Heap overflow", "Integer overflow", "Off-by-one errors"]
+        },
+        "Race Conditions": {
+          "definition": "Vulnerabilities occurring when software behavior depends on timing or sequence of events that can be manipulated. Attacker exploits the time gap between checking a condition and using the result. Can bypass security checks or cause unexpected behavior in multi-threaded applications.",
+          "examples": ["Time-of-check/Time-of-use (TOCTOU)", "File system race conditions", "Concurrent access bugs", "Thread synchronization errors"]
+        },
+        "Malicious Update": {
+          "definition": "Compromised software updates containing malicious code distributed through legitimate update mechanisms. Attackers infiltrate update servers or development pipelines to poison updates. Extremely dangerous as users trust and automatically install updates. Notable example: SolarWinds supply chain attack.",
+          "examples": ["SolarWinds Orion backdoor", "Compromised software patches", "Poisoned automatic updates", "Supply chain update attacks"]
+        }
+      },
+      "OS-based Vulnerabilities": {
+        "Operating System Vulnerabilities": {
+          "definition": "Security flaws in operating system components including kernel, services, drivers, and system utilities. Can provide escalated privileges, remote code execution, or system crashes. Require prompt patching but may affect system stability. Critical as OS compromise affects all applications.",
+          "examples": ["EternalBlue (Windows SMB)", "Dirty COW (Linux kernel)", "Privilege escalation bugs", "Kernel exploits"]
+        }
+      },
+      "Web-based Vulnerabilities": {
+        "SQL Injection (SQLi)": {
+          "definition": "Inserting malicious SQL code into application inputs to manipulate database queries. Allows attackers to bypass authentication, extract data, modify databases, execute admin operations, or even execute OS commands. One of most critical web vulnerabilities. Prevented through parameterized queries.",
+          "examples": ["Authentication bypass", "Data exfiltration via UNION", "Database enumeration", "Blind SQL injection"]
+        },
+        "Cross-Site Scripting (XSS)": {
+          "definition": "Injecting malicious scripts into web pages viewed by other users. Executes attacker's code in victim's browser context, allowing session hijacking, credential theft, website defacement, or malware distribution. Three types: stored, reflected, and DOM-based XSS.",
+          "examples": ["Stored XSS in comments", "Reflected XSS in search", "DOM-based XSS", "Session cookie theft"]
+        }
+      },
+      "Hardware Vulnerabilities": {
+        "Firmware": {
+          "definition": "Low-level software embedded in hardware devices providing basic control. Firmware vulnerabilities are severe as they persist across OS reinstalls, difficult to detect and patch, and can provide deep system access. Includes BIOS/UEFI, device firmware, and embedded system code.",
+          "examples": ["UEFI rootkits", "Router firmware exploits", "IoT device firmware bugs", "Network device backdoors"]
+        },
+        "End-of-Life": {
+          "definition": "Hardware that has reached the end of manufacturer support lifecycle. No longer receives security updates, firmware patches, or technical support. Creates security risks as new vulnerabilities cannot be addressed. Common in specialized equipment and legacy infrastructure.",
+          "examples": ["Discontinued network equipment", "Unsupported servers", "Legacy medical devices", "Obsolete industrial control hardware"]
+        },
+        "Legacy": {
+          "definition": "Older hardware systems still in use despite being outdated. May lack modern security features, run unsupported software, or use deprecated protocols. Difficult to replace due to cost, dependencies, or specialized functions. Requires compensating controls and network isolation.",
+          "examples": ["Mainframe systems", "Legacy SCADA hardware", "Old point-of-sale terminals", "Aging medical equipment"]
+        }
+      },
+      "Virtualization Vulnerabilities": {
+        "VM Escape": {
+          "definition": "Breaking out of virtual machine boundaries to access the host system or other VMs. Extremely severe vulnerability allowing attacker to compromise entire virtualization infrastructure. Exploits hypervisor vulnerabilities. Rare but high-impact. Mitigated through hypervisor patching and isolation.",
+          "examples": ["Hypervisor exploits", "Guest-to-host attacks", "Container escape", "VM-to-VM lateral movement"]
+        },
+        "Resource Reuse": {
+          "definition": "Security risk when resources (memory, storage, CPU) previously used by one VM are allocated to another without proper sanitization. Can leak sensitive data between tenants in cloud environments. Includes data remanence in memory, storage, and cache.",
+          "examples": ["Memory not cleared between VMs", "Disk sector reuse", "CPU cache data leakage", "Cloud multi-tenancy data exposure"]
+        }
+      },
+      "Other Vulnerabilities": {
+        "Cloud-specific": {
+          "definition": "Security vulnerabilities unique to cloud computing environments including misconfigurations, insecure APIs, inadequate access controls, shared responsibility gaps, and multi-tenancy issues. Often stem from rapid deployment, lack of visibility, and complex cloud services.",
+          "examples": ["Misconfigured S3 buckets", "Exposed cloud databases", "Insecure cloud APIs", "IAM permission errors", "Container misconfigurations"]
+        },
+        "Supply Chain": {
+          "definition": "Vulnerabilities introduced through third-party vendors, software dependencies, hardware manufacturers, or service providers. Difficult to detect as trust is placed in suppliers. Can compromise many downstream customers simultaneously. Requires vendor security assessments and monitoring.",
+          "examples": ["Compromised open-source libraries", "Malicious npm packages", "Hardware backdoors", "Vendor breaches", "Third-party software flaws"]
+        },
+        "Cryptographic": {
+          "definition": "Weaknesses in cryptographic implementations, algorithms, or key management. Includes use of deprecated algorithms, weak keys, poor random number generation, implementation flaws, and side-channel attacks. Can expose encrypted data or enable impersonation.",
+          "examples": ["Weak encryption algorithms (DES, MD5)", "Hardcoded cryptographic keys", "Poor random number generation", "Padding oracle attacks", "Heartbleed"]
+        },
+        "Misconfiguration": {
+          "definition": "Security vulnerabilities resulting from improper system, application, or security control configuration. One of most common vulnerability types. Includes default credentials, unnecessary services enabled, excessive permissions, unpatched systems, and disabled security features.",
+          "examples": ["Default passwords unchanged", "Unnecessary ports open", "Excessive user permissions", "Security features disabled", "Unencrypted communications"]
+        },
+        "Mobile Device": {
+          "definition": "Security vulnerabilities specific to mobile platforms (iOS, Android) including OS vulnerabilities, malicious apps, insecure data storage, weak encryption, and platform-specific attack vectors like sideloading and jailbreaking that bypass security controls.",
+          "examples": ["Malicious mobile apps", "Insecure mobile APIs", "SMS/MMS exploits", "Mobile OS vulnerabilities"]
+        },
+        "Zero-day": {
+          "definition": "Previously unknown vulnerability that has no available patch or fix. Called 'zero-day' because developers have zero days to fix it before exploitation. Highly valuable to attackers and expensive on black market. Extremely dangerous until discovered and patched.",
+          "examples": ["Stuxnet zero-days", "Zero-day browser exploits", "Unknown OS vulnerabilities", "Unpatched application flaws"]
+        }
+      }
+    },
+    "2.4": {
+      "Malware Attacks": {
+        "Ransomware": {
+          "definition": "Malware encrypting files or locking systems, demanding payment (usually cryptocurrency) for decryption key. Modern variants exfiltrate data first for double extortion. Causes massive operational disruption and financial losses. Top cybersecurity threat to organizations.",
+          "examples": ["WannaCry", "Ryuk", "REvil/Sodinokibi", "Conti", "LockBit"]
+        },
+        "Trojan": {
+          "definition": "Malicious software disguised as or bundled with legitimate programs. Does not self-replicate. Tricks users into installing by appearing benign. Provides backdoor access, steals credentials, downloads additional malware, or creates botnets. Named after Greek Trojan horse.",
+          "examples": ["Remote Access Trojans (RATs)", "Banking trojans (Zeus, Emotet)", "Backdoor trojans", "Trojan downloaders"]
+        },
+        "Worm": {
+          "definition": "Self-replicating malware spreading automatically across networks without user interaction. Exploits vulnerabilities or weak credentials to propagate. Consumes bandwidth and resources. Can carry destructive payloads. Modern network defenses and patching have reduced major worm outbreaks.",
+          "examples": ["WannaCry (worm component)", "Conficker", "SQL Slammer", "Blaster", "Morris Worm"]
+        },
+        "Spyware": {
+          "definition": "Software secretly monitoring and collecting user information without consent. Tracks browsing, captures keystrokes, steals credentials, records screens, and exfiltrates personal data. Often bundled with free software. Includes keyloggers and stalkerware.",
+          "examples": ["Keyloggers", "Browser tracking software", "Credential stealers", "Screen capture tools", "Stalkerware apps"]
+        },
+        "Bloatware": {
+          "definition": "Pre-installed software on devices that users don't want or need. While not always malicious, can contain security vulnerabilities, consume resources, collect user data, or be difficult to remove. Common on consumer devices and can create attack surface.",
+          "examples": ["Pre-installed manufacturer apps", "Carrier bloatware on phones", "Adware bundled with free software", "Unwanted browser toolbars"]
+        },
+        "Virus": {
+          "definition": "Malicious code that attaches to legitimate files or programs and replicates when host is executed. Requires user action to spread. Can corrupt files, steal data, or deliver payloads. Oldest form of malware. Modern antivirus and security practices have reduced prevalence.",
+          "examples": ["File infector viruses", "Macro viruses", "Boot sector viruses", "Polymorphic viruses"]
+        },
+        "Keylogger": {
+          "definition": "Software or hardware recording every keystroke typed on a keyboard. Captures passwords, credit card numbers, messages, and sensitive information. Can be legitimate (parental monitoring) or malicious (credential theft). Hardware keyloggers physically intercept keyboard signals.",
+          "examples": ["Software keyloggers", "Hardware keyloggers (USB devices)", "Mobile keylogger apps", "Kernel-mode keyloggers"]
+        },
+        "Logic Bomb": {
+          "definition": "Malicious code lying dormant until triggered by specific condition (date, time, user action, system event). Often planted by insiders for sabotage or revenge. Executes destructive payload when activated. Difficult to detect before trigger. Time bombs are date-triggered variants.",
+          "examples": ["Time bomb on specific date", "Triggered on employee termination", "Action-based triggers", "Event-driven destruction"]
+        },
+        "Rootkit": {
+          "definition": "Malware providing privileged (root) access while hiding its presence from users and security software. Modifies OS to conceal processes, files, registry keys, and network connections. Kernel-mode rootkits are most severe. Extremely difficult to detect and remove.",
+          "examples": ["Kernel-mode rootkits", "Bootkits (boot sector)", "Firmware rootkits", "User-mode rootkits"]
+        }
+      },
+      "Physical Attacks": {
+        "Brute Force (Physical)": {
+          "definition": "Using physical force to breach security controls including breaking locks, smashing barriers, forcing doors, or destroying access controls. Low-tech but effective against weak physical security. Leaves obvious evidence. Can be combined with cyber attacks.",
+          "examples": ["Breaking door locks", "Smashing windows", "Cutting fences", "Destroying security cameras", "Forcing cabinet locks"]
+        },
+        "RFID Cloning": {
+          "definition": "Copying Radio Frequency Identification credentials from access badges or cards to create duplicates. Attackers use RFID readers to capture signals and clone to blank cards. Enables unauthorized physical access. Proximity cards especially vulnerable. Mitigated with encrypted RFID systems.",
+          "examples": ["Cloning access badges", "Duplicating hotel key cards", "Copying contactless payment cards", "Badge skimming attacks"]
+        },
+        "Environmental": {
+          "definition": "Physical attacks exploiting or causing environmental conditions to disrupt operations or damage systems. Includes tampering with power, HVAC, water, or creating hazardous conditions. Can destroy hardware, corrupt data, or deny access to facilities.",
+          "examples": ["Power disruption", "HVAC manipulation", "Fire suppression activation", "Flooding", "Temperature extremes"]
+        }
+      },
+      "Network Attacks": {
+        "Distributed Denial-of-Service (DDoS)": {
+          "definition": "Overwhelming target systems or networks with massive traffic from multiple sources (botnet) making services unavailable to legitimate users. Difficult to mitigate due to distributed sources. Types include volumetric, protocol, and application-layer attacks. Can include amplification and reflection.",
+          "examples": ["UDP flood attacks", "SYN flood", "HTTP flood", "DNS amplification", "NTP reflection attacks"]
+        },
+        "DNS Attacks": {
+          "definition": "Attacks targeting Domain Name System infrastructure to redirect users, deny service, or exfiltrate data. Includes DNS poisoning/spoofing, DNS tunneling for data exfiltration, DNS amplification DDoS, and domain hijacking.",
+          "examples": ["DNS cache poisoning", "DNS tunneling", "DNS hijacking", "DNS amplification attacks", "Domain spoofing"]
+        },
+        "Wireless Attacks": {
+          "definition": "Exploiting vulnerabilities in wireless networks and protocols. Includes evil twin APs, WEP/WPA cracking, deauthentication attacks, rogue access points, Bluetooth attacks, and RFID/NFC exploits. Wireless signals extend beyond physical boundaries increasing attack surface.",
+          "examples": ["Evil twin access points", "WPA/WPA2 cracking", "Deauthentication attacks", "Bluetooth exploits", "Rogue APs"]
+        },
+        "On-path Attack": {
+          "definition": "Attacker intercepts communications between two parties, relaying and potentially altering messages while appearing transparent. Previously called man-in-the-middle (MITM). Can capture credentials, session tokens, sensitive data, or inject malicious content. Requires position in network path.",
+          "examples": ["ARP spoofing", "SSL stripping", "Session hijacking", "WiFi eavesdropping", "BGP hijacking"]
+        },
+        "Credential Replay": {
+          "definition": "Capturing valid authentication credentials or session tokens and reusing them to gain unauthorized access. Intercepted credentials replayed to authenticate as legitimate user. Prevented using timestamps, nonces, sequence numbers, and session token rotation.",
+          "examples": ["Replaying captured passwords", "Session token reuse", "Kerberos ticket replay", "Authentication cookie replay"]
+        },
+        "Malicious Code (Network-based)": {
+          "definition": "Malware spreading through network vectors including worms, network exploits, drive-by downloads, and watering hole attacks. Exploits network services, protocols, or web browsing to compromise systems remotely without physical access.",
+          "examples": ["Network worms", "Drive-by downloads", "Exploit kits", "Watering hole attacks", "Malvertising"]
+        }
+      },
+      "Application Attacks": {
+        "Injection": {
+          "definition": "Inserting malicious code or commands into application inputs to manipulate execution. Includes SQL injection, command injection, LDAP injection, XML injection, and code injection. Exploits insufficient input validation. Can lead to data theft, system compromise, or unauthorized actions.",
+          "examples": ["SQL injection", "Command injection", "LDAP injection", "XML injection", "NoSQL injection"]
+        },
+        "Buffer Overflow": {
+          "definition": "Writing excessive data to memory buffers, overwriting adjacent memory. Can crash applications or enable arbitrary code execution. Exploits lack of bounds checking in programming languages. Mitigated by modern protections (DEP, ASLR, stack canaries).",
+          "examples": ["Stack overflow", "Heap overflow", "Return-oriented programming", "Format string attacks"]
+        },
+        "Replay": {
+          "definition": "Capturing and retransmitting valid application requests or authentication to duplicate actions. Attacker intercepts legitimate communications and replays them to impersonate users or repeat transactions. Prevented with timestamps, nonces, and anti-replay mechanisms.",
+          "examples": ["Authentication replay", "Transaction replay", "Session replay", "API request replay"]
+        },
+        "Privilege Escalation": {
+          "definition": "Exploiting vulnerabilities to gain higher access privileges than authorized. Vertical escalation gains admin/root privileges. Horizontal escalation accesses other users' privileges. Critical step in most attacks. Results from poor access controls or software vulnerabilities.",
+          "examples": ["Local privilege escalation to admin", "Exploiting SUID binaries", "Kernel exploits", "Access control bypasses"]
+        },
+        "Forgery": {
+          "definition": "Creating fraudulent requests or data that appears legitimate. Includes Cross-Site Request Forgery (CSRF) forcing authenticated users to execute unwanted actions, and server-side request forgery (SSRF) making servers perform unintended requests. Exploits trust relationships.",
+          "examples": ["Cross-Site Request Forgery (CSRF)", "Server-Side Request Forgery (SSRF)", "Request forgery", "Token forgery"]
+        },
+        "Directory Traversal": {
+          "definition": "Manipulating file path inputs using sequences like '../' to access files outside intended directories. Can expose configuration files, source code, credentials, and system files. Also called path traversal. Prevented through input validation and sandboxing.",
+          "examples": ["Reading /etc/passwd", "Accessing config files", "Source code disclosure", "Log file access via ../../../../"]
+        }
+      },
+      "Cryptographic Attacks": {
+        "Downgrade": {
+          "definition": "Forcing systems to use weaker, older cryptographic protocols or ciphers that are easier to break. Exploits backward compatibility. Attacker manipulates protocol negotiation to select vulnerable options. Enabled SSL/TLS attacks. Prevented by disabling legacy protocols.",
+          "examples": ["SSL stripping", "TLS downgrade to SSL 3.0", "Cipher suite downgrade", "POODLE attack"]
+        },
+        "Collision": {
+          "definition": "Finding two different inputs that produce the same hash output. Breaks cryptographic hash function integrity. Allows attackers to substitute malicious files with same hash as legitimate files, bypassing integrity checks. MD5 and SHA-1 are collision-vulnerable.",
+          "examples": ["MD5 collisions", "SHA-1 collisions", "Digital signature forgery via collision", "Certificate spoofing"]
+        },
+        "Birthday": {
+          "definition": "Cryptographic attack exploiting birthday paradox to find hash collisions more efficiently. With N possible hash values, only sqrt(N) attempts needed for 50% collision probability. Makes collision attacks practical. Reason 256-bit hashes provide only 128-bit collision resistance.",
+          "examples": ["Birthday attack on MD5", "Hash collision search", "Digital signature attacks", "Password hash collisions"]
+        }
+      },
+      "Password Attacks": {
+        "Spraying": {
+          "definition": "Attempting a few commonly used passwords against many user accounts. Opposite of brute force. Avoids account lockouts by staying under failed login thresholds. Exploits password reuse and weak common passwords. Effective against large user bases.",
+          "examples": ["Testing 'Password123' across all users", "Seasonal passwords (Summer2024!)", "Common passwords against many accounts", "Credential stuffing lite"]
+        },
+        "Brute Force (Password)": {
+          "definition": "Systematically trying all possible password combinations until finding the correct one. Computationally expensive but guaranteed if given enough time. Effective against weak passwords. Defeated by account lockouts, rate limiting, strong passwords, and MFA.",
+          "examples": ["Automated password guessing", "Dictionary attacks", "Rainbow table attacks", "Hash cracking"]
+        }
+      },
+      "Indicators": {
+        "Account Lockout": {
+          "definition": "User accounts being locked due to excessive failed login attempts. Can indicate password attack (brute force, spraying) or compromised accounts. Unusual lockout patterns signal potential attacks. Requires investigation to distinguish attacks from user errors.",
+          "examples": ["Multiple account lockouts", "Lockouts during off-hours", "Administrator account lockouts", "Widespread lockouts"]
+        },
+        "Concurrent Session Usage": {
+          "definition": "Same user account logged in from multiple locations simultaneously. Can indicate credential theft or sharing. Especially suspicious if locations are geographically distant or unusual. Sign of compromised accounts or insider threat.",
+          "examples": ["User logged in from two countries simultaneously", "Multiple active sessions for single user", "Unusual concurrent access patterns"]
+        },
+        "Blocked Content": {
+          "definition": "Security systems blocking access to malicious sites, preventing malware downloads, or filtering suspicious content. Increase in blocked content indicates potential attack attempts or compromised systems trying to communicate with C2 servers.",
+          "examples": ["Firewall blocking malicious IPs", "Web filter blocking phishing sites", "Antivirus quarantining malware", "Email gateway blocking attachments"]
+        },
+        "Impossible Travel": {
+          "definition": "User logging in from geographically distant locations within timeframe that makes physical travel impossible. Strong indicator of credential compromise. Example: login from New York followed by login from Tokyo 30 minutes later.",
+          "examples": ["Logins from different continents within minutes", "VPN location jumps", "Geographically impossible access patterns"]
+        },
+        "Resource Consumption": {
+          "definition": "Abnormal CPU, memory, network, or disk usage indicating malicious activity. Can signal crypto mining, DDoS participation, data exfiltration, or malware execution. Baseline monitoring helps identify anomalies.",
+          "examples": ["CPU spikes from crypto mining", "Network bandwidth saturation", "Unexpected disk I/O", "Memory exhaustion"]
+        },
+        "Resource Inaccessibility": {
+          "definition": "Legitimate resources becoming unavailable to users. Can indicate ransomware encryption, deletion attacks, DoS attacks, or system compromise. Sudden inaccessibility of files, databases, or services requires immediate investigation.",
+          "examples": ["Encrypted files (ransomware)", "Deleted data", "Crashed services", "Inaccessible network shares"]
+        },
+        "Out-of-cycle Logging": {
+          "definition": "Log entries or system activities occurring outside normal business hours or maintenance windows. Can indicate unauthorized access, insider threats, or automated malware activity. Baseline user behavior helps identify anomalies.",
+          "examples": ["Database queries at 3 AM", "File access outside business hours", "Administrative actions on weekends", "Unusual off-hours activity"]
+        },
+        "Published/Documented": {
+          "definition": "Indicators of compromise (IOCs) or threat intelligence published by security researchers, vendors, or threat feeds. Includes known malicious IPs, domains, file hashes, and attack signatures. Used to detect known threats.",
+          "examples": ["IOC feeds", "Threat intelligence reports", "CVE publications", "YARA rules", "STIX/TAXII feeds"]
+        },
+        "Missing Logs": {
+          "definition": "Gaps in log files or disabled logging. Strong indicator of malicious activity as attackers often delete logs to cover tracks or disable logging to avoid detection. Critical security concern requiring immediate investigation.",
+          "examples": ["Deleted audit logs", "Disabled logging services", "Log file gaps", "Cleared event logs"]
+        }
+      }
+    },
+    "2.5": {
+      "Mitigation Techniques": {
+        "Segmentation": {
+          "definition": "Dividing networks into separate segments or zones to limit lateral movement and contain breaches. Creates security boundaries between different trust levels. Includes VLANs, subnets, and network zones (DMZ). Limits blast radius of security incidents.",
+          "examples": ["Network VLANs", "DMZ for public services", "Subnet isolation", "Micro-segmentation", "Zero-trust segmentation"]
+        },
+        "Access Control": {
+          "definition": "Mechanisms restricting who can access resources and what actions they can perform. Includes Access Control Lists (ACLs), permissions, and authentication/authorization systems. Fundamental security principle enforcing least privilege and need-to-know.",
+          "examples": ["ACLs on routers", "File permissions (chmod)", "RBAC policies", "Firewall rules", "IAM policies"]
+        },
+        "Application Allow List": {
+          "definition": "Security approach permitting only approved applications to execute (whitelist). Blocks all other software including malware. More secure than deny lists (blacklists) as default-deny. Effective against zero-day malware and unauthorized software.",
+          "examples": ["Windows AppLocker", "Application whitelisting policies", "Allowed executable lists", "Signed application requirements"]
+        },
+        "Isolation": {
+          "definition": "Separating systems, networks, or processes to prevent interaction and contain threats. Includes physical isolation (air-gapping), virtual isolation (VMs/containers), process isolation, and browser sandboxing. Prevents lateral movement and limits attack impact.",
+          "examples": ["Air-gapped networks", "VM isolation", "Container sandboxing", "Process isolation", "Browser sandboxes"]
+        },
+        "Patching": {
+          "definition": "Applying software updates to fix vulnerabilities, bugs, and security flaws. Critical mitigation technique keeping systems secure against known exploits. Requires testing, change management, and timely deployment. Automated patch management recommended.",
+          "examples": ["Windows Update", "Security patches", "Firmware updates", "Application updates", "Emergency patches"]
+        },
+        "Encryption": {
+          "definition": "Converting data into unreadable format using cryptographic algorithms to protect confidentiality. Includes data-at-rest encryption (disk, database), data-in-transit encryption (TLS, VPN), and end-to-end encryption. Essential control for sensitive data protection.",
+          "examples": ["Full-disk encryption (BitLocker)", "TLS/SSL for web traffic", "VPN tunnels", "Database encryption", "Email encryption"]
+        },
+        "Monitoring": {
+          "definition": "Continuous observation of systems, networks, and user activities to detect anomalies and security incidents. Includes log monitoring, SIEM, IDS/IPS, and user behavior analytics. Enables early threat detection and incident response.",
+          "examples": ["SIEM monitoring", "Log analysis", "Network traffic analysis", "User activity monitoring", "File integrity monitoring"]
+        },
+        "Least Privilege": {
+          "definition": "Granting users and processes only minimum permissions necessary to perform their functions. Fundamental security principle limiting potential damage from compromised accounts or malicious insiders. Reduces attack surface and blast radius.",
+          "examples": ["Removing admin rights from users", "Service accounts with minimal permissions", "Just-in-time access", "Temporary elevated privileges"]
+        },
+        "Configuration Enforcement": {
+          "definition": "Ensuring systems maintain secure configurations through policies, baselines, and automated tools. Prevents configuration drift and unauthorized changes. Includes security baselines, Group Policy, and configuration management tools.",
+          "examples": ["Group Policy enforcement", "Security baselines (CIS benchmarks)", "Configuration management (Ansible)", "Infrastructure as Code"]
+        },
+        "Decommissioning": {
+          "definition": "Securely retiring systems, applications, and services no longer needed. Includes data sanitization, secure disposal, certificate revocation, and access removal. Reduces attack surface by eliminating unnecessary assets. Critical for preventing data leaks from old systems.",
+          "examples": ["Secure hard drive wiping", "Equipment destruction", "Account termination", "Certificate revocation", "Service shutdown"]
+        }
+      },
+      "Hardening Techniques": {
+        "Encryption (Hardening)": {
+          "definition": "Implementing encryption as part of system hardening to protect data and communications. Includes enabling full-disk encryption, enforcing encrypted protocols, encrypting sensitive files, and using encrypted communications channels.",
+          "examples": ["Enforcing HTTPS only", "Full-disk encryption mandatory", "Encrypted email requirements", "Encrypted backup storage"]
+        },
+        "Endpoint Protection": {
+          "definition": "Installing security software on endpoint devices including antivirus, anti-malware, EDR (Endpoint Detection and Response), and XDR (Extended Detection and Response). Provides real-time threat detection, prevention, and response capabilities.",
+          "examples": ["Antivirus software", "EDR solutions (CrowdStrike, Carbon Black)", "Anti-malware tools", "XDR platforms"]
+        },
+        "Host-based Firewall": {
+          "definition": "Software firewall running on individual systems controlling incoming and outgoing network traffic. Provides defense-in-depth when combined with network firewalls. Protects against local network threats and restricts application communications.",
+          "examples": ["Windows Defender Firewall", "iptables (Linux)", "macOS firewall", "Third-party host firewalls"]
+        },
+        "HIPS": {
+          "full": "Host-based Intrusion Prevention System",
+          "definition": "Security software monitoring system behavior to detect and block malicious activities. Goes beyond signature-based detection to identify suspicious behavior patterns. Can prevent zero-day exploits and unknown threats through behavioral analysis.",
+          "examples": ["OSSEC", "Trend Micro HIPS", "McAfee Host IPS", "Behavioral monitoring tools"]
+        },
+        "Disabling Ports/Protocols": {
+          "definition": "Closing unnecessary network ports and disabling insecure protocols to reduce attack surface. Part of system hardening following principle of least functionality. Prevents exploitation of unused services and deprecated protocols.",
+          "examples": ["Disabling Telnet (port 23)", "Blocking SMBv1", "Closing unused ports", "Disabling FTP", "Removing deprecated SSL/TLS"]
+        },
+        "Default Password Changes": {
+          "definition": "Changing factory-set default passwords on devices and applications during deployment. Critical hardening step as default credentials are publicly known and frequently exploited. Automated scanners search for default passwords.",
+          "examples": ["Changing router admin passwords", "Resetting device default credentials", "Database password changes", "Application default passwords"]
+        },
+        "Removal of Unnecessary Software": {
+          "definition": "Uninstalling applications, services, and features not required for system operation. Reduces attack surface by eliminating potential vulnerabilities. Follows principle of least functionality. Includes removing bloatware and disabling unused services.",
+          "examples": ["Removing unused applications", "Disabling unnecessary Windows features", "Uninstalling bloatware", "Removing development tools from production"]
+        }
+      }
     }
   },
   "3.0": {
