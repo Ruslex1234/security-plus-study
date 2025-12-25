@@ -2132,57 +2132,441 @@
         function openComparison() {
             const modal = document.getElementById('comparisonModal');
             const content = document.getElementById('comparisonContent');
-            
+
             content.innerHTML = `
                 <h2>⚖️ Compare Security Concepts</h2>
-                <p style="margin-bottom: 20px;">Compare similar terms to understand their differences</p>
-                
+                <p style="margin-bottom: 20px; color: var(--comptia-gray);">Compare similar terms to understand their key differences</p>
+                <div style="max-height: 70vh; overflow-y: auto; padding-right: 10px;">
+
+                <!-- Security Controls -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Security Controls</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Preventive</th>
+                            <th>Detective</th>
+                            <th>Corrective</th>
+                            <th>Compensating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Purpose</strong></td>
+                            <td>Stop incidents before they occur</td>
+                            <td>Identify incidents as they happen</td>
+                            <td>Fix issues after detection</td>
+                            <td>Alternative when primary controls fail</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Examples</strong></td>
+                            <td>Firewalls, encryption, locks</td>
+                            <td>IDS, logging, cameras</td>
+                            <td>Patches, backups, incident response</td>
+                            <td>Additional monitoring, manual review</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Timing</strong></td>
+                            <td>Before incident</td>
+                            <td>During incident</td>
+                            <td>After incident</td>
+                            <td>When needed</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="comparison-table" style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Physical Controls</th>
+                            <th>Technical Controls</th>
+                            <th>Administrative Controls</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Nature</strong></td>
+                            <td>Tangible barriers</td>
+                            <td>Technology-based</td>
+                            <td>Policies and procedures</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Examples</strong></td>
+                            <td>Locks, fences, guards, cameras</td>
+                            <td>Firewalls, encryption, IDS/IPS</td>
+                            <td>Security policies, training, audits</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Network Security -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Network Security</h3>
                 <div class="comparison-view">
                     <div class="comparison-item">
-                        <h3>IDS (Intrusion Detection System)</h3>
+                        <h3>IDS (Intrusion Detection)</h3>
                         <ul>
                             <li>Passive monitoring</li>
-                            <li>Alerts on threats</li>
-                            <li>No traffic blocking</li>
-                            <li>Lower false positive impact</li>
+                            <li>Alerts on suspicious activity</li>
+                            <li>Does not block traffic</li>
+                            <li>Out-of-band deployment</li>
+                            <li>Lower risk of blocking legitimate traffic</li>
                         </ul>
                     </div>
                     <div class="comparison-item">
-                        <h3>IPS (Intrusion Prevention System)</h3>
+                        <h3>IPS (Intrusion Prevention)</h3>
                         <ul>
-                            <li>Active monitoring</li>
-                            <li>Blocks threats automatically</li>
-                            <li>Inline deployment</li>
-                            <li>Can block legitimate traffic</li>
+                            <li>Active monitoring and blocking</li>
+                            <li>Automatically blocks threats</li>
+                            <li>Inline deployment required</li>
+                            <li>Can impact network performance</li>
+                            <li>Risk of false positives blocking valid traffic</li>
                         </ul>
                     </div>
                 </div>
-                
-                <div class="comparison-view" style="margin-top: 20px;">
+
+                <div class="comparison-view" style="margin-top: 15px;">
+                    <div class="comparison-item">
+                        <h3>NIDS (Network IDS)</h3>
+                        <ul>
+                            <li>Monitors network traffic</li>
+                            <li>Deployed at network choke points</li>
+                            <li>Analyzes packet headers and payloads</li>
+                            <li>Cannot see encrypted traffic content</li>
+                            <li>Covers multiple hosts</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>HIDS (Host IDS)</h3>
+                        <ul>
+                            <li>Monitors individual host activity</li>
+                            <li>Installed on each endpoint</li>
+                            <li>Analyzes system logs and file changes</li>
+                            <li>Can see decrypted data on host</li>
+                            <li>Per-host deployment required</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comparison-view" style="margin-top: 15px;">
+                    <div class="comparison-item">
+                        <h3>Stateful Firewall</h3>
+                        <ul>
+                            <li>Tracks connection state</li>
+                            <li>Maintains session tables</li>
+                            <li>Allows return traffic automatically</li>
+                            <li>More resource intensive</li>
+                            <li>Better security</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Stateless Firewall</h3>
+                        <ul>
+                            <li>Examines packets independently</li>
+                            <li>No session tracking</li>
+                            <li>Requires explicit rules for all traffic</li>
+                            <li>Faster processing</li>
+                            <li>Less secure</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <table class="comparison-table" style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>TCP</th>
+                            <th>UDP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Connection</strong></td>
+                            <td>Connection-oriented (3-way handshake)</td>
+                            <td>Connectionless</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reliability</strong></td>
+                            <td>Guaranteed delivery, error checking</td>
+                            <td>Best-effort delivery, no guarantees</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Speed</strong></td>
+                            <td>Slower (overhead)</td>
+                            <td>Faster (minimal overhead)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Use Cases</strong></td>
+                            <td>Web (HTTP/HTTPS), email, file transfer</td>
+                            <td>Streaming, VoIP, DNS, gaming</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Encryption -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Cryptography</h3>
+                <div class="comparison-view">
                     <div class="comparison-item">
                         <h3>Symmetric Encryption</h3>
                         <ul>
-                            <li>Same key for encrypt/decrypt</li>
+                            <li>Single shared key for encrypt/decrypt</li>
                             <li>Fast and efficient</li>
                             <li>Key distribution challenge</li>
-                            <li>Examples: AES, DES</li>
+                            <li>Examples: AES, DES, 3DES, Blowfish</li>
+                            <li>Best for: Bulk data encryption</li>
                         </ul>
                     </div>
                     <div class="comparison-item">
                         <h3>Asymmetric Encryption</h3>
                         <ul>
                             <li>Public/private key pairs</li>
-                            <li>Slower than symmetric</li>
-                            <li>Easier key distribution</li>
-                            <li>Examples: RSA, ECC</li>
+                            <li>Slower than symmetric (CPU intensive)</li>
+                            <li>Easier key distribution (public key shareable)</li>
+                            <li>Examples: RSA, ECC, DSA, Diffie-Hellman</li>
+                            <li>Best for: Key exchange, digital signatures</li>
                         </ul>
                     </div>
                 </div>
-                
-                <table class="comparison-table" style="margin-top: 30px;">
+
+                <div class="comparison-view" style="margin-top: 15px;">
+                    <div class="comparison-item">
+                        <h3>Hashing</h3>
+                        <ul>
+                            <li>One-way function (irreversible)</li>
+                            <li>Fixed-length output</li>
+                            <li>Deterministic (same input = same hash)</li>
+                            <li>Examples: SHA-256, SHA-3, MD5 (weak)</li>
+                            <li>Use: Integrity verification, passwords</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Encryption</h3>
+                        <ul>
+                            <li>Two-way function (reversible with key)</li>
+                            <li>Variable-length output</li>
+                            <li>Requires key for decryption</li>
+                            <li>Examples: AES, RSA</li>
+                            <li>Use: Confidentiality, data protection</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <table class="comparison-table" style="margin-top: 15px;">
                     <thead>
                         <tr>
-                            <th>Concept</th>
+                            <th>Aspect</th>
+                            <th>Encryption at Rest</th>
+                            <th>Encryption in Transit</th>
+                            <th>Encryption in Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Protects</strong></td>
+                            <td>Stored data</td>
+                            <td>Data being transmitted</td>
+                            <td>Data in memory/processing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technologies</strong></td>
+                            <td>Full disk encryption, database encryption</td>
+                            <td>TLS/SSL, VPN, IPSec</td>
+                            <td>Secure enclaves, homomorphic encryption</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Examples</strong></td>
+                            <td>BitLocker, FileVault, LUKS</td>
+                            <td>HTTPS, SFTP, SSH</td>
+                            <td>Intel SGX, AMD SEV</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Authentication -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Authentication & Access Control</h3>
+                <div class="comparison-view">
+                    <div class="comparison-item">
+                        <h3>RADIUS</h3>
+                        <ul>
+                            <li>Open standard protocol</li>
+                            <li>UDP-based (ports 1812, 1813)</li>
+                            <li>Encrypts only password</li>
+                            <li>Combines authentication & authorization</li>
+                            <li>Common for network access (WiFi, VPN)</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>TACACS+</h3>
+                        <ul>
+                            <li>Cisco proprietary protocol</li>
+                            <li>TCP-based (port 49)</li>
+                            <li>Encrypts entire payload</li>
+                            <li>Separates AAA functions</li>
+                            <li>Common for device administration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <table class="comparison-table" style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>DAC</th>
+                            <th>MAC</th>
+                            <th>RBAC</th>
+                            <th>ABAC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Full Name</strong></td>
+                            <td>Discretionary Access Control</td>
+                            <td>Mandatory Access Control</td>
+                            <td>Role-Based Access Control</td>
+                            <td>Attribute-Based Access Control</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Control</strong></td>
+                            <td>Owner decides</td>
+                            <td>System enforces (labels)</td>
+                            <td>Role-based permissions</td>
+                            <td>Multiple attributes/context</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flexibility</strong></td>
+                            <td>Very flexible</td>
+                            <td>Rigid</td>
+                            <td>Moderate</td>
+                            <td>Highly flexible</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Use Case</strong></td>
+                            <td>File systems (Windows, Linux)</td>
+                            <td>Government/military (classified data)</td>
+                            <td>Enterprise (job functions)</td>
+                            <td>Complex environments (cloud)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="comparison-view" style="margin-top: 15px;">
+                    <div class="comparison-item">
+                        <h3>Identification</h3>
+                        <ul>
+                            <li>Claiming an identity</li>
+                            <li>Providing username/ID</li>
+                            <li>No verification yet</li>
+                            <li>Example: Entering your username</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Authentication</h3>
+                        <ul>
+                            <li>Proving the claimed identity</li>
+                            <li>Providing credentials (password, biometric)</li>
+                            <li>Verification occurs</li>
+                            <li>Example: Entering correct password</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Authorization</h3>
+                        <ul>
+                            <li>Granting access rights</li>
+                            <li>Determining what you can do</li>
+                            <li>Occurs after authentication</li>
+                            <li>Example: Permission to read/write files</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cloud Computing -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Cloud Computing</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>IaaS</th>
+                            <th>PaaS</th>
+                            <th>SaaS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Full Name</strong></td>
+                            <td>Infrastructure as a Service</td>
+                            <td>Platform as a Service</td>
+                            <td>Software as a Service</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Provider Manages</strong></td>
+                            <td>Hardware, networking, storage</td>
+                            <td>Infrastructure + OS + runtime</td>
+                            <td>Everything (full application)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Customer Manages</strong></td>
+                            <td>OS, middleware, runtime, data, apps</td>
+                            <td>Applications and data</td>
+                            <td>Just user data/settings</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Examples</strong></td>
+                            <td>AWS EC2, Azure VMs, Google Compute</td>
+                            <td>Heroku, Google App Engine, Azure App Service</td>
+                            <td>Gmail, Office 365, Salesforce, Dropbox</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Control</strong></td>
+                            <td>Most control</td>
+                            <td>Moderate control</td>
+                            <td>Least control</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="comparison-table" style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Public Cloud</th>
+                            <th>Private Cloud</th>
+                            <th>Hybrid Cloud</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Infrastructure</strong></td>
+                            <td>Shared, multi-tenant</td>
+                            <td>Dedicated, single-tenant</td>
+                            <td>Mix of public and private</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cost</strong></td>
+                            <td>Lowest (pay-per-use)</td>
+                            <td>Highest (dedicated resources)</td>
+                            <td>Moderate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Control</strong></td>
+                            <td>Limited</td>
+                            <td>Full control</td>
+                            <td>Varies by workload</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Security</strong></td>
+                            <td>Provider managed</td>
+                            <td>Customer managed</td>
+                            <td>Split responsibility</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Business Continuity -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Business Continuity & Disaster Recovery</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
                             <th>Hot Site</th>
                             <th>Warm Site</th>
                             <th>Cold Site</th>
@@ -2191,32 +2575,494 @@
                     <tbody>
                         <tr>
                             <td><strong>Cost</strong></td>
-                            <td>Highest</td>
-                            <td>Medium</td>
-                            <td>Lowest</td>
+                            <td>Highest ($$$$)</td>
+                            <td>Medium ($$$)</td>
+                            <td>Lowest ($$)</td>
                         </tr>
                         <tr>
                             <td><strong>Recovery Time</strong></td>
-                            <td>Minutes/Hours</td>
-                            <td>Hours/Days</td>
-                            <td>Days/Weeks</td>
+                            <td>Minutes to hours</td>
+                            <td>Hours to days</td>
+                            <td>Days to weeks</td>
                         </tr>
                         <tr>
                             <td><strong>Equipment</strong></td>
-                            <td>Fully operational</td>
-                            <td>Partially equipped</td>
+                            <td>Fully operational and configured</td>
+                            <td>Partially equipped, needs setup</td>
                             <td>Basic infrastructure only</td>
                         </tr>
                         <tr>
                             <td><strong>Data</strong></td>
-                            <td>Real-time sync</td>
-                            <td>Recent backups</td>
-                            <td>Must be restored</td>
+                            <td>Real-time synchronization</td>
+                            <td>Recent backups available</td>
+                            <td>Must be restored from offsite</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Staffing</strong></td>
+                            <td>May have staff on-site</td>
+                            <td>Staff must travel</td>
+                            <td>Staff must travel</td>
                         </tr>
                     </tbody>
                 </table>
+
+                <table class="comparison-table" style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>RPO</th>
+                            <th>RTO</th>
+                            <th>MTTR</th>
+                            <th>MTBF</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Full Name</strong></td>
+                            <td>Recovery Point Objective</td>
+                            <td>Recovery Time Objective</td>
+                            <td>Mean Time to Repair</td>
+                            <td>Mean Time Between Failures</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Measures</strong></td>
+                            <td>Acceptable data loss</td>
+                            <td>Acceptable downtime</td>
+                            <td>Average repair time</td>
+                            <td>Average time between failures</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Question</strong></td>
+                            <td>"How much data can we lose?"</td>
+                            <td>"How long can we be down?"</td>
+                            <td>"How fast can we fix it?"</td>
+                            <td>"How reliable is it?"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Example</strong></td>
+                            <td>1 hour (lose 1hr of data max)</td>
+                            <td>4 hours (restore in 4hrs max)</td>
+                            <td>2 hours (avg 2hrs to fix)</td>
+                            <td>10,000 hours (fails every 10k hrs)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="comparison-table" style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Backup Type</th>
+                            <th>Full</th>
+                            <th>Incremental</th>
+                            <th>Differential</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>What's Backed Up</strong></td>
+                            <td>All data every time</td>
+                            <td>Only changes since last backup (any type)</td>
+                            <td>Changes since last full backup</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Backup Speed</strong></td>
+                            <td>Slowest</td>
+                            <td>Fastest</td>
+                            <td>Moderate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Storage Space</strong></td>
+                            <td>Most space</td>
+                            <td>Least space</td>
+                            <td>Moderate space</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Restore Speed</strong></td>
+                            <td>Fastest (1 tape)</td>
+                            <td>Slowest (full + all incrementals)</td>
+                            <td>Moderate (full + last differential)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Risk Management -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Risk Management</h3>
+                <div class="comparison-view">
+                    <div class="comparison-item">
+                        <h3>Vulnerability</h3>
+                        <ul>
+                            <li>Weakness in a system</li>
+                            <li>Potential for exploitation</li>
+                            <li>Example: Unpatched software, weak password</li>
+                            <li>Can exist without being exploited</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Threat</h3>
+                        <ul>
+                            <li>Potential danger to assets</li>
+                            <li>Can exploit vulnerabilities</li>
+                            <li>Example: Hacker, malware, natural disaster</li>
+                            <li>Intent or capability to cause harm</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Risk</h3>
+                        <ul>
+                            <li>Likelihood × Impact of threat exploiting vulnerability</li>
+                            <li>Combines vulnerability + threat</li>
+                            <li>Example: High risk of data breach from unpatched server</li>
+                            <li>What you actually manage</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comparison-view" style="margin-top: 15px;">
+                    <div class="comparison-item">
+                        <h3>Qualitative Risk Assessment</h3>
+                        <ul>
+                            <li>Subjective evaluation</li>
+                            <li>Uses descriptive scales (High/Medium/Low)</li>
+                            <li>Faster to perform</li>
+                            <li>Less precise</li>
+                            <li>Good for initial assessment</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Quantitative Risk Assessment</h3>
+                        <ul>
+                            <li>Objective, numerical evaluation</li>
+                            <li>Uses metrics (ALE, SLE, ARO)</li>
+                            <li>Time-consuming</li>
+                            <li>More precise and defensible</li>
+                            <li>Good for cost-benefit analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <table class="comparison-table" style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>SLE</th>
+                            <th>ARO</th>
+                            <th>ALE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Full Name</strong></td>
+                            <td>Single Loss Expectancy</td>
+                            <td>Annualized Rate of Occurrence</td>
+                            <td>Annualized Loss Expectancy</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Definition</strong></td>
+                            <td>Cost of a single incident</td>
+                            <td>How often it happens per year</td>
+                            <td>Expected annual loss</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Formula</strong></td>
+                            <td>Asset Value × Exposure Factor</td>
+                            <td>Based on historical data</td>
+                            <td>SLE × ARO</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Example</strong></td>
+                            <td>$50,000 per breach</td>
+                            <td>2 times per year</td>
+                            <td>$50,000 × 2 = $100,000/year</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Testing & Assessment -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Security Testing</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Black Box Testing</th>
+                            <th>Gray Box Testing</th>
+                            <th>White Box Testing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Knowledge Level</strong></td>
+                            <td>No knowledge of system</td>
+                            <td>Partial knowledge</td>
+                            <td>Full knowledge</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Simulates</strong></td>
+                            <td>External attacker</td>
+                            <td>Insider with limited access</td>
+                            <td>Malicious insider/thorough audit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Time Required</strong></td>
+                            <td>Longest</td>
+                            <td>Moderate</td>
+                            <td>Shortest</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Coverage</strong></td>
+                            <td>Limited to externally visible</td>
+                            <td>Moderate</td>
+                            <td>Most comprehensive</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="comparison-view" style="margin-top: 15px;">
+                    <div class="comparison-item">
+                        <h3>Vulnerability Scanning</h3>
+                        <ul>
+                            <li>Automated tool-based</li>
+                            <li>Identifies known vulnerabilities</li>
+                            <li>Non-intrusive (doesn't exploit)</li>
+                            <li>Fast and frequent (daily/weekly)</li>
+                            <li>Lower cost</li>
+                            <li>High false positives possible</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Penetration Testing</h3>
+                        <ul>
+                            <li>Manual + automated</li>
+                            <li>Actively exploits vulnerabilities</li>
+                            <li>Intrusive (simulates attack)</li>
+                            <li>Infrequent (quarterly/annually)</li>
+                            <li>Higher cost</li>
+                            <li>Confirms actual exploitability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comparison-view" style="margin-top: 15px;">
+                    <div class="comparison-item">
+                        <h3>Active Reconnaissance</h3>
+                        <ul>
+                            <li>Direct interaction with target</li>
+                            <li>Port scanning, enumeration</li>
+                            <li>Detectable by IDS/IPS</li>
+                            <li>More accurate information</li>
+                            <li>Examples: Nmap, Nessus</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Passive Reconnaissance</h3>
+                        <ul>
+                            <li>No direct interaction</li>
+                            <li>Public sources (OSINT)</li>
+                            <li>Undetectable</li>
+                            <li>Limited information</li>
+                            <li>Examples: WHOIS, DNS lookups, social media</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Detection & Analysis -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Detection & Analysis</h3>
+                <div class="comparison-view">
+                    <div class="comparison-item">
+                        <h3>False Positive</h3>
+                        <ul>
+                            <li>Alert when NO actual threat exists</li>
+                            <li>Legitimate activity flagged as malicious</li>
+                            <li>Causes alert fatigue</li>
+                            <li>Wastes time investigating</li>
+                            <li>Example: IDS alerts on legitimate scan</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>False Negative</h3>
+                        <ul>
+                            <li>NO alert when threat DOES exist</li>
+                            <li>Malicious activity goes undetected</li>
+                            <li>More dangerous than false positive</li>
+                            <li>Allows attackers to succeed</li>
+                            <li>Example: Malware not detected by antivirus</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comparison-view" style="margin-top: 15px;">
+                    <div class="comparison-item">
+                        <h3>SIEM</h3>
+                        <ul>
+                            <li>Security Information & Event Management</li>
+                            <li>Aggregates and analyzes logs</li>
+                            <li>Real-time monitoring and alerting</li>
+                            <li>Compliance reporting</li>
+                            <li>Examples: Splunk, QRadar, ArcSight</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>SOAR</h3>
+                        <ul>
+                            <li>Security Orchestration, Automation & Response</li>
+                            <li>Automates incident response</li>
+                            <li>Integrates multiple security tools</li>
+                            <li>Playbook-driven workflows</li>
+                            <li>Examples: Phantom, Demisto, Swimlane</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comparison-view" style="margin-top: 15px;">
+                    <div class="comparison-item">
+                        <h3>EDR</h3>
+                        <ul>
+                            <li>Endpoint Detection & Response</li>
+                            <li>Monitors individual endpoints</li>
+                            <li>Behavioral analysis</li>
+                            <li>Endpoint-focused</li>
+                            <li>Examples: CrowdStrike, Carbon Black</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>XDR</h3>
+                        <ul>
+                            <li>Extended Detection & Response</li>
+                            <li>Monitors endpoints + network + cloud + email</li>
+                            <li>Cross-layer correlation</li>
+                            <li>Holistic security view</li>
+                            <li>Next evolution of EDR</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Virtualization -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Virtualization & Infrastructure</h3>
+                <div class="comparison-view">
+                    <div class="comparison-item">
+                        <h3>Virtualization</h3>
+                        <ul>
+                            <li>Full OS instances on hypervisor</li>
+                            <li>Includes OS kernel per VM</li>
+                            <li>Heavier resource usage</li>
+                            <li>Strong isolation</li>
+                            <li>Slower startup</li>
+                            <li>Examples: VMware, VirtualBox, Hyper-V</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Containerization</h3>
+                        <ul>
+                            <li>Shared OS kernel</li>
+                            <li>Application + dependencies only</li>
+                            <li>Lightweight</li>
+                            <li>Less isolation than VMs</li>
+                            <li>Fast startup (seconds)</li>
+                            <li>Examples: Docker, Kubernetes, Podman</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comparison-view" style="margin-top: 15px;">
+                    <div class="comparison-item">
+                        <h3>On-Premises</h3>
+                        <ul>
+                            <li>Infrastructure owned by organization</li>
+                            <li>Full control and customization</li>
+                            <li>High upfront capital costs</li>
+                            <li>Organization responsible for maintenance</li>
+                            <li>Predictable ongoing costs</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Cloud</h3>
+                        <ul>
+                            <li>Infrastructure owned by provider</li>
+                            <li>Limited control</li>
+                            <li>Low upfront costs (OpEx model)</li>
+                            <li>Provider handles maintenance</li>
+                            <li>Variable costs based on usage</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- VPN Types -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">VPN Technologies</h3>
+                <div class="comparison-view">
+                    <div class="comparison-item">
+                        <h3>Site-to-Site VPN</h3>
+                        <ul>
+                            <li>Connects entire networks</li>
+                            <li>Gateway-to-gateway</li>
+                            <li>Always-on connection</li>
+                            <li>Transparent to users</li>
+                            <li>Use: Branch offices to headquarters</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Remote Access VPN</h3>
+                        <ul>
+                            <li>Connects individual users</li>
+                            <li>Client-to-gateway</li>
+                            <li>On-demand connection</li>
+                            <li>Requires VPN client</li>
+                            <li>Use: Remote workers accessing corporate network</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Monitoring -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Monitoring Approaches</h3>
+                <div class="comparison-view">
+                    <div class="comparison-item">
+                        <h3>Agent-Based Monitoring</h3>
+                        <ul>
+                            <li>Software installed on each host</li>
+                            <li>More detailed metrics</li>
+                            <li>Higher overhead (management, updates)</li>
+                            <li>Better for deep visibility</li>
+                            <li>Requires agent deployment</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Agentless Monitoring</h3>
+                        <ul>
+                            <li>Remote monitoring via network</li>
+                            <li>Limited metrics</li>
+                            <li>Lower overhead</li>
+                            <li>Easier deployment</li>
+                            <li>Uses SNMP, WMI, SSH</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Deception -->
+                <h3 style="color: var(--comptia-red); margin-top: 25px; border-bottom: 2px solid var(--comptia-red); padding-bottom: 5px;">Deception Technologies</h3>
+                <div class="comparison-view">
+                    <div class="comparison-item">
+                        <h3>Honeypot</h3>
+                        <ul>
+                            <li>Single decoy system</li>
+                            <li>Attracts attackers</li>
+                            <li>Monitors attack techniques</li>
+                            <li>Limited scope</li>
+                            <li>Easier to deploy and manage</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Honeynet</h3>
+                        <ul>
+                            <li>Network of multiple honeypots</li>
+                            <li>Simulates entire infrastructure</li>
+                            <li>More realistic environment</li>
+                            <li>Broader attack surface</li>
+                            <li>More complex to manage</li>
+                        </ul>
+                    </div>
+                </div>
+
+                </div>
             `;
-            
+
             modal.classList.add('active');
         }
 
