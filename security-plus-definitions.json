@@ -180,5 +180,2046 @@
         }
       }
     }
+  },
+  "2.0": {
+    "2.1": {
+      "Threat Actors": {
+        "Nation-State": {
+          "definition": "Government-sponsored threat actors with extensive resources, advanced capabilities, and long-term strategic objectives. Conduct espionage, sabotage, and information warfare targeting government agencies, critical infrastructure, and strategic industries. Often operate as Advanced Persistent Threat (APT) groups with sophisticated tools and techniques.",
+          "examples": ["APT28 (Fancy Bear)", "APT29 (Cozy Bear)", "Lazarus Group", "Equation Group", "Chinese APT groups"]
+        },
+        "Unskilled Attacker": {
+          "definition": "Attackers with limited technical knowledge who use pre-made tools and scripts created by others. Also called script kiddies. Motivated by curiosity, recognition, or mischief rather than financial gain. Pose lower risk but can still cause damage using automated tools.",
+          "examples": ["Script kiddies using Metasploit", "Users of automated hacking tools", "Tutorial followers", "Low-skill defacement attacks"]
+        },
+        "Hacktivist": {
+          "definition": "Attackers motivated by political, social, or ideological goals rather than financial gain. Use hacking and cyber attacks to promote their agenda, raise awareness, or protest against organizations and governments. Often target high-profile entities to gain publicity.",
+          "examples": ["Anonymous collective", "LulzSec operations", "Website defacements for political messages", "DDoS attacks against controversial organizations"]
+        },
+        "Insider Threat": {
+          "definition": "Current or former employees, contractors, or business partners with legitimate access who misuse their privileges. Can be malicious (intentional harm) or negligent (unintentional security lapses). Difficult to defend against as they bypass perimeter security and may have elevated privileges.",
+          "examples": ["Disgruntled employees stealing data", "Contractors selling confidential information", "Careless employees falling for phishing", "Privileged users abusing access"]
+        },
+        "Organized Crime": {
+          "definition": "Criminal enterprises conducting cyber attacks for financial profit. Highly organized with specialized roles, sophisticated tools, and business-like operations. Primary motivations include theft, fraud, ransomware, and selling stolen data on dark web markets.",
+          "examples": ["Ransomware-as-a-Service operations", "Credit card theft rings", "Banking trojans", "Cryptocurrency theft groups"]
+        },
+        "Shadow IT": {
+          "definition": "IT systems, devices, software, and services used within an organization without explicit IT department approval or knowledge. Creates security risks through unmanaged access, unpatched systems, and lack of security controls. Often results from employees seeking productivity improvements.",
+          "examples": ["Unauthorized cloud storage use", "Personal devices on corporate networks", "Unapproved SaaS applications", "Rogue access points"]
+        }
+      },
+      "Threat Vectors": {
+        "Message-based": {
+          "definition": "Attack vectors using email, SMS, instant messaging, or other messaging platforms to deliver malicious content or social engineering attacks. Includes phishing emails, malicious attachments, embedded links, and business email compromise. Most common initial attack vector.",
+          "examples": ["Phishing emails", "Malicious attachments", "SMS phishing (smishing)", "Instant message malware links"]
+        },
+        "Image-based": {
+          "definition": "Attacks embedding malicious code within image files or using images to deliver payloads. Includes steganography (hiding data in images), malicious QR codes, and image file exploits. Can bypass traditional security filters focused on executables.",
+          "examples": ["Steganography concealing malware", "Malicious QR codes", "Image file buffer overflows", "SVG-based exploits"]
+        },
+        "File-based": {
+          "definition": "Malicious software distributed through file downloads, attachments, or file sharing. Includes infected documents with macros, trojans disguised as legitimate files, and exploits targeting file parsing vulnerabilities. Common delivery mechanism for ransomware and malware.",
+          "examples": ["Macro-enabled Office documents", "PDF exploits", "Infected software downloads", "Malicious ZIP archives"]
+        },
+        "Voice Call": {
+          "definition": "Social engineering attacks conducted via telephone calls where attackers impersonate legitimate entities. Also called vishing (voice phishing). Attackers manipulate victims into revealing sensitive information, transferring money, or performing actions that compromise security.",
+          "examples": ["Fake IT support calls", "IRS scam calls", "CEO fraud via phone", "Bank impersonation calls"]
+        },
+        "Removable Device": {
+          "definition": "Attack vector using USB drives, external hard drives, SD cards, or other portable storage media. Can contain malware that auto-executes when connected, or exploit USB protocol vulnerabilities. Often used in targeted attacks through deliberate device placement.",
+          "examples": ["Malicious USB drops (USB baiting)", "BadUSB attacks", "Infected external drives", "Rubber Ducky attacks"]
+        },
+        "Vulnerable Software": {
+          "definition": "Exploitation of known or zero-day vulnerabilities in operating systems, applications, or firmware. Attackers target unpatched systems, outdated software, or newly discovered flaws. Critical attack vector requiring robust patch management and vulnerability scanning.",
+          "examples": ["Unpatched Windows vulnerabilities", "Outdated web browsers", "Legacy application exploits", "Zero-day attacks"]
+        },
+        "Unsupported Systems": {
+          "definition": "Operating systems, applications, or hardware no longer receiving security updates from vendors. Also called end-of-life (EOL) systems. Extremely vulnerable as new exploits cannot be patched. Common in industrial systems, medical devices, and legacy infrastructure.",
+          "examples": ["Windows XP/7 systems", "Unsupported server software", "EOL medical devices", "Legacy SCADA systems"]
+        },
+        "Unsecure Networks": {
+          "definition": "Network connections lacking proper security controls including open Wi-Fi, unencrypted communications, and poorly configured networks. Allow attackers to intercept traffic, perform man-in-the-middle attacks, and gain unauthorized access.",
+          "examples": ["Public Wi-Fi hotspots", "Unencrypted HTTP connections", "Rogue access points", "Misconfigured firewalls"]
+        },
+        "Open Service Ports": {
+          "definition": "Unnecessary network ports left open providing attack surface for exploitation. Each open port represents a potential entry point. Proper port management involves closing unused ports and restricting access to necessary services through firewalls and network segmentation.",
+          "examples": ["Unnecessary RDP (3389) exposure", "Open database ports (3306, 1433)", "Telnet (23) still enabled", "Unsecured SMB (445)"]
+        },
+        "Default Credentials": {
+          "definition": "Factory-set usernames and passwords left unchanged on devices and systems. Widely known and easily exploitable. Major security weakness in IoT devices, network equipment, and enterprise systems. Attackers use automated tools to scan for default credentials.",
+          "examples": ["admin/admin credentials", "Unchanged router passwords", "Default IoT device passwords", "Factory-set database credentials"]
+        },
+        "Supply Chain": {
+          "definition": "Attacks targeting less-secure elements in the supply chain to compromise the ultimate target. Includes software supply chain attacks (malicious code in updates), hardware supply chain compromises, and third-party vendor breaches. Difficult to detect and prevent.",
+          "examples": ["SolarWinds attack", "Malicious npm packages", "Compromised hardware components", "Vendor breaches affecting customers"]
+        }
+      }
+    },
+    "2.2": {
+      "Social Engineering": {
+        "Phishing": {
+          "full": "Email-based social engineering",
+          "definition": "Fraudulent emails appearing to come from legitimate sources designed to trick recipients into revealing sensitive information, clicking malicious links, or opening infected attachments. Most common social engineering attack. Can be mass campaigns or targeted spear phishing.",
+          "examples": ["Fake password reset emails", "Shipping notification scams", "Invoice fraud", "Account verification requests"]
+        },
+        "Vishing": {
+          "full": "Voice Phishing",
+          "definition": "Voice-based phishing attacks using phone calls where attackers impersonate banks, IT support, government agencies, or executives to manipulate victims into revealing information or performing actions. Exploits trust in phone communications.",
+          "examples": ["Fake IRS calls", "Tech support scams", "Bank fraud calls", "CEO impersonation calls"]
+        },
+        "Smishing": {
+          "full": "SMS Phishing",
+          "definition": "SMS text message-based phishing exploiting trust in text messages and sense of urgency. Often includes links to malicious websites or requests to call fraudulent numbers. Mobile-focused attack vector bypassing email security.",
+          "examples": ["Fake package delivery notifications", "Bank alert scams", "Prize/lottery scams", "Two-factor authentication bypass attempts"]
+        },
+        "Spear Phishing": {
+          "definition": "Highly targeted phishing attacks customized for specific individuals or organizations using gathered intelligence. More sophisticated than mass phishing with higher success rates. Often used as initial access in advanced attacks.",
+          "examples": ["Executive-targeted emails using personal details", "Industry-specific lures", "Fake colleague communications", "Customized attachments"]
+        },
+        "Whaling": {
+          "definition": "Spear phishing specifically targeting high-profile individuals like executives, board members, or celebrities. High-value targets justify extensive reconnaissance and sophisticated attack methods. Often involves business email compromise and wire transfer fraud.",
+          "examples": ["CEO fraud", "CFO wire transfer scams", "Board member impersonation", "Executive credential theft"]
+        },
+        "Pretexting": {
+          "definition": "Creating fabricated scenarios (pretexts) to manipulate targets into divulging information or performing actions. Attacker assumes a false identity and builds trust through detailed backstory. Often involves multiple interactions over time.",
+          "examples": ["Impersonating IT support", "Fake vendor calls", "Pretending to be auditor", "False emergency scenarios"]
+        },
+        "Impersonation": {
+          "definition": "Assuming someone else's identity to gain trust and access. Can be in-person, via phone, email, or online. Effective because people tend to trust authority figures and known entities. Often combined with other social engineering techniques.",
+          "examples": ["Wearing fake uniforms", "Spoofed email addresses", "Fake ID badges", "Executive impersonation"]
+        }
+      },
+      "Application Attacks": {
+        "SQL Injection": {
+          "full": "SQLi",
+          "definition": "Inserting malicious SQL code into input fields to manipulate database queries. Can bypass authentication, extract sensitive data, modify databases, or execute admin operations. One of most dangerous web application vulnerabilities. Prevented through parameterized queries and input validation.",
+          "examples": ["Authentication bypass: ' OR '1'='1", "Data extraction via UNION statements", "Database enumeration", "Blind SQL injection"]
+        },
+        "Cross-Site Scripting": {
+          "full": "XSS",
+          "definition": "Injecting malicious scripts into web pages viewed by other users. Allows attackers to steal session cookies, redirect users, deface websites, or execute actions as the victim. Three types: stored (persistent), reflected, and DOM-based XSS.",
+          "examples": ["Cookie theft via stored XSS", "Reflected XSS in search results", "DOM-based XSS exploits", "Session hijacking"]
+        },
+        "Buffer Overflow": {
+          "definition": "Writing more data to a memory buffer than it can hold, overwriting adjacent memory. Can crash applications or allow arbitrary code execution by overwriting return addresses. Classic vulnerability in languages like C/C++. Mitigated by modern protections (DEP, ASLR).",
+          "examples": ["Stack-based overflows", "Heap overflows", "Return-oriented programming", "Format string attacks"]
+        },
+        "Replay Attack": {
+          "definition": "Intercepting and retransmitting valid data transmission to duplicate the action. Attacker captures legitimate communications (like authentication tokens) and replays them to gain unauthorized access. Prevented using timestamps, nonces, and sequence numbers.",
+          "examples": ["Replaying captured authentication tokens", "Wireless key replay", "Payment transaction replay", "Session token reuse"]
+        },
+        "Directory Traversal": {
+          "definition": "Manipulating file path inputs to access files and directories outside intended directory. Uses sequences like '../' to navigate file system. Can expose sensitive files including configuration files, source code, and credentials. Also called path traversal.",
+          "examples": ["Accessing /etc/passwd via ../../../../etc/passwd", "Reading application config files", "Source code disclosure", "Log file access"]
+        },
+        "Cross-Site Request Forgery": {
+          "full": "CSRF/XSRF",
+          "definition": "Tricking authenticated users into unwittingly executing actions on web applications where they're authenticated. Exploits trust website has in user's browser. Attacker crafts malicious requests that victim's browser automatically authenticates. Prevented with anti-CSRF tokens.",
+          "examples": ["Unauthorized fund transfers", "Changing account settings", "Making purchases", "Social media actions"]
+        }
+      },
+      "Malware": {
+        "Ransomware": {
+          "definition": "Malware that encrypts files or locks systems and demands payment for restoration. Modern ransomware often exfiltrates data first for double extortion. Major threat to organizations causing operational disruption and financial loss. Prevented through backups, patching, and security awareness.",
+          "examples": ["WannaCry", "Ryuk", "REvil", "Conti", "LockBit"]
+        },
+        "Trojan": {
+          "definition": "Malicious software disguised as legitimate programs. Unlike viruses, trojans don't self-replicate. Provide backdoor access, steal data, or download additional malware. Named after Greek mythology's Trojan horse. Common distribution via software downloads and email attachments.",
+          "examples": ["Remote Access Trojans (RATs)", "Banking trojans", "Fake antivirus", "Backdoor trojans"]
+        },
+        "Worm": {
+          "definition": "Self-replicating malware that spreads automatically across networks without user interaction. Consumes network bandwidth and system resources. Can carry malicious payloads. Historically caused major outbreaks but modern networks have better defenses.",
+          "examples": ["WannaCry worm component", "Conficker", "SQL Slammer", "Blaster worm"]
+        },
+        "Spyware": {
+          "definition": "Software that secretly monitors and collects user information including browsing habits, keystrokes, credentials, and personal data. Transmits collected data to attackers. Often bundled with free software. Includes keyloggers and information stealers.",
+          "examples": ["Keyloggers", "Screen capture tools", "Browser history monitors", "Credential stealers"]
+        },
+        "Rootkit": {
+          "definition": "Malware providing privileged (root-level) access while hiding its presence. Modifies operating system to conceal malicious processes, files, and network connections. Extremely difficult to detect and remove. Can be kernel-mode (most dangerous) or user-mode.",
+          "examples": ["Kernel rootkits", "Bootkit (boot sector rootkits)", "Firmware rootkits", "Virtual machine-based rootkits"]
+        },
+        "Logic Bomb": {
+          "definition": "Malicious code lying dormant until triggered by specific condition (date, event, action). Often planted by insiders for sabotage. Executes payload when trigger occurs causing data deletion, corruption, or system failure. Difficult to detect before activation.",
+          "examples": ["Time bomb activating on specific date", "Code deleting data upon employee termination", "Triggered by user action", "Event-based destruction"]
+        },
+        "Backdoor": {
+          "definition": "Unauthorized access method bypassing normal authentication. Can be intentionally created by developers (for maintenance) or installed by attackers. Provides persistent access even after initial vulnerability is patched. Major security risk allowing complete system compromise.",
+          "examples": ["Hidden administrator accounts", "Debug interfaces left enabled", "Trojan backdoors", "Web shell backdoors"]
+        }
+      }
+    },
+    "2.3": {
+      "Application Vulnerabilities": {
+        "Memory Injection": {
+          "definition": "Exploiting memory management flaws to inject malicious code into running processes. Attackers manipulate how applications allocate and use memory to execute arbitrary code. Common in languages with manual memory management like C/C++. Can lead to code execution, privilege escalation, or system compromise.",
+          "examples": ["DLL injection", "Code cave injection", "Process hollowing", "Reflective DLL injection"]
+        },
+        "Buffer Overflow": {
+          "definition": "Writing more data to a memory buffer than it can hold, overwriting adjacent memory locations. Can crash applications, corrupt data, or allow arbitrary code execution by overwriting return addresses or function pointers. Classic vulnerability in C/C++ programs lacking bounds checking.",
+          "examples": ["Stack-based buffer overflow", "Heap overflow", "Integer overflow", "Off-by-one errors"]
+        },
+        "Race Conditions": {
+          "definition": "Vulnerabilities occurring when software behavior depends on timing or sequence of events that can be manipulated. Attacker exploits the time gap between checking a condition and using the result. Can bypass security checks or cause unexpected behavior in multi-threaded applications.",
+          "examples": ["Time-of-check/Time-of-use (TOCTOU)", "File system race conditions", "Concurrent access bugs", "Thread synchronization errors"]
+        },
+        "Malicious Update": {
+          "definition": "Compromised software updates containing malicious code distributed through legitimate update mechanisms. Attackers infiltrate update servers or development pipelines to poison updates. Extremely dangerous as users trust and automatically install updates. Notable example: SolarWinds supply chain attack.",
+          "examples": ["SolarWinds Orion backdoor", "Compromised software patches", "Poisoned automatic updates", "Supply chain update attacks"]
+        }
+      },
+      "OS-based Vulnerabilities": {
+        "Operating System Vulnerabilities": {
+          "definition": "Security flaws in operating system components including kernel, services, drivers, and system utilities. Can provide escalated privileges, remote code execution, or system crashes. Require prompt patching but may affect system stability. Critical as OS compromise affects all applications.",
+          "examples": ["EternalBlue (Windows SMB)", "Dirty COW (Linux kernel)", "Privilege escalation bugs", "Kernel exploits"]
+        }
+      },
+      "Web-based Vulnerabilities": {
+        "SQL Injection (SQLi)": {
+          "definition": "Inserting malicious SQL code into application inputs to manipulate database queries. Allows attackers to bypass authentication, extract data, modify databases, execute admin operations, or even execute OS commands. One of most critical web vulnerabilities. Prevented through parameterized queries.",
+          "examples": ["Authentication bypass", "Data exfiltration via UNION", "Database enumeration", "Blind SQL injection"]
+        },
+        "Cross-Site Scripting (XSS)": {
+          "definition": "Injecting malicious scripts into web pages viewed by other users. Executes attacker's code in victim's browser context, allowing session hijacking, credential theft, website defacement, or malware distribution. Three types: stored, reflected, and DOM-based XSS.",
+          "examples": ["Stored XSS in comments", "Reflected XSS in search", "DOM-based XSS", "Session cookie theft"]
+        }
+      },
+      "Hardware Vulnerabilities": {
+        "Firmware": {
+          "definition": "Low-level software embedded in hardware devices providing basic control. Firmware vulnerabilities are severe as they persist across OS reinstalls, difficult to detect and patch, and can provide deep system access. Includes BIOS/UEFI, device firmware, and embedded system code.",
+          "examples": ["UEFI rootkits", "Router firmware exploits", "IoT device firmware bugs", "Network device backdoors"]
+        },
+        "End-of-Life": {
+          "definition": "Hardware that has reached the end of manufacturer support lifecycle. No longer receives security updates, firmware patches, or technical support. Creates security risks as new vulnerabilities cannot be addressed. Common in specialized equipment and legacy infrastructure.",
+          "examples": ["Discontinued network equipment", "Unsupported servers", "Legacy medical devices", "Obsolete industrial control hardware"]
+        },
+        "Legacy": {
+          "definition": "Older hardware systems still in use despite being outdated. May lack modern security features, run unsupported software, or use deprecated protocols. Difficult to replace due to cost, dependencies, or specialized functions. Requires compensating controls and network isolation.",
+          "examples": ["Mainframe systems", "Legacy SCADA hardware", "Old point-of-sale terminals", "Aging medical equipment"]
+        }
+      },
+      "Virtualization Vulnerabilities": {
+        "VM Escape": {
+          "definition": "Breaking out of virtual machine boundaries to access the host system or other VMs. Extremely severe vulnerability allowing attacker to compromise entire virtualization infrastructure. Exploits hypervisor vulnerabilities. Rare but high-impact. Mitigated through hypervisor patching and isolation.",
+          "examples": ["Hypervisor exploits", "Guest-to-host attacks", "Container escape", "VM-to-VM lateral movement"]
+        },
+        "Resource Reuse": {
+          "definition": "Security risk when resources (memory, storage, CPU) previously used by one VM are allocated to another without proper sanitization. Can leak sensitive data between tenants in cloud environments. Includes data remanence in memory, storage, and cache.",
+          "examples": ["Memory not cleared between VMs", "Disk sector reuse", "CPU cache data leakage", "Cloud multi-tenancy data exposure"]
+        }
+      },
+      "Other Vulnerabilities": {
+        "Cloud-specific": {
+          "definition": "Security vulnerabilities unique to cloud computing environments including misconfigurations, insecure APIs, inadequate access controls, shared responsibility gaps, and multi-tenancy issues. Often stem from rapid deployment, lack of visibility, and complex cloud services.",
+          "examples": ["Misconfigured S3 buckets", "Exposed cloud databases", "Insecure cloud APIs", "IAM permission errors", "Container misconfigurations"]
+        },
+        "Supply Chain": {
+          "definition": "Vulnerabilities introduced through third-party vendors, software dependencies, hardware manufacturers, or service providers. Difficult to detect as trust is placed in suppliers. Can compromise many downstream customers simultaneously. Requires vendor security assessments and monitoring.",
+          "examples": ["Compromised open-source libraries", "Malicious npm packages", "Hardware backdoors", "Vendor breaches", "Third-party software flaws"]
+        },
+        "Cryptographic": {
+          "definition": "Weaknesses in cryptographic implementations, algorithms, or key management. Includes use of deprecated algorithms, weak keys, poor random number generation, implementation flaws, and side-channel attacks. Can expose encrypted data or enable impersonation.",
+          "examples": ["Weak encryption algorithms (DES, MD5)", "Hardcoded cryptographic keys", "Poor random number generation", "Padding oracle attacks", "Heartbleed"]
+        },
+        "Misconfiguration": {
+          "definition": "Security vulnerabilities resulting from improper system, application, or security control configuration. One of most common vulnerability types. Includes default credentials, unnecessary services enabled, excessive permissions, unpatched systems, and disabled security features.",
+          "examples": ["Default passwords unchanged", "Unnecessary ports open", "Excessive user permissions", "Security features disabled", "Unencrypted communications"]
+        },
+        "Mobile Device": {
+          "definition": "Security vulnerabilities specific to mobile platforms (iOS, Android) including OS vulnerabilities, malicious apps, insecure data storage, weak encryption, and platform-specific attack vectors like sideloading and jailbreaking that bypass security controls.",
+          "examples": ["Malicious mobile apps", "Insecure mobile APIs", "SMS/MMS exploits", "Mobile OS vulnerabilities"]
+        },
+        "Zero-day": {
+          "definition": "Previously unknown vulnerability that has no available patch or fix. Called 'zero-day' because developers have zero days to fix it before exploitation. Highly valuable to attackers and expensive on black market. Extremely dangerous until discovered and patched.",
+          "examples": ["Stuxnet zero-days", "Zero-day browser exploits", "Unknown OS vulnerabilities", "Unpatched application flaws"]
+        }
+      }
+    },
+    "2.4": {
+      "Malware Attacks": {
+        "Ransomware": {
+          "definition": "Malware encrypting files or locking systems, demanding payment (usually cryptocurrency) for decryption key. Modern variants exfiltrate data first for double extortion. Causes massive operational disruption and financial losses. Top cybersecurity threat to organizations.",
+          "examples": ["WannaCry", "Ryuk", "REvil/Sodinokibi", "Conti", "LockBit"]
+        },
+        "Trojan": {
+          "definition": "Malicious software disguised as or bundled with legitimate programs. Does not self-replicate. Tricks users into installing by appearing benign. Provides backdoor access, steals credentials, downloads additional malware, or creates botnets. Named after Greek Trojan horse.",
+          "examples": ["Remote Access Trojans (RATs)", "Banking trojans (Zeus, Emotet)", "Backdoor trojans", "Trojan downloaders"]
+        },
+        "Worm": {
+          "definition": "Self-replicating malware spreading automatically across networks without user interaction. Exploits vulnerabilities or weak credentials to propagate. Consumes bandwidth and resources. Can carry destructive payloads. Modern network defenses and patching have reduced major worm outbreaks.",
+          "examples": ["WannaCry (worm component)", "Conficker", "SQL Slammer", "Blaster", "Morris Worm"]
+        },
+        "Spyware": {
+          "definition": "Software secretly monitoring and collecting user information without consent. Tracks browsing, captures keystrokes, steals credentials, records screens, and exfiltrates personal data. Often bundled with free software. Includes keyloggers and stalkerware.",
+          "examples": ["Keyloggers", "Browser tracking software", "Credential stealers", "Screen capture tools", "Stalkerware apps"]
+        },
+        "Bloatware": {
+          "definition": "Pre-installed software on devices that users don't want or need. While not always malicious, can contain security vulnerabilities, consume resources, collect user data, or be difficult to remove. Common on consumer devices and can create attack surface.",
+          "examples": ["Pre-installed manufacturer apps", "Carrier bloatware on phones", "Adware bundled with free software", "Unwanted browser toolbars"]
+        },
+        "Virus": {
+          "definition": "Malicious code that attaches to legitimate files or programs and replicates when host is executed. Requires user action to spread. Can corrupt files, steal data, or deliver payloads. Oldest form of malware. Modern antivirus and security practices have reduced prevalence.",
+          "examples": ["File infector viruses", "Macro viruses", "Boot sector viruses", "Polymorphic viruses"]
+        },
+        "Keylogger": {
+          "definition": "Software or hardware recording every keystroke typed on a keyboard. Captures passwords, credit card numbers, messages, and sensitive information. Can be legitimate (parental monitoring) or malicious (credential theft). Hardware keyloggers physically intercept keyboard signals.",
+          "examples": ["Software keyloggers", "Hardware keyloggers (USB devices)", "Mobile keylogger apps", "Kernel-mode keyloggers"]
+        },
+        "Logic Bomb": {
+          "definition": "Malicious code lying dormant until triggered by specific condition (date, time, user action, system event). Often planted by insiders for sabotage or revenge. Executes destructive payload when activated. Difficult to detect before trigger. Time bombs are date-triggered variants.",
+          "examples": ["Time bomb on specific date", "Triggered on employee termination", "Action-based triggers", "Event-driven destruction"]
+        },
+        "Rootkit": {
+          "definition": "Malware providing privileged (root) access while hiding its presence from users and security software. Modifies OS to conceal processes, files, registry keys, and network connections. Kernel-mode rootkits are most severe. Extremely difficult to detect and remove.",
+          "examples": ["Kernel-mode rootkits", "Bootkits (boot sector)", "Firmware rootkits", "User-mode rootkits"]
+        }
+      },
+      "Physical Attacks": {
+        "Brute Force (Physical)": {
+          "definition": "Using physical force to breach security controls including breaking locks, smashing barriers, forcing doors, or destroying access controls. Low-tech but effective against weak physical security. Leaves obvious evidence. Can be combined with cyber attacks.",
+          "examples": ["Breaking door locks", "Smashing windows", "Cutting fences", "Destroying security cameras", "Forcing cabinet locks"]
+        },
+        "RFID Cloning": {
+          "definition": "Copying Radio Frequency Identification credentials from access badges or cards to create duplicates. Attackers use RFID readers to capture signals and clone to blank cards. Enables unauthorized physical access. Proximity cards especially vulnerable. Mitigated with encrypted RFID systems.",
+          "examples": ["Cloning access badges", "Duplicating hotel key cards", "Copying contactless payment cards", "Badge skimming attacks"]
+        },
+        "Environmental": {
+          "definition": "Physical attacks exploiting or causing environmental conditions to disrupt operations or damage systems. Includes tampering with power, HVAC, water, or creating hazardous conditions. Can destroy hardware, corrupt data, or deny access to facilities.",
+          "examples": ["Power disruption", "HVAC manipulation", "Fire suppression activation", "Flooding", "Temperature extremes"]
+        }
+      },
+      "Network Attacks": {
+        "Distributed Denial-of-Service (DDoS)": {
+          "definition": "Overwhelming target systems or networks with massive traffic from multiple sources (botnet) making services unavailable to legitimate users. Difficult to mitigate due to distributed sources. Types include volumetric, protocol, and application-layer attacks. Can include amplification and reflection.",
+          "examples": ["UDP flood attacks", "SYN flood", "HTTP flood", "DNS amplification", "NTP reflection attacks"]
+        },
+        "DNS Attacks": {
+          "definition": "Attacks targeting Domain Name System infrastructure to redirect users, deny service, or exfiltrate data. Includes DNS poisoning/spoofing, DNS tunneling for data exfiltration, DNS amplification DDoS, and domain hijacking.",
+          "examples": ["DNS cache poisoning", "DNS tunneling", "DNS hijacking", "DNS amplification attacks", "Domain spoofing"]
+        },
+        "Wireless Attacks": {
+          "definition": "Exploiting vulnerabilities in wireless networks and protocols. Includes evil twin APs, WEP/WPA cracking, deauthentication attacks, rogue access points, Bluetooth attacks, and RFID/NFC exploits. Wireless signals extend beyond physical boundaries increasing attack surface.",
+          "examples": ["Evil twin access points", "WPA/WPA2 cracking", "Deauthentication attacks", "Bluetooth exploits", "Rogue APs"]
+        },
+        "On-path Attack": {
+          "definition": "Attacker intercepts communications between two parties, relaying and potentially altering messages while appearing transparent. Previously called man-in-the-middle (MITM). Can capture credentials, session tokens, sensitive data, or inject malicious content. Requires position in network path.",
+          "examples": ["ARP spoofing", "SSL stripping", "Session hijacking", "WiFi eavesdropping", "BGP hijacking"]
+        },
+        "Credential Replay": {
+          "definition": "Capturing valid authentication credentials or session tokens and reusing them to gain unauthorized access. Intercepted credentials replayed to authenticate as legitimate user. Prevented using timestamps, nonces, sequence numbers, and session token rotation.",
+          "examples": ["Replaying captured passwords", "Session token reuse", "Kerberos ticket replay", "Authentication cookie replay"]
+        },
+        "Malicious Code (Network-based)": {
+          "definition": "Malware spreading through network vectors including worms, network exploits, drive-by downloads, and watering hole attacks. Exploits network services, protocols, or web browsing to compromise systems remotely without physical access.",
+          "examples": ["Network worms", "Drive-by downloads", "Exploit kits", "Watering hole attacks", "Malvertising"]
+        }
+      },
+      "Application Attacks": {
+        "Injection": {
+          "definition": "Inserting malicious code or commands into application inputs to manipulate execution. Includes SQL injection, command injection, LDAP injection, XML injection, and code injection. Exploits insufficient input validation. Can lead to data theft, system compromise, or unauthorized actions.",
+          "examples": ["SQL injection", "Command injection", "LDAP injection", "XML injection", "NoSQL injection"]
+        },
+        "Buffer Overflow": {
+          "definition": "Writing excessive data to memory buffers, overwriting adjacent memory. Can crash applications or enable arbitrary code execution. Exploits lack of bounds checking in programming languages. Mitigated by modern protections (DEP, ASLR, stack canaries).",
+          "examples": ["Stack overflow", "Heap overflow", "Return-oriented programming", "Format string attacks"]
+        },
+        "Replay": {
+          "definition": "Capturing and retransmitting valid application requests or authentication to duplicate actions. Attacker intercepts legitimate communications and replays them to impersonate users or repeat transactions. Prevented with timestamps, nonces, and anti-replay mechanisms.",
+          "examples": ["Authentication replay", "Transaction replay", "Session replay", "API request replay"]
+        },
+        "Privilege Escalation": {
+          "definition": "Exploiting vulnerabilities to gain higher access privileges than authorized. Vertical escalation gains admin/root privileges. Horizontal escalation accesses other users' privileges. Critical step in most attacks. Results from poor access controls or software vulnerabilities.",
+          "examples": ["Local privilege escalation to admin", "Exploiting SUID binaries", "Kernel exploits", "Access control bypasses"]
+        },
+        "Forgery": {
+          "definition": "Creating fraudulent requests or data that appears legitimate. Includes Cross-Site Request Forgery (CSRF) forcing authenticated users to execute unwanted actions, and server-side request forgery (SSRF) making servers perform unintended requests. Exploits trust relationships.",
+          "examples": ["Cross-Site Request Forgery (CSRF)", "Server-Side Request Forgery (SSRF)", "Request forgery", "Token forgery"]
+        },
+        "Directory Traversal": {
+          "definition": "Manipulating file path inputs using sequences like '../' to access files outside intended directories. Can expose configuration files, source code, credentials, and system files. Also called path traversal. Prevented through input validation and sandboxing.",
+          "examples": ["Reading /etc/passwd", "Accessing config files", "Source code disclosure", "Log file access via ../../../../"]
+        }
+      },
+      "Cryptographic Attacks": {
+        "Downgrade": {
+          "definition": "Forcing systems to use weaker, older cryptographic protocols or ciphers that are easier to break. Exploits backward compatibility. Attacker manipulates protocol negotiation to select vulnerable options. Enabled SSL/TLS attacks. Prevented by disabling legacy protocols.",
+          "examples": ["SSL stripping", "TLS downgrade to SSL 3.0", "Cipher suite downgrade", "POODLE attack"]
+        },
+        "Collision": {
+          "definition": "Finding two different inputs that produce the same hash output. Breaks cryptographic hash function integrity. Allows attackers to substitute malicious files with same hash as legitimate files, bypassing integrity checks. MD5 and SHA-1 are collision-vulnerable.",
+          "examples": ["MD5 collisions", "SHA-1 collisions", "Digital signature forgery via collision", "Certificate spoofing"]
+        },
+        "Birthday": {
+          "definition": "Cryptographic attack exploiting birthday paradox to find hash collisions more efficiently. With N possible hash values, only sqrt(N) attempts needed for 50% collision probability. Makes collision attacks practical. Reason 256-bit hashes provide only 128-bit collision resistance.",
+          "examples": ["Birthday attack on MD5", "Hash collision search", "Digital signature attacks", "Password hash collisions"]
+        }
+      },
+      "Password Attacks": {
+        "Spraying": {
+          "definition": "Attempting a few commonly used passwords against many user accounts. Opposite of brute force. Avoids account lockouts by staying under failed login thresholds. Exploits password reuse and weak common passwords. Effective against large user bases.",
+          "examples": ["Testing 'Password123' across all users", "Seasonal passwords (Summer2024!)", "Common passwords against many accounts", "Credential stuffing lite"]
+        },
+        "Brute Force (Password)": {
+          "definition": "Systematically trying all possible password combinations until finding the correct one. Computationally expensive but guaranteed if given enough time. Effective against weak passwords. Defeated by account lockouts, rate limiting, strong passwords, and MFA.",
+          "examples": ["Automated password guessing", "Dictionary attacks", "Rainbow table attacks", "Hash cracking"]
+        }
+      },
+      "Indicators": {
+        "Account Lockout": {
+          "definition": "User accounts being locked due to excessive failed login attempts. Can indicate password attack (brute force, spraying) or compromised accounts. Unusual lockout patterns signal potential attacks. Requires investigation to distinguish attacks from user errors.",
+          "examples": ["Multiple account lockouts", "Lockouts during off-hours", "Administrator account lockouts", "Widespread lockouts"]
+        },
+        "Concurrent Session Usage": {
+          "definition": "Same user account logged in from multiple locations simultaneously. Can indicate credential theft or sharing. Especially suspicious if locations are geographically distant or unusual. Sign of compromised accounts or insider threat.",
+          "examples": ["User logged in from two countries simultaneously", "Multiple active sessions for single user", "Unusual concurrent access patterns"]
+        },
+        "Blocked Content": {
+          "definition": "Security systems blocking access to malicious sites, preventing malware downloads, or filtering suspicious content. Increase in blocked content indicates potential attack attempts or compromised systems trying to communicate with C2 servers.",
+          "examples": ["Firewall blocking malicious IPs", "Web filter blocking phishing sites", "Antivirus quarantining malware", "Email gateway blocking attachments"]
+        },
+        "Impossible Travel": {
+          "definition": "User logging in from geographically distant locations within timeframe that makes physical travel impossible. Strong indicator of credential compromise. Example: login from New York followed by login from Tokyo 30 minutes later.",
+          "examples": ["Logins from different continents within minutes", "VPN location jumps", "Geographically impossible access patterns"]
+        },
+        "Resource Consumption": {
+          "definition": "Abnormal CPU, memory, network, or disk usage indicating malicious activity. Can signal crypto mining, DDoS participation, data exfiltration, or malware execution. Baseline monitoring helps identify anomalies.",
+          "examples": ["CPU spikes from crypto mining", "Network bandwidth saturation", "Unexpected disk I/O", "Memory exhaustion"]
+        },
+        "Resource Inaccessibility": {
+          "definition": "Legitimate resources becoming unavailable to users. Can indicate ransomware encryption, deletion attacks, DoS attacks, or system compromise. Sudden inaccessibility of files, databases, or services requires immediate investigation.",
+          "examples": ["Encrypted files (ransomware)", "Deleted data", "Crashed services", "Inaccessible network shares"]
+        },
+        "Out-of-cycle Logging": {
+          "definition": "Log entries or system activities occurring outside normal business hours or maintenance windows. Can indicate unauthorized access, insider threats, or automated malware activity. Baseline user behavior helps identify anomalies.",
+          "examples": ["Database queries at 3 AM", "File access outside business hours", "Administrative actions on weekends", "Unusual off-hours activity"]
+        },
+        "Published/Documented": {
+          "definition": "Indicators of compromise (IOCs) or threat intelligence published by security researchers, vendors, or threat feeds. Includes known malicious IPs, domains, file hashes, and attack signatures. Used to detect known threats.",
+          "examples": ["IOC feeds", "Threat intelligence reports", "CVE publications", "YARA rules", "STIX/TAXII feeds"]
+        },
+        "Missing Logs": {
+          "definition": "Gaps in log files or disabled logging. Strong indicator of malicious activity as attackers often delete logs to cover tracks or disable logging to avoid detection. Critical security concern requiring immediate investigation.",
+          "examples": ["Deleted audit logs", "Disabled logging services", "Log file gaps", "Cleared event logs"]
+        }
+      }
+    },
+    "2.5": {
+      "Mitigation Techniques": {
+        "Segmentation": {
+          "definition": "Dividing networks into separate segments or zones to limit lateral movement and contain breaches. Creates security boundaries between different trust levels. Includes VLANs, subnets, and network zones (DMZ). Limits blast radius of security incidents.",
+          "examples": ["Network VLANs", "DMZ for public services", "Subnet isolation", "Micro-segmentation", "Zero-trust segmentation"]
+        },
+        "Access Control": {
+          "definition": "Mechanisms restricting who can access resources and what actions they can perform. Includes Access Control Lists (ACLs), permissions, and authentication/authorization systems. Fundamental security principle enforcing least privilege and need-to-know.",
+          "examples": ["ACLs on routers", "File permissions (chmod)", "RBAC policies", "Firewall rules", "IAM policies"]
+        },
+        "Application Allow List": {
+          "definition": "Security approach permitting only approved applications to execute (whitelist). Blocks all other software including malware. More secure than deny lists (blacklists) as default-deny. Effective against zero-day malware and unauthorized software.",
+          "examples": ["Windows AppLocker", "Application whitelisting policies", "Allowed executable lists", "Signed application requirements"]
+        },
+        "Isolation": {
+          "definition": "Separating systems, networks, or processes to prevent interaction and contain threats. Includes physical isolation (air-gapping), virtual isolation (VMs/containers), process isolation, and browser sandboxing. Prevents lateral movement and limits attack impact.",
+          "examples": ["Air-gapped networks", "VM isolation", "Container sandboxing", "Process isolation", "Browser sandboxes"]
+        },
+        "Patching": {
+          "definition": "Applying software updates to fix vulnerabilities, bugs, and security flaws. Critical mitigation technique keeping systems secure against known exploits. Requires testing, change management, and timely deployment. Automated patch management recommended.",
+          "examples": ["Windows Update", "Security patches", "Firmware updates", "Application updates", "Emergency patches"]
+        },
+        "Encryption": {
+          "definition": "Converting data into unreadable format using cryptographic algorithms to protect confidentiality. Includes data-at-rest encryption (disk, database), data-in-transit encryption (TLS, VPN), and end-to-end encryption. Essential control for sensitive data protection.",
+          "examples": ["Full-disk encryption (BitLocker)", "TLS/SSL for web traffic", "VPN tunnels", "Database encryption", "Email encryption"]
+        },
+        "Monitoring": {
+          "definition": "Continuous observation of systems, networks, and user activities to detect anomalies and security incidents. Includes log monitoring, SIEM, IDS/IPS, and user behavior analytics. Enables early threat detection and incident response.",
+          "examples": ["SIEM monitoring", "Log analysis", "Network traffic analysis", "User activity monitoring", "File integrity monitoring"]
+        },
+        "Least Privilege": {
+          "definition": "Granting users and processes only minimum permissions necessary to perform their functions. Fundamental security principle limiting potential damage from compromised accounts or malicious insiders. Reduces attack surface and blast radius.",
+          "examples": ["Removing admin rights from users", "Service accounts with minimal permissions", "Just-in-time access", "Temporary elevated privileges"]
+        },
+        "Configuration Enforcement": {
+          "definition": "Ensuring systems maintain secure configurations through policies, baselines, and automated tools. Prevents configuration drift and unauthorized changes. Includes security baselines, Group Policy, and configuration management tools.",
+          "examples": ["Group Policy enforcement", "Security baselines (CIS benchmarks)", "Configuration management (Ansible)", "Infrastructure as Code"]
+        },
+        "Decommissioning": {
+          "definition": "Securely retiring systems, applications, and services no longer needed. Includes data sanitization, secure disposal, certificate revocation, and access removal. Reduces attack surface by eliminating unnecessary assets. Critical for preventing data leaks from old systems.",
+          "examples": ["Secure hard drive wiping", "Equipment destruction", "Account termination", "Certificate revocation", "Service shutdown"]
+        }
+      },
+      "Hardening Techniques": {
+        "Encryption (Hardening)": {
+          "definition": "Implementing encryption as part of system hardening to protect data and communications. Includes enabling full-disk encryption, enforcing encrypted protocols, encrypting sensitive files, and using encrypted communications channels.",
+          "examples": ["Enforcing HTTPS only", "Full-disk encryption mandatory", "Encrypted email requirements", "Encrypted backup storage"]
+        },
+        "Endpoint Protection": {
+          "definition": "Installing security software on endpoint devices including antivirus, anti-malware, EDR (Endpoint Detection and Response), and XDR (Extended Detection and Response). Provides real-time threat detection, prevention, and response capabilities.",
+          "examples": ["Antivirus software", "EDR solutions (CrowdStrike, Carbon Black)", "Anti-malware tools", "XDR platforms"]
+        },
+        "Host-based Firewall": {
+          "definition": "Software firewall running on individual systems controlling incoming and outgoing network traffic. Provides defense-in-depth when combined with network firewalls. Protects against local network threats and restricts application communications.",
+          "examples": ["Windows Defender Firewall", "iptables (Linux)", "macOS firewall", "Third-party host firewalls"]
+        },
+        "HIPS": {
+          "full": "Host-based Intrusion Prevention System",
+          "definition": "Security software monitoring system behavior to detect and block malicious activities. Goes beyond signature-based detection to identify suspicious behavior patterns. Can prevent zero-day exploits and unknown threats through behavioral analysis.",
+          "examples": ["OSSEC", "Trend Micro HIPS", "McAfee Host IPS", "Behavioral monitoring tools"]
+        },
+        "Disabling Ports/Protocols": {
+          "definition": "Closing unnecessary network ports and disabling insecure protocols to reduce attack surface. Part of system hardening following principle of least functionality. Prevents exploitation of unused services and deprecated protocols.",
+          "examples": ["Disabling Telnet (port 23)", "Blocking SMBv1", "Closing unused ports", "Disabling FTP", "Removing deprecated SSL/TLS"]
+        },
+        "Default Password Changes": {
+          "definition": "Changing factory-set default passwords on devices and applications during deployment. Critical hardening step as default credentials are publicly known and frequently exploited. Automated scanners search for default passwords.",
+          "examples": ["Changing router admin passwords", "Resetting device default credentials", "Database password changes", "Application default passwords"]
+        },
+        "Removal of Unnecessary Software": {
+          "definition": "Uninstalling applications, services, and features not required for system operation. Reduces attack surface by eliminating potential vulnerabilities. Follows principle of least functionality. Includes removing bloatware and disabling unused services.",
+          "examples": ["Removing unused applications", "Disabling unnecessary Windows features", "Uninstalling bloatware", "Removing development tools from production"]
+        }
+      }
+    }
+  },
+  "3.0": {
+    "3.1": {
+      "Cloud Models": {
+        "IaaS": {
+          "full": "Infrastructure as a Service",
+          "definition": "Cloud service model providing virtualized computing resources over the internet. Provider manages physical infrastructure while customer controls operating systems, storage, and deployed applications. Most flexible but requires most customer management. Examples include virtual machines, storage, and networking.",
+          "examples": ["Amazon EC2", "Azure Virtual Machines", "Google Compute Engine", "DigitalOcean Droplets"]
+        },
+        "PaaS": {
+          "full": "Platform as a Service",
+          "definition": "Cloud service model providing platform and environment for developers to build, deploy, and manage applications without managing underlying infrastructure. Provider manages OS, middleware, runtime while customer manages applications and data. Balances control and convenience.",
+          "examples": ["Azure App Service", "Google App Engine", "Heroku", "AWS Elastic Beanstalk"]
+        },
+        "SaaS": {
+          "full": "Software as a Service",
+          "definition": "Cloud service model delivering fully functional applications over the internet. Provider manages entire stack including infrastructure, platform, and application. Customer simply uses the software. Least customer responsibility but least control. Most common cloud service.",
+          "examples": ["Microsoft 365", "Google Workspace", "Salesforce", "Dropbox", "Zoom"]
+        },
+        "Public Cloud": {
+          "definition": "Cloud infrastructure owned and operated by third-party provider, shared among multiple organizations (multi-tenant). Most cost-effective with unlimited scalability but least control over security. Resources accessed via internet with pay-per-use pricing.",
+          "examples": ["AWS", "Microsoft Azure", "Google Cloud Platform", "IBM Cloud"]
+        },
+        "Private Cloud": {
+          "definition": "Cloud infrastructure dedicated to single organization, either on-premises or hosted by third party. Provides greater control and security but higher cost. Suitable for organizations with strict compliance requirements or sensitive data.",
+          "examples": ["On-premises VMware vSphere", "OpenStack deployment", "Hosted private cloud", "Government clouds"]
+        },
+        "Hybrid Cloud": {
+          "definition": "Combination of public and private clouds connected to work together. Allows data and applications to move between environments. Provides flexibility to keep sensitive workloads private while using public cloud for less-critical resources. Requires careful security boundary management.",
+          "examples": ["Azure Stack hybrid", "AWS Outposts", "Critical data in private cloud, web apps in public cloud"]
+        },
+        "Community Cloud": {
+          "definition": "Cloud infrastructure shared among several organizations with common concerns (security, compliance, jurisdiction). Costs shared among members. More expensive than public but cheaper than private. Common in healthcare, government, and financial sectors.",
+          "examples": ["Government community clouds", "Healthcare data sharing platforms", "Financial services clouds"]
+        }
+      },
+      "Infrastructure Concepts": {
+        "On-Premises": {
+          "definition": "Traditional infrastructure where organization owns and operates hardware and software at their physical location. Provides maximum control and security but requires significant capital investment and ongoing maintenance. Organization responsible for all security layers.",
+          "examples": ["Data center in company building", "Server room infrastructure", "Self-hosted applications"]
+        },
+        "Containerization": {
+          "definition": "Lightweight virtualization packaging applications with dependencies into isolated containers. Share host OS kernel making them more efficient than VMs. Enable consistent deployment across environments. Require container security controls and orchestration.",
+          "examples": ["Docker containers", "Kubernetes orchestration", "Microservices architecture", "Container registries"]
+        },
+        "Serverless": {
+          "definition": "Cloud computing model where provider manages server infrastructure and automatically provisions resources. Developers write functions that execute in response to events. Pay only for actual execution time. Eliminates server management but introduces new security considerations.",
+          "examples": ["AWS Lambda", "Azure Functions", "Google Cloud Functions", "Event-driven architectures"]
+        },
+        "Microservices": {
+          "definition": "Architectural approach decomposing applications into small, independent services communicating via APIs. Each service handles specific business capability. Enables agility and scalability but increases attack surface and complexity. Requires API security and service mesh.",
+          "examples": ["E-commerce with separate payment, inventory, user services", "Netflix architecture", "Service-oriented architecture"]
+        }
+      },
+      "Network Infrastructure": {
+        "VPN": {
+          "full": "Virtual Private Network",
+          "definition": "Encrypted tunnel over public networks providing secure remote access or site-to-site connectivity. Protects data confidentiality and integrity during transmission. Types include site-to-site (connecting networks) and remote access (individual users). Uses protocols like IPSec, SSL/TLS.",
+          "examples": ["Remote worker access", "Site-to-site WAN connections", "Split-tunnel VPN", "Always-on VPN"]
+        },
+        "SD-WAN": {
+          "full": "Software-Defined Wide Area Network",
+          "definition": "Virtualized WAN architecture using software to control connectivity and management across multiple transport services (MPLS, broadband, LTE). Enables dynamic path selection, application-aware routing, and centralized management. Reduces costs and increases agility but requires proper security controls.",
+          "examples": ["Multi-site connectivity optimization", "Cloud application acceleration", "Branch office networking"]
+        },
+        "SASE": {
+          "full": "Secure Access Service Edge",
+          "definition": "Cloud-delivered security and networking framework combining SD-WAN with security services (CASB, FWaaS, ZTNA, SWG). Provides secure access regardless of location. Converges networking and security into single cloud service. Aligns with remote work and cloud adoption.",
+          "examples": ["Cloudflare One", "Zscaler", "Palo Alto Prisma Access", "Unified secure access"]
+        },
+        "Segmentation": {
+          "definition": "Dividing network into isolated sections to limit lateral movement and contain breaches. Reduces blast radius of incidents. Implemented via VLANs, firewalls, or software-defined networking. Critical security control for zero trust architecture.",
+          "examples": ["DMZ for public services", "Separate guest network", "Production vs development environments", "Micro-segmentation"]
+        },
+        "Air Gap": {
+          "definition": "Physical isolation of network or system from unsecured networks by removing all network connections. Most extreme form of network segmentation. Used for highly sensitive systems. Defeats network-based attacks but complicates updates and management.",
+          "examples": ["SCADA systems", "Nuclear facility controls", "Classified government networks", "Secure data analysis environments"]
+        }
+      }
+    },
+    "3.2": {
+      "Security Infrastructure": {
+        "Firewall": {
+          "definition": "Network security device filtering traffic based on predetermined rules. Sits between trusted and untrusted networks blocking unauthorized access while permitting legitimate communication. Types include packet-filtering, stateful, application-layer, and next-generation firewalls (NGFW).",
+          "examples": ["Perimeter firewalls", "Host-based firewalls", "Web application firewalls", "Cloud firewalls"]
+        },
+        "IDS": {
+          "full": "Intrusion Detection System",
+          "definition": "Passive security device monitoring network or host activity for suspicious patterns. Generates alerts when detecting potential threats but doesn't block traffic. Provides visibility without risking false positives disrupting legitimate traffic. Can be network-based (NIDS) or host-based (HIDS).",
+          "examples": ["Snort", "Suricata", "OSSEC (HIDS)", "Network traffic analysis"]
+        },
+        "IPS": {
+          "full": "Intrusion Prevention System",
+          "definition": "Active security device that monitors, detects, and automatically blocks malicious activity in real-time. Sits inline with traffic flow. Combines detection capabilities with prevention. Risk of false positives blocking legitimate traffic requires careful tuning.",
+          "examples": ["Inline IPS appliances", "Next-gen firewall IPS", "Cloud-based IPS", "Virtual IPS"]
+        },
+        "Proxy Server": {
+          "definition": "Intermediary server sitting between clients and destination servers, forwarding requests and responses. Provides anonymity, caching, content filtering, and access control. Can inspect and modify traffic. Forward proxy serves clients, reverse proxy protects servers.",
+          "examples": ["Web proxy for internet filtering", "Reverse proxy for load balancing", "SSL/TLS termination proxy", "Caching proxy"]
+        },
+        "Load Balancer": {
+          "definition": "Device distributing network traffic across multiple servers to ensure no single server is overwhelmed. Improves availability, reliability, and performance. Provides health checking and automatic failover. Can operate at different network layers (Layer 4 or Layer 7).",
+          "examples": ["Application load balancers", "Network load balancers", "DNS load balancing", "Cloud load balancers"]
+        },
+        "NAC": {
+          "full": "Network Access Control",
+          "definition": "Security solution enforcing policy on devices seeking network access. Authenticates users, assesses device posture (OS version, antivirus, patches), and grants appropriate access level. Can quarantine non-compliant devices. Supports zero trust network access.",
+          "examples": ["802.1X authentication", "Agent-based NAC", "Agentless NAC", "Guest network isolation"]
+        },
+        "Jump Server": {
+          "definition": "Hardened server providing controlled access to devices in different security zone. Acts as intermediary for administrative access to critical systems. All admin connections pass through jump server enabling monitoring and logging. Also called bastion host.",
+          "examples": ["SSH jump host", "RDP gateway", "Privileged access workstation", "Administrative access point"]
+        }
+      },
+      "Security Zones": {
+        "DMZ": {
+          "full": "Demilitarized Zone",
+          "definition": "Network segment between internal and external networks hosting public-facing services. Isolated from internal network with restricted access to internal resources. Provides buffer protecting internal network from direct internet exposure. Also called screened subnet.",
+          "examples": ["Web servers", "Email servers", "Public DNS", "FTP servers"]
+        },
+        "Screened Subnet": {
+          "definition": "Network architecture using two firewalls creating isolated subnet for public services. External firewall filters internet traffic, internal firewall protects internal network. More secure than simple DMZ. Provides defense in depth.",
+          "examples": ["Three-tier firewall architecture", "Public service isolation", "Dual-firewall DMZ"]
+        },
+        "Extranet": {
+          "definition": "Controlled private network allowing specific external users (partners, vendors, customers) limited access to organization's internal resources. More restricted than internet but broader than intranet. Requires strong authentication and authorization.",
+          "examples": ["Partner portals", "Vendor access systems", "B2B collaboration platforms", "Supply chain networks"]
+        },
+        "Intranet": {
+          "definition": "Private network accessible only to organization's internal users. Hosts internal websites, applications, and resources. Protected from external access by firewalls and authentication. May still require internal security controls.",
+          "examples": ["Internal employee portals", "Company wikis", "Internal applications", "Corporate communication platforms"]
+        }
+      },
+      "Secure Access": {
+        "VDI": {
+          "full": "Virtual Desktop Infrastructure",
+          "definition": "Technology hosting desktop environments on centralized server infrastructure. Users access virtual desktops remotely via thin clients or endpoint devices. Centralizes data and applications improving security and management. All data stays in data center.",
+          "examples": ["Citrix Virtual Apps and Desktops", "VMware Horizon", "Windows Virtual Desktop", "Remote desktop services"]
+        },
+        "Secure Access Service Edge": {
+          "full": "SASE",
+          "definition": "Converged cloud-native architecture combining WAN capabilities with comprehensive network security services. Delivers security close to users regardless of location. Includes ZTNA, CASB, FWaaS, and SWG delivered from cloud. Supports modern work environments.",
+          "examples": ["Zero trust network access", "Cloud-delivered security", "Unified access control"]
+        }
+      }
+    },
+    "3.3": {
+      "Data Protection": {
+        "Data at Rest": {
+          "definition": "Data stored on persistent storage media (hard drives, SSDs, databases, backups). Vulnerable to theft, unauthorized access, or physical compromise. Protected primarily through encryption (full disk, file-level, database). Requires key management and access controls.",
+          "examples": ["Encrypted hard drives", "Database encryption", "BitLocker", "Encrypted backups"]
+        },
+        "Data in Transit": {
+          "definition": "Data actively moving across networks (internet, LAN, WAN). Vulnerable to interception, eavesdropping, and man-in-the-middle attacks. Protected through encryption protocols (TLS, IPSec, SSH). Requires certificate management and secure protocols.",
+          "examples": ["HTTPS web traffic", "VPN tunnels", "Encrypted email", "Secure file transfers (SFTP)"]
+        },
+        "Data in Use": {
+          "definition": "Data actively being processed in memory or CPU. Most vulnerable state as data typically must be unencrypted for processing. Protected through secure enclaves, memory encryption, and process isolation. Emerging technologies include homomorphic encryption and secure multiparty computation.",
+          "examples": ["RAM contents", "CPU cache", "Application memory", "Secure enclave processing"]
+        },
+        "Tokenization": {
+          "definition": "Replacing sensitive data with non-sensitive tokens that have no exploitable value. Original data stored securely in token vault with mapping to tokens. Reduces PCI DSS scope by removing credit card data from systems. Cannot be mathematically reversed unlike encryption.",
+          "examples": ["Credit card tokenization", "PII tokenization", "Payment processing tokens", "De-identification"]
+        },
+        "Data Masking": {
+          "definition": "Obscuring specific data within database to protect it from unauthorized access while maintaining realistic format for testing/development. Creates structurally similar but inauthentic data. Static masking creates copy, dynamic masking obscures on-the-fly.",
+          "examples": ["Masking credit card numbers (XXXX-XXXX-XXXX-1234)", "Test database anonymization", "Production data sanitization"]
+        },
+        "Data Loss Prevention": {
+          "full": "DLP",
+          "definition": "Technologies and processes preventing sensitive data from leaving organization's control. Monitors data in use, in motion, and at rest. Can detect and block unauthorized data transfers based on content inspection, context, and user actions. Supports compliance requirements.",
+          "examples": ["Email DLP blocking PII transmission", "USB port blocking", "Cloud DLP", "Endpoint DLP agents"]
+        }
+      },
+      "Encryption": {
+        "Symmetric Encryption": {
+          "definition": "Encryption using same key for encryption and decryption. Very fast and efficient for large amounts of data. Main challenge is secure key distribution. Common algorithms include AES (standard), DES (deprecated), and 3DES.",
+          "examples": ["AES-256 for file encryption", "Full disk encryption", "Database encryption", "VPN tunnels"]
+        },
+        "Asymmetric Encryption": {
+          "definition": "Encryption using key pair: public key for encryption, private key for decryption. Solves key distribution problem but slower than symmetric. Used for key exchange, digital signatures, and small data encryption. Common algorithms include RSA, ECC, and ElGamal.",
+          "examples": ["SSL/TLS handshake", "Email encryption (PGP)", "Digital signatures", "SSH key authentication"]
+        },
+        "Hashing": {
+          "definition": "One-way function converting data into fixed-size output (hash/digest). Cannot be reversed to recover original data. Any change to input produces completely different hash. Used for integrity verification, password storage, and digital signatures. Common algorithms include SHA-256, SHA-3, bcrypt.",
+          "examples": ["Password hashing", "File integrity checking", "Digital signature creation", "Blockchain"]
+        }
+      },
+      "Data Classification": {
+        "Public": {
+          "definition": "Data intended for public consumption with no confidentiality requirements. Disclosure causes no harm to organization. No special handling required but integrity and availability may still be important. Least restrictive classification.",
+          "examples": ["Marketing materials", "Press releases", "Public website content", "Published annual reports"]
+        },
+        "Private": {
+          "definition": "Data intended for internal use only, not for public disclosure. Limited distribution within organization. Unauthorized disclosure could cause minor damage. Requires basic security controls and access restrictions.",
+          "examples": ["Internal emails", "Employee directories", "Internal procedures", "Meeting notes"]
+        },
+        "Confidential": {
+          "definition": "Sensitive data with limited distribution requiring protection from unauthorized disclosure. Unauthorized access could cause significant damage to organization. Requires strong access controls, encryption, and handling procedures.",
+          "examples": ["Financial reports", "Business strategies", "Employee records", "Customer data"]
+        },
+        "Critical": {
+          "definition": "Most sensitive data vital to organization's operations. Unauthorized disclosure could cause severe damage including legal, financial, or reputational harm. Requires strongest security controls including encryption, strict access controls, and extensive logging.",
+          "examples": ["Trade secrets", "Classified information", "Merger/acquisition plans", "Authentication credentials"]
+        }
+      }
+    },
+    "3.4": {
+      "Resilience Concepts": {
+        "High Availability": {
+          "definition": "System design ensuring service remains accessible with minimal downtime. Achieved through redundancy, failover mechanisms, and fault tolerance. Measured in uptime percentage (99.9% = 43 minutes downtime/month). Critical for business-critical systems.",
+          "examples": ["Clustered servers", "Load balanced web farms", "Redundant network paths", "Multi-region deployments"]
+        },
+        "Redundancy": {
+          "definition": "Duplication of critical components or functions to increase reliability and availability. Eliminates single points of failure. Can apply to hardware, networks, power, data, or sites. Increases cost but reduces risk of total failure.",
+          "examples": ["RAID arrays", "Dual power supplies", "Redundant network links", "Backup generators"]
+        },
+        "Fault Tolerance": {
+          "definition": "System's ability to continue operating properly in event of component failure. Built-in redundancy and failover mechanisms maintain functionality. More advanced than redundancy as system automatically handles failures without service interruption.",
+          "examples": ["RAID 5/6 surviving disk failures", "Clustered databases", "Hot-swappable components", "Byzantine fault tolerance"]
+        }
+      },
+      "Backup and Recovery": {
+        "Full Backup": {
+          "definition": "Complete copy of all selected data regardless of when it was last backed up. Fastest to restore but slowest to create and requires most storage. Starting point for other backup strategies. Run periodically (weekly) with incrementals/differentials between.",
+          "examples": ["Weekly full system backups", "Complete database dumps", "Image-based backups"]
+        },
+        "Incremental Backup": {
+          "definition": "Backs up only data changed since last backup (full or incremental). Fastest backup, least storage, but slowest restore requiring last full plus all incrementals. Efficient for daily backups with weekly fulls.",
+          "examples": ["Daily incremental backups", "File-level change backups", "Database transaction logs"]
+        },
+        "Differential Backup": {
+          "definition": "Backs up data changed since last full backup. Faster restore than incremental (only need last full plus last differential) but slower backup and more storage than incremental. Balances backup and restore times.",
+          "examples": ["Daily differential with weekly full", "Midpoint between full and incremental"]
+        },
+        "Snapshot": {
+          "definition": "Point-in-time copy of data or system state. Typically space-efficient using copy-on-write or similar technology. Enables quick recovery to known good state. Common in virtualization and storage systems. Not substitute for full backups.",
+          "examples": ["VM snapshots", "Storage array snapshots", "Database snapshots", "Filesystem snapshots"]
+        }
+      },
+      "Recovery Sites": {
+        "Hot Site": {
+          "definition": "Fully operational backup facility with current data ready for immediate use. Provides fastest recovery (minutes to hours) but highest cost. Equipment running and data synchronized in real-time. Can support active-active configuration.",
+          "examples": ["Duplicate data center with live replication", "Active-active configuration", "Real-time database mirroring"]
+        },
+        "Warm Site": {
+          "definition": "Partially equipped backup facility with hardware and network infrastructure but not current data. Systems available but require data restoration and configuration. Operational in hours to days. Balances cost and recovery time.",
+          "examples": ["Standby hardware with periodic backup restoration", "Pre-configured but powered-off systems"]
+        },
+        "Cold Site": {
+          "definition": "Backup facility with basic infrastructure (power, cooling, network connectivity) but no equipment or data. Cheapest option but requires days to weeks to become operational. Must install equipment, restore data, and configure systems.",
+          "examples": ["Empty data center space", "Shell facility", "Office space with power and connectivity"]
+        }
+      },
+      "Recovery Objectives": {
+        "RTO": {
+          "full": "Recovery Time Objective",
+          "definition": "Maximum acceptable time to restore business function after disruption. Determines recovery strategy and resource requirements. Drives decisions on backup methods, recovery sites, and failover mechanisms. Shorter RTO requires more investment.",
+          "examples": ["4-hour RTO for critical systems", "24-hour RTO for non-critical systems", "15-minute RTO for mission-critical"]
+        },
+        "RPO": {
+          "full": "Recovery Point Objective",
+          "definition": "Maximum acceptable amount of data loss measured in time. Determines backup frequency and replication needs. 1-hour RPO means losing up to 1 hour of data is acceptable. Shorter RPO requires more frequent backups or real-time replication.",
+          "examples": ["5-minute RPO with continuous replication", "1-hour RPO with hourly backups", "Daily RPO for non-critical data"]
+        },
+        "MTBF": {
+          "full": "Mean Time Between Failures",
+          "definition": "Average time between system failures. Predicts reliability for repairable systems. Higher MTBF indicates more reliable system. Helps plan maintenance windows and replacement schedules. Used in availability calculations.",
+          "examples": ["Hard drive MTBF of 1 million hours", "Server MTBF ratings", "Network equipment reliability metrics"]
+        },
+        "MTTR": {
+          "full": "Mean Time to Repair",
+          "definition": "Average time required to repair failed component and restore to operational status. Includes diagnosis, repair, and testing time. Lower MTTR improves availability. Influences spare parts inventory and maintenance procedures.",
+          "examples": ["2-hour MTTR for critical systems", "Same-day hardware replacement", "Service level agreements"]
+        }
+      }
+    }
+  },
+  "4.0": {
+    "4.1": {
+      "Secure Baselines": {
+        "Establish": {
+          "definition": "Creating standardized security configurations defining minimum security requirements for systems. Includes benchmarks from CIS, DISA STIGs, or vendor recommendations. Documented baseline serves as reference for deployment and compliance checking.",
+          "examples": ["CIS Benchmarks for Windows Server", "DISA STIG compliance", "Vendor hardening guides", "Custom organizational baselines"]
+        },
+        "Deploy": {
+          "definition": "Implementing established security baselines across systems using automation tools, images, or configuration management. Ensures consistency and reduces configuration errors. Uses tools like Group Policy, Ansible, or infrastructure-as-code.",
+          "examples": ["Group Policy deployment", "Ansible playbooks", "Golden image deployment", "Infrastructure-as-code (Terraform)"]
+        },
+        "Maintain": {
+          "definition": "Continuously monitoring and enforcing baseline configurations to prevent drift. Includes periodic audits, automated compliance checks, and remediation of deviations. Ensures systems remain secure over time despite changes.",
+          "examples": ["Configuration drift detection", "Compliance scanning", "Automated remediation", "Regular baseline reviews"]
+        }
+      },
+      "Hardening Targets": {
+        "Mobile Devices": {
+          "definition": "Securing smartphones and tablets through MDM policies, encryption, remote wipe capabilities, and application controls. Includes disabling unnecessary features, enforcing strong authentication, and separating personal/corporate data.",
+          "examples": ["MDM enrollment", "Device encryption enforcement", "App whitelisting", "Containerization for work apps"]
+        },
+        "Workstations": {
+          "definition": "Hardening desktop and laptop computers by removing unnecessary software, enabling firewalls, enforcing encryption, applying patches, and limiting user privileges. Critical as workstations are primary attack targets.",
+          "examples": ["Full-disk encryption", "Removing admin rights", "Endpoint protection", "Application whitelisting"]
+        },
+        "Network Infrastructure": {
+          "definition": "Securing switches, routers, and network devices through default password changes, disabling unused ports/services, enabling logging, and implementing access controls. Prevents network-level attacks and unauthorized access.",
+          "examples": ["Disabling Telnet on switches", "Enabling SSH only", "Port security (802.1X)", "SNMP hardening"]
+        },
+        "Cloud Infrastructure": {
+          "definition": "Applying security controls to cloud environments including proper IAM configurations, encryption, network segmentation, logging, and compliance with cloud security frameworks. Addresses cloud-specific risks and shared responsibility model.",
+          "examples": ["AWS Security Groups", "Azure NSGs", "Cloud IAM least privilege", "S3 bucket policies"]
+        },
+        "Servers": {
+          "definition": "Hardening physical and virtual servers by minimizing installed software, disabling unnecessary services, applying patches, enabling logging, and implementing access controls. Servers are high-value targets requiring strong protection.",
+          "examples": ["Minimal OS installation", "Service hardening", "Patch management", "Host-based firewalls"]
+        },
+        "ICS/SCADA": {
+          "definition": "Securing Industrial Control Systems and Supervisory Control and Data Acquisition systems controlling critical infrastructure. Requires network isolation, access controls, and careful patching due to operational requirements and legacy systems.",
+          "examples": ["Air-gapped networks", "Network segmentation", "Vendor-approved patches", "Physical access controls"]
+        },
+        "Embedded Systems": {
+          "definition": "Hardening specialized computing devices with dedicated functions like medical devices, smart appliances, and automotive systems. Challenges include limited resources, difficult patching, and long lifecycles.",
+          "examples": ["Firmware updates", "Network isolation", "Physical tamper protection", "Secure boot"]
+        },
+        "IoT Devices": {
+          "definition": "Securing Internet of Things devices like cameras, sensors, and smart devices. Major challenges include default credentials, lack of updates, and weak security. Requires network segmentation and device management.",
+          "examples": ["Changing default passwords", "VLAN isolation", "Firmware updates", "Disable unnecessary features"]
+        }
+      },
+      "Wireless Security": {
+        "Site Surveys": {
+          "definition": "Physical assessment of wireless environment to determine optimal AP placement, identify interference, measure signal strength, and discover rogue devices. Critical for secure and effective wireless deployment.",
+          "examples": ["RF spectrum analysis", "Signal strength mapping", "Interference detection", "Coverage gap identification"]
+        },
+        "Heat Maps": {
+          "definition": "Visual representations of wireless signal coverage showing signal strength across physical areas. Uses color coding to identify strong/weak coverage zones. Helps optimize AP placement and identify security gaps.",
+          "examples": ["Coverage heat maps", "Signal strength visualization", "Dead zone identification", "Overlap analysis"]
+        },
+        "WPA3": {
+          "definition": "Latest Wi-Fi security protocol providing stronger encryption, individualized data encryption, and protection against brute-force attacks. Replaces WPA2 with improved security features including SAE (Simultaneous Authentication of Equals).",
+          "examples": ["WPA3-Personal", "WPA3-Enterprise", "Enhanced open (OWE)", "192-bit security mode"]
+        }
+      },
+      "Mobile Solutions": {
+        "MDM": {
+          "full": "Mobile Device Management",
+          "definition": "Centralized solution for managing, securing, and monitoring mobile devices. Enables policy enforcement, remote wipe, application management, and compliance checking. Essential for BYOD and corporate mobile security.",
+          "examples": ["Microsoft Intune", "VMware Workspace ONE", "MobileIron", "Jamf Pro"]
+        },
+        "Deployment Models": {
+          "BYOD": {
+            "full": "Bring Your Own Device",
+            "definition": "Employees use personal devices for work. Requires containerization to separate work/personal data, MDM for security policies, and clear acceptable use policies. Cost-effective but higher security risk.",
+            "examples": ["Personal phones accessing email", "Containerized work apps", "MDM enrollment", "BYOD policies"]
+          },
+          "COPE": {
+            "full": "Corporate-Owned, Personally Enabled",
+            "definition": "Company provides devices that employees can use for personal purposes. Organization maintains control and security while allowing personal use. Better security than BYOD with employee flexibility.",
+            "examples": ["Company phones with personal app allowance", "Corporate laptops", "Managed devices"]
+          },
+          "CYOD": {
+            "full": "Choose Your Own Device",
+            "definition": "Employees select from pre-approved corporate devices. Balances user choice with organizational security and support requirements. Limits device variety while providing options.",
+            "examples": ["Choice between iPhone or Android", "Laptop selection menu", "Pre-approved device catalog"]
+          }
+        }
+      },
+      "Application Security": {
+        "Input Validation": {
+          "definition": "Verifying user input meets expected format, type, length, and range before processing. Prevents injection attacks, buffer overflows, and data corruption. Should validate on server-side, not just client-side.",
+          "examples": ["Whitelist allowed characters", "Length restrictions", "Type checking", "SQL parameterized queries"]
+        },
+        "Secure Cookies": {
+          "definition": "Implementing security attributes on HTTP cookies including HttpOnly (prevent JavaScript access), Secure (HTTPS only), and SameSite (CSRF protection). Protects session tokens and sensitive data in cookies.",
+          "examples": ["HttpOnly flag", "Secure flag for HTTPS", "SameSite attribute", "Cookie expiration"]
+        },
+        "Static Code Analysis": {
+          "definition": "Automated examination of source code without executing it to identify security vulnerabilities, coding errors, and quality issues. Performs early in development lifecycle. Also called SAST (Static Application Security Testing).",
+          "examples": ["SonarQube", "Checkmarx", "Fortify", "Code quality scanning"]
+        },
+        "Code Signing": {
+          "definition": "Digitally signing software with certificate to prove authenticity and integrity. Ensures code hasn't been tampered with and comes from verified publisher. Required for many platforms and builds user trust.",
+          "examples": ["Microsoft Authenticode", "Apple code signing", "Java JAR signing", "Driver signing"]
+        },
+        "Sandboxing": {
+          "definition": "Isolating applications in restricted environments to limit damage from security breaches. Prevents access to system resources, files, and network unless explicitly permitted. Containment strategy for untrusted code.",
+          "examples": ["Browser sandboxes", "Container isolation", "Virtual machine sandboxing", "Java sandbox"]
+        },
+        "Application Monitoring": {
+          "definition": "Continuous observation of application behavior, performance, errors, and security events. Detects anomalies, attacks, and issues in real-time. Includes logging, APM tools, and security monitoring.",
+          "examples": ["Application logs", "APM tools", "Error tracking", "Security event monitoring"]
+        }
+      }
+    },
+    "4.2": {
+      "Asset Management": {
+        "Acquisition": {
+          "definition": "Formal process for procuring hardware, software, and services including security requirements, vendor assessment, and compliance verification. Ensures assets meet security standards before deployment.",
+          "examples": ["Vendor security assessment", "Purchase order approval", "Security requirement specification", "Contract review"]
+        },
+        "Assignment": {
+          "definition": "Allocating assets to users, departments, or purposes with documented ownership and accountability. Includes asset tagging, inventory recording, and establishing custodians. Critical for tracking and responsibility.",
+          "examples": ["Asset tagging", "User assignment records", "Department allocation", "Custodian designation"]
+        },
+        "Ownership": {
+          "definition": "Designating individuals responsible for assets including security, maintenance, and compliance. Owners make decisions about access, usage, and disposal. Clear ownership ensures accountability.",
+          "examples": ["System owners", "Data owners", "Application owners", "Asset custodians"]
+        },
+        "Classification": {
+          "definition": "Categorizing assets based on criticality, sensitivity, and security requirements. Determines protection levels, handling procedures, and compliance requirements. Enables risk-based security controls.",
+          "examples": ["Critical/High/Medium/Low", "Confidential/Internal/Public", "PCI/PHI/PII systems", "Asset criticality ratings"]
+        },
+        "Monitoring": {
+          "definition": "Tracking asset location, status, configuration, and usage throughout lifecycle. Includes inventory management, change tracking, and compliance monitoring. Maintains accurate asset visibility.",
+          "examples": ["Asset tracking systems", "Inventory databases", "Configuration monitoring", "Usage tracking"]
+        },
+        "Enumeration": {
+          "definition": "Discovering and cataloging all assets including hardware, software, data, and services. Automated scanning and manual processes identify unknown or shadow IT assets. Foundation for security management.",
+          "examples": ["Network scanning", "Software inventory tools", "Cloud asset discovery", "Shadow IT identification"]
+        },
+        "Disposal": {
+          "definition": "Secure retirement of assets ensuring data destruction and environmental compliance. Includes decommissioning procedures, data sanitization, and certificate revocation. Prevents data leakage from discarded assets.",
+          "examples": ["Secure drive wiping", "Physical destruction", "Certificate revocation", "Asset decommissioning"]
+        },
+        "Sanitization": {
+          "definition": "Removing sensitive data from media before reuse or disposal. Methods include overwriting, degaussing, and cryptographic erasure. Ensures data cannot be recovered.",
+          "examples": ["DoD 5220.22-M wiping", "Cryptographic erasure", "Degaussing magnetic media", "Multiple overwrite passes"]
+        },
+        "Destruction": {
+          "definition": "Physical destruction of assets and media to prevent data recovery. Used when sanitization is insufficient or impractical. Includes shredding, pulverizing, and incineration.",
+          "examples": ["Hard drive shredding", "Media pulverizing", "Incineration", "Certified destruction services"]
+        }
+      }
+    },
+    "4.3": {
+      "Identification Methods": {
+        "Vulnerability Scan": {
+          "definition": "Automated scanning of systems and networks to identify known vulnerabilities, misconfigurations, and security weaknesses. Uses signature databases and configuration checks. Regular scanning essential for vulnerability management.",
+          "examples": ["Nessus", "Qualys", "OpenVAS", "Network vulnerability scanning"]
+        },
+        "Static Analysis": {
+          "definition": "Examining application source code or binaries without execution to find security flaws, vulnerabilities, and coding errors. Identifies issues early in development. Also called SAST.",
+          "examples": ["SonarQube", "Checkmarx", "Fortify SAST", "Code security scanning"]
+        },
+        "Dynamic Analysis": {
+          "definition": "Testing running applications to identify vulnerabilities through actual execution and interaction. Simulates attacks against live applications. Also called DAST (Dynamic Application Security Testing).",
+          "examples": ["OWASP ZAP", "Burp Suite", "Web application scanners", "Runtime vulnerability testing"]
+        },
+        "Package Monitoring": {
+          "definition": "Tracking software dependencies and third-party libraries for known vulnerabilities. Monitors package repositories for security advisories. Critical for modern applications with many dependencies.",
+          "examples": ["npm audit", "Snyk", "Dependabot", "Software composition analysis"]
+        },
+        "Threat Feed": {
+          "definition": "Real-time streams of threat intelligence providing indicators of compromise, vulnerabilities, and attack patterns. Enables proactive defense and early threat detection.",
+          "examples": ["Commercial threat feeds", "OSINT sources", "STIX/TAXII feeds", "Vendor threat intelligence"]
+        },
+        "Penetration Testing": {
+          "definition": "Authorized simulated attacks to identify exploitable vulnerabilities in systems, applications, and processes. Goes beyond scanning to actually exploit weaknesses. Provides realistic security assessment.",
+          "examples": ["External pen tests", "Internal network testing", "Web app pen testing", "Social engineering tests"]
+        },
+        "Responsible Disclosure": {
+          "definition": "Coordinated vulnerability disclosure process where researchers privately report issues to vendors before public disclosure. Allows time for patches. Includes bug bounty programs.",
+          "examples": ["90-day disclosure timeline", "Coordinated disclosure", "Vendor notification", "CVE assignment"]
+        },
+        "Bug Bounty": {
+          "definition": "Programs rewarding security researchers for finding and reporting vulnerabilities. Incentivizes responsible disclosure and crowdsources security testing. Major companies use bug bounties.",
+          "examples": ["HackerOne", "Bugcrowd", "Company-specific programs", "Reward-based disclosure"]
+        }
+      },
+      "Analysis": {
+        "False Positive": {
+          "definition": "Vulnerability scanner incorrectly identifying non-existent vulnerability. Requires manual verification and tuning. High false positive rates waste resources and reduce scanner effectiveness.",
+          "examples": ["Scanner detecting patched vulnerability", "Misidentified configurations", "Version-based false alerts"]
+        },
+        "False Negative": {
+          "definition": "Scanner failing to detect actual vulnerability. More dangerous than false positives as leaves systems exposed. Requires complementary security measures and multiple scanning tools.",
+          "examples": ["Missed zero-day vulnerabilities", "Undetected misconfigurations", "Scanner limitations"]
+        },
+        "Prioritization": {
+          "definition": "Ranking vulnerabilities by risk to focus remediation efforts on most critical issues. Considers CVSS scores, asset criticality, exploitability, and business impact.",
+          "examples": ["Critical vulnerabilities first", "Risk-based ranking", "Asset-weighted priority", "Threat-informed prioritization"]
+        },
+        "CVSS": {
+          "full": "Common Vulnerability Scoring System",
+          "definition": "Standardized framework for rating vulnerability severity on 0-10 scale. Considers exploitability, impact, and environmental factors. Industry standard for communicating vulnerability severity.",
+          "examples": ["CVSS 9.8 (Critical)", "Base/Temporal/Environmental scores", "CVSS v3.1", "Severity ratings"]
+        },
+        "CVE": {
+          "full": "Common Vulnerabilities and Exposures",
+          "definition": "Standardized identifier for publicly known vulnerabilities. Provides unique reference number for vulnerabilities enabling consistent tracking and communication across security tools and vendors.",
+          "examples": ["CVE-2021-44228 (Log4Shell)", "CVE-2017-0144 (EternalBlue)", "CVE database", "MITRE CVE list"]
+        }
+      },
+      "Remediation": {
+        "Patching": {
+          "definition": "Applying vendor-provided updates to fix vulnerabilities. Primary remediation method. Requires testing, change management, and timely deployment. Balance speed with stability.",
+          "examples": ["Security patches", "Cumulative updates", "Emergency patches", "Patch Tuesday"]
+        },
+        "Insurance": {
+          "definition": "Cyber insurance transferring financial risk of security incidents. Covers breach costs, ransom, legal fees, and recovery. Complements but doesn't replace security controls.",
+          "examples": ["Cyber liability insurance", "Ransomware coverage", "Breach response insurance", "Business interruption coverage"]
+        },
+        "Segmentation": {
+          "definition": "Isolating vulnerable systems in network segments to limit exposure and contain potential breaches. Mitigation when patching isn't immediately possible. Reduces attack surface.",
+          "examples": ["VLAN isolation", "Firewall rules", "Zero-trust segmentation", "DMZ placement"]
+        },
+        "Compensating Controls": {
+          "definition": "Alternative security measures when primary controls cannot be implemented. Provides equivalent protection through different means. Common when systems cannot be patched.",
+          "examples": ["WAF protecting vulnerable app", "Enhanced monitoring", "Additional authentication", "Network isolation"]
+        }
+      }
+    },
+    "4.4": {
+      "Monitoring": {
+        "Log Aggregation": {
+          "definition": "Collecting logs from multiple sources into centralized system for analysis and correlation. Enables comprehensive visibility and efficient security monitoring. Foundation for SIEM.",
+          "examples": ["Syslog servers", "Log forwarding", "SIEM log collection", "Centralized logging"]
+        },
+        "Alerting": {
+          "definition": "Automated notifications when security events or anomalies are detected. Enables rapid response to threats. Requires tuning to balance detection and alert fatigue.",
+          "examples": ["SIEM alerts", "IDS/IPS alerts", "Threshold-based alerts", "Anomaly detection alerts"]
+        },
+        "Scanning": {
+          "definition": "Regular automated assessment of systems for vulnerabilities, compliance deviations, and configuration issues. Scheduled scans maintain security posture visibility.",
+          "examples": ["Vulnerability scans", "Compliance scans", "Configuration audits", "Port scanning"]
+        },
+        "Reporting": {
+          "definition": "Generating security status reports, metrics, and dashboards for stakeholders. Communicates security posture, trends, and compliance. Supports decision-making and accountability.",
+          "examples": ["Executive dashboards", "Compliance reports", "Trend analysis", "KPI reporting"]
+        },
+        "Archiving": {
+          "definition": "Long-term retention of logs and security data for compliance, forensics, and historical analysis. Must balance retention requirements with storage costs.",
+          "examples": ["Log archival systems", "Compliance retention", "Cold storage", "Backup logs"]
+        },
+        "Quarantine": {
+          "definition": "Isolating suspicious files, systems, or users to prevent spread while investigating. Containment response to potential threats. Allows analysis without risking production.",
+          "examples": ["Malware quarantine", "Infected system isolation", "Email attachment quarantine", "User account suspension"]
+        },
+        "Alert Tuning": {
+          "definition": "Adjusting alert thresholds, filters, and rules to reduce false positives while maintaining detection effectiveness. Continuous process improving alert quality and reducing noise.",
+          "examples": ["Threshold adjustment", "Filter refinement", "Whitelist updates", "Rule optimization"]
+        }
+      },
+      "Tools": {
+        "SCAP": {
+          "full": "Security Content Automation Protocol",
+          "definition": "Suite of standards for expressing and manipulating security data in standardized ways. Enables automated vulnerability management, measurement, and policy compliance checking.",
+          "examples": ["SCAP compliance scanning", "OVAL definitions", "XCCDF benchmarks", "Automated compliance"]
+        },
+        "Benchmarks": {
+          "definition": "Standardized security configuration guidelines and best practices. Provide baseline security configurations for systems and applications. Industry-standard references for hardening.",
+          "examples": ["CIS Benchmarks", "DISA STIGs", "NIST guidelines", "Vendor hardening guides"]
+        },
+        "SIEM": {
+          "full": "Security Information and Event Management",
+          "definition": "Centralized platform collecting, analyzing, and correlating security events from multiple sources. Provides real-time monitoring, alerting, and incident response support. Core security operations tool.",
+          "examples": ["Splunk", "IBM QRadar", "ArcSight", "LogRhythm"]
+        },
+        "Antivirus": {
+          "definition": "Software detecting and removing malware using signatures, heuristics, and behavioral analysis. Endpoint protection essential despite limitations against advanced threats. Requires regular updates.",
+          "examples": ["Windows Defender", "CrowdStrike", "Symantec", "Malwarebytes"]
+        },
+        "DLP": {
+          "full": "Data Loss Prevention",
+          "definition": "Tools monitoring and controlling data movement to prevent unauthorized data exfiltration. Detects sensitive data in motion, at rest, and in use. Enforces data security policies.",
+          "examples": ["Email DLP", "Endpoint DLP", "Network DLP", "Cloud DLP"]
+        },
+        "SNMP Traps": {
+          "full": "Simple Network Management Protocol Traps",
+          "definition": "Asynchronous notifications from network devices about events or conditions. Alerts monitoring systems of issues without polling. Used for network device monitoring.",
+          "examples": ["Device failure alerts", "Threshold violations", "Configuration changes", "Performance alerts"]
+        },
+        "NetFlow": {
+          "definition": "Network protocol collecting IP traffic information for analysis. Provides network visibility, traffic patterns, and anomaly detection. Enables network behavior analysis.",
+          "examples": ["Traffic flow analysis", "Bandwidth monitoring", "Anomaly detection", "Network forensics"]
+        }
+      }
+    },
+    "4.5": {
+      "Firewall": {
+        "Rules": {
+          "definition": "Configuration statements controlling traffic flow through firewalls. Specifies source, destination, port, protocol, and action (allow/deny). Ordered list processed sequentially.",
+          "examples": ["Allow HTTPS from any", "Deny all from blacklist", "Allow SSH from management network", "Default deny rule"]
+        },
+        "Access Lists": {
+          "definition": "Packet filtering rules on routers and firewalls controlling traffic based on IP addresses, ports, and protocols. Types include standard and extended ACLs.",
+          "examples": ["Standard ACLs (IP-based)", "Extended ACLs (port/protocol)", "Router ACLs", "Network filtering"]
+        },
+        "Screened Subnets": {
+          "definition": "Network architecture placing servers in isolated zone (DMZ) between internal network and internet with firewalls on both sides. Protects internal network from compromised DMZ systems.",
+          "examples": ["DMZ configuration", "Dual-firewall setup", "Public-facing services isolation", "Three-legged firewall"]
+        }
+      },
+      "IDS/IPS": {
+        "Trends": {
+          "definition": "Analysis of IDS/IPS data over time to identify patterns, emerging threats, and attack trends. Enables proactive security improvements and threat hunting.",
+          "examples": ["Attack pattern analysis", "Volume trends", "Source analysis", "Threat evolution tracking"]
+        },
+        "Signatures": {
+          "definition": "Patterns of known attacks and malware that IDS/IPS uses for detection. Requires regular updates to detect new threats. Signature-based detection effective against known attacks.",
+          "examples": ["Malware signatures", "Attack patterns", "Exploit signatures", "Signature updates"]
+        }
+      },
+      "Web Filter": {
+        "Agent-based": {
+          "definition": "Web filtering software installed on endpoint devices. Provides filtering regardless of network location. Effective for remote workers but requires endpoint management.",
+          "examples": ["Endpoint web filter agents", "Browser extensions", "OS-level filtering", "Local policy enforcement"]
+        },
+        "Centralized Proxy": {
+          "definition": "Web filtering through proxy servers that intercept and filter all web traffic. Centralized management and visibility but requires network routing to proxy.",
+          "examples": ["Squid proxy", "Blue Coat", "Proxy servers", "Explicit proxy configuration"]
+        },
+        "URL Scanning": {
+          "definition": "Real-time analysis of URLs to identify malicious, phishing, or inappropriate sites. Checks URLs against databases and performs content analysis.",
+          "examples": ["Malicious URL blocking", "Phishing detection", "Reputation checking", "Real-time URL analysis"]
+        },
+        "Content Categorization": {
+          "definition": "Classifying websites into categories (social media, gambling, adult content) for filtering policies. Enables granular access control based on site purpose.",
+          "examples": ["Category-based blocking", "Productivity filtering", "Compliance filtering", "Custom categories"]
+        },
+        "Block Rules": {
+          "definition": "Policies defining what content, categories, or URLs should be blocked. Can be based on categories, keywords, file types, or specific URLs.",
+          "examples": ["Category blocking", "Keyword filters", "File type restrictions", "Blacklist enforcement"]
+        },
+        "Reputation": {
+          "definition": "Web filtering based on site reputation scores from threat intelligence. Blocks sites with poor reputation or known malicious activity.",
+          "examples": ["Reputation-based blocking", "Threat intelligence feeds", "Risk scoring", "Dynamic reputation"]
+        }
+      },
+      "DNS Filtering": {
+        "DNS Security": {
+          "definition": "Blocking malicious domains at DNS level preventing connections to phishing, malware, and C2 servers. Effective first-line defense working at network level.",
+          "examples": ["Cisco Umbrella", "Quad9", "Malicious domain blocking", "DNS-based threat prevention"]
+        }
+      },
+      "Email Security": {
+        "DMARC": {
+          "full": "Domain-based Message Authentication, Reporting, and Conformance",
+          "definition": "Email authentication protocol building on SPF and DKIM to prevent email spoofing. Allows domain owners to specify policy for handling failed authentication.",
+          "examples": ["DMARC reject policy", "Authentication reports", "Spoofing prevention", "Email validation"]
+        },
+        "DKIM": {
+          "full": "DomainKeys Identified Mail",
+          "definition": "Email authentication using digital signatures to verify message integrity and sender domain. Prevents tampering and helps identify spoofed emails.",
+          "examples": ["Email signing", "Signature verification", "Domain authentication", "Anti-spoofing"]
+        },
+        "SPF": {
+          "full": "Sender Policy Framework",
+          "definition": "Email authentication method specifying which mail servers are authorized to send email for a domain. Prevents email spoofing by validating sender.",
+          "examples": ["SPF records in DNS", "Authorized sender lists", "Email validation", "Spoofing prevention"]
+        },
+        "Gateway": {
+          "definition": "Email security gateway filtering incoming/outgoing email for malware, spam, phishing, and policy violations. First line of defense for email threats.",
+          "examples": ["Proofpoint", "Mimecast", "Barracuda", "Email filtering appliances"]
+        }
+      },
+      "EDR/XDR": {
+        "EDR": {
+          "full": "Endpoint Detection and Response",
+          "definition": "Security solution providing continuous monitoring, detection, and response capabilities for endpoints. Goes beyond antivirus with behavioral analysis, threat hunting, and incident response.",
+          "examples": ["CrowdStrike Falcon", "Carbon Black", "SentinelOne", "Microsoft Defender for Endpoint"]
+        },
+        "XDR": {
+          "full": "Extended Detection and Response",
+          "definition": "Unified security platform correlating data across endpoints, networks, clouds, and applications. Broader visibility than EDR enabling better threat detection and response.",
+          "examples": ["Palo Alto Cortex XDR", "Trend Micro XDR", "Microsoft XDR", "Integrated security platforms"]
+        }
+      }
+    },
+    "4.6": {
+      "User Account Management": {
+        "Provisioning": {
+          "definition": "Creating and configuring user accounts with appropriate access rights. Includes identity verification, access requests, and approval workflows. Critical for access control.",
+          "examples": ["New hire account creation", "Access request approval", "Automated provisioning", "Identity verification"]
+        },
+        "De-provisioning": {
+          "definition": "Disabling or removing user accounts when no longer needed. Critical for terminations, transfers, and role changes. Reduces attack surface and insider threat risk.",
+          "examples": ["Termination procedures", "Account disabling", "Access removal", "Exit processes"]
+        },
+        "Permission Assignments": {
+          "definition": "Granting specific access rights to users based on job requirements. Implements least privilege principle. Requires understanding of user needs and data sensitivity.",
+          "examples": ["Role-based permissions", "File access grants", "Application entitlements", "Least privilege"]
+        },
+        "Identity Proofing": {
+          "definition": "Verifying user identity before granting access. Ensures accounts belong to legitimate users. Stronger proofing required for privileged access.",
+          "examples": ["Document verification", "Background checks", "Multi-factor enrollment", "Identity validation"]
+        }
+      },
+      "Federation": {
+        "SSO": {
+          "full": "Single Sign-On",
+          "definition": "Authentication method allowing users to access multiple applications with one set of credentials. Improves user experience and security. Reduces password fatigue.",
+          "examples": ["SAML SSO", "OAuth flows", "Corporate SSO portal", "Federated authentication"]
+        },
+        "LDAP": {
+          "full": "Lightweight Directory Access Protocol",
+          "definition": "Protocol for accessing and maintaining directory services. Used for centralized user authentication and authorization. Common in enterprise environments.",
+          "examples": ["Active Directory", "OpenLDAP", "Directory queries", "Centralized authentication"]
+        },
+        "OAuth": {
+          "full": "Open Authorization",
+          "definition": "Open standard for token-based authorization enabling third-party access without sharing credentials. Commonly used for social login and API authorization.",
+          "examples": ["Social media login", "API authorization", "Delegated access", "Access tokens"]
+        },
+        "SAML": {
+          "full": "Security Assertion Markup Language",
+          "definition": "XML-based standard for exchanging authentication and authorization data between identity providers and service providers. Enterprise SSO standard.",
+          "examples": ["Enterprise SSO", "Cloud app federation", "SAML assertions", "Identity federation"]
+        }
+      },
+      "Access Controls": {
+        "Mandatory Access Control": {
+          "definition": "Access control model where system enforces access based on security labels and clearances. Users cannot change permissions. Used in high-security environments.",
+          "examples": ["SELinux", "Classified systems", "Label-based access", "Military security models"]
+        },
+        "Discretionary Access Control": {
+          "definition": "Access control where resource owners decide who can access their resources. Flexible but less secure. Common in operating systems.",
+          "examples": ["File permissions in Windows/Linux", "Owner-controlled access", "Share permissions", "ACLs"]
+        },
+        "Role-Based Access Control": {
+          "definition": "Access control based on user roles within organization. Users inherit permissions from assigned roles. Simplifies management and enforces separation of duties.",
+          "examples": ["Job-based roles", "Department permissions", "Role inheritance", "RBAC policies"]
+        },
+        "Attribute-Based Access Control": {
+          "definition": "Dynamic access control using user attributes, resource attributes, and environmental conditions. Highly flexible and contextual. Next-generation access control.",
+          "examples": ["Time-based access", "Location-based restrictions", "Device compliance checks", "Dynamic policies"]
+        }
+      },
+      "MFA": {
+        "Biometrics": {
+          "definition": "Authentication using unique physical characteristics like fingerprints, facial recognition, or iris scans. Something you are factor. Strong but raises privacy concerns.",
+          "examples": ["Fingerprint readers", "Facial recognition", "Iris scanning", "Voice recognition"]
+        },
+        "Authentication Tokens": {
+          "definition": "Physical or software devices generating one-time passwords for authentication. Something you have factor. Resistant to phishing.",
+          "examples": ["RSA SecurID", "YubiKey", "Mobile authenticator apps", "Hardware tokens"]
+        },
+        "Security Keys": {
+          "definition": "Physical hardware devices providing strong phishing-resistant authentication. Uses public-key cryptography. FIDO2/WebAuthn standard.",
+          "examples": ["YubiKey", "Google Titan", "FIDO2 keys", "USB security keys"]
+        }
+      },
+      "Password Concepts": {
+        "Length": {
+          "definition": "Minimum number of characters required in passwords. Longer passwords exponentially harder to crack. Modern guidance emphasizes length over complexity.",
+          "examples": ["15+ character minimum", "Passphrases", "Length requirements", "Long passwords"]
+        },
+        "Complexity": {
+          "definition": "Requirements for character types (uppercase, lowercase, numbers, symbols) in passwords. Prevents simple passwords but can lead to predictable patterns.",
+          "examples": ["Mixed character types", "Complexity rules", "Character requirements", "Strong passwords"]
+        },
+        "Password Managers": {
+          "definition": "Software storing and generating strong unique passwords for each account. Enables using complex passwords without memorization. Reduces password reuse.",
+          "examples": ["1Password", "LastPass", "Bitwarden", "KeePass"]
+        },
+        "Passwordless": {
+          "definition": "Authentication without traditional passwords using biometrics, security keys, or magic links. Eliminates password-related attacks. Growing trend in modern authentication.",
+          "examples": ["FIDO2 authentication", "Biometric login", "Magic links", "Microsoft Windows Hello"]
+        }
+      },
+      "Privileged Access Management": {
+        "Just-in-Time Permissions": {
+          "definition": "Granting elevated privileges only when needed for specific duration. Reduces standing privileges and attack surface. Requires approval workflows.",
+          "examples": ["Temporary admin access", "Time-limited elevation", "Break-glass access", "On-demand privileges"]
+        },
+        "Password Vaulting": {
+          "definition": "Secure storage of privileged account credentials in encrypted vault. Enables credential rotation and access auditing. Core PAM capability.",
+          "examples": ["CyberArk", "BeyondTrust", "Privileged password management", "Credential vaults"]
+        },
+        "Ephemeral Credentials": {
+          "definition": "Short-lived credentials automatically expiring after brief period. Reduces risk from credential theft. Common in cloud and DevOps.",
+          "examples": ["Temporary cloud credentials", "Session tokens", "Dynamic secrets", "Time-limited access"]
+        }
+      }
+    },
+    "4.7": {
+      "Automation Use Cases": {
+        "User Provisioning": {
+          "definition": "Automated creation and configuration of user accounts based on HR events or requests. Reduces delays and errors. Integrates with identity governance.",
+          "examples": ["Automated onboarding", "HR integration", "Self-service provisioning", "Workflow automation"]
+        },
+        "Resource Provisioning": {
+          "definition": "Automated deployment of infrastructure and services using infrastructure-as-code. Ensures consistency and speed. Enables cloud scalability.",
+          "examples": ["Terraform deployments", "CloudFormation", "Automated VM creation", "Container orchestration"]
+        },
+        "Guard Rails": {
+          "definition": "Automated controls preventing dangerous actions while allowing approved changes. Enables innovation within security boundaries. Policy-as-code implementation.",
+          "examples": ["Policy enforcement", "Compliance checks", "Automated validations", "Security boundaries"]
+        },
+        "Continuous Integration": {
+          "definition": "Automated building, testing, and security scanning of code with each commit. Integrates security into development pipeline. Enables DevSecOps.",
+          "examples": ["Jenkins pipelines", "GitHub Actions", "Security scanning in CI/CD", "Automated testing"]
+        },
+        "APIs": {
+          "definition": "Application programming interfaces enabling system integration and automation. Allows security tools to share data and orchestrate responses. Foundation for security orchestration.",
+          "examples": ["REST APIs", "Security tool integration", "SOAR APIs", "Orchestration interfaces"]
+        }
+      },
+      "Benefits": {
+        "Efficiency": {
+          "definition": "Automation reduces manual effort and speeds up security operations. Handles repetitive tasks faster than humans. Frees analysts for complex work.",
+          "examples": ["Faster incident response", "Quick remediation", "Reduced manual work", "Time savings"]
+        },
+        "Enforcing Baselines": {
+          "definition": "Automated enforcement of security configurations prevents drift and ensures consistency. Continuously monitors and remediates deviations.",
+          "examples": ["Configuration management", "Compliance enforcement", "Automated remediation", "Drift prevention"]
+        },
+        "Scaling": {
+          "definition": "Automation enables security to scale with infrastructure growth. Handles increased volume without proportional staff increase.",
+          "examples": ["Cloud security at scale", "Automated monitoring", "Elastic security controls", "Growth enablement"]
+        },
+        "Reaction Time": {
+          "definition": "Automated response to threats occurs in seconds vs hours for manual response. Critical for containing fast-moving attacks.",
+          "examples": ["Automated blocking", "Instant quarantine", "Real-time response", "Fast containment"]
+        },
+        "Workforce Multiplier": {
+          "definition": "Automation extends security team capabilities allowing small teams to protect large environments. Amplifies human expertise.",
+          "examples": ["24/7 automated monitoring", "Automated triage", "Extended coverage", "Team amplification"]
+        }
+      },
+      "Considerations": {
+        "Complexity": {
+          "definition": "Automation systems can become complex and difficult to maintain. Over-automation creates dependencies and troubleshooting challenges.",
+          "examples": ["Complex orchestration", "Debugging difficulties", "System dependencies", "Maintenance burden"]
+        },
+        "Single Point of Failure": {
+          "definition": "Centralized automation platforms become critical dependencies. Their failure can disable multiple security functions. Requires redundancy.",
+          "examples": ["Automation platform outage", "Orchestration failure", "Central system dependency", "Availability risk"]
+        },
+        "Technical Debt": {
+          "definition": "Quick automation solutions may create long-term maintenance burdens. Poorly designed automation requires eventual refactoring.",
+          "examples": ["Legacy scripts", "Undocumented automation", "Brittle integrations", "Maintenance costs"]
+        }
+      }
+    },
+    "4.8": {
+      "Incident Response Process": {
+        "Preparation": {
+          "definition": "Establishing incident response capabilities including team, tools, procedures, and training. Foundation phase enabling effective response when incidents occur.",
+          "examples": ["IR team formation", "Playbook development", "Tool procurement", "Training exercises"]
+        },
+        "Detection": {
+          "definition": "Identifying potential security incidents through monitoring, alerts, and analysis. First awareness that incident may be occurring.",
+          "examples": ["SIEM alerts", "User reports", "Anomaly detection", "Threat hunting"]
+        },
+        "Analysis": {
+          "definition": "Investigating alerts to determine if real incident, assess scope, and understand attack. Separates false positives from real threats.",
+          "examples": ["Log analysis", "Forensic investigation", "Scope assessment", "Attack timeline"]
+        },
+        "Containment": {
+          "definition": "Limiting incident spread and preventing further damage. Balances business continuity with evidence preservation. Short-term and long-term containment.",
+          "examples": ["Network isolation", "Account disabling", "System quarantine", "Access blocking"]
+        },
+        "Eradication": {
+          "definition": "Removing threat from environment including malware, attacker access, and vulnerabilities exploited. Ensures threat cannot return.",
+          "examples": ["Malware removal", "Closing vulnerabilities", "Removing backdoors", "Account cleanup"]
+        },
+        "Recovery": {
+          "definition": "Restoring systems to normal operation while ensuring security. Includes validation, monitoring, and gradual restoration. Returns to business operations.",
+          "examples": ["System restoration", "Service resumption", "Enhanced monitoring", "Validation testing"]
+        },
+        "Lessons Learned": {
+          "definition": "Post-incident review documenting what happened, response effectiveness, and improvements needed. Critical for continuous improvement.",
+          "examples": ["Post-mortem meetings", "IR documentation", "Process improvements", "Training updates"]
+        }
+      },
+      "Training and Testing": {
+        "Tabletop Exercise": {
+          "definition": "Discussion-based simulation walking through incident scenarios. Tests plans and decision-making without actual systems impact. Low-cost training method.",
+          "examples": ["Ransomware tabletop", "Data breach scenario", "Discussion-based drills", "Plan validation"]
+        },
+        "Simulation": {
+          "definition": "Realistic practice incident response in controlled environment. May involve live systems or test environments. More realistic than tabletop.",
+          "examples": ["Red team exercises", "Purple team drills", "Simulated breaches", "Live-fire training"]
+        }
+      },
+      "Digital Forensics": {
+        "Legal Hold": {
+          "definition": "Preservation of data and systems for potential legal proceedings. Prevents destruction or modification of evidence. Triggered by litigation or investigation.",
+          "examples": ["Litigation hold notices", "Data preservation orders", "Evidence freezing", "Court orders"]
+        },
+        "Chain of Custody": {
+          "definition": "Documented tracking of evidence collection, transfer, and storage. Maintains evidence integrity and admissibility in court. Every handler documented.",
+          "examples": ["Evidence logs", "Transfer documentation", "Custody forms", "Evidence tracking"]
+        },
+        "Acquisition": {
+          "definition": "Creating forensic copies of evidence using write-blocking tools. Ensures original evidence unchanged. Bit-for-bit copies with hash verification.",
+          "examples": ["Disk imaging", "Memory dumps", "Network captures", "Write-blocked copying"]
+        },
+        "Preservation": {
+          "definition": "Maintaining evidence integrity through proper storage, handling, and protection. Prevents contamination or deterioration. Crucial for legal proceedings.",
+          "examples": ["Secure storage", "Environmental controls", "Access restrictions", "Integrity verification"]
+        },
+        "E-discovery": {
+          "definition": "Electronic discovery process identifying, collecting, and producing electronic information for legal proceedings. Includes emails, documents, databases.",
+          "examples": ["Email discovery", "Document collection", "Data review", "Legal hold management"]
+        }
+      }
+    },
+    "4.9": {
+      "Log Data": {
+        "Firewall Logs": {
+          "definition": "Records of allowed and blocked traffic through firewalls. Shows connection attempts, source/destination IPs, ports, and actions. Critical for investigating network attacks.",
+          "examples": ["Blocked connection attempts", "Allowed traffic logs", "Policy violations", "Attack patterns"]
+        },
+        "Application Logs": {
+          "definition": "Application-generated logs recording events, errors, transactions, and user actions. Provides application-level visibility for troubleshooting and security investigation.",
+          "examples": ["Web server access logs", "Application errors", "Transaction logs", "User activity"]
+        },
+        "Endpoint Logs": {
+          "definition": "Logs from workstations and servers including system events, application activity, and security events. Essential for investigating endpoint compromises.",
+          "examples": ["Windows Event Logs", "Process execution logs", "File access logs", "Login attempts"]
+        },
+        "OS Security Logs": {
+          "definition": "Operating system logs recording security-relevant events like authentication, privilege use, and security policy changes. Core evidence source.",
+          "examples": ["Authentication logs", "Privilege escalation", "Security policy changes", "Account modifications"]
+        },
+        "IPS/IDS Logs": {
+          "definition": "Intrusion detection and prevention system logs recording attacks, anomalies, and policy violations. Shows attack attempts and techniques.",
+          "examples": ["Attack signatures", "Anomaly alerts", "Blocked attacks", "Suspicious patterns"]
+        },
+        "Network Logs": {
+          "definition": "Network device and traffic logs including router logs, switch logs, DNS logs, and flow data. Provides network-level visibility.",
+          "examples": ["Router logs", "DNS queries", "NetFlow data", "Network authentication"]
+        },
+        "Metadata": {
+          "definition": "Data about data including file properties, email headers, timestamps, and system information. Often reveals important investigation details.",
+          "examples": ["File creation times", "Email headers", "Document properties", "GPS coordinates"]
+        }
+      },
+      "Data Sources": {
+        "Vulnerability Scans": {
+          "definition": "Scan results showing system weaknesses that may have been exploited. Helps identify attack vectors and required remediation.",
+          "examples": ["Pre-incident scan results", "Missing patches", "Configuration issues", "Exploitable vulnerabilities"]
+        },
+        "Automated Reports": {
+          "definition": "Scheduled reports from security tools providing trends, statistics, and summaries. Baseline data for identifying anomalies.",
+          "examples": ["Daily security reports", "Compliance reports", "Trend analysis", "Summary dashboards"]
+        },
+        "Dashboards": {
+          "definition": "Real-time visual displays of security metrics and events. Provides at-a-glance security status and anomaly identification.",
+          "examples": ["SIEM dashboards", "SOC displays", "Executive dashboards", "Real-time metrics"]
+        },
+        "Packet Captures": {
+          "definition": "Full network traffic captures showing complete communication details. Detailed evidence source but large and complex to analyze.",
+          "examples": ["PCAP files", "Network forensics", "Traffic analysis", "Protocol investigation"]
+        }
+      }
+    }
+  },
+  "5.0": {
+    "5.1": {
+      "Policies and Standards": {
+        "Guidelines": {
+          "definition": "Recommended practices and suggestions for security implementation. Not mandatory but provide best practice guidance. More flexible than policies, offering advice on how to achieve security objectives.",
+          "examples": ["Password best practices guide", "Remote work security guidelines", "Secure coding recommendations", "Security awareness tips"]
+        },
+        "Policies": {
+          "definition": "High-level mandatory statements defining organization's security position and objectives. Approved by senior management. Establish rules and responsibilities. Enforceable and violation may result in disciplinary action.",
+          "examples": ["Information Security Policy", "Acceptable Use Policy", "Data Classification Policy", "Incident Response Policy"]
+        },
+        "Acceptable Use Policy": {
+          "full": "AUP",
+          "definition": "Policy defining acceptable and unacceptable use of organizational IT resources including computers, networks, email, and internet. Specifies prohibited activities and consequences. Users typically sign acknowledgment.",
+          "examples": ["Personal use limitations", "Prohibited activities", "Social media usage", "BYOD rules"]
+        },
+        "Business Continuity": {
+          "definition": "Policies and procedures ensuring critical business functions continue during and after disasters or disruptions. Includes backup systems, alternate sites, and recovery procedures. Broader than disaster recovery.",
+          "examples": ["BC plans", "Critical function identification", "Continuity strategies", "Business impact analysis"]
+        },
+        "Disaster Recovery": {
+          "definition": "Policies and procedures for recovering IT systems and data after catastrophic events. Subset of business continuity focused on technology recovery. Includes backup/restore procedures and recovery priorities.",
+          "examples": ["DR plans", "Backup procedures", "Recovery time objectives", "Restoration procedures"]
+        },
+        "Incident Response Policy": {
+          "definition": "Policy establishing framework for detecting, responding to, and recovering from security incidents. Defines roles, responsibilities, escalation procedures, and communication protocols.",
+          "examples": ["IR team structure", "Escalation procedures", "Communication protocols", "Reporting requirements"]
+        },
+        "SDLC Policy": {
+          "full": "Software Development Lifecycle",
+          "definition": "Policy governing secure software development practices throughout development lifecycle. Integrates security into planning, design, development, testing, and deployment phases.",
+          "examples": ["Secure coding standards", "Code review requirements", "Security testing mandates", "DevSecOps practices"]
+        },
+        "Change Management": {
+          "definition": "Formal process controlling changes to IT systems to minimize disruptions and security risks. Requires approval, testing, documentation, and rollback procedures. Ensures changes are authorized and tracked.",
+          "examples": ["Change Advisory Board", "Change request forms", "Testing requirements", "Approval workflows"]
+        },
+        "Standards": {
+          "definition": "Mandatory specific technical requirements and configurations implementing policies. More detailed than policies. Specify minimum security baselines and technical controls.",
+          "examples": ["Password standards (15 chars, complexity)", "Encryption standards (AES-256)", "Patch management standards", "Access control standards"]
+        }
+      },
+      "External Considerations": {
+        "Regulatory": {
+          "definition": "Legal requirements from government agencies and regulatory bodies that organizations must comply with. Non-compliance results in fines, sanctions, or legal action. Varies by industry and jurisdiction.",
+          "examples": ["HIPAA (healthcare)", "PCI DSS (payment cards)", "SOX (financial)", "GLBA (financial privacy)"]
+        },
+        "Legal": {
+          "definition": "Laws and legal obligations affecting information security including data protection, privacy, breach notification, and liability. Varies by country and region. Requires legal counsel involvement.",
+          "examples": ["GDPR (EU privacy)", "CCPA (California privacy)", "FERPA (education)", "Breach notification laws"]
+        },
+        "Industry": {
+          "definition": "Sector-specific security requirements and best practices. May be mandatory (regulatory) or voluntary (frameworks). Industry groups often establish standards.",
+          "examples": ["NERC CIP (energy)", "PCI DSS (payment)", "FISMA (federal)", "HITRUST (healthcare)"]
+        },
+        "Geographic": {
+          "definition": "Location-based legal and regulatory requirements including data sovereignty, cross-border data transfer restrictions, and regional privacy laws. Compliance required when operating in jurisdiction.",
+          "examples": ["GDPR (Europe)", "PDPA (Singapore)", "Data localization requirements", "Regional breach laws"]
+        }
+      },
+      "Governance Structures": {
+        "Boards": {
+          "definition": "Executive-level committees providing oversight and strategic direction for security program. Typically includes C-suite executives and board members. Sets security priorities and approves major initiatives.",
+          "examples": ["Board of Directors security committee", "Executive steering committee", "Risk management committee", "Audit committee"]
+        },
+        "Committees": {
+          "definition": "Working groups addressing specific security domains or issues. Cross-functional teams coordinating security activities. More tactical than boards.",
+          "examples": ["Change Advisory Board", "Incident Response Team", "Architecture Review Board", "Security Council"]
+        },
+        "Government Entities": {
+          "definition": "Regulatory agencies and government organizations with authority over security requirements. Enforce compliance and may conduct audits or investigations.",
+          "examples": ["SEC", "FTC", "HHS (HIPAA)", "CISA", "State regulators"]
+        },
+        "Centralized vs Decentralized": {
+          "definition": "Organizational approaches to security governance. Centralized: security decisions made by central authority. Decentralized: business units have autonomy. Hybrid models common.",
+          "examples": ["Central security team (centralized)", "Federated security model (hybrid)", "Business unit security (decentralized)"]
+        }
+      },
+      "Roles and Responsibilities": {
+        "Owners": {
+          "definition": "Individuals with ultimate authority and accountability for assets, data, or systems. Make decisions about access, classification, and protection. Bear responsibility for security.",
+          "examples": ["Data owners", "System owners", "Application owners", "Process owners"]
+        },
+        "Controllers": {
+          "definition": "Under GDPR, entities determining purposes and means of personal data processing. Make decisions about what data to collect and how to use it. Have specific legal obligations.",
+          "examples": ["Organization collecting customer data", "Service deciding data usage", "Company determining processing purposes"]
+        },
+        "Processors": {
+          "definition": "Under GDPR, entities processing personal data on behalf of controllers. Follow controller's instructions. Have contractual obligations and limited responsibilities.",
+          "examples": ["Cloud service providers", "Payroll processors", "Marketing service providers", "Data analytics firms"]
+        },
+        "Custodians": {
+          "definition": "Personnel responsible for day-to-day care and protection of data/systems. Implement security controls specified by owners. Technical administrators and operators. Also called stewards.",
+          "examples": ["IT administrators", "Database administrators", "System administrators", "Security team members"]
+        }
+      }
+    },
+    "5.2": {
+      "Risk Identification": {
+        "Risk Identification": {
+          "definition": "Process of discovering and documenting potential risks to organization. Uses threat modeling, vulnerability assessments, and business analysis. First step in risk management process.",
+          "examples": ["Threat assessments", "Asset inventories", "Vulnerability scans", "Threat modeling sessions"]
+        },
+        "Risk Assessment": {
+          "definition": "Systematic evaluation of identified risks determining likelihood and impact. Can be qualitative (high/medium/low) or quantitative (numerical). Informs risk treatment decisions.",
+          "examples": ["Annual risk assessments", "Project risk reviews", "Vendor risk assessments", "Penetration test findings"]
+        },
+        "Ad Hoc": {
+          "definition": "Unscheduled risk assessments performed as needed in response to specific events, changes, or concerns. Triggered by incidents, new projects, or emerging threats.",
+          "examples": ["Post-incident assessment", "New vendor evaluation", "Emergency change review", "Breach investigation"]
+        },
+        "Recurring": {
+          "definition": "Regularly scheduled risk assessments conducted at defined intervals (monthly, quarterly, annually). Provides consistent monitoring and trending of risk posture.",
+          "examples": ["Annual security assessments", "Quarterly vulnerability reviews", "Monthly threat briefings", "Periodic audits"]
+        },
+        "One-Time": {
+          "definition": "Single risk assessment conducted for specific purpose without planned repetition. Often project-based or addressing unique situation.",
+          "examples": ["New system deployment assessment", "Merger/acquisition review", "Data center relocation", "Compliance validation"]
+        },
+        "Continuous": {
+          "definition": "Ongoing automated risk monitoring and assessment using real-time data. Enables dynamic risk awareness and rapid response. Leverages security tools and automation.",
+          "examples": ["Continuous vulnerability scanning", "Real-time threat monitoring", "Automated compliance checking", "Security metrics dashboards"]
+        }
+      },
+      "Risk Analysis": {
+        "Qualitative": {
+          "definition": "Risk analysis using subjective ratings like high/medium/low or descriptive scales. Based on experience and judgment. Faster but less precise than quantitative.",
+          "examples": ["Risk heat maps", "High/Medium/Low ratings", "Risk matrices", "Expert judgment"]
+        },
+        "Quantitative": {
+          "definition": "Risk analysis using numerical values and calculations. Assigns monetary values to assets and losses. More objective but requires more data. Uses SLE, ALE, ARO calculations.",
+          "examples": ["Annual Loss Expectancy calculations", "Cost-benefit analysis", "Return on security investment", "Statistical modeling"]
+        },
+        "SLE": {
+          "full": "Single Loss Expectancy",
+          "definition": "Monetary value of loss from single security incident. Calculated as Asset Value × Exposure Factor. Used in quantitative risk analysis to estimate impact.",
+          "examples": ["$100,000 server × 60% damage = $60,000 SLE", "Data breach impact per incident", "Ransomware attack cost"]
+        },
+        "ALE": {
+          "full": "Annualized Loss Expectancy",
+          "definition": "Expected annual monetary loss from a risk. Calculated as SLE × ARO. Used to justify security investments and prioritize controls. Control cost should not exceed ALE.",
+          "examples": ["$60,000 SLE × 0.5 ARO = $30,000 ALE", "Annual expected breach costs", "Yearly risk exposure"]
+        },
+        "ARO": {
+          "full": "Annualized Rate of Occurrence",
+          "definition": "Estimated frequency of threat occurrence per year. Can be fraction (0.5 = once every 2 years) or whole number (3 = three times per year). Based on historical data or expert estimates.",
+          "examples": ["0.1 (once per 10 years)", "2.0 (twice per year)", "0.5 (once every 2 years)", "Historical incident rates"]
+        },
+        "Probability": {
+          "definition": "Likelihood of threat exploiting vulnerability expressed as percentage or decimal. Combined with impact to determine risk level. Based on threat intelligence and historical data.",
+          "examples": ["80% chance of phishing attack", "0.3 probability of breach", "High probability rating", "Statistical likelihood"]
+        },
+        "Likelihood": {
+          "definition": "Chance of risk event occurring, often expressed qualitatively (rare, unlikely, possible, likely, certain). Similar to probability but may be less precise. Used in qualitative analysis.",
+          "examples": ["Highly likely", "Unlikely to occur", "Probable", "Remote possibility"]
+        },
+        "Exposure Factor": {
+          "definition": "Percentage of asset value lost in security incident. Ranges from 0% (no loss) to 100% (total loss). Used in SLE calculation. Based on vulnerability severity and asset criticality.",
+          "examples": ["20% data corruption", "100% hardware destruction", "50% availability loss", "75% confidentiality breach"]
+        },
+        "Impact": {
+          "definition": "Consequence or damage from realized risk including financial loss, reputation damage, operational disruption, and legal liability. Measured qualitatively or quantitatively.",
+          "examples": ["$1M financial loss", "Critical business impact", "Severe reputation damage", "Complete system failure"]
+        }
+      },
+      "Risk Register": {
+        "Risk Register": {
+          "definition": "Centralized document tracking all identified risks with details on likelihood, impact, owners, and mitigation status. Living document updated regularly. Core risk management tool.",
+          "examples": ["Corporate risk register", "Project risk log", "IT risk database", "GRC platform register"]
+        },
+        "Key Risk Indicators": {
+          "full": "KRI",
+          "definition": "Metrics providing early warning signals of increasing risk exposure. Monitored regularly to detect risk trends. Trigger actions when thresholds exceeded.",
+          "examples": ["Failed login attempts", "Unpatched systems count", "Mean time to patch", "Security incidents per month"]
+        },
+        "Risk Owners": {
+          "definition": "Individuals assigned accountability for specific risks. Responsible for monitoring risk and implementing treatments. Have authority and resources to manage assigned risks.",
+          "examples": ["Business unit managers", "System owners", "Project managers", "Department heads"]
+        },
+        "Risk Threshold": {
+          "definition": "Level of risk organization is willing to tolerate before taking action. When risk exceeds threshold, treatment required. Aligned with risk appetite and tolerance.",
+          "examples": ["Critical risks require immediate action", "High risks need mitigation plan", "Medium risks monitored", "Acceptable risk levels"]
+        }
+      },
+      "Risk Tolerance and Appetite": {
+        "Risk Tolerance": {
+          "definition": "Specific maximum level of risk organization can withstand for particular objective or activity. More tactical than appetite. Defines acceptable variation from risk appetite.",
+          "examples": ["Max 1% data loss acceptable", "No critical vulnerabilities allowed", "Zero tolerance for PCI violations", "Max $100K risk exposure"]
+        },
+        "Risk Appetite": {
+          "definition": "Amount and type of risk organization is willing to accept in pursuit of objectives. Strategic-level statement. Guides risk tolerance and treatment decisions.",
+          "examples": ["Conservative: minimize all risks", "Moderate: accept calculated risks", "Aggressive: high risk tolerance", "Risk-averse organization"]
+        },
+        "Expansionary": {
+          "definition": "Risk appetite favoring growth and innovation even with higher risk. Accepts significant risk for potential rewards. Common in startups and competitive industries.",
+          "examples": ["Rapid cloud adoption", "Fast feature deployment", "Aggressive market expansion", "Innovation-first approach"]
+        },
+        "Conservative": {
+          "definition": "Risk-averse appetite prioritizing stability and security over growth. Minimal acceptable risk. Common in highly regulated industries and established organizations.",
+          "examples": ["Strict security controls", "Extensive change controls", "Slow technology adoption", "Risk avoidance focus"]
+        },
+        "Neutral": {
+          "definition": "Balanced risk appetite accepting moderate risks when justified by benefits. Evidence-based risk decisions. Balances security and business enablement.",
+          "examples": ["Risk-based approach", "Calculated risk acceptance", "Balanced security investments", "Pragmatic controls"]
+        }
+      },
+      "Risk Management Strategies": {
+        "Transfer": {
+          "definition": "Shifting risk to third party through insurance, contracts, or outsourcing. Risk doesn't disappear but financial impact transferred. Common for risks exceeding organization's capability.",
+          "examples": ["Cyber insurance", "Outsourcing to MSP", "Contractual liability transfer", "Cloud service provider SLAs"]
+        },
+        "Accept": {
+          "definition": "Acknowledging risk and choosing not to mitigate. Used when cost of mitigation exceeds potential loss or risk is within tolerance. Must be formally documented and approved.",
+          "examples": ["Accepting low-impact risks", "Known limitations documented", "Legacy system risks", "Business-approved exceptions"]
+        },
+        "Exemption": {
+          "definition": "Permanent exception to security policy or standard. Granted when compliance impossible or unreasonable. Requires senior management approval and compensating controls.",
+          "examples": ["Legacy system exemption", "Business critical exception", "Technical limitation waiver", "Permanent policy exception"]
+        },
+        "Exception": {
+          "definition": "Temporary deviation from security policy or standard. Time-limited with expiration date. Requires approval and regular review. Should have remediation plan.",
+          "examples": ["Temporary compliance waiver", "Short-term exception", "Emergency bypass approval", "90-day exception"]
+        },
+        "Avoid": {
+          "definition": "Eliminating risk by not engaging in activity or removing risk source. Most effective but may limit business opportunities. Used for unacceptable high-impact risks.",
+          "examples": ["Not entering risky markets", "Discontinuing vulnerable services", "Avoiding prohibited activities", "Shutting down exposed systems"]
+        },
+        "Mitigate": {
+          "definition": "Reducing risk to acceptable level through security controls and countermeasures. Most common strategy. Reduces likelihood, impact, or both.",
+          "examples": ["Implementing firewalls", "Patching vulnerabilities", "Security training", "Access controls"]
+        }
+      },
+      "Business Impact Analysis": {
+        "BIA": {
+          "full": "Business Impact Analysis",
+          "definition": "Process identifying critical business functions and quantifying impacts of disruptions. Determines recovery priorities and requirements. Foundation for business continuity and disaster recovery planning.",
+          "examples": ["Critical function identification", "Downtime impact assessment", "Recovery priority ranking", "Dependency mapping"]
+        },
+        "RTO": {
+          "full": "Recovery Time Objective",
+          "definition": "Maximum acceptable time to restore function after disruption. How quickly must recovery occur. Drives recovery strategy and resource requirements. Shorter RTO requires more investment.",
+          "examples": ["4-hour RTO for critical systems", "24-hour RTO for non-critical", "15-minute RTO for mission-critical"]
+        },
+        "RPO": {
+          "full": "Recovery Point Objective",
+          "definition": "Maximum acceptable data loss measured in time. How much data can be lost. Determines backup frequency and replication needs. Shorter RPO requires more frequent backups.",
+          "examples": ["5-minute RPO (continuous replication)", "1-hour RPO (hourly backups)", "Daily RPO (nightly backups)"]
+        },
+        "MTTR": {
+          "full": "Mean Time to Repair",
+          "definition": "Average time to repair failed component and restore to operation. Includes diagnosis, repair, and testing. Lower MTTR improves availability. Influences maintenance procedures.",
+          "examples": ["2-hour MTTR for critical systems", "Same-day hardware replacement", "Quick repair procedures"]
+        },
+        "MTBF": {
+          "full": "Mean Time Between Failures",
+          "definition": "Average time between system failures. Predicts reliability for repairable systems. Higher MTBF indicates more reliable system. Used in availability calculations.",
+          "examples": ["Hard drive MTBF of 1 million hours", "Server MTBF ratings", "Equipment reliability metrics"]
+        }
+      }
+    },
+    "5.3": {
+      "Vendor Assessment": {
+        "Penetration Testing": {
+          "definition": "Requesting or reviewing vendor penetration test results to validate security posture. Assesses vendor's vulnerability to attack. Should be performed by independent third party and updated regularly.",
+          "examples": ["Annual pen test reports", "Third-party security assessments", "Vulnerability validation", "Attack simulation results"]
+        },
+        "Right-to-Audit": {
+          "definition": "Contractual clause allowing organization to audit vendor's security controls, processes, and compliance. May conduct audit directly or review third-party reports. Essential for critical vendors.",
+          "examples": ["Audit rights in contracts", "On-site security assessments", "SOC 2 report review", "Compliance verification"]
+        },
+        "Internal Audits": {
+          "definition": "Evidence of vendor's internal security audit program. Demonstrates commitment to security oversight. Review audit scope, findings, and remediation.",
+          "examples": ["Vendor audit reports", "Internal control testing", "Compliance audit results", "Security program reviews"]
+        },
+        "Independent Assessments": {
+          "definition": "Third-party security evaluations of vendor by external auditors. More objective than vendor self-assessments. Common frameworks include SOC 2, ISO 27001, PCI.",
+          "examples": ["SOC 2 Type II reports", "ISO 27001 certification", "PCI DSS attestation", "FedRAMP authorization"]
+        },
+        "Supply Chain Analysis": {
+          "definition": "Assessment of vendor's suppliers and dependencies. Identifies fourth-party risks and supply chain vulnerabilities. Critical after high-profile supply chain attacks.",
+          "examples": ["Vendor dependency mapping", "Subcontractor reviews", "Software supply chain analysis", "Component sourcing verification"]
+        }
+      },
+      "Vendor Selection": {
+        "Due Diligence": {
+          "definition": "Comprehensive investigation of vendor before contracting. Reviews financial stability, security practices, compliance, and reputation. Risk-based depth appropriate to vendor criticality.",
+          "examples": ["Vendor security questionnaires", "Financial review", "Reference checks", "Security posture assessment"]
+        },
+        "Conflict of Interest": {
+          "definition": "Identifying situations where vendor selection could be influenced by personal relationships or financial interests. Ensures objective vendor evaluation. Requires disclosure and management.",
+          "examples": ["Personal relationships with vendors", "Financial interests", "Competing business relationships", "Disclosure requirements"]
+        }
+      },
+      "Agreement Types": {
+        "SLA": {
+          "full": "Service Level Agreement",
+          "definition": "Contract defining service performance metrics, availability guarantees, and penalties for non-compliance. Specifies expected service levels and measurement methods. Includes remedies for breaches.",
+          "examples": ["99.9% uptime guarantee", "4-hour response time", "Performance penalties", "Service credits"]
+        },
+        "MOA": {
+          "full": "Memorandum of Agreement",
+          "definition": "Formal agreement between parties outlining cooperation and shared objectives. Less formal than contract but more structured than MOU. Common in government and partnerships.",
+          "examples": ["Inter-agency agreements", "Partnership MOAs", "Collaborative arrangements", "Shared responsibility definitions"]
+        },
+        "MOU": {
+          "full": "Memorandum of Understanding",
+          "definition": "Non-binding agreement expressing intent to work together. Outlines general principles and objectives. Less formal than legal contracts. Often precedes formal agreements.",
+          "examples": ["Partnership intentions", "Collaboration framework", "General cooperation terms", "Preliminary agreements"]
+        },
+        "MSA": {
+          "full": "Master Service Agreement",
+          "definition": "Framework contract establishing general terms for future transactions. Reduces negotiation for each project. Contains standard terms, pricing, and legal provisions. Individual work orders reference MSA.",
+          "examples": ["Consulting MSAs", "Software licensing frameworks", "General terms and conditions", "Multi-project agreements"]
+        },
+        "Work Order": {
+          "full": "WO",
+          "definition": "Specific task authorization under master agreement. Defines scope, deliverables, timeline, and cost for particular project. References MSA for general terms.",
+          "examples": ["Project work orders", "Task assignments", "Specific deliverables", "Individual project scopes"]
+        },
+        "Statement of Work": {
+          "full": "SOW",
+          "definition": "Detailed project description including objectives, scope, deliverables, timeline, milestones, and acceptance criteria. More detailed than work order. Defines specific project requirements.",
+          "examples": ["Project SOWs", "Detailed scope documents", "Deliverable specifications", "Milestone definitions"]
+        },
+        "NDA": {
+          "full": "Non-Disclosure Agreement",
+          "definition": "Legal contract protecting confidential information shared between parties. Prevents unauthorized disclosure. Mutual (both parties) or unilateral (one party). Essential before sharing sensitive data.",
+          "examples": ["Mutual NDAs", "Vendor confidentiality agreements", "Pre-contract NDAs", "Proprietary information protection"]
+        },
+        "BPA": {
+          "full": "Business Partners Agreement",
+          "definition": "Formal agreement between business partners defining relationship, responsibilities, profit sharing, and governance. Broader than service agreements covering partnership structure.",
+          "examples": ["Joint venture agreements", "Partnership terms", "Profit sharing arrangements", "Governance structures"]
+        }
+      },
+      "Vendor Management": {
+        "Vendor Monitoring": {
+          "definition": "Ongoing oversight of vendor performance and security posture. Reviews compliance with SLAs, security requirements, and contractual obligations. Continuous throughout relationship.",
+          "examples": ["Performance reviews", "Security posture monitoring", "Compliance tracking", "Risk reassessments"]
+        },
+        "Questionnaires": {
+          "definition": "Standardized security assessment tools sent to vendors. Evaluates security controls, policies, and practices. Common frameworks include SIG, CAIQ, and custom assessments.",
+          "examples": ["Security questionnaires", "Vendor risk assessments", "Compliance surveys", "SIG Lite/Core/Full"]
+        },
+        "Rules of Engagement": {
+          "definition": "Guidelines defining acceptable activities, communication protocols, and boundaries for vendor interactions. Particularly important for security testing and incident response. Sets clear expectations.",
+          "examples": ["Pen test scope limits", "Incident response procedures", "Communication channels", "Escalation paths"]
+        }
+      }
+    },
+    "5.4": {
+      "Compliance Reporting": {
+        "Internal": {
+          "definition": "Compliance reports for internal stakeholders including management, board, and audit committee. Demonstrates control effectiveness and identifies gaps. Supports governance and risk management.",
+          "examples": ["Board compliance reports", "Management dashboards", "Audit committee reports", "Internal control assessments"]
+        },
+        "External": {
+          "definition": "Compliance reports for external parties including regulators, auditors, and customers. Demonstrates regulatory compliance and security posture. May be required or voluntary.",
+          "examples": ["Regulatory filings", "SOC 2 reports", "Compliance attestations", "Customer audit reports"]
+        }
+      },
+      "Consequences": {
+        "Fines": {
+          "definition": "Monetary penalties for compliance violations imposed by regulators. Can be substantial based on violation severity and revenue. GDPR fines up to 4% of global revenue.",
+          "examples": ["GDPR penalties (up to €20M or 4% revenue)", "HIPAA fines ($100-$50,000 per violation)", "PCI DSS fines", "SEC penalties"]
+        },
+        "Sanctions": {
+          "definition": "Punitive actions beyond fines including restrictions, bans, or operating limitations. May prohibit certain activities or markets. Can severely impact business operations.",
+          "examples": ["Business operation restrictions", "Market access bans", "Data processing prohibitions", "License suspensions"]
+        },
+        "Reputational Damage": {
+          "definition": "Loss of customer trust and brand value from non-compliance or breaches. Often exceeds direct costs. Long-lasting impact on business. Difficult to quantify but critical.",
+          "examples": ["Customer loss", "Brand damage", "Negative publicity", "Market value decline"]
+        },
+        "Loss of License": {
+          "definition": "Revocation of authorization to operate in regulated industry. Most severe consequence. May force business closure. Common in financial services and healthcare.",
+          "examples": ["Banking license revocation", "Healthcare provider exclusion", "Professional license loss", "Operating permit cancellation"]
+        },
+        "Contractual Impacts": {
+          "definition": "Contract termination or penalties from customers/partners due to non-compliance. Lost business opportunities. Breach of contractual security requirements.",
+          "examples": ["Customer contract termination", "Partnership dissolution", "SLA penalties", "Business opportunity loss"]
+        }
+      },
+      "Compliance Monitoring": {
+        "Due Diligence": {
+          "definition": "Reasonable care and investigation to ensure compliance with laws and regulations. Proactive compliance verification. Demonstrates good faith effort.",
+          "examples": ["Regular compliance reviews", "Legal requirement monitoring", "Policy updates", "Training programs"]
+        },
+        "Due Care": {
+          "definition": "Implementing appropriate safeguards and acting responsibly to protect assets and data. Reasonable person standard. Demonstrates prudent security practices.",
+          "examples": ["Implementing security controls", "Regular patching", "Security awareness training", "Incident response capability"]
+        },
+        "Attestation": {
+          "definition": "Formal declaration or certification of compliance by responsible party. May require signature from executives. Creates accountability and legal obligation.",
+          "examples": ["SOX attestation", "Compliance certifications", "Executive sign-offs", "Annual attestations"]
+        },
+        "Acknowledgement": {
+          "definition": "Confirmation that individuals received, read, and understood policies or training. Evidence of awareness. Often required for acceptable use and security policies.",
+          "examples": ["Policy acceptance signatures", "Training completion confirmations", "Code of conduct acknowledgments", "Annual recertification"]
+        },
+        "Automation": {
+          "definition": "Automated compliance monitoring and reporting using tools and scripts. Continuous compliance verification. Reduces manual effort and human error.",
+          "examples": ["Automated compliance scanning", "GRC platforms", "Configuration monitoring", "Policy enforcement tools"]
+        }
+      },
+      "Privacy": {
+        "Legal Implications": {
+          "definition": "Privacy laws and regulations varying by jurisdiction. Includes data protection, breach notification, and individual rights. Non-compliance risks fines and legal action.",
+          "examples": ["GDPR (EU)", "CCPA (California)", "PIPEDA (Canada)", "Privacy Act (Australia)"]
+        },
+        "Data Subject": {
+          "definition": "Individual whose personal data is being processed. Has rights under privacy laws including access, correction, and deletion. Central to privacy regulations.",
+          "examples": ["Customers", "Employees", "Website visitors", "Service users"]
+        },
+        "Controller vs Processor": {
+          "definition": "GDPR distinction: Controller determines purposes/means of processing, Processor acts on controller's behalf. Different responsibilities and liabilities.",
+          "examples": ["Company as controller", "Cloud provider as processor", "Payroll vendor as processor", "Marketing firm as processor"]
+        },
+        "Ownership": {
+          "definition": "Legal rights to data and information. Data subjects retain ownership of personal data. Organizations are data custodians, not owners. Affects usage and retention.",
+          "examples": ["Personal data ownership", "Intellectual property", "Data rights", "Customer data custody"]
+        },
+        "Data Inventory": {
+          "definition": "Catalog of personal data collected, processed, and stored including data types, locations, purposes, and retention periods. Required by many privacy regulations.",
+          "examples": ["Data mapping", "Privacy inventory", "Record of processing activities", "Data flow diagrams"]
+        },
+        "Retention": {
+          "definition": "Policies defining how long data is kept before deletion. Balances legal requirements, business needs, and privacy principles. Must justify retention periods.",
+          "examples": ["7-year financial records", "Employment records retention", "Log retention policies", "Customer data lifecycle"]
+        },
+        "Right to be Forgotten": {
+          "definition": "Individual's right to request deletion of personal data under certain conditions. GDPR right to erasure. Organizations must delete unless legal basis for retention.",
+          "examples": ["GDPR erasure requests", "Account deletion requests", "Data deletion procedures", "Privacy request workflows"]
+        }
+      }
+    },
+    "5.5": {
+      "Internal Assessments": {
+        "Compliance": {
+          "definition": "Internal audits verifying adherence to policies, standards, and regulations. Identifies gaps and non-compliance. Performed by internal audit team or security team.",
+          "examples": ["Policy compliance audits", "Standard adherence reviews", "Control effectiveness testing", "Gap assessments"]
+        },
+        "Audit Committee": {
+          "definition": "Board-level committee overseeing financial reporting, internal controls, and audit activities. Reviews audit findings and ensures management response. Provides governance oversight.",
+          "examples": ["Board audit committee", "Audit oversight", "Finding reviews", "Management accountability"]
+        },
+        "Self-Assessments": {
+          "definition": "Organization evaluating own compliance and controls without external auditor. Uses frameworks and checklists. Lower cost but less objective than third-party audits.",
+          "examples": ["Control self-assessments", "Compliance checklists", "Framework gap analysis", "Internal evaluations"]
+        }
+      },
+      "External Assessments": {
+        "Regulatory": {
+          "definition": "Audits and examinations by government regulators verifying compliance with laws and regulations. Mandatory for regulated industries. Non-compliance results in penalties.",
+          "examples": ["SEC examinations", "FDIC audits", "HHS HIPAA audits", "State regulatory reviews"]
+        },
+        "Examinations": {
+          "definition": "In-depth reviews by regulatory authorities assessing compliance, controls, and risk management. More comprehensive than routine inspections. May be scheduled or triggered by concerns.",
+          "examples": ["Bank examinations", "Safety inspections", "Regulatory deep dives", "Compliance examinations"]
+        },
+        "Third-Party Assessments": {
+          "definition": "Independent evaluations by external auditors or assessment firms. Objective validation of controls and compliance. Common frameworks include SOC 2, ISO 27001.",
+          "examples": ["SOC 2 audits", "ISO 27001 certification", "PCI DSS assessments", "Security audits"]
+        }
+      },
+      "Penetration Testing": {
+        "Physical": {
+          "definition": "Testing physical security controls by attempting unauthorized physical access. Assesses locks, guards, badges, and physical barriers. May include social engineering.",
+          "examples": ["Building access attempts", "Tailgating tests", "Lock picking", "Security guard testing"]
+        },
+        "Offensive": {
+          "definition": "Red team activities attacking systems and networks to identify vulnerabilities. Simulates real-world attackers. Tests detection and response capabilities.",
+          "examples": ["Network penetration testing", "Application exploitation", "Phishing campaigns", "Attack simulations"]
+        },
+        "Defensive": {
+          "definition": "Blue team activities focused on detection, prevention, and response. Defends against red team attacks. Validates security control effectiveness.",
+          "examples": ["Threat hunting", "Incident response", "Security monitoring", "Defense validation"]
+        },
+        "Integrated": {
+          "definition": "Purple team approach combining offensive and defensive teams. Collaborative security testing. Red team attacks while blue team defends with shared learning.",
+          "examples": ["Purple team exercises", "Collaborative testing", "Shared learning sessions", "Combined assessments"]
+        },
+        "Known Environment": {
+          "definition": "Penetration test where testers have full knowledge of systems and environment. Formerly called white box. Efficient and thorough but less realistic.",
+          "examples": ["White box testing", "Full disclosure testing", "Architecture review-based testing", "Informed testing"]
+        },
+        "Partially Known": {
+          "definition": "Penetration test with limited knowledge of environment. Formerly called gray box. Balances realism and efficiency. Common for web application testing.",
+          "examples": ["Gray box testing", "Limited disclosure", "Credentialed scanning", "Partial knowledge testing"]
+        },
+        "Unknown Environment": {
+          "definition": "Penetration test with no prior knowledge of environment. Formerly called black box. Most realistic but time-consuming. Simulates external attacker perspective.",
+          "examples": ["Black box testing", "Zero knowledge testing", "External perspective", "Blind testing"]
+        },
+        "Reconnaissance": {
+          "definition": "Information gathering phase before active testing. Includes passive and active reconnaissance. Identifies targets, vulnerabilities, and attack vectors.",
+          "examples": ["Network mapping", "DNS enumeration", "Social media research", "OSINT gathering"]
+        },
+        "Passive Reconnaissance": {
+          "definition": "Information gathering without directly interacting with target. No detectable footprint. Uses public sources and indirect methods.",
+          "examples": ["Public record searches", "Social media analysis", "DNS lookups", "Website research"]
+        },
+        "Active Reconnaissance": {
+          "definition": "Direct interaction with target systems to gather information. Detectable by security controls. Includes scanning and enumeration.",
+          "examples": ["Port scanning", "Vulnerability scanning", "Network enumeration", "Service fingerprinting"]
+        }
+      }
+    },
+    "5.6": {
+      "Security Awareness": {
+        "Phishing Campaigns": {
+          "definition": "Simulated phishing attacks testing user awareness and response. Identifies vulnerable users for additional training. Tracks metrics and improvement over time. Conducted regularly.",
+          "examples": ["Simulated phishing emails", "Spear phishing tests", "User reporting metrics", "Click-through tracking"]
+        },
+        "Recognizing Phishing": {
+          "definition": "Training users to identify phishing indicators including suspicious senders, urgent requests, unexpected attachments, and spoofed links. Critical security awareness skill.",
+          "examples": ["Sender verification training", "Link inspection techniques", "Red flag identification", "Urgency recognition"]
+        },
+        "Reporting Suspicious Messages": {
+          "definition": "Procedures for users to report suspected phishing and malicious emails to security team. Enables rapid response and threat intelligence. Should be easy and encouraged.",
+          "examples": ["Phishing report buttons", "Security team email addresses", "Reporting procedures", "User recognition programs"]
+        }
+      },
+      "Anomalous Behavior": {
+        "Risky": {
+          "definition": "Behaviors creating security risks including using personal devices, accessing suspicious sites, or sharing credentials. May be intentional or unknowing. Requires awareness training.",
+          "examples": ["Credential sharing", "Using personal cloud storage", "Bypassing security controls", "Clicking unknown links"]
+        },
+        "Unexpected": {
+          "definition": "Unusual user activities deviating from normal patterns. May indicate compromised account or insider threat. Triggers security investigation.",
+          "examples": ["Off-hours access", "Unusual data access", "Geographic anomalies", "Behavior changes"]
+        },
+        "Unintentional": {
+          "definition": "Accidental security violations without malicious intent. Common cause of security incidents. Addressed through training and awareness. Honest mistakes.",
+          "examples": ["Accidental data exposure", "Email to wrong recipient", "Lost devices", "Configuration errors"]
+        }
+      },
+      "User Guidance": {
+        "Policy Handbooks": {
+          "definition": "Documented security policies and procedures provided to all users. Reference material for security requirements. Should be accessible and understandable.",
+          "examples": ["Security policy manual", "Employee handbook", "Security guidelines", "Quick reference guides"]
+        },
+        "Situational Awareness": {
+          "definition": "Training users to recognize security threats in various situations including social engineering, physical security, and data handling. Context-specific awareness.",
+          "examples": ["Travel security awareness", "Remote work guidance", "Public WiFi risks", "Social engineering scenarios"]
+        },
+        "Insider Threat": {
+          "definition": "Awareness of risks from insiders including malicious and negligent threats. Training on indicators and reporting procedures. Emphasizes collective security responsibility.",
+          "examples": ["Behavioral indicators", "Reporting suspicious activity", "Access control importance", "Data protection"]
+        },
+        "Password Management": {
+          "definition": "Training on creating strong passwords, using password managers, avoiding password reuse, and recognizing password attacks. Fundamental security practice.",
+          "examples": ["Strong password creation", "Password manager usage", "MFA importance", "Password sharing risks"]
+        },
+        "Removable Media": {
+          "definition": "Awareness of risks from USB drives, external hard drives, and other removable media. Includes malware delivery and data exfiltration. Policies on acceptable use.",
+          "examples": ["USB device risks", "Unknown device warnings", "Data transfer policies", "Malware vectors"]
+        },
+        "Social Engineering": {
+          "definition": "Training users to recognize and resist manipulation tactics including pretexting, phishing, baiting, and tailgating. Critical defense layer.",
+          "examples": ["Manipulation techniques", "Verification procedures", "Trust-but-verify approach", "Reporting attempts"]
+        },
+        "Operational Security": {
+          "full": "OPSEC",
+          "definition": "Protecting sensitive information from adversaries through awareness of what information is valuable and how to safeguard it. Military concept applied to business.",
+          "examples": ["Clean desk policies", "Secure disposal", "Information classification", "Communication security"]
+        },
+        "Hybrid/Remote Work": {
+          "definition": "Security awareness specific to remote and hybrid work environments including home network security, VPN use, and physical security of remote workspace.",
+          "examples": ["Home WiFi security", "VPN requirements", "Video call security", "Workspace privacy"]
+        }
+      },
+      "Reporting and Monitoring": {
+        "Initial": {
+          "definition": "First security awareness training for new employees during onboarding. Establishes baseline security knowledge. Covers fundamental policies and procedures.",
+          "examples": ["New hire orientation", "Onboarding security training", "Initial policy acknowledgment", "Baseline training"]
+        },
+        "Recurring": {
+          "definition": "Ongoing periodic security awareness training maintaining and updating knowledge. Annual or more frequent. Covers new threats and refreshes key concepts.",
+          "examples": ["Annual security training", "Monthly security tips", "Quarterly awareness campaigns", "Refresher training"]
+        }
+      },
+      "Program Management": {
+        "Development": {
+          "definition": "Creating comprehensive security awareness program including content development, delivery methods, and metrics. Aligns with organizational risks and culture.",
+          "examples": ["Program design", "Content creation", "Training modules", "Awareness campaigns"]
+        },
+        "Execution": {
+          "definition": "Delivering security awareness program through training sessions, campaigns, and communications. Ongoing program operation. Tracks participation and effectiveness.",
+          "examples": ["Training delivery", "Campaign launches", "Communication distribution", "Event coordination"]
+        }
+      }
+    }
   }
 }
