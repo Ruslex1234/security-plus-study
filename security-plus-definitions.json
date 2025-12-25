@@ -350,5 +350,282 @@
         }
       }
     }
+  },
+  "3.0": {
+    "3.1": {
+      "Cloud Models": {
+        "IaaS": {
+          "full": "Infrastructure as a Service",
+          "definition": "Cloud service model providing virtualized computing resources over the internet. Provider manages physical infrastructure while customer controls operating systems, storage, and deployed applications. Most flexible but requires most customer management. Examples include virtual machines, storage, and networking.",
+          "examples": ["Amazon EC2", "Azure Virtual Machines", "Google Compute Engine", "DigitalOcean Droplets"]
+        },
+        "PaaS": {
+          "full": "Platform as a Service",
+          "definition": "Cloud service model providing platform and environment for developers to build, deploy, and manage applications without managing underlying infrastructure. Provider manages OS, middleware, runtime while customer manages applications and data. Balances control and convenience.",
+          "examples": ["Azure App Service", "Google App Engine", "Heroku", "AWS Elastic Beanstalk"]
+        },
+        "SaaS": {
+          "full": "Software as a Service",
+          "definition": "Cloud service model delivering fully functional applications over the internet. Provider manages entire stack including infrastructure, platform, and application. Customer simply uses the software. Least customer responsibility but least control. Most common cloud service.",
+          "examples": ["Microsoft 365", "Google Workspace", "Salesforce", "Dropbox", "Zoom"]
+        },
+        "Public Cloud": {
+          "definition": "Cloud infrastructure owned and operated by third-party provider, shared among multiple organizations (multi-tenant). Most cost-effective with unlimited scalability but least control over security. Resources accessed via internet with pay-per-use pricing.",
+          "examples": ["AWS", "Microsoft Azure", "Google Cloud Platform", "IBM Cloud"]
+        },
+        "Private Cloud": {
+          "definition": "Cloud infrastructure dedicated to single organization, either on-premises or hosted by third party. Provides greater control and security but higher cost. Suitable for organizations with strict compliance requirements or sensitive data.",
+          "examples": ["On-premises VMware vSphere", "OpenStack deployment", "Hosted private cloud", "Government clouds"]
+        },
+        "Hybrid Cloud": {
+          "definition": "Combination of public and private clouds connected to work together. Allows data and applications to move between environments. Provides flexibility to keep sensitive workloads private while using public cloud for less-critical resources. Requires careful security boundary management.",
+          "examples": ["Azure Stack hybrid", "AWS Outposts", "Critical data in private cloud, web apps in public cloud"]
+        },
+        "Community Cloud": {
+          "definition": "Cloud infrastructure shared among several organizations with common concerns (security, compliance, jurisdiction). Costs shared among members. More expensive than public but cheaper than private. Common in healthcare, government, and financial sectors.",
+          "examples": ["Government community clouds", "Healthcare data sharing platforms", "Financial services clouds"]
+        }
+      },
+      "Infrastructure Concepts": {
+        "On-Premises": {
+          "definition": "Traditional infrastructure where organization owns and operates hardware and software at their physical location. Provides maximum control and security but requires significant capital investment and ongoing maintenance. Organization responsible for all security layers.",
+          "examples": ["Data center in company building", "Server room infrastructure", "Self-hosted applications"]
+        },
+        "Containerization": {
+          "definition": "Lightweight virtualization packaging applications with dependencies into isolated containers. Share host OS kernel making them more efficient than VMs. Enable consistent deployment across environments. Require container security controls and orchestration.",
+          "examples": ["Docker containers", "Kubernetes orchestration", "Microservices architecture", "Container registries"]
+        },
+        "Serverless": {
+          "definition": "Cloud computing model where provider manages server infrastructure and automatically provisions resources. Developers write functions that execute in response to events. Pay only for actual execution time. Eliminates server management but introduces new security considerations.",
+          "examples": ["AWS Lambda", "Azure Functions", "Google Cloud Functions", "Event-driven architectures"]
+        },
+        "Microservices": {
+          "definition": "Architectural approach decomposing applications into small, independent services communicating via APIs. Each service handles specific business capability. Enables agility and scalability but increases attack surface and complexity. Requires API security and service mesh.",
+          "examples": ["E-commerce with separate payment, inventory, user services", "Netflix architecture", "Service-oriented architecture"]
+        }
+      },
+      "Network Infrastructure": {
+        "VPN": {
+          "full": "Virtual Private Network",
+          "definition": "Encrypted tunnel over public networks providing secure remote access or site-to-site connectivity. Protects data confidentiality and integrity during transmission. Types include site-to-site (connecting networks) and remote access (individual users). Uses protocols like IPSec, SSL/TLS.",
+          "examples": ["Remote worker access", "Site-to-site WAN connections", "Split-tunnel VPN", "Always-on VPN"]
+        },
+        "SD-WAN": {
+          "full": "Software-Defined Wide Area Network",
+          "definition": "Virtualized WAN architecture using software to control connectivity and management across multiple transport services (MPLS, broadband, LTE). Enables dynamic path selection, application-aware routing, and centralized management. Reduces costs and increases agility but requires proper security controls.",
+          "examples": ["Multi-site connectivity optimization", "Cloud application acceleration", "Branch office networking"]
+        },
+        "SASE": {
+          "full": "Secure Access Service Edge",
+          "definition": "Cloud-delivered security and networking framework combining SD-WAN with security services (CASB, FWaaS, ZTNA, SWG). Provides secure access regardless of location. Converges networking and security into single cloud service. Aligns with remote work and cloud adoption.",
+          "examples": ["Cloudflare One", "Zscaler", "Palo Alto Prisma Access", "Unified secure access"]
+        },
+        "Segmentation": {
+          "definition": "Dividing network into isolated sections to limit lateral movement and contain breaches. Reduces blast radius of incidents. Implemented via VLANs, firewalls, or software-defined networking. Critical security control for zero trust architecture.",
+          "examples": ["DMZ for public services", "Separate guest network", "Production vs development environments", "Micro-segmentation"]
+        },
+        "Air Gap": {
+          "definition": "Physical isolation of network or system from unsecured networks by removing all network connections. Most extreme form of network segmentation. Used for highly sensitive systems. Defeats network-based attacks but complicates updates and management.",
+          "examples": ["SCADA systems", "Nuclear facility controls", "Classified government networks", "Secure data analysis environments"]
+        }
+      }
+    },
+    "3.2": {
+      "Security Infrastructure": {
+        "Firewall": {
+          "definition": "Network security device filtering traffic based on predetermined rules. Sits between trusted and untrusted networks blocking unauthorized access while permitting legitimate communication. Types include packet-filtering, stateful, application-layer, and next-generation firewalls (NGFW).",
+          "examples": ["Perimeter firewalls", "Host-based firewalls", "Web application firewalls", "Cloud firewalls"]
+        },
+        "IDS": {
+          "full": "Intrusion Detection System",
+          "definition": "Passive security device monitoring network or host activity for suspicious patterns. Generates alerts when detecting potential threats but doesn't block traffic. Provides visibility without risking false positives disrupting legitimate traffic. Can be network-based (NIDS) or host-based (HIDS).",
+          "examples": ["Snort", "Suricata", "OSSEC (HIDS)", "Network traffic analysis"]
+        },
+        "IPS": {
+          "full": "Intrusion Prevention System",
+          "definition": "Active security device that monitors, detects, and automatically blocks malicious activity in real-time. Sits inline with traffic flow. Combines detection capabilities with prevention. Risk of false positives blocking legitimate traffic requires careful tuning.",
+          "examples": ["Inline IPS appliances", "Next-gen firewall IPS", "Cloud-based IPS", "Virtual IPS"]
+        },
+        "Proxy Server": {
+          "definition": "Intermediary server sitting between clients and destination servers, forwarding requests and responses. Provides anonymity, caching, content filtering, and access control. Can inspect and modify traffic. Forward proxy serves clients, reverse proxy protects servers.",
+          "examples": ["Web proxy for internet filtering", "Reverse proxy for load balancing", "SSL/TLS termination proxy", "Caching proxy"]
+        },
+        "Load Balancer": {
+          "definition": "Device distributing network traffic across multiple servers to ensure no single server is overwhelmed. Improves availability, reliability, and performance. Provides health checking and automatic failover. Can operate at different network layers (Layer 4 or Layer 7).",
+          "examples": ["Application load balancers", "Network load balancers", "DNS load balancing", "Cloud load balancers"]
+        },
+        "NAC": {
+          "full": "Network Access Control",
+          "definition": "Security solution enforcing policy on devices seeking network access. Authenticates users, assesses device posture (OS version, antivirus, patches), and grants appropriate access level. Can quarantine non-compliant devices. Supports zero trust network access.",
+          "examples": ["802.1X authentication", "Agent-based NAC", "Agentless NAC", "Guest network isolation"]
+        },
+        "Jump Server": {
+          "definition": "Hardened server providing controlled access to devices in different security zone. Acts as intermediary for administrative access to critical systems. All admin connections pass through jump server enabling monitoring and logging. Also called bastion host.",
+          "examples": ["SSH jump host", "RDP gateway", "Privileged access workstation", "Administrative access point"]
+        }
+      },
+      "Security Zones": {
+        "DMZ": {
+          "full": "Demilitarized Zone",
+          "definition": "Network segment between internal and external networks hosting public-facing services. Isolated from internal network with restricted access to internal resources. Provides buffer protecting internal network from direct internet exposure. Also called screened subnet.",
+          "examples": ["Web servers", "Email servers", "Public DNS", "FTP servers"]
+        },
+        "Screened Subnet": {
+          "definition": "Network architecture using two firewalls creating isolated subnet for public services. External firewall filters internet traffic, internal firewall protects internal network. More secure than simple DMZ. Provides defense in depth.",
+          "examples": ["Three-tier firewall architecture", "Public service isolation", "Dual-firewall DMZ"]
+        },
+        "Extranet": {
+          "definition": "Controlled private network allowing specific external users (partners, vendors, customers) limited access to organization's internal resources. More restricted than internet but broader than intranet. Requires strong authentication and authorization.",
+          "examples": ["Partner portals", "Vendor access systems", "B2B collaboration platforms", "Supply chain networks"]
+        },
+        "Intranet": {
+          "definition": "Private network accessible only to organization's internal users. Hosts internal websites, applications, and resources. Protected from external access by firewalls and authentication. May still require internal security controls.",
+          "examples": ["Internal employee portals", "Company wikis", "Internal applications", "Corporate communication platforms"]
+        }
+      },
+      "Secure Access": {
+        "VDI": {
+          "full": "Virtual Desktop Infrastructure",
+          "definition": "Technology hosting desktop environments on centralized server infrastructure. Users access virtual desktops remotely via thin clients or endpoint devices. Centralizes data and applications improving security and management. All data stays in data center.",
+          "examples": ["Citrix Virtual Apps and Desktops", "VMware Horizon", "Windows Virtual Desktop", "Remote desktop services"]
+        },
+        "Secure Access Service Edge": {
+          "full": "SASE",
+          "definition": "Converged cloud-native architecture combining WAN capabilities with comprehensive network security services. Delivers security close to users regardless of location. Includes ZTNA, CASB, FWaaS, and SWG delivered from cloud. Supports modern work environments.",
+          "examples": ["Zero trust network access", "Cloud-delivered security", "Unified access control"]
+        }
+      }
+    },
+    "3.3": {
+      "Data Protection": {
+        "Data at Rest": {
+          "definition": "Data stored on persistent storage media (hard drives, SSDs, databases, backups). Vulnerable to theft, unauthorized access, or physical compromise. Protected primarily through encryption (full disk, file-level, database). Requires key management and access controls.",
+          "examples": ["Encrypted hard drives", "Database encryption", "BitLocker", "Encrypted backups"]
+        },
+        "Data in Transit": {
+          "definition": "Data actively moving across networks (internet, LAN, WAN). Vulnerable to interception, eavesdropping, and man-in-the-middle attacks. Protected through encryption protocols (TLS, IPSec, SSH). Requires certificate management and secure protocols.",
+          "examples": ["HTTPS web traffic", "VPN tunnels", "Encrypted email", "Secure file transfers (SFTP)"]
+        },
+        "Data in Use": {
+          "definition": "Data actively being processed in memory or CPU. Most vulnerable state as data typically must be unencrypted for processing. Protected through secure enclaves, memory encryption, and process isolation. Emerging technologies include homomorphic encryption and secure multiparty computation.",
+          "examples": ["RAM contents", "CPU cache", "Application memory", "Secure enclave processing"]
+        },
+        "Tokenization": {
+          "definition": "Replacing sensitive data with non-sensitive tokens that have no exploitable value. Original data stored securely in token vault with mapping to tokens. Reduces PCI DSS scope by removing credit card data from systems. Cannot be mathematically reversed unlike encryption.",
+          "examples": ["Credit card tokenization", "PII tokenization", "Payment processing tokens", "De-identification"]
+        },
+        "Data Masking": {
+          "definition": "Obscuring specific data within database to protect it from unauthorized access while maintaining realistic format for testing/development. Creates structurally similar but inauthentic data. Static masking creates copy, dynamic masking obscures on-the-fly.",
+          "examples": ["Masking credit card numbers (XXXX-XXXX-XXXX-1234)", "Test database anonymization", "Production data sanitization"]
+        },
+        "Data Loss Prevention": {
+          "full": "DLP",
+          "definition": "Technologies and processes preventing sensitive data from leaving organization's control. Monitors data in use, in motion, and at rest. Can detect and block unauthorized data transfers based on content inspection, context, and user actions. Supports compliance requirements.",
+          "examples": ["Email DLP blocking PII transmission", "USB port blocking", "Cloud DLP", "Endpoint DLP agents"]
+        }
+      },
+      "Encryption": {
+        "Symmetric Encryption": {
+          "definition": "Encryption using same key for encryption and decryption. Very fast and efficient for large amounts of data. Main challenge is secure key distribution. Common algorithms include AES (standard), DES (deprecated), and 3DES.",
+          "examples": ["AES-256 for file encryption", "Full disk encryption", "Database encryption", "VPN tunnels"]
+        },
+        "Asymmetric Encryption": {
+          "definition": "Encryption using key pair: public key for encryption, private key for decryption. Solves key distribution problem but slower than symmetric. Used for key exchange, digital signatures, and small data encryption. Common algorithms include RSA, ECC, and ElGamal.",
+          "examples": ["SSL/TLS handshake", "Email encryption (PGP)", "Digital signatures", "SSH key authentication"]
+        },
+        "Hashing": {
+          "definition": "One-way function converting data into fixed-size output (hash/digest). Cannot be reversed to recover original data. Any change to input produces completely different hash. Used for integrity verification, password storage, and digital signatures. Common algorithms include SHA-256, SHA-3, bcrypt.",
+          "examples": ["Password hashing", "File integrity checking", "Digital signature creation", "Blockchain"]
+        }
+      },
+      "Data Classification": {
+        "Public": {
+          "definition": "Data intended for public consumption with no confidentiality requirements. Disclosure causes no harm to organization. No special handling required but integrity and availability may still be important. Least restrictive classification.",
+          "examples": ["Marketing materials", "Press releases", "Public website content", "Published annual reports"]
+        },
+        "Private": {
+          "definition": "Data intended for internal use only, not for public disclosure. Limited distribution within organization. Unauthorized disclosure could cause minor damage. Requires basic security controls and access restrictions.",
+          "examples": ["Internal emails", "Employee directories", "Internal procedures", "Meeting notes"]
+        },
+        "Confidential": {
+          "definition": "Sensitive data with limited distribution requiring protection from unauthorized disclosure. Unauthorized access could cause significant damage to organization. Requires strong access controls, encryption, and handling procedures.",
+          "examples": ["Financial reports", "Business strategies", "Employee records", "Customer data"]
+        },
+        "Critical": {
+          "definition": "Most sensitive data vital to organization's operations. Unauthorized disclosure could cause severe damage including legal, financial, or reputational harm. Requires strongest security controls including encryption, strict access controls, and extensive logging.",
+          "examples": ["Trade secrets", "Classified information", "Merger/acquisition plans", "Authentication credentials"]
+        }
+      }
+    },
+    "3.4": {
+      "Resilience Concepts": {
+        "High Availability": {
+          "definition": "System design ensuring service remains accessible with minimal downtime. Achieved through redundancy, failover mechanisms, and fault tolerance. Measured in uptime percentage (99.9% = 43 minutes downtime/month). Critical for business-critical systems.",
+          "examples": ["Clustered servers", "Load balanced web farms", "Redundant network paths", "Multi-region deployments"]
+        },
+        "Redundancy": {
+          "definition": "Duplication of critical components or functions to increase reliability and availability. Eliminates single points of failure. Can apply to hardware, networks, power, data, or sites. Increases cost but reduces risk of total failure.",
+          "examples": ["RAID arrays", "Dual power supplies", "Redundant network links", "Backup generators"]
+        },
+        "Fault Tolerance": {
+          "definition": "System's ability to continue operating properly in event of component failure. Built-in redundancy and failover mechanisms maintain functionality. More advanced than redundancy as system automatically handles failures without service interruption.",
+          "examples": ["RAID 5/6 surviving disk failures", "Clustered databases", "Hot-swappable components", "Byzantine fault tolerance"]
+        }
+      },
+      "Backup and Recovery": {
+        "Full Backup": {
+          "definition": "Complete copy of all selected data regardless of when it was last backed up. Fastest to restore but slowest to create and requires most storage. Starting point for other backup strategies. Run periodically (weekly) with incrementals/differentials between.",
+          "examples": ["Weekly full system backups", "Complete database dumps", "Image-based backups"]
+        },
+        "Incremental Backup": {
+          "definition": "Backs up only data changed since last backup (full or incremental). Fastest backup, least storage, but slowest restore requiring last full plus all incrementals. Efficient for daily backups with weekly fulls.",
+          "examples": ["Daily incremental backups", "File-level change backups", "Database transaction logs"]
+        },
+        "Differential Backup": {
+          "definition": "Backs up data changed since last full backup. Faster restore than incremental (only need last full plus last differential) but slower backup and more storage than incremental. Balances backup and restore times.",
+          "examples": ["Daily differential with weekly full", "Midpoint between full and incremental"]
+        },
+        "Snapshot": {
+          "definition": "Point-in-time copy of data or system state. Typically space-efficient using copy-on-write or similar technology. Enables quick recovery to known good state. Common in virtualization and storage systems. Not substitute for full backups.",
+          "examples": ["VM snapshots", "Storage array snapshots", "Database snapshots", "Filesystem snapshots"]
+        }
+      },
+      "Recovery Sites": {
+        "Hot Site": {
+          "definition": "Fully operational backup facility with current data ready for immediate use. Provides fastest recovery (minutes to hours) but highest cost. Equipment running and data synchronized in real-time. Can support active-active configuration.",
+          "examples": ["Duplicate data center with live replication", "Active-active configuration", "Real-time database mirroring"]
+        },
+        "Warm Site": {
+          "definition": "Partially equipped backup facility with hardware and network infrastructure but not current data. Systems available but require data restoration and configuration. Operational in hours to days. Balances cost and recovery time.",
+          "examples": ["Standby hardware with periodic backup restoration", "Pre-configured but powered-off systems"]
+        },
+        "Cold Site": {
+          "definition": "Backup facility with basic infrastructure (power, cooling, network connectivity) but no equipment or data. Cheapest option but requires days to weeks to become operational. Must install equipment, restore data, and configure systems.",
+          "examples": ["Empty data center space", "Shell facility", "Office space with power and connectivity"]
+        }
+      },
+      "Recovery Objectives": {
+        "RTO": {
+          "full": "Recovery Time Objective",
+          "definition": "Maximum acceptable time to restore business function after disruption. Determines recovery strategy and resource requirements. Drives decisions on backup methods, recovery sites, and failover mechanisms. Shorter RTO requires more investment.",
+          "examples": ["4-hour RTO for critical systems", "24-hour RTO for non-critical systems", "15-minute RTO for mission-critical"]
+        },
+        "RPO": {
+          "full": "Recovery Point Objective",
+          "definition": "Maximum acceptable amount of data loss measured in time. Determines backup frequency and replication needs. 1-hour RPO means losing up to 1 hour of data is acceptable. Shorter RPO requires more frequent backups or real-time replication.",
+          "examples": ["5-minute RPO with continuous replication", "1-hour RPO with hourly backups", "Daily RPO for non-critical data"]
+        },
+        "MTBF": {
+          "full": "Mean Time Between Failures",
+          "definition": "Average time between system failures. Predicts reliability for repairable systems. Higher MTBF indicates more reliable system. Helps plan maintenance windows and replacement schedules. Used in availability calculations.",
+          "examples": ["Hard drive MTBF of 1 million hours", "Server MTBF ratings", "Network equipment reliability metrics"]
+        },
+        "MTTR": {
+          "full": "Mean Time to Repair",
+          "definition": "Average time required to repair failed component and restore to operational status. Includes diagnosis, repair, and testing time. Lower MTTR improves availability. Influences spare parts inventory and maintenance procedures.",
+          "examples": ["2-hour MTTR for critical systems", "Same-day hardware replacement", "Service level agreements"]
+        }
+      }
+    }
   }
 }
