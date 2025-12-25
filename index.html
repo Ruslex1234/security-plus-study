@@ -1012,7 +1012,7 @@
 
         // Load external data
         let acronyms = {};
-        let definitions = {}; // Will be flattened from JSON structure
+        let definitionsData = {}; // Hierarchical structure: domain → objective → category → term
 
         // Load acronyms from JSON
         fetch('./acronyms.json')
@@ -1023,17 +1023,20 @@
             })
             .catch(error => console.error('❌ Error loading acronyms:', error));
 
-        // Load and flatten definitions from JSON
+        // Load definitions with hierarchical structure
         fetch('./security-plus-definitions.json')
             .then(response => response.json())
             .then(data => {
-                // Flatten the nested structure into a single object
+                definitionsData = data;
+                let defCount = 0;
                 Object.keys(data).forEach(domain => {
-                    Object.keys(data[domain]).forEach(term => {
-                        definitions[term] = data[domain][term];
+                    Object.keys(data[domain]).forEach(objective => {
+                        Object.keys(data[domain][objective]).forEach(category => {
+                            defCount += Object.keys(data[domain][objective][category]).length;
+                        });
                     });
                 });
-                console.log('✅ Loaded', Object.keys(definitions).length, 'definitions');
+                console.log('✅ Loaded', defCount, 'definitions across all domains');
             })
             .catch(error => console.error('❌ Error loading definitions:', error));
 
@@ -1100,33 +1103,35 @@
 
         function navigateToObjective(domainKey, objectiveKey) {
             currentObjective = objectiveKey;
+            currentDomain = domainKey;
             navigationStack.push({type: 'objective', domainKey, objectiveKey});
             updateBreadcrumb();
-            
+
             const objective = securityPlusData[domainKey].objectives[objectiveKey];
             const contentArea = document.getElementById('contentArea');
-            
+
             let html = `<h2>${objectiveKey}: ${objective.title}</h2>`;
             html += `<div class="sub-objective-list">`;
-            
+
             Object.keys(objective.categories).forEach(categoryKey => {
                 const category = objective.categories[categoryKey];
                 html += `<h3 style="margin-top: 30px; color: var(--comptia-dark);">${categoryKey}</h3>`;
-                
+
                 category.forEach(term => {
+                    // Pass domain, objective, category, and term for precise lookup
                     html += `
-                        <div class="sub-objective-item" onclick="showDefinition('${term}')">
+                        <div class="sub-objective-item" onclick="showDefinition('${term}', '${domainKey}', '${objectiveKey}', '${categoryKey}')">
                             ${highlightAcronyms(term)}
                         </div>
                     `;
                 });
             });
-            
+
             html += `</div>`;
             contentArea.innerHTML = html;
         }
 
-        function showDefinition(term) {
+        function showDefinition(term, domainKey, objectiveKey, categoryKey) {
             const panel = document.getElementById('definitionPanel');
             const overlay = document.getElementById('definitionOverlay');
             const panelContent = document.getElementById('definitionPanelContent');
@@ -1140,13 +1145,23 @@
             // Update the current term
             currentDefinitionTerm = term;
 
-            // Check if we have a definition for this term
-            const hasDef = definitions[term];
-            const def = definitions[term] || {
-                definition: `⚠️ Definition not yet available for "${term}". This term is part of the CompTIA Security+ SY0-701 objectives and will be added soon.`,
-                examples: [],
-                related: []
-            };
+            // Look up definition in hierarchical structure
+            let def = null;
+            let hasDef = false;
+
+            if (definitionsData[domainKey] &&
+                definitionsData[domainKey][objectiveKey] &&
+                definitionsData[domainKey][objectiveKey][categoryKey] &&
+                definitionsData[domainKey][objectiveKey][categoryKey][term]) {
+                def = definitionsData[domainKey][objectiveKey][categoryKey][term];
+                hasDef = true;
+            } else {
+                // Fallback for missing definition
+                def = {
+                    definition: `⚠️ Definition not yet available for "${term}". This term is part of the CompTIA Security+ SY0-701 objectives and will be added soon.`,
+                    examples: []
+                };
+            }
 
             // Check if term has acronym expansion
             const hasAcronym = acronyms[term];
@@ -1156,10 +1171,10 @@
             let html = `
                 <h1 class="definition-title">${term}</h1>
                 ${fullName ? `<p class="definition-full-name">📖 ${fullName}</p>` : ''}
-                ${!hasDef ? '<div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 15px; border-radius: 5px;"><strong>⚠️ Missing Definition</strong><br>This definition needs to be added to <code>security-plus-definitions.json</code></div>' : ''}
+                ${!hasDef ? '<div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 15px; border-radius: 5px;"><strong>⚠️ Missing Definition</strong><br>This definition needs to be added to <code>security-plus-definitions.json</code> at:<br><code>' + domainKey + ' → ' + objectiveKey + ' → ' + categoryKey + ' → ' + term + '</code></div>' : ''}
                 <div class="definition-text">
                     <p>${def.definition}</p>
-                    ${def.examples && def.examples.length > 0 ? `<div style="margin-top: 15px;"><strong>Examples:</strong> ${def.examples.join(', ')}</div>` : ''}
+                    ${def.examples && def.examples.length > 0 ? `<div style="margin-top: 15px;"><strong>Examples:</strong><ul style="margin-top: 5px; margin-left: 20px;">${def.examples.map(ex => `<li>${ex}</li>`).join('')}</ul></div>` : ''}
                 </div>
             `;
 
@@ -1170,9 +1185,11 @@
             panel.classList.add('active');
             overlay.classList.add('active');
 
-            // Log missing definitions to console for tracking
-            if (!hasDef) {
-                console.warn('⚠️ Missing definition for:', term);
+            // Log to console for tracking
+            if (hasDef) {
+                console.log('✅ Loaded definition for:', term, 'from', domainKey, '→', objectiveKey, '→', categoryKey);
+            } else {
+                console.warn('⚠️ Missing definition for:', term, '- Expected at:', domainKey, '→', objectiveKey, '→', categoryKey);
             }
         }
 

@@ -1,406 +1,184 @@
 {
-  "domain_1": {
-    "Technical Controls": {
-      "definition": "Controls implemented through technology and automated systems including firewalls, encryption, access control systems, and intrusion detection. Technical controls require minimal human intervention once configured.",
-      "examples": ["Firewalls", "Encryption", "Antivirus", "IDS/IPS"],
-      "related": ["Managerial Controls", "Operational Controls", "Physical Controls"]
-    },
-    "Managerial Controls": {
-      "definition": "Administrative controls focused on policy, procedures, and organizational governance including security policies, risk assessments, and incident response planning. These provide the framework for security operations.",
-      "examples": ["Security Policies", "Risk Assessments", "Security Training", "Incident Response Plans"],
-      "related": ["Technical Controls", "Operational Controls"]
-    },
-    "Operational Controls": {
-      "definition": "Day-to-day procedures and mechanisms implemented by people including security guards, awareness training, configuration management, and media protection.",
-      "examples": ["Security Guards", "Awareness Training", "Configuration Management", "Backup Procedures"],
-      "related": ["Technical Controls", "Managerial Controls"]
-    },
-    "Physical Controls": {
-      "definition": "Tangible barriers and mechanisms that prevent or deter physical access to assets including fences, locks, badge readers, mantraps, and security cameras.",
-      "examples": ["Fences", "Locks", "CCTV", "Mantraps", "Bollards"],
-      "related": ["Environmental Controls", "Access Control Vestibule"]
-    },
-    "Preventive Controls": {
-      "definition": "Security measures designed to stop security incidents before they occur. Examples include firewalls blocking unauthorized traffic and access controls preventing unauthorized access.",
-      "examples": ["Firewalls", "Access Controls", "Security Awareness Training", "Encryption"],
-      "related": ["Detective Controls", "Deterrent Controls"]
-    },
-    "Detective Controls": {
-      "definition": "Controls that identify and alert on security incidents during or after they occur including IDS, SIEM systems, log monitoring, and security audits.",
-      "examples": ["IDS", "SIEM", "Log Monitoring", "Security Audits"],
-      "related": ["Preventive Controls", "Corrective Controls"]
-    },
-    "Corrective Controls": {
-      "definition": "Controls that remediate security incidents and restore systems to normal operation including antivirus removal, backup restoration, and patching.",
-      "examples": ["Antivirus", "Backup Restoration", "Patching", "Incident Response"],
-      "related": ["Detective Controls", "Compensating Controls"]
-    },
-    "Compensating Controls": {
-      "definition": "Alternative controls used when primary controls cannot be implemented, providing equivalent or better protection through different means.",
-      "examples": ["Additional Monitoring", "Enhanced Logging", "Network Segmentation"],
-      "related": ["Corrective Controls", "Alternative Security"]
-    },
-    "CIA Triad": {
-      "definition": "The three fundamental principles of information security: Confidentiality (data accessible only to authorized parties), Integrity (data remains accurate and unmodified), and Availability (authorized users can access data when needed).",
-      "examples": ["Encryption (C)", "Hashing (I)", "Redundancy (A)"],
-      "related": ["Non-repudiation", "AAA", "Data Protection"]
-    },
-    "Non-repudiation": {
-      "definition": "The assurance that someone cannot deny the validity of their actions or the origin of data, achieved through digital signatures, audit logs, and cryptographic proof.",
-      "examples": ["Digital Signatures", "Audit Logs", "Certificates"],
-      "related": ["CIA Triad", "Digital Signatures", "Authentication"]
-    },
-    "Zero Trust": {
-      "definition": "A security model that assumes no implicit trust and requires verification for every access request regardless of location, operating on 'never trust, always verify' principle.",
-      "examples": ["Identity Verification", "Device Authentication", "Least Privilege"],
-      "related": ["ZTNA", "Micro-segmentation", "Policy-driven Access"]
-    },
-    "TPM": {
-      "full": "Trusted Platform Module",
-      "definition": "A dedicated microchip on the motherboard providing hardware-based security functions including storing cryptographic keys, performing encryption, and ensuring platform integrity.",
-      "examples": ["BitLocker", "Secure Boot", "Key Storage"],
-      "related": ["HSM", "Secure Enclave", "Hardware Security"]
-    },
-    "HSM": {
-      "full": "Hardware Security Module",
-      "definition": "A physical device that generates, stores, and manages cryptographic keys in a tamper-resistant environment, providing high-security key storage and operations for enterprises.",
-      "examples": ["Key Generation", "Encryption Operations", "Certificate Management"],
-      "related": ["TPM", "Key Management", "PKI"]
-    },
-    "PKI": {
-      "full": "Public Key Infrastructure",
-      "definition": "A framework of roles, policies, hardware, software, and procedures needed to create, manage, distribute, use, store, and revoke digital certificates.",
-      "examples": ["Certificate Authorities", "Digital Certificates", "CRL", "OCSP"],
-      "related": ["Digital Signatures", "Asymmetric Encryption", "Certificates"]
-    }
-  },
-  "domain_2": {
-    "Nation-State": {
-      "definition": "Government-sponsored attackers with extensive resources, advanced capabilities, and long-term objectives conducting espionage, sabotage, and information warfare.",
-      "examples": ["APT Groups", "State-sponsored Hackers"],
-      "related": ["APT", "Advanced Threats", "Espionage"]
-    },
-    "Insider Threat": {
-      "definition": "Malicious or negligent employees, contractors, or partners with legitimate access who bypass perimeter security and may have elevated privileges.",
-      "examples": ["Malicious Employees", "Negligent Users", "Compromised Accounts"],
-      "related": ["Privilege Abuse", "Data Exfiltration", "Access Control"]
-    },
-    "Phishing": {
-      "definition": "Fraudulent emails appearing to come from legitimate sources designed to trick recipients into revealing information, clicking malicious links, or opening infected attachments.",
-      "examples": ["Spear Phishing", "Whaling", "Clone Phishing"],
-      "related": ["Vishing", "Smishing", "Social Engineering"]
-    },
-    "Vishing": {
-      "definition": "Voice-based phishing using phone calls where attackers impersonate banks, IT support, government agencies, or executives to manipulate victims.",
-      "examples": ["Fake IT Support", "IRS Scams", "Bank Impersonation"],
-      "related": ["Phishing", "Smishing", "Social Engineering"]
-    },
-    "Smishing": {
-      "definition": "SMS-based phishing using text messages that exploit the trust users have in text messages and the urgency implied by receiving a text.",
-      "examples": ["Fake Delivery Notifications", "Account Alerts", "Prize Scams"],
-      "related": ["Phishing", "Vishing", "Mobile Threats"]
-    },
-    "SQL Injection": {
-      "full": "SQLi",
-      "definition": "Inserting malicious SQL code into input fields to manipulate database queries, potentially bypassing authentication, extracting data, or modifying database contents.",
-      "examples": ["Authentication Bypass", "Data Extraction", "Database Modification"],
-      "related": ["XSS", "Injection Attacks", "Web Vulnerabilities"]
-    },
-    "Cross-Site Scripting": {
-      "full": "XSS",
-      "definition": "Injecting malicious scripts into web pages viewed by other users, allowing attackers to steal cookies, redirect users, or perform actions as the victim.",
-      "examples": ["Stored XSS", "Reflected XSS", "DOM-based XSS"],
-      "related": ["SQL Injection", "CSRF", "Web Security"]
-    },
-    "Ransomware": {
-      "definition": "Malware that encrypts files or locks systems and demands payment for restoration, often spreading through networks and exfiltrating data for double extortion.",
-      "examples": ["WannaCry", "Ryuk", "Cryptolocker"],
-      "related": ["Malware", "Encryption", "Backup Recovery"]
-    },
-    "DDoS": {
-      "full": "Distributed Denial of Service",
-      "definition": "Overwhelming a system with traffic from multiple sources to make it unavailable to legitimate users, difficult to defend against as traffic comes from many compromised systems.",
-      "examples": ["Amplification Attacks", "Reflection Attacks", "Botnet Attacks"],
-      "related": ["DoS", "Botnets", "Network Security"]
-    },
-    "Buffer Overflow": {
-      "definition": "Writing more data to a buffer than it can hold, overwriting adjacent memory, potentially allowing attackers to execute arbitrary code by overwriting return addresses.",
-      "examples": ["Stack Overflow", "Heap Overflow"],
-      "related": ["Memory Injection", "Code Execution", "Application Security"]
-    }
-  },
-  "domain_3": {
-    "Cloud Computing": {
-      "definition": "On-demand delivery of computing resources over the internet with pay-as-you-go pricing, providing scalability and flexibility but requiring new security approaches.",
-      "examples": ["IaaS", "PaaS", "SaaS"],
-      "related": ["Shared Responsibility", "Multi-tenancy", "Cloud Security"]
-    },
-    "IaC": {
-      "full": "Infrastructure as Code",
-      "definition": "Managing and provisioning infrastructure through machine-readable definition files rather than manual processes, enabling consistent, repeatable, version-controlled deployments.",
-      "examples": ["Terraform", "CloudFormation", "Ansible"],
-      "related": ["DevOps", "Automation", "Configuration Management"]
-    },
-    "Zero Trust Architecture": {
-      "definition": "Security model eliminating the concept of a trusted internal network, requiring verification for every access request regardless of location.",
-      "examples": ["Micro-segmentation", "Identity Verification", "Least Privilege"],
-      "related": ["ZTNA", "Policy-driven Access", "Continuous Verification"]
-    },
-    "DMZ": {
-      "full": "Demilitarized Zone",
-      "definition": "Network segment between internal and external networks hosting public-facing services with restricted access to internal resources.",
-      "examples": ["Web Servers", "Email Servers", "Proxy Servers"],
-      "related": ["Screened Subnet", "Network Segmentation", "Firewall"]
-    },
-    "VPN": {
-      "full": "Virtual Private Network",
-      "definition": "Encrypted tunnel over public networks providing secure remote access or site-to-site connectivity, protecting data confidentiality and integrity during transmission.",
-      "examples": ["Site-to-Site VPN", "Remote Access VPN", "SSL VPN"],
-      "related": ["IPSec", "TLS", "Remote Access", "Encryption"]
-    },
-    "TLS": {
-      "full": "Transport Layer Security",
-      "definition": "Cryptographic protocol providing secure communication over networks, authenticating parties, encrypting data, and ensuring integrity. Successor to SSL.",
-      "examples": ["HTTPS", "Secure Email", "VPN"],
-      "related": ["SSL", "IPSec", "Encryption", "PKI"]
-    },
-    "IPSec": {
-      "full": "Internet Protocol Security",
-      "definition": "Suite of protocols providing authentication, integrity, and confidentiality for IP communications, commonly used for VPNs operating at network layer.",
-      "examples": ["Site-to-Site VPN", "Transport Mode", "Tunnel Mode"],
-      "related": ["VPN", "TLS", "Encryption", "Authentication"]
-    },
-    "Hot Site": {
-      "definition": "Fully operational backup facility with current data ready for immediate use. Provides fastest recovery but highest cost with equipment running and data synchronized in real-time.",
-      "examples": ["Active-Active Configuration", "Real-time Replication"],
-      "related": ["Warm Site", "Cold Site", "Disaster Recovery"]
-    },
-    "Warm Site": {
-      "definition": "Partially equipped backup facility with some hardware and recent data backups, becoming operational in hours to days. Balances cost and recovery time.",
-      "examples": ["Standby Systems", "Periodic Backups"],
-      "related": ["Hot Site", "Cold Site", "Business Continuity"]
-    },
-    "Cold Site": {
-      "definition": "Backup facility with basic infrastructure (power, cooling, network) but no equipment or data. Cheapest option but requires days/weeks to become operational.",
-      "examples": ["Empty Data Center", "Shell Facility"],
-      "related": ["Hot Site", "Warm Site", "Disaster Recovery"]
-    },
-    "RTO": {
-      "full": "Recovery Time Objective",
-      "definition": "Maximum acceptable time to restore function after disruption. RTO drives recovery strategy and resource requirements.",
-      "examples": ["4-hour RTO", "24-hour RTO"],
-      "related": ["RPO", "BIA", "Disaster Recovery"]
-    },
-    "RPO": {
-      "full": "Recovery Point Objective",
-      "definition": "Maximum acceptable data loss measured in time. RPO determines backup frequency and replication needs.",
-      "examples": ["1-hour RPO", "Daily RPO"],
-      "related": ["RTO", "Backups", "Data Protection"]
-    }
-  },
-  "domain_4": {
-    "SIEM": {
-      "full": "Security Information and Event Management",
-      "definition": "Platform collecting, aggregating, correlating, and analyzing security data from multiple sources to detect threats, support compliance, and enable incident response.",
-      "examples": ["Splunk", "QRadar", "ArcSight"],
-      "related": ["Log Aggregation", "SOAR", "Threat Detection"]
-    },
-    "EDR": {
-      "full": "Endpoint Detection and Response",
-      "definition": "Comprehensive endpoint security providing continuous monitoring, threat detection, investigation, and response capabilities beyond traditional antivirus.",
-      "examples": ["CrowdStrike", "Carbon Black", "SentinelOne"],
-      "related": ["XDR", "Antivirus", "Endpoint Security"]
-    },
-    "XDR": {
-      "full": "Extended Detection and Response",
-      "definition": "Security approach integrating multiple products into unified platform providing holistic visibility and coordinated response across email, endpoints, servers, cloud, and networks.",
-      "examples": ["Integrated Security Platforms", "Unified Threat Management"],
-      "related": ["EDR", "SIEM", "SOAR"]
-    },
-    "MDM": {
-      "full": "Mobile Device Management",
-      "definition": "Software platforms centrally managing mobile devices, enforcing policies, deploying apps, configuring settings, monitoring compliance, and enabling remote wipe.",
-      "examples": ["Intune", "AirWatch", "MobileIron"],
-      "related": ["BYOD", "Mobile Security", "Device Management"]
-    },
-    "BYOD": {
-      "full": "Bring Your Own Device",
-      "definition": "Employees use personal devices for work, reducing costs and increasing satisfaction but complicating security, privacy, and support.",
-      "examples": ["Personal Smartphones", "Personal Laptops"],
-      "related": ["COPE", "CYOD", "MDM"]
-    },
-    "MFA": {
-      "full": "Multifactor Authentication",
-      "definition": "Requiring two or more different types of authentication factors to verify identity, significantly improving security over passwords alone.",
-      "examples": ["Password + Token", "Biometric + PIN"],
-      "related": ["2FA", "Authentication", "SSO"]
-    },
-    "SSO": {
-      "full": "Single Sign-On",
-      "definition": "Authentication scheme allowing users to log in once to access multiple applications and systems, improving user experience and centralizing authentication.",
-      "examples": ["SAML", "OAuth", "LDAP"],
-      "related": ["Federation", "SAML", "Authentication"]
-    },
-    "SAML": {
-      "full": "Security Assertions Markup Language",
-      "definition": "XML-based standard for exchanging authentication and authorization data between parties, enabling enterprise SSO across web applications.",
-      "examples": ["Enterprise SSO", "Federated Identity"],
-      "related": ["SSO", "OAuth", "Federation"]
-    },
-    "OAuth": {
-      "full": "Open Authorization",
-      "definition": "Authorization framework allowing applications to access resources on behalf of users without sharing credentials, commonly used for API authorization.",
-      "examples": ["Social Login", "API Access", "Third-party Apps"],
-      "related": ["SAML", "SSO", "API Security"]
-    },
-    "RBAC": {
-      "full": "Role-Based Access Control",
-      "definition": "Access permissions assigned based on user roles within organization, simplifying management by grouping permissions into roles.",
-      "examples": ["Admin Role", "User Role", "Manager Role"],
-      "related": ["ABAC", "DAC", "MAC"]
-    },
-    "IDS": {
-      "full": "Intrusion Detection System",
-      "definition": "Passive security device monitoring traffic and alerting on suspicious activity but not blocking traffic. Provides visibility without risking false positives blocking legitimate traffic.",
-      "examples": ["Snort", "Suricata", "OSSEC"],
-      "related": ["IPS", "NIDS", "Network Security"]
-    },
-    "IPS": {
-      "full": "Intrusion Prevention System",
-      "definition": "Active security device that monitors, detects, and automatically blocks malicious activity in real-time, combining detection with prevention.",
-      "examples": ["Inline Security", "Automated Blocking"],
-      "related": ["IDS", "NIPS", "Firewall"]
-    },
-    "CVSS": {
-      "full": "Common Vulnerability Scoring System",
-      "definition": "Standardized framework for rating vulnerability severity using metrics like exploitability, impact, and environmental factors, with scores ranging from 0-10.",
-      "examples": ["Critical (9.0-10.0)", "High (7.0-8.9)", "Medium (4.0-6.9)"],
-      "related": ["CVE", "Vulnerability Management", "Risk Assessment"]
-    },
-    "CVE": {
-      "full": "Common Vulnerability Enumeration",
-      "definition": "Publicly disclosed catalog of vulnerabilities with unique identifiers, providing common language for discussing specific vulnerabilities.",
-      "examples": ["CVE-2021-44228 (Log4Shell)", "CVE-2017-0144 (EternalBlue)"],
-      "related": ["CVSS", "Vulnerability Management", "Patching"]
-    },
-    "Incident Response Process": {
-      "definition": "Structured approach to handling security incidents: Preparation → Detection → Analysis → Containment → Eradication → Recovery → Lessons Learned",
-      "examples": ["IR Playbooks", "IR Team", "IR Tools"],
-      "related": ["Digital Forensics", "SOAR", "Threat Hunting"]
-    }
-  },
-  "domain_5": {
-    "Risk Management": {
-      "definition": "Process of identifying, assessing, and controlling threats to organizational capital and earnings including financial uncertainties, legal liabilities, and strategic management errors.",
-      "examples": ["Risk Assessments", "Risk Register", "Risk Treatment"],
-      "related": ["BIA", "Risk Analysis", "Compliance"]
-    },
-    "SLE": {
-      "full": "Single Loss Expectancy",
-      "definition": "Expected monetary loss from single incident occurrence, calculated as asset value multiplied by exposure factor.",
-      "examples": ["$100k asset × 30% exposure = $30k SLE"],
-      "related": ["ALE", "ARO", "Risk Analysis"]
-    },
-    "ALE": {
-      "full": "Annualized Loss Expectancy",
-      "definition": "Expected monetary loss per year from specific risk, calculated as SLE multiplied by ARO.",
-      "examples": ["$30k SLE × 2 ARO = $60k ALE"],
-      "related": ["SLE", "ARO", "Risk Quantification"]
-    },
-    "ARO": {
-      "full": "Annualized Rate of Occurrence",
-      "definition": "Expected frequency of risk occurrence per year based on historical data or estimates.",
-      "examples": ["2 times per year", "0.5 times per year"],
-      "related": ["SLE", "ALE", "Risk Probability"]
-    },
-    "BIA": {
-      "full": "Business Impact Analysis",
-      "definition": "Process identifying critical business functions and determining impact of disruptions, feeding into RTO and RPO determination.",
-      "examples": ["Critical Function Identification", "Impact Assessment"],
-      "related": ["RTO", "RPO", "Business Continuity"]
-    },
-    "GDPR": {
-      "full": "General Data Protection Regulation",
-      "definition": "EU regulation protecting personal data with strict requirements for consent, data subject rights, breach notification, and significant penalties.",
-      "examples": ["Right to Erasure", "Data Portability", "Privacy by Design"],
-      "related": ["Privacy", "Compliance", "Data Protection"]
-    },
-    "PCI DSS": {
-      "full": "Payment Card Industry Data Security Standard",
-      "definition": "Security standard for organizations handling credit card information, requiring specific controls to protect cardholder data.",
-      "examples": ["Network Security", "Data Protection", "Access Control"],
-      "related": ["Compliance", "Data Security", "Cardholder Data"]
-    },
-    "HIPAA": {
-      "full": "Health Insurance Portability and Accountability Act",
-      "definition": "US regulation requiring protection of health information including security rule, privacy rule, and breach notification requirements.",
-      "examples": ["PHI Protection", "Breach Notification", "Security Controls"],
-      "related": ["Privacy", "Healthcare Security", "Compliance"]
-    },
-    "SLA": {
-      "full": "Service-Level Agreement",
-      "definition": "Contract defining expected service performance levels, availability guarantees, and penalties for non-performance.",
-      "examples": ["99.9% Uptime", "4-hour Response Time"],
-      "related": ["Vendor Management", "Service Management"]
-    },
-    "NDA": {
-      "full": "Non-Disclosure Agreement",
-      "definition": "Contract protecting confidential information shared between parties, preventing unauthorized disclosure of sensitive information.",
-      "examples": ["Mutual NDA", "Unilateral NDA"],
-      "related": ["Confidentiality", "Vendor Management", "Legal"]
-    },
-    "Penetration Testing": {
-      "definition": "Authorized simulated attacks to identify exploitable vulnerabilities, validating security controls and finding issues scanners miss.",
-      "examples": ["Black Box", "White Box", "Gray Box"],
-      "related": ["Vulnerability Assessment", "Red Team", "Security Testing"]
-    },
-    "Security Awareness Training": {
-      "definition": "Education programs teaching employees to recognize security risks, follow policies, and report incidents including phishing simulations and security best practices.",
-      "examples": ["Phishing Campaigns", "Security Policies", "Incident Reporting"],
-      "related": ["User Education", "Security Culture", "Human Factor"]
-    }
-  },
-  "general_concepts": {
-    "Defense in Depth": {
-      "definition": "Layered security approach using multiple controls so if one fails, others still provide protection. No single point of failure in security architecture.",
-      "examples": ["Firewall + IDS + Endpoint Protection", "Physical + Technical + Administrative"],
-      "related": ["Layered Security", "Security Architecture"]
-    },
-    "Least Privilege": {
-      "definition": "Providing users and systems only the minimum permissions necessary to perform their functions, limiting damage from compromised accounts or insider threats.",
-      "examples": ["Standard User Accounts", "Just-in-Time Access", "Role-based Access"],
-      "related": ["Access Control", "Zero Trust", "PAM"]
-    },
-    "Encryption": {
-      "definition": "Converting plaintext data into ciphertext using an algorithm and key, making it unreadable without the decryption key. Protects data confidentiality.",
-      "examples": ["AES-256", "RSA-2048", "TLS 1.3"],
-      "related": ["Cryptography", "Keys", "Ciphers"]
-    },
-    "Hashing": {
-      "definition": "One-way function converting data of any size into fixed-size output. Used for integrity verification and password storage, not encryption.",
-      "examples": ["SHA-256", "SHA-3", "bcrypt"],
-      "related": ["Integrity", "Digital Signatures", "Password Storage"]
-    },
-    "Digital Signature": {
-      "definition": "Cryptographic proof that a message came from specific sender and hasn't been altered, created by hashing and encrypting with sender's private key.",
-      "examples": ["Code Signing", "Email Signatures", "Document Signing"],
-      "related": ["PKI", "Non-repudiation", "Asymmetric Encryption"]
-    },
-    "Firewall": {
-      "definition": "Network security device filtering traffic based on predetermined rules, blocking unauthorized access while permitting legitimate communication.",
-      "examples": ["Packet Filter", "Stateful Firewall", "NGFW"],
-      "related": ["Network Security", "Access Control", "Packet Filtering"]
-    },
-    "ACL": {
-      "full": "Access Control List",
-      "definition": "Lists of permissions attached to objects specifying which users or systems can access the object and what operations they can perform.",
-      "examples": ["Router ACLs", "File ACLs", "Firewall Rules"],
-      "related": ["Access Control", "Permissions", "Authorization"]
-    },
-    "Patch Management": {
-      "definition": "Process of acquiring, testing, and installing updates to fix vulnerabilities and improve functionality in systems and applications.",
-      "examples": ["Windows Update", "Security Patches", "Firmware Updates"],
-      "related": ["Vulnerability Management", "Change Management", "Configuration Management"]
+  "1.0": {
+    "1.1": {
+      "Categories": {
+        "Technical": {
+          "definition": "Security controls implemented through technology and automated systems such as firewalls, encryption, access control systems, and intrusion detection. These controls require minimal human intervention once configured and operate continuously.",
+          "examples": ["Firewalls", "Encryption software", "Antivirus", "IDS/IPS", "Multi-factor authentication systems"]
+        },
+        "Managerial": {
+          "definition": "Administrative controls focused on policies, procedures, and organizational governance. Also called administrative controls, these include security policies, risk assessments, security awareness training, and incident response planning that provide the framework for security operations.",
+          "examples": ["Security policies", "Risk assessments", "Security training programs", "Incident response plans", "Change management procedures"]
+        },
+        "Operational": {
+          "definition": "Day-to-day procedures and mechanisms implemented by people to ensure security. These controls involve human actions and processes including security guards, awareness training, configuration management, and media protection.",
+          "examples": ["Security guards", "Awareness training", "Configuration management", "Backup procedures", "Account reviews"]
+        },
+        "Physical": {
+          "definition": "Tangible barriers and mechanisms that prevent or deter unauthorized physical access to facilities, systems, and assets. These controls protect against physical threats and include fences, locks, badge readers, mantraps, and security cameras.",
+          "examples": ["Fences and gates", "Locks", "CCTV cameras", "Mantraps", "Bollards", "Access badges"]
+        }
+      },
+      "Control Types": {
+        "Preventive": {
+          "definition": "Security measures designed to stop security incidents before they occur by blocking unauthorized access or actions. These are proactive controls that create barriers to threats.",
+          "examples": ["Firewalls blocking unauthorized traffic", "Access controls preventing unauthorized entry", "Security awareness training", "Encryption protecting data", "Guards at checkpoints"]
+        },
+        "Deterrent": {
+          "definition": "Controls that discourage potential attackers from attempting an attack by making the target appear difficult or risky. These controls reduce likelihood of threats through psychological means.",
+          "examples": ["Warning signs", "Security cameras (visible)", "Guard dogs", "Lighting", "Security awareness posters"]
+        },
+        "Detective": {
+          "definition": "Controls that identify and alert on security incidents during or after they occur. These controls don't prevent incidents but ensure they are discovered and can be responded to promptly.",
+          "examples": ["IDS (Intrusion Detection Systems)", "SIEM systems", "Log monitoring", "Security audits", "Motion detectors", "CCTV review"]
+        },
+        "Corrective": {
+          "definition": "Controls that remediate security incidents and restore systems to normal operation after a security event. These controls minimize impact and enable recovery.",
+          "examples": ["Antivirus quarantine and removal", "Backup restoration", "System patching", "Incident response procedures", "Account termination"]
+        },
+        "Compensating": {
+          "definition": "Alternative controls implemented when primary controls cannot be used due to technical, operational, or cost constraints. These provide equivalent or better protection through different means to satisfy security requirements.",
+          "examples": ["Additional monitoring when encryption can't be used", "Enhanced logging", "Network segmentation as alternative to patching", "Manual reviews when automation fails"]
+        },
+        "Directive": {
+          "definition": "Controls that direct, confine, or control the actions of subjects to ensure compliance with security policies. These specify required or acceptable actions through policies, procedures, and guidelines.",
+          "examples": ["Security policies", "Acceptable Use Policies", "Standard operating procedures", "Training requirements", "Posted regulations"]
+        }
+      }
+    },
+    "1.2": {
+      "Core Principles": {
+        "CIA Triad": {
+          "full": "Confidentiality, Integrity, Availability",
+          "definition": "The three fundamental principles of information security. Confidentiality ensures data is accessible only to authorized parties through encryption and access controls. Integrity ensures data remains accurate and unmodified through hashing and validation. Availability ensures authorized users can access data when needed through redundancy and fault tolerance.",
+          "examples": ["Encryption (Confidentiality)", "Hashing (Integrity)", "Redundant systems (Availability)", "Backups (Availability)", "Access controls (Confidentiality)"]
+        },
+        "Non-repudiation": {
+          "definition": "The assurance that someone cannot deny the validity of their actions, the authenticity of their signature, or the origin of data they created. Achieved through digital signatures, audit logs, timestamps, and cryptographic proof that creates irrefutable evidence of actions.",
+          "examples": ["Digital signatures", "Audit logs with timestamps", "Email delivery receipts", "Blockchain transactions", "Notarized documents"]
+        },
+        "AAA Framework": {
+          "full": "Authentication, Authorization, and Accounting",
+          "definition": "Framework for controlling and tracking user access to network resources. Authentication verifies identity (who you are), Authorization determines access rights (what you can do), and Accounting tracks user activities (what you did). Forms the basis of access control systems.",
+          "examples": ["RADIUS servers", "TACACS+", "802.1X", "Kerberos", "OAuth flows"]
+        }
+      },
+      "Zero Trust": {
+        "Control Plane": {
+          "definition": "The decision-making component of Zero Trust architecture that defines and enforces security policies. Includes the Policy Administrator, Policy Engine, adaptive identity verification, threat scope reduction, and policy-driven access control that collectively determine whether to grant access.",
+          "examples": ["Policy engines", "Identity providers", "Threat intelligence feeds", "Risk assessment systems"]
+        },
+        "Data Plane": {
+          "definition": "The enforcement component of Zero Trust architecture where actual access decisions are implemented. Includes the Policy Enforcement Point that allows or denies access based on Control Plane decisions, manages implicit trust zones, and handles Subject/System authentication.",
+          "examples": ["Firewalls", "Proxies", "Gateways", "VPN concentrators", "API gateways"]
+        },
+        "Policy-driven Access": {
+          "definition": "Access control approach where decisions are based on comprehensive policies evaluating identity, device posture, location, time, requested resource, and risk level rather than simple network location. Enables dynamic, context-aware access decisions.",
+          "examples": ["Conditional access policies", "Risk-based authentication", "Device compliance checks", "Continuous authorization"]
+        }
+      },
+      "Physical Security": {
+        "Bollards": {
+          "definition": "Short, sturdy vertical posts installed to prevent vehicle access to pedestrian areas or building perimeters. Serve as physical security barriers against vehicle ramming attacks and provide traffic control while allowing pedestrian passage.",
+          "examples": ["Fixed bollards protecting building entrances", "Removable bollards for flexible access", "Collapsible security bollards", "Decorative bollards"]
+        },
+        "Access Control Vestibule": {
+          "definition": "Double-door security checkpoint (formerly called mantrap) where two interlocking doors create a small space that only allows one door to be opened at a time. Prevents tailgating, enables authentication verification, and provides a security buffer zone between unsecured and secured areas.",
+          "examples": ["Bank vault entrances", "Data center entry points", "Secure facility checkpoints", "Airport security zones"]
+        },
+        "Fencing": {
+          "definition": "Physical barrier perimeter security using chain-link, wrought iron, or specialized security fencing to deter and delay unauthorized access. Height and construction indicate security level: 3-4 ft deters casual trespassers, 6-7 ft is too high to climb easily, 8 ft with barbed wire indicates high security.",
+          "examples": ["Chain-link perimeter fencing", "Anti-climb fencing", "Electric fencing", "Barbed wire topping"]
+        },
+        "Video Surveillance": {
+          "definition": "Camera systems (CCTV - Closed Circuit Television) monitoring and recording activity for security purposes. Provides detective control through recording evidence and deterrent control through visible presence. Modern systems include motion detection, facial recognition, and remote monitoring capabilities.",
+          "examples": ["IP cameras", "Pan-Tilt-Zoom cameras", "Infrared night vision", "Motion-activated recording", "License plate readers"]
+        }
+      }
+    },
+    "1.3": {
+      "Business Processes": {
+        "Approval Process": {
+          "definition": "Formal procedure requiring authorized personnel to review and approve changes before implementation. Ensures changes are legitimate, necessary, and properly vetted. Typically involves multi-level approval based on change risk and impact.",
+          "examples": ["Change Advisory Board approval", "Manager authorization", "Security team review", "Emergency change procedures"]
+        },
+        "Ownership": {
+          "definition": "Assignment of accountability and responsibility for systems, data, or processes to specific individuals. Owners make decisions about access, changes, and security requirements. Critical for establishing clear lines of authority and responsibility.",
+          "examples": ["System owners", "Data owners", "Process owners", "Application owners"]
+        },
+        "Impact Analysis": {
+          "definition": "Assessment of potential effects a change may have on systems, security, users, and business operations. Evaluates risks, dependencies, and consequences to make informed decisions. Identifies affected systems and stakeholders.",
+          "examples": ["Risk assessment", "Dependency mapping", "Business impact evaluation", "Security impact review"]
+        },
+        "Backout Plan": {
+          "definition": "Documented procedure for reversing a change if implementation fails or causes problems. Ensures ability to restore previous stable state quickly. Should be tested and readily available before change implementation.",
+          "examples": ["System restore procedures", "Configuration rollback steps", "Database recovery procedures", "Snapshot reversion"]
+        }
+      },
+      "Technical Implications": {
+        "Downtime": {
+          "definition": "Period when systems or services are unavailable to users, often required during change implementation. Must be scheduled during maintenance windows to minimize business impact. Security changes may require system restarts or service interruptions.",
+          "examples": ["Scheduled maintenance windows", "Patch installation downtime", "System upgrade outages", "Emergency maintenance"]
+        },
+        "Service Restart": {
+          "definition": "Stopping and restarting a service to apply changes, clear memory, or resolve issues. Common security implication of applying patches, configuration changes, or security updates. May cause brief service interruption.",
+          "examples": ["Web server restart after SSL certificate update", "Database service restart", "Authentication service reload", "Firewall service restart"]
+        },
+        "Legacy Applications": {
+          "definition": "Older software or systems still in use despite newer alternatives being available. Often cannot be easily updated or patched due to compatibility issues, lack of vendor support, or business dependencies. Present significant security challenges and require compensating controls.",
+          "examples": ["Unsupported operating systems", "End-of-life software", "Custom legacy systems", "Outdated database versions"]
+        }
+      }
+    },
+    "1.4": {
+      "PKI": {
+        "Public Key": {
+          "definition": "Cryptographic key that can be freely shared and distributed. Used to encrypt data (that only the private key can decrypt) or verify digital signatures created with the private key. Part of asymmetric encryption key pair in PKI systems.",
+          "examples": ["SSL/TLS certificates", "Email encryption (PGP)", "Digital signature verification", "SSH public keys"]
+        },
+        "Private Key": {
+          "definition": "Cryptographic key that must be kept secret and secure. Used to decrypt data encrypted with the paired public key or create digital signatures. Compromise of private key compromises entire security of the key pair. Must be protected with encryption and access controls.",
+          "examples": ["Certificate private keys", "Code signing keys", "Email decryption keys", "SSH private keys"]
+        },
+        "Key Escrow": {
+          "definition": "Practice of storing encryption keys with a trusted third party (escrow agent) to enable key recovery if original keys are lost or for legal/regulatory access. Controversial due to security risks if escrow is compromised. Common in enterprise environments for data recovery.",
+          "examples": ["Enterprise key recovery systems", "BitLocker recovery keys", "Certificate key backup", "Encrypted device recovery"]
+        }
+      },
+      "Encryption": {
+        "Symmetric": {
+          "definition": "Encryption using the same key for both encryption and decryption. Very fast and efficient for large amounts of data but requires secure key distribution. Key must be shared securely between parties. Examples include AES, DES, and 3DES.",
+          "examples": ["AES-256 encryption", "Full disk encryption", "VPN tunnels", "Database encryption", "File encryption"]
+        },
+        "Asymmetric": {
+          "definition": "Encryption using a key pair: public key for encryption, private key for decryption (or vice versa for signatures). Solves key distribution problem but slower than symmetric encryption. Often used to exchange symmetric keys securely. Examples include RSA, ECC.",
+          "examples": ["RSA encryption", "SSL/TLS key exchange", "PGP email encryption", "Digital signatures", "SSH authentication"]
+        },
+        "Hashing": {
+          "definition": "One-way mathematical function that converts data into a fixed-size output (hash/digest). Cannot be reversed to recover original data. Used for integrity verification and secure password storage. Any change to input produces completely different hash. Examples include SHA-256, MD5 (deprecated).",
+          "examples": ["Password hashing (bcrypt)", "File integrity checking (SHA-256)", "Digital signatures", "Blockchain", "Certificate fingerprints"]
+        },
+        "Digital Signatures": {
+          "definition": "Cryptographic proof that a message or document came from a specific sender and hasn't been altered. Created by hashing content and encrypting hash with sender's private key. Recipients verify using sender's public key. Provides authentication, integrity, and non-repudiation.",
+          "examples": ["Code signing", "Email signatures (S/MIME)", "PDF document signing", "Software updates", "Certificate signing"]
+        }
+      },
+      "Tools": {
+        "TPM": {
+          "full": "Trusted Platform Module",
+          "definition": "Dedicated microcontroller chip on computer motherboards that provides hardware-based security functions. Stores cryptographic keys, performs encryption operations, provides secure boot verification, and ensures platform integrity. Cannot be tampered with or removed without detection.",
+          "examples": ["BitLocker key storage", "Secure Boot verification", "Hardware-based encryption", "Credential storage", "Platform attestation"]
+        },
+        "HSM": {
+          "full": "Hardware Security Module",
+          "definition": "Dedicated physical device that generates, stores, and manages cryptographic keys in a tamper-resistant environment. Provides high-security key storage and cryptographic operations for enterprises. FIPS 140-2 certified. Much more powerful than TPM, used for enterprise PKI and high-value transactions.",
+          "examples": ["Payment processing key management", "Certificate Authority operations", "Database encryption key storage", "SSL/TLS certificate management"]
+        },
+        "Key Management System": {
+          "definition": "Centralized system for managing cryptographic keys throughout their lifecycle: generation, distribution, storage, rotation, archival, and destruction. Ensures keys are properly protected, audited, and available when needed while maintaining security and compliance.",
+          "examples": ["Azure Key Vault", "AWS KMS", "HashiCorp Vault", "Enterprise key management platforms"]
+        }
+      }
     }
   }
 }
