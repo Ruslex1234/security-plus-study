@@ -759,255 +759,853 @@
     <script>
         // Data Structure for Security+ Content
         const securityPlusData = {
-            "1.0": {
-                title: "General Security Concepts",
-                weight: "12%",
-                color: "#8B5FBF",
-                objectives: {
-                    "1.1": {
-                        title: "Compare and contrast various types of security controls",
-                        categories: {
-                            "Categories": ["Technical", "Managerial", "Operational", "Physical"],
-                            "Control Types": ["Preventive", "Deterrent", "Detective", "Corrective", "Compensating", "Directive"]
-                        }
-                    },
-                    "1.2": {
-                        title: "Summarize fundamental security concepts",
-                        categories: {
-                            "Core Principles": ["CIA Triad", "Non-repudiation", "AAA Framework"],
-                            "Zero Trust": ["Control Plane", "Data Plane", "Policy-driven Access"],
-                            "Physical Security": ["Bollards", "Access Control Vestibule", "Fencing", "Video Surveillance"]
-                        }
-                    },
-                    "1.3": {
-                        title: "Explain the importance of change management processes",
-                        categories: {
-                            "Business Processes": ["Approval Process", "Ownership", "Impact Analysis", "Backout Plan"],
-                            "Technical Implications": ["Downtime", "Service Restart", "Legacy Applications"]
-                        }
-                    },
-                    "1.4": {
-                        title: "Explain the importance of using appropriate cryptographic solutions",
-                        categories: {
-                            "PKI": ["Public Key", "Private Key", "Key Escrow"],
-                            "Encryption": ["Symmetric", "Asymmetric", "Hashing", "Digital Signatures"],
-                            "Tools": ["TPM", "HSM", "Key Management System"]
-                        }
-                    }
+    "1.0": {
+        "title": "General Security Concepts",
+        "weight": "12%",
+        "color": "#8B5FBF",
+        "objectives": {
+            "1.1": {
+                "title": "Compare and contrast various types of security controls",
+                "categories": {
+                    "Categories": [
+                        "Technical",
+                        "Managerial",
+                        "Operational",
+                        "Physical"
+                    ],
+                    "Control Types": [
+                        "Preventive",
+                        "Deterrent",
+                        "Detective",
+                        "Corrective",
+                        "Compensating",
+                        "Directive"
+                    ]
                 }
             },
-            "2.0": {
-                title: "Threats, Vulnerabilities, and Mitigations",
-                weight: "22%",
-                color: "#FF8F39",
-                objectives: {
-                    "2.1": {
-                        title: "Compare and contrast common threat actors and motivations",
-                        categories: {
-                            "Threat Actors": ["Nation-State", "Unskilled Attacker", "Hacktivist", "Insider Threat", "Organized Crime"],
-                            "Motivations": ["Financial Gain", "Espionage", "Revenge", "War"]
-                        }
-                    },
-                    "2.2": {
-                        title: "Explain common threat vectors and attack surfaces",
-                        categories: {
-                            "Message-Based": ["Email", "SMS", "Instant Messaging"],
-                            "Social Engineering": ["Phishing", "Vishing", "Smishing", "Pretexting"]
-                        }
-                    },
-                    "2.3": {
-                        title: "Explain various types of vulnerabilities",
-                        categories: {
-                            "Application": ["Memory Injection", "Buffer Overflow", "Race Conditions"],
-                            "Web-Based": ["SQL Injection", "Cross-Site Scripting"],
-                            "Mobile": ["Side Loading", "Jailbreaking"]
-                        }
-                    },
-                    "2.4": {
-                        title: "Analyze indicators of malicious activity",
-                        categories: {
-                            "Malware": ["Ransomware", "Trojan", "Worm", "Spyware", "Rootkit"],
-                            "Network Attacks": ["DDoS", "DNS Attacks", "On-Path Attacks"],
-                            "Password Attacks": ["Brute Force", "Password Spraying"]
-                        }
-                    },
-                    "2.5": {
-                        title: "Explain mitigation techniques",
-                        categories: {
-                            "Mitigation": ["Segmentation", "Access Control", "Patching", "Encryption"],
-                            "Hardening": ["Endpoint Protection", "Host Firewall", "Disable Unused Ports"]
-                        }
-                    }
+            "1.2": {
+                "title": "Summarize fundamental security concepts",
+                "categories": {
+                    "Core Principles": [
+                        "CIA Triad",
+                        "Non-repudiation",
+                        "AAA Framework"
+                    ],
+                    "Zero Trust": [
+                        "Control Plane",
+                        "Data Plane",
+                        "Policy-driven Access"
+                    ],
+                    "Physical Security": [
+                        "Bollards",
+                        "Access Control Vestibule",
+                        "Fencing",
+                        "Video Surveillance"
+                    ]
                 }
             },
-            "3.0": {
-                title: "Security Architecture",
-                weight: "18%",
-                color: "#0095DA",
-                objectives: {
-                    "3.1": {
-                        title: "Compare security implications of different architecture models",
-                        categories: {
-                            "Architecture": ["Cloud", "IaC", "Serverless", "Microservices", "IoT"],
-                            "Considerations": ["Availability", "Resilience", "Cost", "Scalability"]
-                        }
-                    },
-                    "3.2": {
-                        title: "Apply security principles to secure enterprise infrastructure",
-                        categories: {
-                            "Network Appliances": ["Jump Server", "Proxy", "IPS/IDS", "Load Balancer"],
-                            "Firewalls": ["WAF", "UTM", "NGFW"],
-                            "Secure Comms": ["VPN", "TLS", "IPSec", "SD-WAN", "SASE"]
-                        }
-                    },
-                    "3.3": {
-                        title: "Compare concepts and strategies to protect data",
-                        categories: {
-                            "Data Types": ["Regulated", "Trade Secret", "PII", "Financial"],
-                            "Data States": ["At Rest", "In Transit", "In Use"],
-                            "Protection Methods": ["Encryption", "Hashing", "Masking", "Tokenization"]
-                        }
-                    },
-                    "3.4": {
-                        title: "Explain resilience and recovery in security architecture",
-                        categories: {
-                            "High Availability": ["Load Balancing", "Clustering"],
-                            "Site Types": ["Hot Site", "Cold Site", "Warm Site"],
-                            "Backups": ["Frequency", "Encryption", "Replication"]
-                        }
-                    }
+            "1.3": {
+                "title": "Explain the importance of change management processes",
+                "categories": {
+                    "Business Processes": [
+                        "Approval Process",
+                        "Ownership",
+                        "Impact Analysis",
+                        "Backout Plan"
+                    ],
+                    "Technical Implications": [
+                        "Downtime",
+                        "Service Restart",
+                        "Legacy Applications"
+                    ]
                 }
             },
-            "4.0": {
-                title: "Security Operations",
-                weight: "28%",
-                color: "#FFB81C",
-                objectives: {
-                    "4.1": {
-                        title: "Apply common security techniques to computing resources",
-                        categories: {
-                            "Secure Baselines": ["Establish", "Deploy", "Maintain"],
-                            "Hardening Targets": ["Mobile Devices", "Workstations", "Servers", "IoT"],
-                            "Mobile Solutions": ["MDM", "BYOD", "COPE", "CYOD"],
-                            "Wireless Security": ["WPA3", "RADIUS", "802.1X"]
-                        }
-                    },
-                    "4.2": {
-                        title: "Explain asset management security implications",
-                        categories: {
-                            "Lifecycle": ["Acquisition", "Assignment", "Monitoring", "Disposal"],
-                            "Disposal": ["Sanitization", "Destruction", "Certification"]
-                        }
-                    },
-                    "4.3": {
-                        title: "Explain vulnerability management activities",
-                        categories: {
-                            "Identification": ["Vulnerability Scan", "Penetration Testing", "Threat Feeds"],
-                            "Analysis": ["CVSS", "CVE", "Prioritization"],
-                            "Response": ["Patching", "Segmentation", "Compensating Controls"]
-                        }
-                    },
-                    "4.4": {
-                        title: "Explain security alerting and monitoring",
-                        categories: {
-                            "Tools": ["SIEM", "SCAP", "Antivirus", "DLP", "EDR/XDR"],
-                            "Activities": ["Log Aggregation", "Alerting", "Scanning", "Reporting"]
-                        }
-                    },
-                    "4.5": {
-                        title: "Modify enterprise capabilities to enhance security",
-                        categories: {
-                            "Firewall": ["Rules", "ACLs", "Screened Subnets"],
-                            "Email Security": ["DMARC", "DKIM", "SPF"],
-                            "Other": ["DNS Filtering", "File Integrity Monitoring", "NAC"]
-                        }
-                    },
-                    "4.6": {
-                        title: "Implement and maintain identity and access management",
-                        categories: {
-                            "Federation & SSO": ["LDAP", "OAuth", "SAML"],
-                            "Access Controls": ["MAC", "DAC", "RBAC", "ABAC"],
-                            "MFA": ["Biometrics", "Tokens", "Security Keys"],
-                            "PAM": ["Just-in-Time", "Password Vaulting", "Ephemeral Credentials"]
-                        }
-                    },
-                    "4.7": {
-                        title: "Explain automation and orchestration",
-                        categories: {
-                            "Use Cases": ["User Provisioning", "Resource Provisioning", "CI/CD"],
-                            "Benefits": ["Efficiency", "Enforcing Baselines", "Scalability"]
-                        }
-                    },
-                    "4.8": {
-                        title: "Explain incident response activities",
-                        categories: {
-                            "Process": ["Preparation", "Detection", "Analysis", "Containment", "Eradication", "Recovery"],
-                            "Digital Forensics": ["Chain of Custody", "Acquisition", "Preservation"]
-                        }
-                    },
-                    "4.9": {
-                        title: "Use data sources to support an investigation",
-                        categories: {
-                            "Log Data": ["Firewall", "Application", "Endpoint", "IPS/IDS", "Network"],
-                            "Data Sources": ["Vulnerability Scans", "Dashboards", "Packet Captures"]
-                        }
-                    }
-                }
-            },
-            "5.0": {
-                title: "Security Program Management and Oversight",
-                weight: "20%",
-                color: "#6CC24A",
-                objectives: {
-                    "5.1": {
-                        title: "Summarize elements of effective security governance",
-                        categories: {
-                            "Policies": ["AUP", "Business Continuity", "Disaster Recovery", "Incident Response", "SDLC"],
-                            "Standards": ["Password", "Access Control", "Physical Security", "Encryption"],
-                            "Roles": ["Owners", "Controllers", "Processors", "Custodians"]
-                        }
-                    },
-                    "5.2": {
-                        title: "Explain risk management process elements",
-                        categories: {
-                            "Risk Analysis": ["Qualitative", "Quantitative", "SLE", "ALE", "ARO"],
-                            "Risk Strategies": ["Transfer", "Accept", "Avoid", "Mitigate"],
-                            "BIA": ["RTO", "RPO", "MTTR", "MTBF"]
-                        }
-                    },
-                    "5.3": {
-                        title: "Explain third-party risk assessment and management",
-                        categories: {
-                            "Vendor Assessment": ["Penetration Testing", "Right-to-Audit", "Supply Chain Analysis"],
-                            "Agreements": ["SLA", "MOA", "MOU", "MSA", "NDA", "BPA"]
-                        }
-                    },
-                    "5.4": {
-                        title: "Summarize effective security compliance elements",
-                        categories: {
-                            "Compliance": ["Internal", "External", "Monitoring", "Automation"],
-                            "Consequences": ["Fines", "Sanctions", "Reputational Damage", "Loss of License"],
-                            "Privacy": ["GDPR", "Data Subject Rights", "Right to be Forgotten"]
-                        }
-                    },
-                    "5.5": {
-                        title: "Explain types and purposes of audits and assessments",
-                        categories: {
-                            "Internal": ["Compliance", "Audit Committee", "Self-Assessments"],
-                            "External": ["Regulatory", "Independent Third-Party"],
-                            "Penetration Testing": ["Black Box", "White Box", "Gray Box"]
-                        }
-                    },
-                    "5.6": {
-                        title: "Implement security awareness practices",
-                        categories: {
-                            "Training": ["Phishing Campaigns", "Social Engineering", "Password Management"],
-                            "Behavior Recognition": ["Risky", "Unexpected", "Unintentional"],
-                            "Program": ["Development", "Execution", "Reporting"]
-                        }
-                    }
+            "1.4": {
+                "title": "Explain the importance of using appropriate cryptographic solutions",
+                "categories": {
+                    "PKI": [
+                        "Public Key",
+                        "Private Key",
+                        "Key Escrow"
+                    ],
+                    "Encryption": [
+                        "Symmetric",
+                        "Asymmetric",
+                        "Hashing",
+                        "Digital Signatures"
+                    ],
+                    "Tools": [
+                        "TPM",
+                        "HSM",
+                        "Key Management System"
+                    ]
                 }
             }
+        }
+    },
+    "2.0": {
+        "title": "Threats, Vulnerabilities, and Mitigations",
+        "weight": "22%",
+        "color": "#FF8F39",
+        "objectives": {
+            "2.1": {
+                "title": "Compare and contrast common threat actors and motivations",
+                "categories": {
+                    "Threat Actors": [
+                        "Nation-State",
+                        "Unskilled Attacker",
+                        "Hacktivist",
+                        "Insider Threat",
+                        "Organized Crime",
+                        "Shadow IT"
+                    ],
+                    "Threat Vectors": [
+                        "Message-based",
+                        "Image-based",
+                        "File-based",
+                        "Voice Call",
+                        "Removable Device",
+                        "Vulnerable Software",
+                        "Unsupported Systems",
+                        "Unsecure Networks",
+                        "Open Service Ports",
+                        "Default Credentials",
+                        "Supply Chain"
+                    ]
+                }
+            },
+            "2.2": {
+                "title": "Explain common threat vectors and attack surfaces",
+                "categories": {
+                    "Social Engineering": [
+                        "Phishing",
+                        "Vishing",
+                        "Smishing",
+                        "Spear Phishing",
+                        "Whaling",
+                        "Pretexting",
+                        "Impersonation"
+                    ],
+                    "Application Attacks": [
+                        "SQL Injection",
+                        "Cross-Site Scripting",
+                        "Buffer Overflow",
+                        "Replay Attack",
+                        "Directory Traversal",
+                        "Cross-Site Request Forgery"
+                    ],
+                    "Malware": [
+                        "Ransomware",
+                        "Trojan",
+                        "Worm",
+                        "Spyware",
+                        "Rootkit",
+                        "Logic Bomb",
+                        "Backdoor"
+                    ]
+                }
+            },
+            "2.3": {
+                "title": "Explain various types of vulnerabilities",
+                "categories": {
+                    "Application Vulnerabilities": [
+                        "Memory Injection",
+                        "Buffer Overflow",
+                        "Race Conditions",
+                        "Malicious Update"
+                    ],
+                    "OS-based Vulnerabilities": [
+                        "Operating System Vulnerabilities"
+                    ],
+                    "Web-based Vulnerabilities": [
+                        "SQL Injection (SQLi)",
+                        "Cross-Site Scripting (XSS)"
+                    ],
+                    "Hardware Vulnerabilities": [
+                        "Firmware",
+                        "End-of-Life",
+                        "Legacy"
+                    ],
+                    "Virtualization Vulnerabilities": [
+                        "VM Escape",
+                        "Resource Reuse"
+                    ],
+                    "Other Vulnerabilities": [
+                        "Cloud-specific",
+                        "Supply Chain",
+                        "Cryptographic",
+                        "Misconfiguration",
+                        "Mobile Device",
+                        "Zero-day"
+                    ]
+                }
+            },
+            "2.4": {
+                "title": "Given a scenario, analyze indicators of malicious activity",
+                "categories": {
+                    "Malware Attacks": [
+                        "Ransomware",
+                        "Trojan",
+                        "Worm",
+                        "Spyware",
+                        "Bloatware",
+                        "Virus",
+                        "Keylogger",
+                        "Logic Bomb",
+                        "Rootkit"
+                    ],
+                    "Physical Attacks": [
+                        "Brute Force (Physical)",
+                        "RFID Cloning",
+                        "Environmental"
+                    ],
+                    "Network Attacks": [
+                        "Distributed Denial-of-Service (DDoS)",
+                        "DNS Attacks",
+                        "Wireless Attacks",
+                        "On-path Attack",
+                        "Credential Replay",
+                        "Malicious Code (Network-based)"
+                    ],
+                    "Application Attacks": [
+                        "Injection",
+                        "Buffer Overflow",
+                        "Replay",
+                        "Privilege Escalation",
+                        "Forgery",
+                        "Directory Traversal"
+                    ],
+                    "Cryptographic Attacks": [
+                        "Downgrade",
+                        "Collision",
+                        "Birthday"
+                    ],
+                    "Password Attacks": [
+                        "Spraying",
+                        "Brute Force (Password)"
+                    ],
+                    "Indicators": [
+                        "Account Lockout",
+                        "Concurrent Session Usage",
+                        "Blocked Content",
+                        "Impossible Travel",
+                        "Resource Consumption",
+                        "Resource Inaccessibility",
+                        "Out-of-cycle Logging",
+                        "Published/Documented",
+                        "Missing Logs"
+                    ]
+                }
+            },
+            "2.5": {
+                "title": "Explain the purpose of mitigation techniques used to secure the enterprise",
+                "categories": {
+                    "Mitigation Techniques": [
+                        "Segmentation",
+                        "Access Control",
+                        "Application Allow List",
+                        "Isolation",
+                        "Patching",
+                        "Encryption",
+                        "Monitoring",
+                        "Least Privilege",
+                        "Configuration Enforcement",
+                        "Decommissioning"
+                    ],
+                    "Hardening Techniques": [
+                        "Encryption (Hardening)",
+                        "Endpoint Protection",
+                        "Host-based Firewall",
+                        "HIPS",
+                        "Disabling Ports/Protocols",
+                        "Default Password Changes",
+                        "Removal of Unnecessary Software"
+                    ]
+                }
+            }
+        }
+    },
+    "3.0": {
+        "title": "Security Architecture",
+        "weight": "18%",
+        "color": "#0095DA",
+        "objectives": {
+            "3.1": {
+                "title": "Compare and contrast security implications of different architecture models",
+                "categories": {
+                    "Cloud Models": [
+                        "IaaS",
+                        "PaaS",
+                        "SaaS",
+                        "Public Cloud",
+                        "Private Cloud",
+                        "Hybrid Cloud",
+                        "Community Cloud"
+                    ],
+                    "Infrastructure Concepts": [
+                        "On-Premises",
+                        "Containerization",
+                        "Serverless",
+                        "Microservices"
+                    ],
+                    "Network Infrastructure": [
+                        "VPN",
+                        "SD-WAN",
+                        "SASE",
+                        "Segmentation",
+                        "Air Gap"
+                    ]
+                }
+            },
+            "3.2": {
+                "title": "Given a scenario, apply security principles to secure enterprise infrastructure",
+                "categories": {
+                    "Security Infrastructure": [
+                        "Firewall",
+                        "IDS",
+                        "IPS",
+                        "Proxy Server",
+                        "Load Balancer",
+                        "NAC",
+                        "Jump Server"
+                    ],
+                    "Security Zones": [
+                        "DMZ",
+                        "Screened Subnet",
+                        "Extranet",
+                        "Intranet"
+                    ],
+                    "Secure Access": [
+                        "VDI",
+                        "Secure Access Service Edge"
+                    ]
+                }
+            },
+            "3.3": {
+                "title": "Compare and contrast concepts and strategies to protect data",
+                "categories": {
+                    "Data Protection": [
+                        "Data at Rest",
+                        "Data in Transit",
+                        "Data in Use",
+                        "Tokenization",
+                        "Data Masking",
+                        "Data Loss Prevention"
+                    ],
+                    "Encryption": [
+                        "Symmetric Encryption",
+                        "Asymmetric Encryption",
+                        "Hashing"
+                    ],
+                    "Data Classification": [
+                        "Public",
+                        "Private",
+                        "Confidential",
+                        "Critical"
+                    ]
+                }
+            },
+            "3.4": {
+                "title": "Explain the importance of resilience and recovery in security architecture",
+                "categories": {
+                    "Resilience Concepts": [
+                        "High Availability",
+                        "Redundancy",
+                        "Fault Tolerance"
+                    ],
+                    "Backup and Recovery": [
+                        "Full Backup",
+                        "Incremental Backup",
+                        "Differential Backup",
+                        "Snapshot"
+                    ],
+                    "Recovery Sites": [
+                        "Hot Site",
+                        "Warm Site",
+                        "Cold Site"
+                    ],
+                    "Recovery Objectives": [
+                        "RTO",
+                        "RPO",
+                        "MTBF",
+                        "MTTR"
+                    ]
+                }
+            }
+        }
+    },
+    "4.0": {
+        "title": "Security Operations",
+        "weight": "28%",
+        "color": "#EE3124",
+        "objectives": {
+            "4.1": {
+                "title": "Given a scenario, apply common security techniques to computing resources",
+                "categories": {
+                    "Secure Baselines": [
+                        "Establish",
+                        "Deploy",
+                        "Maintain"
+                    ],
+                    "Hardening Targets": [
+                        "Mobile Devices",
+                        "Workstations",
+                        "Network Infrastructure",
+                        "Cloud Infrastructure",
+                        "Servers",
+                        "ICS/SCADA",
+                        "Embedded Systems",
+                        "IoT Devices"
+                    ],
+                    "Wireless Security": [
+                        "Site Surveys",
+                        "Heat Maps",
+                        "WPA3"
+                    ],
+                    "Mobile Solutions": [
+                        "MDM",
+                        "Deployment Models"
+                    ],
+                    "Application Security": [
+                        "Input Validation",
+                        "Secure Cookies",
+                        "Static Code Analysis",
+                        "Code Signing",
+                        "Sandboxing",
+                        "Application Monitoring"
+                    ]
+                }
+            },
+            "4.2": {
+                "title": "Explain the security implications of proper hardware, software, and data asset management",
+                "categories": {
+                    "Asset Management": [
+                        "Acquisition",
+                        "Assignment",
+                        "Ownership",
+                        "Classification",
+                        "Monitoring",
+                        "Enumeration",
+                        "Disposal",
+                        "Sanitization",
+                        "Destruction"
+                    ]
+                }
+            },
+            "4.3": {
+                "title": "Explain various activities associated with vulnerability management",
+                "categories": {
+                    "Identification Methods": [
+                        "Vulnerability Scan",
+                        "Static Analysis",
+                        "Dynamic Analysis",
+                        "Package Monitoring",
+                        "Threat Feed",
+                        "Penetration Testing",
+                        "Responsible Disclosure",
+                        "Bug Bounty"
+                    ],
+                    "Analysis": [
+                        "False Positive",
+                        "False Negative",
+                        "Prioritization",
+                        "CVSS",
+                        "CVE"
+                    ],
+                    "Remediation": [
+                        "Patching",
+                        "Insurance",
+                        "Segmentation",
+                        "Compensating Controls"
+                    ]
+                }
+            },
+            "4.4": {
+                "title": "Explain security alerting and monitoring concepts and tools",
+                "categories": {
+                    "Monitoring": [
+                        "Log Aggregation",
+                        "Alerting",
+                        "Scanning",
+                        "Reporting",
+                        "Archiving",
+                        "Quarantine",
+                        "Alert Tuning"
+                    ],
+                    "Tools": [
+                        "SCAP",
+                        "Benchmarks",
+                        "SIEM",
+                        "Antivirus",
+                        "DLP",
+                        "SNMP Traps",
+                        "NetFlow"
+                    ]
+                }
+            },
+            "4.5": {
+                "title": "Given a scenario, modify enterprise capabilities to enhance security",
+                "categories": {
+                    "Firewall": [
+                        "Rules",
+                        "Access Lists",
+                        "Screened Subnets"
+                    ],
+                    "IDS/IPS": [
+                        "Trends",
+                        "Signatures"
+                    ],
+                    "Web Filter": [
+                        "Agent-based",
+                        "Centralized Proxy",
+                        "URL Scanning",
+                        "Content Categorization",
+                        "Block Rules",
+                        "Reputation"
+                    ],
+                    "DNS Filtering": [
+                        "DNS Security"
+                    ],
+                    "Email Security": [
+                        "DMARC",
+                        "DKIM",
+                        "SPF",
+                        "Gateway"
+                    ],
+                    "EDR/XDR": [
+                        "EDR",
+                        "XDR"
+                    ]
+                }
+            },
+            "4.6": {
+                "title": "Given a scenario, implement and maintain identity and access management",
+                "categories": {
+                    "User Account Management": [
+                        "Provisioning",
+                        "De-provisioning",
+                        "Permission Assignments",
+                        "Identity Proofing"
+                    ],
+                    "Federation": [
+                        "SSO",
+                        "LDAP",
+                        "OAuth",
+                        "SAML"
+                    ],
+                    "Access Controls": [
+                        "Mandatory Access Control",
+                        "Discretionary Access Control",
+                        "Role-Based Access Control",
+                        "Attribute-Based Access Control"
+                    ],
+                    "MFA": [
+                        "Biometrics",
+                        "Authentication Tokens",
+                        "Security Keys"
+                    ],
+                    "Password Concepts": [
+                        "Length",
+                        "Complexity",
+                        "Password Managers",
+                        "Passwordless"
+                    ],
+                    "Privileged Access Management": [
+                        "Just-in-Time Permissions",
+                        "Password Vaulting",
+                        "Ephemeral Credentials"
+                    ]
+                }
+            },
+            "4.7": {
+                "title": "Explain the importance of automation and orchestration related to secure operations",
+                "categories": {
+                    "Automation Use Cases": [
+                        "User Provisioning",
+                        "Resource Provisioning",
+                        "Guard Rails",
+                        "Continuous Integration",
+                        "APIs"
+                    ],
+                    "Benefits": [
+                        "Efficiency",
+                        "Enforcing Baselines",
+                        "Scaling",
+                        "Reaction Time",
+                        "Workforce Multiplier"
+                    ],
+                    "Considerations": [
+                        "Complexity",
+                        "Single Point of Failure",
+                        "Technical Debt"
+                    ]
+                }
+            },
+            "4.8": {
+                "title": "Explain appropriate incident response activities",
+                "categories": {
+                    "Incident Response Process": [
+                        "Preparation",
+                        "Detection",
+                        "Analysis",
+                        "Containment",
+                        "Eradication",
+                        "Recovery",
+                        "Lessons Learned"
+                    ],
+                    "Training and Testing": [
+                        "Tabletop Exercise",
+                        "Simulation"
+                    ],
+                    "Digital Forensics": [
+                        "Legal Hold",
+                        "Chain of Custody",
+                        "Acquisition",
+                        "Preservation",
+                        "E-discovery"
+                    ]
+                }
+            },
+            "4.9": {
+                "title": "Given a scenario, use data sources to support an investigation",
+                "categories": {
+                    "Log Data": [
+                        "Firewall Logs",
+                        "Application Logs",
+                        "Endpoint Logs",
+                        "OS Security Logs",
+                        "IPS/IDS Logs",
+                        "Network Logs",
+                        "Metadata"
+                    ],
+                    "Data Sources": [
+                        "Vulnerability Scans",
+                        "Automated Reports",
+                        "Dashboards",
+                        "Packet Captures"
+                    ]
+                }
+            }
+        }
+    },
+    "5.0": {
+        "title": "Security Program Management and Oversight",
+        "weight": "20%",
+        "color": "#2C3E50",
+        "objectives": {
+            "5.1": {
+                "title": "Summarize elements of effective security governance",
+                "categories": {
+                    "Policies and Standards": [
+                        "Guidelines",
+                        "Policies",
+                        "Acceptable Use Policy",
+                        "Business Continuity",
+                        "Disaster Recovery",
+                        "Incident Response Policy",
+                        "SDLC Policy",
+                        "Change Management",
+                        "Standards"
+                    ],
+                    "External Considerations": [
+                        "Regulatory",
+                        "Legal",
+                        "Industry",
+                        "Geographic"
+                    ],
+                    "Governance Structures": [
+                        "Boards",
+                        "Committees",
+                        "Government Entities",
+                        "Centralized vs Decentralized"
+                    ],
+                    "Roles and Responsibilities": [
+                        "Owners",
+                        "Controllers",
+                        "Processors",
+                        "Custodians"
+                    ]
+                }
+            },
+            "5.2": {
+                "title": "Explain elements of the risk management process",
+                "categories": {
+                    "Risk Identification": [
+                        "Risk Identification",
+                        "Risk Assessment",
+                        "Ad Hoc",
+                        "Recurring",
+                        "One-Time",
+                        "Continuous"
+                    ],
+                    "Risk Analysis": [
+                        "Qualitative",
+                        "Quantitative",
+                        "SLE",
+                        "ALE",
+                        "ARO",
+                        "Probability",
+                        "Likelihood",
+                        "Exposure Factor",
+                        "Impact"
+                    ],
+                    "Risk Register": [
+                        "Risk Register",
+                        "Key Risk Indicators",
+                        "Risk Owners",
+                        "Risk Threshold"
+                    ],
+                    "Risk Tolerance and Appetite": [
+                        "Risk Tolerance",
+                        "Risk Appetite",
+                        "Expansionary",
+                        "Conservative",
+                        "Neutral"
+                    ],
+                    "Risk Management Strategies": [
+                        "Transfer",
+                        "Accept",
+                        "Exemption",
+                        "Exception",
+                        "Avoid",
+                        "Mitigate"
+                    ],
+                    "Business Impact Analysis": [
+                        "BIA",
+                        "RTO",
+                        "RPO",
+                        "MTTR",
+                        "MTBF"
+                    ]
+                }
+            },
+            "5.3": {
+                "title": "Explain the processes associated with third-party risk assessment and management",
+                "categories": {
+                    "Vendor Assessment": [
+                        "Penetration Testing",
+                        "Right-to-Audit",
+                        "Internal Audits",
+                        "Independent Assessments",
+                        "Supply Chain Analysis"
+                    ],
+                    "Vendor Selection": [
+                        "Due Diligence",
+                        "Conflict of Interest"
+                    ],
+                    "Agreement Types": [
+                        "SLA",
+                        "MOA",
+                        "MOU",
+                        "MSA",
+                        "Work Order",
+                        "Statement of Work",
+                        "NDA",
+                        "BPA"
+                    ],
+                    "Vendor Management": [
+                        "Vendor Monitoring",
+                        "Questionnaires",
+                        "Rules of Engagement"
+                    ]
+                }
+            },
+            "5.4": {
+                "title": "Summarize elements of effective security compliance",
+                "categories": {
+                    "Compliance Reporting": [
+                        "Internal",
+                        "External"
+                    ],
+                    "Consequences": [
+                        "Fines",
+                        "Sanctions",
+                        "Reputational Damage",
+                        "Loss of License",
+                        "Contractual Impacts"
+                    ],
+                    "Compliance Monitoring": [
+                        "Due Diligence",
+                        "Due Care",
+                        "Attestation",
+                        "Acknowledgement",
+                        "Automation"
+                    ],
+                    "Privacy": [
+                        "Legal Implications",
+                        "Data Subject",
+                        "Controller vs Processor",
+                        "Ownership",
+                        "Data Inventory",
+                        "Retention",
+                        "Right to be Forgotten"
+                    ]
+                }
+            },
+            "5.5": {
+                "title": "Explain types and purposes of audits and assessments",
+                "categories": {
+                    "Internal Assessments": [
+                        "Compliance",
+                        "Audit Committee",
+                        "Self-Assessments"
+                    ],
+                    "External Assessments": [
+                        "Regulatory",
+                        "Examinations",
+                        "Third-Party Assessments"
+                    ],
+                    "Penetration Testing": [
+                        "Physical",
+                        "Offensive",
+                        "Defensive",
+                        "Integrated",
+                        "Known Environment",
+                        "Partially Known",
+                        "Unknown Environment",
+                        "Reconnaissance",
+                        "Passive Reconnaissance",
+                        "Active Reconnaissance"
+                    ]
+                }
+            },
+            "5.6": {
+                "title": "Given a scenario, implement security awareness practices",
+                "categories": {
+                    "Security Awareness": [
+                        "Phishing Campaigns",
+                        "Recognizing Phishing",
+                        "Reporting Suspicious Messages"
+                    ],
+                    "Anomalous Behavior": [
+                        "Risky",
+                        "Unexpected",
+                        "Unintentional"
+                    ],
+                    "User Guidance": [
+                        "Policy Handbooks",
+                        "Situational Awareness",
+                        "Insider Threat",
+                        "Password Management",
+                        "Removable Media",
+                        "Social Engineering",
+                        "Operational Security",
+                        "Hybrid/Remote Work"
+                    ],
+                    "Reporting and Monitoring": [
+                        "Initial",
+                        "Recurring"
+                    ],
+                    "Program Management": [
+                        "Development",
+                        "Execution"
+                    ]
+                }
+            }
+        }
+    }
+};
+
         };
 
         // Load external data
